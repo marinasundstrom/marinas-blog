@@ -1,0 +1,374 @@
+{
+    "experience": [
+        {
+            "title": "Software Developer",
+            "employmentType": "Full-time",
+            "company": "Nexer Group",
+            "companyLogo": "/assets/logos/nexer.jpg",
+            "link": "https://www.nexergroup.com/",
+            "location": "Malmo, Sweden",
+            "current": true,
+            "startDate": "2022-04-04",
+            "endDate": null,
+            "description": "Consulting as part of Nexer Group.",
+            "skills": [
+                ".NET",
+                "C#",
+                "WPF",
+                "SQL Serer"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "employmentType": "Contract",
+            "company": "Trygg Hansa",
+            "companyLogo": "/assets/logos/trygghansa.jpg",
+            "link": "https://www.trygghansa.se/",
+            "location": "Malmo, Sweden",
+            "current": false,
+            "startDate": "2022-01-11",
+            "endDate": "2022-03-20",
+            "description": "Working on internal tools for handling insurance policy claims.\n\nFor Skymill.",
+            "skills": [
+                ".NET",
+                "C#",
+                "WPF",
+                "SQL Serer"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "employmentType": "Full-time",
+            "company": "Skymill",
+            "companyLogo": "/assets/logos/skymill.jpg",
+            "link": "https://www.skymill.io/",
+            "location": "Malmo, Sweden",
+            "current": false,
+            "startDate": "2021-12-16",
+            "endDate": "2022-04-04",
+            "description": "Consulting as part of Skymill",
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET Core",
+                "Blazor",
+                "Wordpress",
+                "PHP",
+                "SQL Server"
+            ]
+        },
+        {
+            "title": "Senior Software Developer",
+            "employmentType": "Full-time",
+            "company": "Nordengren AI",
+            "companyLogo": null,
+            "link": null,
+            "location": "Malmo, Sweden",
+            "current": false,
+            "startDate": "2020-05-01",
+            "endDate": "2021-09-20",
+            "description": "Developing a full CRM and e-Commerce solution from ground up in a customer-focused business - backend and frontend.",
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET Core",
+                "Blazor",
+                "Wordpress",
+                "PHP",
+                "SQL Server"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Contract",
+            "company": "Nordengren AI",
+            "companyLogo": null,
+            "link": null,
+            "location": "Malmo, Sweden",
+            "current": false,
+            "startDate": "2020-02-01",
+            "endDate": "2020-05-01",
+            "description": "Developing e-Commerce site for customer.\n\nFor ESSIQ.",
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET Core",
+                "Blazor",
+                "SQL"
+            ]
+        },
+        {
+            "title": "Software Engineering Consultant",
+            "employmentType": "Full-time",
+            "company": "ESSIQ AB",
+            "companyLogo": "/assets/logos/essiq.jpg",
+            "link": "https://www.essiq.se/",
+            "location": "Malmo, Sweden",
+            "current": false,
+            "startDate": "2018-04-01",
+            "endDate": "2020-05-01",
+            "description": "Consulting work as part of ESSIQ Syd",
+            "skills": []
+        },
+        {
+            "title": ".NET Senior Expert",
+            "employmentType": "Contract",
+            "company": "Tetra Pak",
+            "companyLogo": "/assets/logos/tetrapak.jpg",
+            "link": "https://www.tetrapak.com/",
+            "location": "Lund, Sweden",
+            "current": false,
+            "startDate": "2019-01-01",
+            "endDate": "2019-12-30",
+            "description": "Developing current Manufacturing Execution System (MES) for running customer production facilities in the area of Processing and Packaging.\n\nModular solution with backend service.\n\nBeing part of a fresh and diverse team. In close collaboration with other individuals and teams both on site and in other places around the world.\n\nInitiative to make refactoring in project structure in order to facilitate cross-team development.\n\nFor ESSIQ.",
+            "skills": [
+                ".NET",
+                "C#",
+                "ASP.NET",
+                "WPF",
+                "Web",
+                "React",
+                "TypeScript",
+                "SAFe"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "employmentType": "Contract",
+            "company": "AXIS Communications",
+            "companyLogo": "/assets/logos/axis.jpg",
+            "link": "https://www.axis.com/",
+            "location": "Lund, Sweden",
+            "current": false,
+            "startDate": "2018-04-01",
+            "endDate": "2018-11-30",
+            "description": "Developing Video Management Software (VMS) targeting small businesses. C#/.NET and WPF.\n\nFor ESSIQ.",
+            "skills": [
+                ".NET",
+                "C#",
+                "WPF"
+            ]
+        },
+        {
+            "title": "Web Developer",
+            "employmentType": "Contract",
+            "company": "AXIS Communications",
+            "companyLogo": "/assets/logos/axis.jpg",
+            "link": "https://www.axis.com/",
+            "location": "Lund, Sweden",
+            "current": false,
+            "startDate": "2017-05-01",
+            "endDate": "2018-04-01",
+            "description": "Building UX for Audio and Access Control products, as part of the New Business (NB) division.\n\nFrontend development for firmware on cameras and other devices.\n\nWorking closely with backend-developers and testers.\n\nFor Tedsys.",
+            "skills": [
+                "Web",
+                "JavaScript",
+                "React"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Full-time",
+            "company": "Tedsys AB",
+            "companyLogo": "/assets/logos/tedsys.jpg",
+            "link": "https://www.tedsys.se/",
+            "location": "Malmö, Sweden",
+            "current": false,
+            "startDate": "2016-05-01",
+            "endDate": "2018-04-01",
+            "description": "Consulting for various companies. Primarily in .NET and JavaScript.\n\nTedsys AB is part of the Tedkomp Group, providing consulting services in the areas of IT, industrial services, and business administration.",
+            "skills": []
+        },
+        {
+            "title": "Software Developer Consultant",
+            "employmentType": "Contract",
+            "company": "Skanska AB",
+            "companyLogo": "/assets/logos/skanska.jpg",
+            "link": "https://www.skanska.com/",
+            "location": "Malmö, Sweden",
+            "current": false,
+            "startDate": "2017-02-01",
+            "endDate": "2017-05-01",
+            "description": "Search integration for global enterprise intranet based on the .NET platform.\n\nFor Tedsys, through Sigma Society.",
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET",
+                "JavaScript",
+                "JQuery"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "employmentType": "Contract",
+            "company": "CellaVision",
+            "companyLogo": "/assets/logos/cellavision.jpg",
+            "link": "https://www.cellavision.com/",
+            "location": "Lund, Sweden",
+            "current": false,
+            "startDate": "2016-08-01",
+            "endDate": "2017-02-01",
+            "description": "Developing medical system for microscopic analysis in the field of hematology.\n\nWorking on client software with native components. Educational web app in Silverlight.\n\nFor Tedsys.",
+            "skills": [
+                ".NET",
+                "C#",
+                "Silverlight",
+                "WPF",
+                "C++",
+                "MFC"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "employmentType": "Contract",
+            "company": "BRA - Braathens Regional Airlines",
+            "companyLogo": "/assets/logos/bra.jpg",
+            "link": "https://www.braflyg.se/",
+            "location": "Malmö, Sweden",
+            "current": false,
+            "startDate": "2016-05-01",
+            "endDate": "2016-07-01",
+            "description": "Work on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.\n\nFor Tedsys.",
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET",
+                "SQL Server"
+            ]
+        },
+        {
+            "title": "System Developer",
+            "employmentType": "Full-time",
+            "company": "Teleservice Skåne AB",
+            "companyLogo": "/assets/logos/teleservice.jpg",
+            "link": "https://www.teleservice.net/",
+            "location": "Sjöbo, Sweden",
+            "current": false,
+            "startDate": "2014-08-01",
+            "endDate": "2016-03-01",
+            "description": "Developed systems in the company's business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries)",
+            "skills": [
+                ".NET",
+                "C#",
+                "WPF",
+                "Web",
+                "PHP",
+                "JavaScript",
+                "TypeScript",
+                "NodeJS",
+                "C++"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Internship",
+            "company": "Teleservice Skåne AB",
+            "companyLogo": "/assets/logos/teleservice.jpg",
+            "link": "https://www.teleservice.net/",
+            "location": "Sjöbo, Sweden",
+            "current": false,
+            "startDate": "2014-01-01",
+            "endDate": "2014-08-01",
+            "description": "Developed alarm and automation software used by rescue organisations all around Sweden. (C#/.NET and WPF)",
+            "skills": [
+                ".NET",
+                "C#",
+                "WPF"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Internship",
+            "company": "Ericsson",
+            "companyLogo": "/assets/logos/ericsson.jpg",
+            "link": "https://www.ericsson.com/",
+            "location": "Karlskrona, Sweden",
+            "current": false,
+            "startDate": "2012-06-01",
+            "endDate": "2012-08-01",
+            "description": "Developed smartphone apps and working a bit on web portal. (Continuation of student internship)",
+            "skills": [
+                "Web",
+                "Cordova",
+                "Mobile"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Internship",
+            "company": "Ericsson",
+            "companyLogo": "/assets/logos/ericsson.jpg",
+            "link": "https://www.ericsson.net/",
+            "location": "Karlskrona, Sweden",
+            "current": false,
+            "startDate": "2012-01-01",
+            "endDate": "2012-06-01",
+            "description": "Student project - Developed smartphones app using HTML/JavaScript and Windows Phone.",
+            "skills": [
+                "Web",
+                "Windows Phone"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "employmentType": "Part-time",
+            "company": "BTH Innovation",
+            "companyLogo": "/assets/logos/bth.jpg",
+            "link": "https://www.bth.se/",
+            "location": "Ronneby, Sweden",
+            "current": false,
+            "startDate": "2011-06-01",
+            "endDate": "2012-01-01",
+            "description": "Developed proof-of-concept system for healthcare. Web development.",
+            "skills": [
+                "Web"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "school": "Blekinge Institute of Technology",
+            "logo": "/assets/logos/bth.jpg",
+            "location": "Karlskrona, Sweden",
+            "degree": null,
+            "fieldOfStudy": "Software Engineering",
+            "startDate": "2009-09-01",
+            "endDate": "2012-05-01",
+            "activities": null,
+            "description": null,
+            "courses": [
+                "Programming",
+                "Operating Systems",
+                "Computer Networking",
+                "Compiler Construction",
+                "Software Design"
+            ],
+            "link": "https://www.bth.se/"
+        },
+        {
+            "school": "John Bauergymnasiet",
+            "logo": "/assets/logos/jb-gymnasiet.jpg",
+            "location": "Ystad, Sweden",
+            "degree": "null",
+            "fieldOfStudy": "IT",
+            "startDate": "2006-08-01",
+            "endDate": "2009-05-01",
+            "activities": [
+                "Europeran Rural Youth Forum",
+                "JB Abroad"
+            ],
+            "description": null,
+            "courses": [
+                "Computer Management",
+                "Computer Networking",
+                "Programming"
+            ],
+            "link": null
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+.mast-head {
+    position: relative;
+    height: 300px;
+    color: white !important;
+    background-origin: padding-box;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+    box-shadow: inset 0 0 0 50vw rgb(0 0 0 / 21%);
+}
+
+@media (min-width: 992px) {
+    .mast-head {
+        height: 500px;
+    }
+}
+
+.mast-head h1 {
+    color: white;
+    text-shadow: 0 0 80px rgb(0 0 0 / 80%);
+}
+
+.overlay {
+    background-color: #00000025;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

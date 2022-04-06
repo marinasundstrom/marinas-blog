@@ -1,0 +1,152 @@
+@page "/blog/{*slug}"
+@implements IDisposable
+@using Models
+@using PersonalSite.Disqus
+@using PersonalSite.Markdown
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@if (notFound)
+{
+    <div class="col-xxl-6 mx-auto p-3 py-md-5">
+        <NotFound />
+    </div>
+}
+else
+{
+    @if(loadingError && exception is not null) 
+    {
+        <div class="col-xxl-6 mx-auto p-3 py-md-5">
+            <h1>@exception.GetType().Name</h1>
+            
+            <p>@exception.Message</p>
+
+            <code>
+                @exception.StackTrace
+            </code>
+        </div>
+    }
+
+    @if (post is not null)
+    {
+        <Title>@post.Title</Title>
+
+        <div class="post">
+    @if (post.Image is not null)
+            {
+                <section class="mast-head"
+        style="background-image: url('@post.Image');">
+                    @* <div class="overlay"> *@
+                        <Header Title="@post.Title" Author="@post.Author" Published="@post.Published" Tags="@(new string[0])"
+                            HasPadding="true">
+                        </Header>
+                    @* </div> *@
+                </section>
+            }
+            else {
+                <div class="pt-4">
+                    <Header Title="@post.Title" Author="@post.Author" Published="@post.Published" Tags="@(new string[0])"
+                        HasPadding="false">
+                    </Header>   
+                </div>   
+            }
+
+            <div class="col-xxl-6 mx-auto p-3 py-md-5">
+                <div class="col-md-10">
+                    <MarkdownView Content="@post.Content" />
+
+                    <div class="mt-4">
+                        <DisqusThread />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    Post? post;
+    private bool loadingError;
+    private Exception? exception;
+    private bool notFound;
+
+    [Parameter]
+    public string Slug { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        await LoadData();
+    }
+
+    private async void OnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        notFound = false;
+        loadingError = false;
+
+        try
+        {
+            /*
+            post = new Post()
+            {
+            Title = "Hello, World!",
+            Slug = "hello-word",
+            Author = new[] { "Marina Sundström" },
+            Published = DateTime.Now,
+            Content = "# Hello, World!\n\nThis is a *test*."
+            };
+            */
+
+            var response = await Http.GetAsync($"/posts/{Slug}.md");
+
+            response.EnsureSuccessStatusCode();
+
+            var str = await response.Content.ReadAsStringAsync();
+
+            var frontmatter = MarkdownExtensions.GetFrontMatter<BlogFrontMatter>(str);
+
+            post = new Post()
+            {
+                Title = frontmatter.Title,
+                Slug = "hello-word",
+                Author = frontmatter.Author,
+                Published = frontmatter.Published,
+                Image = frontmatter.Image,
+                Tags = frontmatter.Tags,
+                Content = str
+            }; ;
+        }
+        catch (HttpRequestException exc)
+        {
+            if(exc.StatusCode == System.Net.HttpStatusCode.NotFound) 
+            {
+                notFound = true;
+            }
+            else 
+            {
+                loadingError = true;
+                exception = exc;
+                return;
+            }
+        }
+        catch (Exception exc)
+        {
+            exception = exc;
+            loadingError = true;
+            return;
+        }
+
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}

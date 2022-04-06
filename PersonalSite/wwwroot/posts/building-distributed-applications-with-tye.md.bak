@@ -1,0 +1,17 @@
+---
+title: Building Distributed Applications with Tye
+---
+
+## What is a Distributed Application?
+
+It is an application that is being distributed across multiple *services* that may run i separate processes, and on different machines. A service can be a custom-built web application, a database server, a Redis server, or any other application.
+
+This is a common way of structuring applications in cloud scenarios. For instance, you might have an application that consists of an order service and a billing service. These service share a dependency on each others functionality. Usually, this communication goes through some type of API or asynchronous messaging system, like a message broker that runs out-of-process.
+
+Microservices are a common type of distributed application. The detail here is that for a service to be considered a "*micro* service" it usually would be confined to a specific domain, or bounded context, in which it owns and manages its own data.
+
+In short, when you are building an application consisting on multiple separate but dependant services, then you are building a *Distributed Application*.
+
+## The relationship with Docker
+
+Docker is a virtualization software that enables containerization of software.

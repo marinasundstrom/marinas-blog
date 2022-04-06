@@ -1,0 +1,269 @@
+@page "/resume"
+@layout PageLayout
+@using System.Linq
+@using System.IO
+@using System.Text.Json
+@using PersonalSite.Models
+@inject HttpClient Http
+
+<style>
+    .grid-dl dt {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 0.5em 0 0.5em 0;
+        font-weight: 600;
+    }
+
+    .grid-dl dd {
+        margin: 0;
+        padding: 0.5em 0 0.5em 0;
+    }
+
+    @@media (min-width: 550px) {
+        .grid-dl {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+        }
+
+        .grid-dl dt {
+            grid-column-start: 1;
+        }
+
+        .grid-dl dd {
+            grid-column-start: 2;
+        }
+
+        .grid-dl dt+dd {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .sidenav {
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .mystyle {
+        font-weight: bold;
+    }
+
+    .mystyle:before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+        background-color: #007bff;
+        ;
+        vertical-align: middle;
+    }
+</style>
+
+<div class="row">
+    <div class="sections col-md-10">
+
+        <h1 class="post-title">Resume</h1>
+        <div class="post-line"></div>
+
+
+        <section class="mt-4 mb-5">
+
+            <h2 id="objective" class="">Objective</h2>
+
+            <div class="row">
+
+                <div class="mt-4 pr-4">
+
+                    <p>I am a Software Developer with interest in Software design and the Development process.
+                    </p>
+
+                    <p>To me, developing software is not just about programming, but understanding both the
+                        domain and
+                        the people we
+                        are developing for, and their experience.</p>
+
+                    <p>I have 7 years of professional experience in Software development - Desktop and Web
+                        (Frontend &
+                        Backend). I
+                        am good at C#/.NET. I have been building apps with WPF and ASP.NET Core & Blazor.</p>
+
+                    <p>Other languages that I know well are JavaScript/Typescript. I have been writing React
+                        apps
+                        professionally. I
+                        also have basic database skills.</p>
+
+                    <p>I am structured and Solution-oriented. I thrive in a creative environment, in which you
+                        can be
+                        yourself,
+                        where you can freely express your individuality. That is where we can grow together.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section>
+            <h1 id="experience" class="pb-2">Experience</h1>
+
+            @if (resume is null)
+            {
+                <text>Loading experiences...</text>
+            }
+            else
+            {
+                <div class="mt-4" style="max-width: 820px">
+
+                    @foreach (var (company, experiences) in resume.Experience
+                   .OrderByDescending(x => x.StartDate)
+                   .ThenByDescending(x => x.EndDate)
+                   .GroupBy(e => e.Company))
+                    {
+                        if (experiences.Count() == 1)
+                        {
+                            var experience = experiences.First();
+
+                            <div class="d-flex">
+                                <div class="col-logo">
+                                    <Logo Src="@experience.CompanyLogo" Alt="@($"{experience.Company} logo")" Class="me-4" Href="@experience.Link" />
+                                </div>
+
+                                <div class="flex-grow-1">
+                                    <div class="mb-5">
+                                        <h2>@experience.Title</h2>
+
+                                        <hr />
+
+                                        <ExperienceView Model="@((experience: experience, isSub: false))" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            var lastExperience = experiences.First();
+                            var firstExperience = experiences.Last();
+
+                                <div class="d-flex">
+                                     <div class="col-logo">
+                                        <Logo Src="@firstExperience.CompanyLogo" Alt="@($"{firstExperience.Company} logo")" Class="me-4" Href="@firstExperience.Link" />
+                                    </div>
+
+                                    <div class="flex-grow-1">
+                                        <h2>@firstExperience.Company</h2>
+
+                                        <hr />
+
+                                        <p class="text-muted meta mb-5">
+                                            @firstExperience.GetStartDate().Humanize2(lastExperience.GetEndDate())</p>
+
+                                        @foreach (var experience in experiences
+                                       .OrderByDescending(x => x.StartDate)
+                                       .ThenByDescending(x => x.EndDate))
+                                        {
+                                            <div class="mb-5">
+                                                <h3>@experience.Title</h3>
+
+                                                <ExperienceView Model="@((experience: experience, isSub: true))" />
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                        }
+                    }
+                </div>
+
+            }
+
+        </section>
+
+        <section class="mt-4 mb-4">
+
+            @if (resume is null)
+            {
+                <text>Loading education...</text>
+            }
+            else
+            {
+                <h1 id="education" class="pb-2">Education</h1>
+
+                @foreach (var education in resume.Education)
+                {
+                    <div class="d-flex">
+                         <div class="col-logo">
+                            <Logo Src="@education.Logo" Alt="@($"{education.School} logo")" Class="m-4 mt-2" Href="@education.Link" />
+                        </div>
+                        <div class="flex-grow-1">
+                            <EducationView Model="education" />
+                        </div>
+                    </div>
+                }
+            }
+
+        </section>
+
+        <section class="mt-4 mb-4">
+
+            <h1 id="skills" class="pb-2">Skills</h1>
+
+            @if (skillAreas is null)
+            {
+                <text>Loading skills...</text>
+            }
+            else
+            {
+                <dl class="grid-dl">
+
+                    @foreach (var (skillArea, skills) in skillAreas)
+                    {
+                        <dt>@skillArea</dt>
+                        <dd>
+                    @string.Join(", ", skills)
+                </dd>
+                    }
+
+                </dl>
+            }
+
+        </section>
+
+    </div>
+
+   @*
+    <div class="col-md-2 right-border">
+        <section class="sidenav" style="position: -webkit-sticky; position: sticky; top: 80px;">
+            <h4 class="mb-4">Sections</h4>
+
+            <ul style="margin: 0; padding: 0; list-style: none" class="mb-4">
+                <li>
+                    <a href="/resume#objective">Objective</a>
+                </li>
+                <li>
+                    <a href="/resume#experience">Experience</a>
+                </li>
+                <li>
+                    <a href="/resume#education">Education</a>
+                </li>
+                <li>
+                    <a href="/resume#skills">Skills</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+    *@ 
+</div>
+
+@code {
+    Resume? resume;
+    IDictionary<string, string[]>? skillAreas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var json = await Http.GetStringAsync("/pages/resume.json");
+        resume = Resume.FromJson(json);
+
+        json = await Http.GetStringAsync("/pages/skills.json");
+        skillAreas = JsonSerializer.Deserialize<Dictionary<string, string[]>>(json)!;
+    }
+}

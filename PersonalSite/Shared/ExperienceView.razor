@@ -1,0 +1,37 @@
+@using PersonalSite.Models
+
+@{
+    var experience = Model.experience;
+
+    var now = ExperienceExtensions.GetNowDate();
+
+    var startDate = experience.GetStartDate();
+    DateTime? endDate = experience.GetEndDate();
+}
+
+@if(Model.isSub) 
+{
+    <p>@experience.EmploymentType</p>
+}
+else 
+{
+    <p>@experience.Company • @experience.EmploymentType</p>
+}
+
+<p class="text-muted meta">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
+
+@((MarkupString)experience.Description.Replace("\n", "<br />"))
+
+@if(experience.Skills?.Any() ?? false)
+{
+    <dl class="mt-4">
+        <dt>Skills</dt>
+        <dd>@string.Join(", ", experience.Skills)</dd>
+    </dl>
+}
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public (Experience experience, bool isSub) Model { get; set; }
+}

@@ -1,0 +1,44 @@
+@using PersonalSite.Models
+
+@{
+    var education = Model;
+
+    var now = EducationExtensions.GetNowDate();
+
+    var startDate = education.GetStartDate();
+    DateTime? endDate = education.GetEndDate();
+}
+
+<div class="mb-5">
+        <h2>@education.School</h2>
+
+        <hr>
+
+        <p>@education.FieldOfStudy</p>
+
+        <p class="text-muted meta">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@education.Location</p>
+
+        @((MarkupString)education.Description?.Replace("\n", "<br />"))
+
+        @if(education.Activities?.Any() ?? false)
+        {
+            <dl class="mt-4">
+                <dt>Activities</dt>
+                <dd>@string.Join(", ", education.Activities)</dd>
+            </dl>
+        }
+
+        @if(education.Courses?.Any() ?? false)
+        {
+            <dl class="mt-4">
+                <dt>Courses</dt>
+                <dd>@string.Join(", ", education.Courses)</dd>
+            </dl>
+        }
+    </div>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public Education Model { get; set;} = null!;
+}

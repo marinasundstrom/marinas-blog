@@ -1,0 +1,71 @@
+@page "/blog"
+@layout PageLayout
+@using PersonalSite.Markdown
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h1 class="post-title">Blog</h1>
+<div class="post-line"></div>
+
+@if(posts is null) 
+{
+    <text>Loading posts</text>
+}
+else 
+{
+    <ol>
+        @foreach (var post in posts)
+        {
+            <li class="mb-5">
+                <a href="/blog/@post.Slug"><h2>@post.Title</h2></a>
+                <div class="post-line"></div>
+
+                <div class="post-info">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            @if(post.Author is not null) 
+                            {
+                                @post.Author <text>•</text>
+                            }
+                            <time
+                                datetime="@post.Published.ToString("yyyy-MM-dd")">@post.Published.ToString("dddd, dd MMMM")</time>
+                        </div>
+                        <div>
+                            <CommentCount Url="@($"{NavigationManager.Uri}/{post.Title}")" />
+                        </div>
+                    </div>
+                    <div>
+                        @if(post.Tags is not null) 
+                        {
+                            @foreach (var tag in post.Tags)
+                            {
+                                <span class="badge rounded-pill bg-secondary me-1">@tag</span>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <MarkdownView Content="@post.Excerpt" Truncate="true" />
+
+                <hr />
+            </li>   
+        }
+    </ol>
+}
+
+@code {
+    IEnumerable<PostInfo>? posts;
+
+    protected override async Task OnInitializedAsync() 
+    {
+        var response = await Http.GetAsync($"/posts/_index.json");
+
+        response.EnsureSuccessStatusCode();
+
+        var str = await response.Content.ReadAsStringAsync();
+        
+        posts = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<PostInfo>>(str);
+    }
+
+    record PostInfo(string Title, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);
+}

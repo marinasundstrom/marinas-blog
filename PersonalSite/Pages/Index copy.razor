@@ -1,0 +1,482 @@
+﻿@page "/foo"
+
+<PageTitle>Index</PageTitle>
+
+	<div class="post">
+		<h1 class="post-title">Specification pattern: C# implementation</h1>
+<div class="post-line"></div>
+
+		<div class="post-info">
+	<time datetime="2016-02-08 13:30:46 &#43;0000 &#43;0000">February 8, 2016</time>
+</div>
+
+
+		<div class="paragraph">
+<p><em>The topic described in this article is a part of my <a href="/ps-spec-pattern">Specification Pattern in C#</a> Pluralsight course.</em></p>
+</div>
+<div class="paragraph">
+<p>Specification pattern is not a new topic, there are many of its implementations on the Internet already. In this post, I&#8217;d like to discuss the use cases for the pattern and compare several common implementations to each other.</p>
+</div>
+<div class="paragraph">
+
+</div>
+<div class="sect1">
+<h2 id="_specification_pattern_what_s_that">1. Specification pattern: what&#8217;s that?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Specification pattern is a pattern that allows us to encapsulate some piece of domain knowledge into a single unit - specification - and reuse it in different parts of the code base.</p>
+</div>
+<div class="paragraph">
+<p>Use cases for this pattern are best expressed with an example. Let&#8217;s say we have the following class in our domain model:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Movie</span> <span class="p">:</span> <span class="n">Entity</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">DateTime</span> <span class="n">ReleaseDate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">MpaaRating</span> <span class="n">MpaaRating</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Genre</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Rating</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="k">public</span> <span class="k">enum</span> <span class="n">MpaaRating</span>
+<span class="p">{</span>
+    <span class="n">G</span><span class="p">,</span>
+    <span class="n">PG13</span><span class="p">,</span>
+    <span class="n">R</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>Now, let&#8217;s assume that users want to find some relatively new movies to watch. To implement this, we can add a method to a repository class, like this:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">GetByReleaseDate</span><span class="p">(</span><span class="n">DateTime</span> <span class="n">minReleaseDate</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* ... */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>If we need to search by rating or genre, we can introduce other methods as well:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">GetByReleaseDate</span><span class="p">(</span><span class="n">DateTime</span> <span class="n">maxReleaseDate</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">GetByRating</span><span class="p">(</span><span class="kt">double</span> <span class="n">minRating</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">GetByGenre</span><span class="p">(</span><span class="kt">string</span> <span class="n">genre</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>Things get a bit more complicated when we decide to combine the search criteria, but we are still in a good shape. We can introduce a single Find method which would handle all possible criteria and return a consolidated search result:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">(</span>
+        <span class="n">DateTime</span><span class="p">?</span> <span class="n">maxReleaseDate</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span> 
+        <span class="kt">double</span> <span class="n">minRating</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> 
+        <span class="kt">string</span> <span class="n">genre</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* ... */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>And of course, we can always add other criteria to the method as well.</p>
+</div>
+<div class="paragraph">
+<p>Problems arise when we need to not only search for the data in the database but also validate it in the memory. For example, we might want to check that a certain movie is eligible for children before we sell a ticket to it, so we introduce a validation, like this:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Result</span> <span class="n">BuyChildTicket</span><span class="p">(</span><span class="kt">int</span> <span class="n">movieId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Movie</span> <span class="n">movie</span> <span class="p">=</span> <span class="n">_repository</span><span class="p">.</span><span class="n">GetById</span><span class="p">(</span><span class="n">movieId</span><span class="p">);</span>
+ 
+    <span class="k">if</span> <span class="p">(</span><span class="n">movie</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">!=</span> <span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Error</span><span class="p">(</span><span class="s">&#34;The movie is not eligible for children&#34;</span><span class="p">);</span>
+ 
+    <span class="k">return</span> <span class="n">Ok</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>If we also need to look into the database for all movies that meet the same criterion, we have to introduce a method similar to the following:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">FindMoviesForChildren</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">db</span>
+            <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">==</span> <span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>The issue with this code is that it violates the <a href="/2015/09/11/dry-revisited/">DRY</a> principle as the domain knowledge about what to consider a kids movie is now spread across 2 locations: the BuyChildTicket method and MovieRepository. That is where the Specification pattern can help us. We can introduce a new class which knows exactly how to distinguish different kinds of movies. We then can reuse this class in both scenarios:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Result</span> <span class="n">BuyChildTicket</span><span class="p">(</span><span class="kt">int</span> <span class="n">movieId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Movie</span> <span class="n">movie</span> <span class="p">=</span> <span class="n">_repository</span><span class="p">.</span><span class="n">GetById</span><span class="p">(</span><span class="n">movieId</span><span class="p">);</span>
+ 
+    <span class="kt">var</span> <span class="n">spec</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MovieForKidsSpecification</span><span class="p">();</span>
+ 
+    <span class="k">if</span> <span class="p">(!</span><span class="n">spec</span><span class="p">.</span><span class="n">IsSatisfiedBy</span><span class="p">(</span><span class="n">movie</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Error</span><span class="p">(</span><span class="s">&#34;The movie is not eligible for children&#34;</span><span class="p">);</span>
+ 
+    <span class="k">return</span> <span class="n">Ok</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">(</span><span class="n">Specification</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">specification</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* ... */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>Not only does this approach removes domain knowledge duplication, it also allows for combining multiple specifications. That, in turn, helps us easily set up quite complex search and validation criteria.</p>
+</div>
+<div class="paragraph">
+<p>There are 3 main use cases for the Specification pattern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Looking up data in the database</strong>. That is finding records that match the specification we have in hand.</p>
+</li>
+<li>
+<p><strong>Validating objects in the memory</strong>. In other words, checking that an object we retrieved or created fits the spec.</p>
+</li>
+<li>
+<p><strong>Creating a new instance</strong> that matches the criteria. This is useful in scenarios where you don&#8217;t care about the actual content of the instances, but still need it to have certain attributes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We will discuss the first 2 use cases as they are the most common in my experience.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_naive_implementation">2. Naive implementation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We&#8217;ll start implementing the specification pattern with a naive version first and will then move forward to a better one.</p>
+</div>
+<div class="paragraph">
+<p>The first solution that comes to mind when you face the problem described above is to use C# expressions. To a great extent, they themselves are an implementation of the specification pattern. We can easily define one in code and use it in both scenarios, like this:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Controller
+</span><span class="c1"></span><span class="k">public</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">expression</span> <span class="p">=</span> <span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">==</span> <span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">isOk</span> <span class="p">=</span> <span class="n">expression</span><span class="p">.</span><span class="n">Compile</span><span class="p">().</span><span class="n">Invoke</span><span class="p">(</span><span class="n">movie</span><span class="p">);</span> <span class="c1">// Exercising a single movie
+</span><span class="c1"></span>    <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">_repository</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">expression</span><span class="p">);</span> <span class="c1">// Getting a list of movies
+</span><span class="c1"></span><span class="p">}</span>
+ 
+<span class="c1">// Repository
+</span><span class="c1"></span><span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">(</span><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">expression</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>The problem with this approach, however, is that while we do gather the domain knowledge regarding how to categorize kids movies in a single place (<em>expression</em> variable in our case), the abstraction we&#8217;ve chosen isn&#8217;t a good fit. Variables are by no means a suitable place for such important information. The domain knowledge represented in such a way is hard to reuse and tends to be duplicated across the whole application because of that. Ultimately, we end up with the same issue we started off with.</p>
+</div>
+<div class="paragraph">
+<p>A variation of this naive implementation is introducing a generic specification class:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">GenericSpecification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">Expression</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="n">GenericSpecification</span><span class="p">(</span><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">expression</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Expression</span> <span class="p">=</span> <span class="n">expression</span><span class="p">;</span>
+    <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">IsSatisfiedBy</span><span class="p">(</span><span class="n">T</span> <span class="n">entity</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Expression</span><span class="p">.</span><span class="n">Compile</span><span class="p">().</span><span class="n">Invoke</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Controller
+</span><span class="c1"></span><span class="k">public</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">specification</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GenericSpecification</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;(</span>
+        <span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">==</span> <span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="n">isOk</span> <span class="p">=</span> <span class="n">specification</span><span class="p">.</span><span class="n">IsSatisfiedBy</span><span class="p">(</span><span class="n">movie</span><span class="p">);</span> <span class="c1">// Exercising a single movie
+</span><span class="c1"></span>    <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">_repository</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">specification</span><span class="p">);</span> <span class="c1">// Getting a list of movies
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="c1">// Repository
+</span><span class="c1"></span><span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">(</span><span class="n">GenericSpecification</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">specification</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">specification</span><span class="p">.</span><span class="n">Expression</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>This version has essentially the same drawbacks, the only difference is that here we have a wrapper class on top of the expression. Still, in order to reuse such specification properly, we have to create a single instance of it once and then share this instance across our code base somehow. This design doesn&#8217;t help much with DRY.</p>
+</div>
+<div class="paragraph">
+<p>That leads us to an important conclusion: <strong>generic specifications are a bad practice</strong>. If a specification allows you to indicate an arbitrary condition, it becomes just a container for the information which is passed to it by its client and doesn&#8217;t solve the underlying problem of domain knowledge encapsulation. Such specifications simply don&#8217;t contain any knowledge themselves.</p>
+</div>
+<div class="paragraph">
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_strongly_typed_specifications">3. Strongly-typed specifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So how can we overcome the problem? The solution here is to use strongly-typed specifications. That is specifications in which we hard code the domain knowledge, with little or no possibility to alter it from the outside.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how we can implement it in practice:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">abstract</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">ToExpression</span><span class="p">();</span>
+ 
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">IsSatisfiedBy</span><span class="p">(</span><span class="n">T</span> <span class="n">entity</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">predicate</span> <span class="p">=</span> <span class="n">ToExpression</span><span class="p">().</span><span class="n">Compile</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">predicate</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MpaaRatingAtMostSpecification</span> <span class="p">:</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">MpaaRating_rating</span><span class="p">;</span>
+ 
+    <span class="k">public</span> <span class="n">MpaaRatingAtMostSpecification</span><span class="p">(</span><span class="n">MpaaRating</span> <span class="n">rating</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_rating</span> <span class="p">=</span> <span class="n">rating</span><span class="p">;</span>
+    <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="k">override</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">ToExpression</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">movie</span> <span class="p">=&gt;</span> <span class="n">movie</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">&lt;=</span> <span class="n">_rating</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Controller
+</span><span class="c1"></span><span class="k">public</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">gRating</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MpaaRatingAtMostSpecification</span><span class="p">(</span><span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="n">isOk</span> <span class="p">=</span> <span class="n">gRating</span><span class="p">.</span><span class="n">IsSatisfiedBy</span><span class="p">(</span><span class="n">movie</span><span class="p">);</span> <span class="c1">// Exercising a single movie
+</span><span class="c1"></span>    <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">gRating</span><span class="p">);</span> <span class="c1">// Getting a list of movies
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="c1">// Repository
+</span><span class="c1"></span><span class="k">public</span> <span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">(</span><span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">specification</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="p">(</span><span class="n">ISession</span> <span class="n">session</span> <span class="p">=</span> <span class="n">SessionFactory</span><span class="p">.</span><span class="n">OpenSession</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">session</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;()</span>
+            <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">specification</span><span class="p">.</span><span class="n">ToExpression</span><span class="p">())</span>
+            <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>With this approach, we lift the domain knowledge to the class level making it much easier to reuse. No need to keep track of spec instances anymore: creating additional specification objects doesn&#8217;t lead to the domain knowledge duplication, so we can do it freely.</p>
+</div>
+<div class="paragraph">
+<p>Also, it&#8217;s really easy to combine the specifications using And, Or, and Not methods. Here&#8217;s how we can do that:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">And</span><span class="p">(</span><span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">specification</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">AndSpecification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="k">this</span><span class="p">,</span> <span class="n">specification</span><span class="p">);</span>
+    <span class="p">}</span>
+ 
+    <span class="c1">// And also Or and Not methods
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">AndSpecification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">_left</span><span class="p">;</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">_right</span><span class="p">;</span>
+ 
+    <span class="k">public</span> <span class="n">AndSpecification</span><span class="p">(</span><span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">Specification</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">right</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_right</span> <span class="p">=</span> <span class="n">right</span><span class="p">;</span>
+        <span class="n">_left</span> <span class="p">=</span> <span class="n">left</span><span class="p">;</span>
+    <span class="p">}</span>
+ 
+    <span class="k">public</span> <span class="k">override</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">ToExpression</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">leftExpression</span> <span class="p">=</span> <span class="n">_left</span><span class="p">.</span><span class="n">ToExpression</span><span class="p">();</span>
+        <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;</span> <span class="n">rightExpression</span> <span class="p">=</span> <span class="n">_right</span><span class="p">.</span><span class="n">ToExpression</span><span class="p">();</span>
+ 
+        <span class="n">BinaryExpression</span> <span class="n">andExpression</span> <span class="p">=</span> <span class="n">Expression</span><span class="p">.</span><span class="n">AndAlso</span><span class="p">(</span>
+            <span class="n">leftExpression</span><span class="p">.</span><span class="n">Body</span><span class="p">,</span> <span class="n">rightExpression</span><span class="p">.</span><span class="n">Body</span><span class="p">);</span>
+ 
+        <span class="k">return</span> <span class="n">Expression</span><span class="p">.</span><span class="n">Lambda</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span> <span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;&gt;(</span>
+            <span class="n">andExpression</span><span class="p">,</span> <span class="n">leftExpression</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">Single</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">var</span> <span class="n">gRating</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MpaaRatingAtMostSpecification</span><span class="p">(</span><span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">goodMovie</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GoodMovieSpecification</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">repository</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MovieRepository</span><span class="p">();</span>
+ 
+<span class="n">IReadOnlyList</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">gRating</span><span class="p">.</span><span class="n">And</span><span class="p">(</span><span class="n">goodMovie</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>You can find the full source code and usage examples <a href="https://github.com/vkhorikov/SpecificationPattern">on Github</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_returning_code_iqueryable_t_code_from_a_repository">4. Returning <code>IQueryable&lt;T&gt;</code> from a repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A question that is somewhat related to the specification pattern is: can repositories just return an <code>IQueryable&lt;T&gt;</code>? Wouldn&#8217;t it be easier to allow clients to query data from the backing store the way they want? For example, we could add a method to the repository like this:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Repository
+</span><span class="c1"></span><span class="k">public</span> <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">Find</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">session</span><span class="p">.</span><span class="n">Query</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>And then use it in a controller specifying the actual criteria ad hoc:</p>
+</div>
+<div class="paragraph">
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Controller
+</span><span class="c1"></span><span class="k">public</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">_repository</span><span class="p">.</span><span class="n">Find</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">movie</span> <span class="p">=&gt;</span> <span class="n">movie</span><span class="p">.</span><span class="n">MpaaRating</span> <span class="p">==</span> <span class="n">MpaaRating</span><span class="p">.</span><span class="n">G</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="paragraph">
+<p>This approach has essentially the same drawback as our initial specification pattern implementation: it encourages us to violate the DRY principle by duplicating the domain knowledge. This technique doesn&#8217;t offer us anything in terms of consolidating it in a single place.</p>
+</div>
+<div class="paragraph">
+<p>The second drawback here is that we are getting database notions leaking out of repositories. The implementation of <code>IQueryable&lt;T&gt;</code> highly depends on what LINQ provider is used behind the scene, so the client code should be aware that there potentially are queries which can&#8217;t be compiled into SQL.</p>
+</div>
+<div class="paragraph">
+<p>And finally, we are also getting a potential LSP violation. <code>IQueryable</code>s are evaluated lazily, so we need to keep the underlying connection opened during the whole business transaction. Otherwise, the method will blow up with an exception. By the way, an implementation with <code>IEnumerable</code>s have essentially <a href="/2015/01/29/ienumerable-interface-in-net-and-lsp/">the same problem</a>, so the best way to overcome this issue is to return <code>IReadOnlyList</code> or <code>IReadOnlyCollection</code> interfaces.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_source_code">5. Source code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/vkhorikov/SpecificationPattern">Full source code for the specification pattern implementation in C#</a></p>
+</div>
+<div class="paragraph">
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary">6. Summary</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t use C# expressions as a Specification pattern implementation, they don&#8217;t allow you to actually gather the domain knowledge into a single authoritative source.</p>
+</li>
+<li>
+<p>Don&#8217;t return <code>IQueryable&lt;T&gt;</code> from repositories, it brings up issues with DRY and LSP violation and leaking database concerns to the application logic.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_related">7. Related</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/posts/cqrs-vs-specification-pattern/">CQRS vs Specification pattern</a></p>
+</li>
+<li>
+<p><a href="/posts/ddd-bulk-operations/">DDD and bulk operations</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+		<ul class="pager">
+  <li class="previous">
+    <a href="/posts/classes-internal-to-an-aggregate-entities-or-value-objects/" class="left arrow">&#8592; Classes internal to an aggregate: entities or value objects?</a>
+  </li>
+  <li class="next">
+	<a href="/posts/3-ways-of-archiving-code-correctness/" class="right arrow">3 ways of achieving code correctness &#8594;</a>
+  </li>
+</ul>
+
+<h2>Subscribe</h2>
+
+<hr/>
+
+<form action="https://www.getdrip.com/forms/162681596/submissions" method="post" data-drip-embedded-form="162681596">
+<div data-drip-attribute="description" style="font-size:90%;margin: 15px 0px;">I don't post everything on my blog. Don't miss smaller tips and updates. Sign up to my mailing list below.</div>
+
+<div class="container">
+<div class="row">
+<div class="col-md-5" style="padding:0px;">
+  <input type="email" id="drip-email" name="fields[email]" style="width:100%;border: 1px solid #777;font-size:90%;padding: 2px 5px;" placeholder="Your email" value="" />
+</div>
+<div class="col-md-2" style="padding:0px">
+  <input type="submit" value="Sign up" style="font-size:90%;margin-left: 10px;" data-drip-attribute="sign-up-button" />
+</div>
+</div>
+</div>
+</form>
+
+
+
+
+<h2>Comments</h2>
+
+<hr/>
+
+	</div>
+
+	<div class="pagination">
+		<a href="#" class="top">Top</a>
+	</div>

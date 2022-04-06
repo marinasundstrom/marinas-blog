@@ -1,0 +1,135 @@
+---
+title: "Improve your Dev Flow with Project Tye"
+published: 2021-08-24
+---
+
+## Challenges 
+
+### Dev Environment Hell
+
+As a developer, when developing applications you would traditionally have to install all of your software dependencies manually on your local machine. If you need to serve a database, then you need to install SQL Server, and so on. It could be any dependency.
+
+Configuring all those applications can be a tedious and time-consuming process. And resetting these applications to a clean state without uninstalling, re-installing, and once again configure them is impossible. Sure you can write scripts to automate this, but your system will never be fresh again.
+
+### Enter Docker
+
+Docker allows you to create and consume preconfigured software images. We call these isolated instances *”containers”*. Once they are stopped they disappear without a trace in your system. Virtualization achieved! They are composable and easily deployable. You can run everything in a container. Docker has truly revolutionized the software industry.
+
+But still, we have not adressed the development flow in its entirety. How do you easily set up and run your development environment - your projects and software dependencies, without having to think about configuring connection strings and such?
+
+That is being adressed by Tye.
+
+## Project Tye
+
+Tye is an orchestrator that simplifies development and testing of *distributed applications*, like *micro services*. On top of that, it can also aid in deploying your services to Kubernetes. But that is not the focus of this article.
+
+Simply put, it is like ```docker-compose```, but for development. You define your services, your projects and Docker images, and it lets you easily spin them up, and do some iterative development without having to manually configure the connections to successfuly run the services. Once defined, the configuration follows your code.
+
+### Getting started
+
+To be able to install and run Tye, you need to have .NET Core 3.1 SDk installed. Being a .NET Core application, it is cross-platform, and not exclusive to Windows.
+
+Then you install the global Tye CLI tool:
+
+```sh
+dotnet tool install -g Microsoft.Tye --version "0.9.0-alpha.21380.1"
+```
+
+Please note that Tye is currently an experimental preview, and thus the version number might have changed since this article was written.
+
+Tye is dependant on Docker for running Docker containers. So it is a good idea to install that too, if you haven't already.
+
+#### tye.yaml
+
+At the core there is the ```tye.yaml``` file in which you define the services that Tye will run for you. 
+```tye.yaml``` is analogous to the ```docker-compose.yml``` file. In fact, the formats are similar.
+
+This file will live in the root folder of your project, and be checked into source control with your code.
+
+But wait? What is a service? A service could be a .NET project or a Docker container based of some image. 
+
+A ```tye.yaml``` file essentially looks like this:
+
+```yaml
+name: project-tye
+services:
+- name: moviesapi
+  project: MoviesAPI/MoviesAPI.csproj
+  bindings:
+  - protocol: https
+    port: 5001
+  
+- name: moviesapp
+  dockerFile: MoviesApp/Dockerfile
+  bindings:
+  - protocol: http
+    port: 4400
+
+ - name: redis
+   image: redis
+   bindings:
+    - port: 6379
+      connectionString: ${host}:${port}
+
+ - name: redis-cli
+   image: redis
+   args: "redis-cli -h redis MONITOR"
+
+ - name: mssql
+   image: mcr.microsoft.com/mssql/server:2019-latest
+   env:
+   - name: SA_PASSWORD
+     value: P@ssw0rd
+   - name: ACCEPT_EULA
+     value: "Y"
+   bindings:
+     - port: 1433
+       connectionString: Server=${host},${port};User Id=sa;Password=${env:SA_PASSWORD}
+   volumes:
+     - source: .data/mssql
+       target: /var/opt/mssql
+```
+
+Here we have a set of services: A backend running directly in .NET, a frontend which is defined as a Dockerfile, two Redis services, and a SQL server instance running in Docker. It demonstrates the types of services that Tye supports.
+
+To run Tye, type: 
+```sh 
+tye run
+``` 
+in the command line, when in the folder where the YAML file is.
+
+Tye will now handle all services for you. It will instruct Docker in setting up networks and starting the containers. It will also enable service discoverability. 
+
+At the moment you can only specify .NET projects, Docker images, and Dockerfiles. Although, it can launch a service through a command. Support for integrating other types of projects and languages might be added in the future. As of now, Tye is centered around .NET.
+
+Because Tye is essentially a frontend to Docker, it has been referred to as a *"fauxchestrator"*.
+
+### Tools
+
+Once Tye is running, a Dashboard is being served at ```http://localhost:8000```. 
+
+There you will see what services are running, and what the stats are. For each service there is a log page in which you can keep track of what your .NET app or Docker service does - just like in a separate console, or terminal. Tye will automatically collect the Docker logs and display them here.
+
+There is also a ```--watch``` mode that will listen for any file changes in projects, then automatically recompile, and restart them. At the moment, this does not work with the regular ```dotnet watch``` and *hot reload* that is being introduced in .NET 6.
+
+There is also a preview of an extension for Visual Studio Code, that allows you to easily attach to and debug your own applications that are running as services.
+
+### Service discoverability
+
+Service discoverability is aided by environment variables that define the hosts and ports use by the services. These get injected into each service. Following that simple convention you can retrieve the Uri or Connection String of a services. There is a NuGet package that adds methods he ```GetServiceUri```method to ```IConfiguration```. It allow you to resolve the Service Uri of a service that are currently running. There is also an overload of ```GetConnectionString``` that resolves the connection strings you've defined in ```tye.yml```.
+
+```csharp
+var moviesApiUri = Configuration.GetServiceUri("moviesapi");
+
+var redisConnectionString = Configuration.GetConnectionString("redis");
+```
+
+### Dev Flow simplified
+
+As said, the configuration is following your code. The only thing that a new developer has to have installed on the machine in order to run something that uses Tye is the CLI tools and Docker. Except the .NET SDK, of course. There is no additional setup and scripts required to set up virtual networks and such. You don't have to worry about keeping track of multiple console windows.
+
+Most applications that are developed today are *distributed applications*, in some fashion. You have a frontend and at least one backend service - each with their own database and Redis cache.
+
+Tye makes development so much easier by removing the worries of manually installing and configuring your services. It just works.
+
+I use Tye for pretty much all my projects, even if I don't aim at building micro services. It is nice just to be able to define my services, my app and a database server, and having Tye orchestrate the rest for me.

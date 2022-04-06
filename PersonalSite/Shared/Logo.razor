@@ -1,0 +1,22 @@
+<a class="@Class" href="@Href">
+    <img src="@(Src ?? Placeholder)" alt="@Alt" class="mt-3">
+</a>
+
+
+@code {
+    readonly string Placeholder = "placeholder.jpg";
+
+    [Parameter]
+    [EditorRequired]
+    public string Src { get; set; }= null!;
+
+    [Parameter]
+    [EditorRequired]
+    public string Alt { get; set; } = null!;
+
+    [Parameter]
+    public string? Class { get; set; } = null!;
+
+    [Parameter]
+    public string? Href { get; set; }= null!;
+}

@@ -1,0 +1,46 @@
+@using PersonalSite.Disqus
+@inject NavigationManager NavigationManager
+
+<div class="row px-3 @(HasPadding ? "py-lg-5" : string.Empty)">
+            <div class="col-xxl-6 mx-auto p-3 @(HasPadding ? "py-md-5" : string.Empty)">
+                <h1 class="post-title">@Title</h1>
+                <div class="post-line"></div>
+
+                <div class="post-info">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            @if(Author is not null) 
+                            {
+                                @Author <text>•</text>
+                            }
+                            <time
+                                datetime="@Published.ToString("yyyy-MM-dd")">@Published.ToString("dddd, dd MMMM")</time>
+                        </div>
+                        <div>
+                            <CommentCount Url="@NavigationManager.Uri" />
+                        </div>
+                    </div>
+                    <div>
+                        @if(Tags is not null) 
+                        {
+                            @foreach (var tag in Tags)
+                            {
+                                <span class="badge rounded-pill bg-secondary me-1">@tag</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+@code {
+    [Parameter] [EditorRequired] public string Title { get; set; } = null!;
+
+    [Parameter] [EditorRequired] public string Author { get; set; } = null!;
+
+    [Parameter] [EditorRequired] public DateTime Published { get; set; }
+
+    [Parameter] public string[] Tags { get; set; } = null!;
+
+    [Parameter] public bool HasPadding { get; set; }
+}

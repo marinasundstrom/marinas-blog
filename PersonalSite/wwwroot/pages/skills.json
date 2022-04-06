@@ -1,0 +1,68 @@
+{
+    "Fields": [
+        "Software Engineering"
+    ],
+    "Competence areas": [
+        "Frontend",
+        "Backend",
+        "Software Design",
+        "User Experience (UX)",
+        "Mobile",
+        "Internet of Things (IoT)"
+    ],
+    "Programming languages": [
+        "C#",
+        "JavaScript",
+        "TypeScript",
+        "PHP",
+        "C++"
+    ],
+    "Platforms": [
+        ".NET",
+        "Web",
+        "NodeJS"
+    ],
+    "Frameworks": [
+        "ASP.NET Core",
+        "Blazor",
+        "React",
+        "WPF",
+        "Xamarin"
+    ],
+    "Technologies": [
+        "HTTP API",
+        "Asynchronous messaging"
+    ],
+    "Tools": [
+        "Visual Studio",
+        "VS Code",
+        "Git",
+        "Tye"
+    ],
+    "Applications": [
+        "SQL Server",
+        "RabbitMQ",
+        "Docker",
+        "Kubernetes"
+    ],
+    "Operating systems": [
+        "MacOS",
+        "Windows",
+        "Linux"
+    ],
+    "Methodologies": [
+        "Agile",
+        "Domain-driven design (DDD)",
+        "Behavior-driven design (BDD)"
+    ],
+    "Architecture": [
+        "Distributed Applications",
+        "Service Oriented Applications (SOA)",
+        "Microservices"
+    ],
+    "Domains": [
+        "Enterprise Resource Planning (ERP)",
+        "Video Management (VMS)",
+        "Physical Access Control"
+    ]
+}

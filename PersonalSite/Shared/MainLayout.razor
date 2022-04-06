@@ -1,0 +1,47 @@
+﻿@inherits LayoutComponentBase
+
+<div class="col-xxl-6 mx-auto px-3 pt-md-5">
+    <header class="d-flex flex-column flex-md-row align-items-center border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" />
+            <span class="fs-4">Marina's Blog</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <ol class="list-inline list-unstyled" style="margin: 0;">
+                <li class="nav-item list-inline-item">
+                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href=""
+                        Match="NavLinkMatch.All">
+                        About me
+                    </NavLink>
+                </li>
+
+                <li class="nav-item list-inline-item">
+                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="blog">
+                        Blog
+                    </NavLink>
+                </li>
+
+                <li class="nav-item list-inline-item">
+                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="resume">
+                        Resume
+                    </NavLink>
+                </li>
+
+                <li class="nav-item list-inline-item">
+                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="portfolio">
+                        Portfolio
+                    </NavLink>
+                </li>
+            </ol>
+        </nav>
+    </header>
+</div>
+
+    @Body
+
+<div class="col-xxl-6 mx-auto p-3 py-md-5">
+    <footer class="pt-5 my-5 text-muted border-top">
+        © @DateTime.Now.Year Marina Sundström
+    </footer>
+</div>

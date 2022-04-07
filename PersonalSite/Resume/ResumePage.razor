@@ -67,13 +67,13 @@
         <div class="post-line"></div>
 
 
-        <section class="text-content pt-1 pr-4 mb-5">
+        <section class="text-content pt-1 pe-4 mb-5">
 
             <h2 id="objective" class="">Objective</h2>
 
             <div class="row">
 
-                <div class="pr-4">
+                <div class="pe-4">
 
                     <p>I am a Software Developer with interest in Software design and the Development process.
                     </p>
@@ -126,13 +126,13 @@
                             <ExperienceList Groups="@groups.Skip(5)" />
 
                             <div class="d-flex justify-content-center">
-                                <button class="btn btn-lg btn-secondary" href="#" @onclick="ToggleShowMore">Show less</button>
+                                <button class="btn btn-lg btn-outline-secondary" href="#" @onclick="ToggleShowMore">Show less</button>
                             </div>
                     }
                     else 
                     {
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-lg btn-secondary" href="#" @onclick="ToggleShowMore">Show @groups.Skip(5).Count() more</button>
+                            <button class="btn btn-lg btn-outline-secondary" href="#" @onclick="ToggleShowMore">Show @groups.Skip(5).Count() more</button>
                         </div>
                     }
                 </div>

@@ -20,11 +20,23 @@ foreach(var file in Directory.GetFiles($"{dir}posts", "*.md"))
         .ToHtml(text)
         .TruncateHtml(500);
 
-    posts.Add(new PostInfo(frontMatter.Title, fileName, frontMatter.Author, frontMatter.Image, frontMatter.Published, excerpt, frontMatter.Tags));
+    posts.Add(new PostInfo(frontMatter.Title, frontMatter.Subtitle, fileName, frontMatter.Author, frontMatter.Image, frontMatter.Published, excerpt, frontMatter.Tags));
 }
 
-var postsJson = JsonSerializer.Serialize(posts.OrderByDescending(x => x.Published));
+var chunks = posts.OrderByDescending(x => x.Published).Chunk(5);
 
-await File.WriteAllTextAsync($"{dir}posts/_index.json", postsJson);
+int i = 1;
+var count = chunks.Count();
 
-record PostInfo(string Title, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);
+foreach(var chunk in chunks) 
+{
+    var postsJson = JsonSerializer.Serialize(new IndexPage(chunk, i, count));
+
+    await File.WriteAllTextAsync($"{dir}posts/_index-{i}.json", postsJson);
+
+    i++;
+}
+
+record IndexPage(IEnumerable<PostInfo> Posts, int Page, int TotalPages);
+
+record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);

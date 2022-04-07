@@ -9,22 +9,22 @@
 @if (notFound)
 {
     <div class="col-xxl-6 mx-auto p-3 py-md-5">
-        <NotFound />
-    </div>
+    <NotFound />
+</div>
 }
 else
 {
-    @if(loadingError && exception is not null) 
+    @if (loadingError && exception is not null)
     {
         <div class="col-xxl-6 mx-auto p-3 py-md-5">
-            <h1>@exception.GetType().Name</h1>
-            
-            <p>@exception.Message</p>
+    <h1>@exception.GetType().Name</h1>
 
-            <code>
+    <p>@exception.Message</p>
+
+    <code>
                 @exception.StackTrace
             </code>
-        </div>
+</div>
     }
 
     @if (post is not null)
@@ -34,29 +34,36 @@ else
         <div class="post">
     @if (post.Image is not null)
             {
-                <section class="mast-head"
-        style="background-image: url('@post.Image');">
+                <section class="mast-head" style="background-image: url('@post.Image');">
                     @* <div class="overlay"> *@
-                        <Header Title="@post.Title" Author="@post.Author" Published="@post.Published" Tags="@(new string[0])"
-                            HasPadding="true">
-                        </Header>
+                    <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
+            Tags="@post.Tags" HasPadding="true">
+                    </Header>
                     @* </div> *@
                 </section>
             }
-            else {
+            else
+            {
                 <div class="pt-4">
-                    <Header Title="@post.Title" Author="@post.Author" Published="@post.Published" Tags="@(new string[0])"
-                        HasPadding="false">
-                    </Header>   
-                </div>   
+                    <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
+            Tags="@post.Tags" HasPadding="false">
+                    </Header>
+                </div>
             }
 
-            <div class="col-xxl-6 mx-auto p-3 py-md-5">
-                <div class="col-md-10">
+            <div class="col-xxl-6 mx-auto p-2 py-4 py-md-5 row">
+                <div class="text-content col-md-10">
                     <MarkdownView Content="@post.Content" />
 
                     <div class="mt-4">
                         <DisqusThread />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="social mx-4">
+                        <TwitterShareButton Url="@NavigationManager.Uri" Text="@($"{post.Title}")" Hashtags="@(post.Tags ?? new string[0])"></TwitterShareButton>
+                        <LinkedInShareButton Url="@NavigationManager.Uri" Title="@($"{post.Title}")" Summary="Test" Source="Marina Sundström"></LinkedInShareButton>
                     </div>
                 </div>
             </div>
@@ -114,6 +121,7 @@ else
             post = new Post()
             {
                 Title = frontmatter.Title,
+                Subtitle = frontmatter.Subtitle,
                 Slug = "hello-word",
                 Author = frontmatter.Author,
                 Published = frontmatter.Published,
@@ -124,11 +132,11 @@ else
         }
         catch (HttpRequestException exc)
         {
-            if(exc.StatusCode == System.Net.HttpStatusCode.NotFound) 
+            if (exc.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 notFound = true;
             }
-            else 
+            else
             {
                 loadingError = true;
                 exception = exc;

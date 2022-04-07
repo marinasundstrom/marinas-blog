@@ -1,11 +1,14 @@
 @page "/blog"
 @layout PageLayout
 @using PersonalSite.Markdown
+@implements IDisposable
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 
-<h1 class="post-title">Blog</h1>
-<div class="post-line"></div>
+<div class="mb-5">
+    <h1 class="post-title">Blog</h1>
+    <div class="post-line"></div>
+</div>
 
 @if(posts is null) 
 {
@@ -16,8 +19,12 @@ else
     <ol>
         @foreach (var post in posts)
         {
-            <li class="mb-5">
-                <a href="/blog/@post.Slug"><h2>@post.Title</h2></a>
+            <li>
+                <div class="mb-5">
+                    <a href="/blog/@post.Slug"><h1>@post.Title</h1></a>
+                @if(post.Subtitle is not null) {
+                     <h2 class="post-subtitle">@post.Subtitle</h2>
+                } 
                 <div class="post-line"></div>
 
                 <div class="post-info">
@@ -25,7 +32,7 @@ else
                         <div>
                             @if(post.Author is not null) 
                             {
-                                @post.Author <text>•</text>
+                                @post.Author <text> • </text>
                             }
                             <time
                                 datetime="@post.Published.ToString("yyyy-MM-dd")">@post.Published.ToString("dddd, dd MMMM")</time>
@@ -34,7 +41,7 @@ else
                             <CommentCount Url="@($"{NavigationManager.Uri}/{post.Title}")" />
                         </div>
                     </div>
-                    <div>
+                    <div class="mt-2">
                         @if(post.Tags is not null) 
                         {
                             @foreach (var tag in post.Tags)
@@ -45,27 +52,73 @@ else
                     </div>
                 </div>
 
-                <MarkdownView Content="@post.Excerpt" Truncate="true" />
+                <div class="text-content">
+                  <MarkdownView Content="@post.Excerpt" Truncate="true" />
 
+                </div>
+
+                </div>
                 <hr />
             </li>   
         }
     </ol>
+
+    <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/blog" />
 }
 
 @code {
     IEnumerable<PostInfo>? posts;
+    int totalPages = 0;
 
-    protected override async Task OnInitializedAsync() 
+    [Parameter]
+    [SupplyParameterFromQuery] 
+    public int? Page { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        var response = await Http.GetAsync($"/posts/_index.json");
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        await LoadData();
+    }
+
+    private async void OnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        await LoadData();
+
+        StateHasChanged();
+    }
+
+    async Task OnPageChanged(int page) 
+    {
+        /*
+        Page = page;
+        await LoadData();
+
+        StateHasChanged();
+        */
+    }
+
+    private async Task LoadData() 
+    {
+        if(Page is null) Page = 1;
+        
+        var response = await Http.GetAsync($"/posts/_index-{Page}.json");
 
         response.EnsureSuccessStatusCode();
 
         var str = await response.Content.ReadAsStringAsync();
         
-        posts = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<PostInfo>>(str);
+        var index = System.Text.Json.JsonSerializer.Deserialize<IndexPage>(str);
+        posts = index.Posts;
+        totalPages = index.TotalPages;
     }
 
-    record PostInfo(string Title, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    record IndexPage(IEnumerable<PostInfo> Posts, int Page, int TotalPages);
+
+    record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);
 }

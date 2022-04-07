@@ -67,7 +67,7 @@
         <div class="post-line"></div>
 
 
-        <section class="mt-4 mb-5">
+        <section class="text-content pr-4 mb-5">
 
             <h2 id="objective" class="">Objective</h2>
 
@@ -130,15 +130,15 @@
                                 </div>
 
                                 <div class="flex-grow-1">
-                                    <div class="mb-5">
+                                    <div class="mb-4">
                                         <h2>@experience.Title</h2>
-
-                                        <hr />
 
                                         <ExperienceView Model="@((experience: experience, isSub: false))" />
                                     </div>
                                 </div>
                             </div>
+
+                            <hr />
                         }
                         else
                         {
@@ -153,16 +153,14 @@
                                     <div class="flex-grow-1">
                                         <h2>@firstExperience.Company</h2>
 
-                                        <hr />
-
-                                        <p class="text-muted meta mb-5">
+                                        <p class="text-muted meta mb-4">
                                             @firstExperience.GetStartDate().Humanize2(lastExperience.GetEndDate())</p>
 
                                         @foreach (var experience in experiences
                                        .OrderByDescending(x => x.StartDate)
                                        .ThenByDescending(x => x.EndDate))
                                         {
-                                            <div class="mb-5">
+                                            <div class="mb-4 pt-1">
                                                 <h3>@experience.Title</h3>
 
                                                 <ExperienceView Model="@((experience: experience, isSub: true))" />
@@ -170,6 +168,8 @@
                                         }
                                     </div>
                                 </div>
+
+                                <hr />
                         }
                     }
                 </div>
@@ -198,6 +198,8 @@
                             <EducationView Model="education" />
                         </div>
                     </div>
+
+                      <hr />
                 }
             }
 

@@ -8,6 +8,9 @@ public class BlogFrontMatter
     [YamlMember(Alias = "title")]
     public string Title { get; set; }
 
+    [YamlMember(Alias = "subtitle")]
+    public string? Subtitle { get; set; }
+
     [YamlMember(Alias = "author")]
     public string Author { get; set; }
 

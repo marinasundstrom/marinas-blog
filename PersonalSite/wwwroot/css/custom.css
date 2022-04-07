@@ -129,13 +129,13 @@ html, body {
    }
    
    @media (min-width: 1000px) {
-   .mainbar {
-    padding-right: 30px;
-   }
-   p, li {
-    font-family: 'Lora', 'Times New Roman', serif;
-    font-size: 18px;
-   }
+    .mainbar {
+        padding-right: 30px;
+    }
+    .text-content p, .text-content li {
+        font-family: 'Lora', 'Times New Roman', serif;
+        font-size: 18px;
+    }
    }
    
    @media (max-width: 599px) {

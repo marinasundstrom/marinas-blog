@@ -1,0 +1,136 @@
+@page "/portfolio"
+@layout PageLayout
+@using PersonalSite.Markdown
+@inject HttpClient Http
+
+<style>
+    .grid-dl dt {
+        padding: 0.5em 0 0.5em 0;
+        font-weight: 600;
+    }
+    .grid-dl dd {
+        margin: 0;
+        padding: 0.5em 0 0.5em 0;
+    }
+    @@media (min-width: 550px) {
+        .grid-dl {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+        }
+        .grid-dl dt {
+            grid-column-start: 1;
+        }
+        .grid-dl dd {
+            grid-column-start: 2;
+        }
+        .grid-dl dt+dd {
+        }
+    }
+    h2 {
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+</style>
+
+<div>
+    <h1 class="post-title">Portfolio</h1>
+    <div class="post-line"></div>  
+</div>
+
+@if(projects is null) 
+{
+    <text>Loading portfolio...</text>
+}
+else 
+{
+
+    <div class="mt-4">
+        <p>Here are some of my projects.</p>
+    </div>
+
+    <div class="mt-5">
+
+        @foreach(var project in projects) 
+        {
+            <div class="row pt-5 mb-5">
+                <div class="col-sm-12 col-md-4 text-center">
+                    <a href="@project.Image" target="_blank">
+                        <img class="mb-5" style="max-height: 200px; max-width: 200px; margin: auto;" src="@project.Image" />
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h2 class="mb-4">@project.Name</h2>
+
+                    <MarkdownView Content="@project.Description" />
+
+                    <div class="mt-5">
+                        @foreach(var link in project.Links) 
+                        {
+                            string icon = "fab fa-github";
+                            if(link.Name.Contains("Video")) 
+                            {
+                                icon = "fab fa-youtube";
+                            }
+                            <a class="btn btn-sm btn-secondary me-2" href="@link.Url"><i class="@icon fa-lg mr-1"></i> @link.Name</a>
+                        }
+                    </div>
+
+                    @if(project.Skills != null) 
+                    {
+                        var skills = project.Skills;
+
+                        <dl class="grid-dl mt-4">
+
+                            @if(skills.Platforms != null) 
+                            {
+                                <dt>Platforms</dt>
+                                <dd>@string.Join(", ", skills.Platforms)</dd>
+                            }
+
+                            @if(skills.ProgrammingLanguages != null) 
+                            {
+                                <dt>Programming languages</dt>
+                                <dd>@string.Join(", ", skills.ProgrammingLanguages)</dd>
+                            }
+
+                            @if(skills.Frameworks != null) 
+                            {
+                                <dt>Frameworks</dt>
+                                <dd>@string.Join(", ", skills.Frameworks)</dd>
+                            }
+
+                            @if(skills.Applications != null) 
+                            {
+                                <dt>Applications</dt>
+                                <dd>@string.Join(", ", skills.Applications)</dd>
+                            }
+
+                            @if(skills.Technologies != null) 
+                            {
+                                <dt>Technologies</dt>
+                                <dd>@string.Join(", ", skills.Technologies)</dd>
+                            }
+                        </dl>
+
+                    }
+                </div>
+            </div>
+
+            <hr />
+        }
+
+    </div>
+}
+
+@code {
+    IEnumerable<Models.Project>? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var json = await Http.GetStringAsync("/pages/portfolio.json");
+        var portfolio = Models.Portfolio2.FromJson(json);
+        projects = portfolio.Projects;
+    }
+}

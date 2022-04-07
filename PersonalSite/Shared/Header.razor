@@ -1,9 +1,13 @@
 @using PersonalSite.Disqus
 @inject NavigationManager NavigationManager
 
-<div class="row px-3 @(HasPadding ? "py-lg-5" : string.Empty)">
+<div class="px-3 @(HasPadding ? "py-lg-5" : string.Empty)">
+    <div class="row ">
             <div class="col-xxl-6 mx-auto p-3 @(HasPadding ? "py-md-5" : string.Empty)">
                 <h1 class="post-title">@Title</h1>
+                @if(Subtitle is not null) {
+                     <h2 class="post-subtitle">@Subtitle</h2>
+                }
                 <div class="post-line"></div>
 
                 <div class="post-info">
@@ -11,7 +15,7 @@
                         <div>
                             @if(Author is not null) 
                             {
-                                @Author <text>•</text>
+                                @Author <text> • </text>
                             }
                             <time
                                 datetime="@Published.ToString("yyyy-MM-dd")">@Published.ToString("dddd, dd MMMM")</time>
@@ -20,7 +24,7 @@
                             <CommentCount Url="@NavigationManager.Uri" />
                         </div>
                     </div>
-                    <div>
+                    <div class="mt-2">
                         @if(Tags is not null) 
                         {
                             @foreach (var tag in Tags)
@@ -32,9 +36,12 @@
                 </div>
             </div>
         </div>
+        </div>
 
 @code {
     [Parameter] [EditorRequired] public string Title { get; set; } = null!;
+
+    [Parameter] public string? Subtitle { get; set; } = null!;
 
     [Parameter] [EditorRequired] public string Author { get; set; } = null!;
 

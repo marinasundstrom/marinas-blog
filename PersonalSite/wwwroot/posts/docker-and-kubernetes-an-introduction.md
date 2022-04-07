@@ -1,5 +1,6 @@
 ---
-title: Docker and Kubernetes - An Introduction
+title: Docker and Kubernetes
+subtitle: An Introduction
 published: 2021-09-01
 image: /assets/container-ship.jpeg
 tags: [Docker, Kubernetes, DevOps, Distributed applications]

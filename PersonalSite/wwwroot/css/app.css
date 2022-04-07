@@ -58,6 +58,11 @@ h4 {
     margin-block-end: 0.83em;
 }
 
+hr {
+    border-top: 1px solid #d3d3d5!important;
+    opacity: .5;
+}
+
 .menu-link {
     color: #6c757d !important;
 }
@@ -74,6 +79,12 @@ h4 {
 
 .mast-head h1.post-title {
     color: white !important;
+    text-shadow: 0 0 80px rgb(0 0 0 / 80%);
+}
+
+.mast-head .post-subtitle {
+    color: rgb(179 179 179) !important;
+    text-shadow: 0 0 80px rgb(0 0 0 / 80%);
 }
 
 .mast-head .post-info {
@@ -88,6 +99,11 @@ h4 {
 .sidenav li {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: black !important;
+}
+
+.post-subtitle {
+    margin-block-start: 0.2em;
+    color: gray;
 }
 
 pre {

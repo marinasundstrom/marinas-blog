@@ -1,7 +1,8 @@
 ---
-title: "How does it compute? - The Human Computer"
+title: "How does it compute?"
+subtitle:  "The Human Computer"
 published: 2021-11-10
-author: Marina Sundström"
+author: "Marina Sundström"
 tags: [Computing, Computer science, Programming]
 ---
 

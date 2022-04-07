@@ -3,6 +3,8 @@ namespace PersonalSite.Models;
 public class Post 
 {
     public string Title { get; set; }
+
+    public string? Subtitle { get; set; }
     
     public string Slug { get; set; }
 

@@ -83,7 +83,7 @@
                         the people we
                         are developing for, and their experience.</p>
 
-                    <p>I have 7 years of professional experience in Software development - Desktop and Web
+                    <p>I have @(DateTime.Now.Year - 2014) years of professional experience in Software development - Desktop and Web
                         (Frontend &
                         Backend). I
                         am good at C#/.NET. I have been building apps with WPF and ASP.NET Core & Blazor.</p>
@@ -113,64 +113,27 @@
             }
             else
             {
-                <div class="mt-4" style="max-width: 820px">
-
-                    @foreach (var (company, experiences) in resume.Experience
+                var groups = resume.Experience
                    .OrderByDescending(x => x.StartDate)
                    .ThenByDescending(x => x.EndDate)
-                   .GroupBy(e => e.Company))
+                   .GroupBy(e => e.Company);
+
+                <div class="mt-4 mb-5" style="max-width: 820px">
+                    <ExperienceList Groups="@groups.Take(5)" />
+
+                    @if(ShowMore) 
                     {
-                        if (experiences.Count() == 1)
-                        {
-                            var experience = experiences.First();
+                            <ExperienceList Groups="@groups.Skip(5)" />
 
-                            <div class="d-flex">
-                                <div class="col-logo">
-                                    <Logo Src="@experience.CompanyLogo" Alt="@($"{experience.Company} logo")" Class="me-4" Href="@experience.Link" />
-                                </div>
-
-                                <div class="flex-grow-1">
-                                    <div class="mb-4">
-                                        <h2>@experience.Title</h2>
-
-                                        <ExperienceView Model="@((experience: experience, isSub: false))" />
-                                    </div>
-                                </div>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-lg btn-secondary" href="#" @onclick="ToggleShowMore">Show less</button>
                             </div>
-
-                            <hr />
-                        }
-                        else
-                        {
-                            var lastExperience = experiences.First();
-                            var firstExperience = experiences.Last();
-
-                                <div class="d-flex">
-                                     <div class="col-logo">
-                                        <Logo Src="@firstExperience.CompanyLogo" Alt="@($"{firstExperience.Company} logo")" Class="me-4" Href="@firstExperience.Link" />
-                                    </div>
-
-                                    <div class="flex-grow-1">
-                                        <h2>@firstExperience.Company</h2>
-
-                                        <p class="text-muted meta mb-4">
-                                            @firstExperience.GetStartDate().Humanize2(lastExperience.GetEndDate())</p>
-
-                                        @foreach (var experience in experiences
-                                       .OrderByDescending(x => x.StartDate)
-                                       .ThenByDescending(x => x.EndDate))
-                                        {
-                                            <div class="mb-4 pt-1">
-                                                <h3>@experience.Title</h3>
-
-                                                <ExperienceView Model="@((experience: experience, isSub: true))" />
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-
-                                <hr />
-                        }
+                    }
+                    else 
+                    {
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-lg btn-secondary" href="#" @onclick="ToggleShowMore">Show @groups.Skip(5).Count() more</button>
+                        </div>
                     }
                 </div>
 
@@ -267,5 +230,13 @@
 
         json = await Http.GetStringAsync("/pages/skills.json");
         skillAreas = JsonSerializer.Deserialize<Dictionary<string, string[]>>(json)!;
+    }
+
+    [Parameter]
+    public bool ShowMore { get; set; }
+
+    void ToggleShowMore() 
+    {
+        ShowMore = !ShowMore;
     }
 }

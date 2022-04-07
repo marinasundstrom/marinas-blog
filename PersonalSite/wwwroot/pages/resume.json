@@ -11,15 +11,10 @@
             "startDate": "2022-04-04",
             "endDate": null,
             "description": "Consulting as part of Nexer Group.",
-            "skills": [
-                ".NET",
-                "C#",
-                "WPF",
-                "SQL Serer"
-            ]
+            "skills": []
         },
         {
-            "title": "Software Engineer",
+            "title": ".NET Developer",
             "employmentType": "Contract",
             "company": "Trygg Hansa",
             "companyLogo": "/assets/logos/trygghansa.jpg",
@@ -28,12 +23,12 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "Working on internal tools for handling insurance policy claims.\n\nFor Skymill.",
+            "description": "Working on Line of Business (LOB) tools for handling insurance policy claims.\n\nFor Skymill.",
             "skills": [
                 ".NET",
                 "C#",
                 "WPF",
-                "SQL Serer"
+                "SQL Server"
             ]
         },
         {

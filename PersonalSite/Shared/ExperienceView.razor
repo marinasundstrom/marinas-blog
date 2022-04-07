@@ -21,18 +21,35 @@ else
 
 <p class="text-muted meta">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
 
-<MarkdownView Content="@experience.Description" />
-
-@if(experience.Skills?.Any() ?? false)
+@if(ShowMore) 
 {
-    <dl class="mt-4">
-        <dt>Skills</dt>
-        <dd>@string.Join(", ", experience.Skills)</dd>
-    </dl>
+    <MarkdownView Content="@experience.Description" />
+
+    @if(experience.Skills?.Any() ?? false)
+    {
+        <dl class="mt-4">
+            <dt>Skills</dt>
+            <dd>@string.Join(", ", experience.Skills)</dd>
+        </dl>
+    }
+
+    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault>Show less</a></small>
+}
+else 
+{
+    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault>Show more</a></small>
 }
 
 @code {
     [Parameter]
+    public bool ShowMore { get; set; }
+
+    [Parameter]
     [EditorRequired]
     public (Experience experience, bool isSub) Model { get; set; }
+
+    void ToggleShowMore() 
+    {
+        ShowMore = !ShowMore;
+    }
 }

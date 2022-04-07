@@ -20,7 +20,7 @@ else
         @foreach (var post in posts)
         {
             <li>
-                <div class="mb-5">
+                <div class="pt-2 mb-5">
                     <a href="/blog/@post.Slug"><h1>@post.Title</h1></a>
                 @if(post.Subtitle is not null) {
                      <h2 class="post-subtitle">@post.Subtitle</h2>
@@ -46,7 +46,7 @@ else
                         {
                             @foreach (var tag in post.Tags)
                             {
-                                <span class="badge rounded-pill bg-secondary me-1">@tag</span>
+                                <span class="badge rounded-pill bg-secondary me-2">@tag</span>
                             }
                         }
                     </div>

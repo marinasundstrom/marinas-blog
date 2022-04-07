@@ -3,42 +3,74 @@
 <div class="col-xxl-6 mx-auto px-3 pt-md-5">
     <header class="d-flex flex-column flex-md-row align-items-center border-bottom">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-left: 0;" />
-            <span class="fs-4">Marina Sundström</span>
+            <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
+                style="margin-left: 0;" />
+            <span class="fs-4" style="font-weight: 500px">Marina Sundström</span>
         </a>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <ol class="list-inline list-unstyled" style="margin: 0;">
                 <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href=""
+                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase" href=""
                         Match="NavLinkMatch.All">
                         About me
                     </NavLink>
                 </li>
 
                 <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="blog">
+                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="blog">
                         Blog
                     </NavLink>
                 </li>
 
                 <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="resume">
+                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="resume">
                         Resume
                     </NavLink>
                 </li>
 
                 <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-3 py-2 text-dark text-decoration-none" href="portfolio">
+                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="portfolio">
                         Portfolio
                     </NavLink>
+                </li>
+            </ol>
+        </nav>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <ol class="list-inline list-unstyled" style="margin: 0;">
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="https://github.com/marinasundstrom" target="_blank">
+                        <i class="fab fa-2x fa-github" style="color: black;"></i>
+                        @* <span class="d-block d-lg-none"> GitHub</span> *@
+                    </a>
+                </li>
+
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank">
+                        <i class="fab fa-2x fa-youtube"  style="color: #FF0000;"></i>
+                        @* <span class="d-block d-lg-none"> YouTube</span> *@
+                    </a>
+                </li>
+
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
+                        href="https://www.linkedin.com/in/marinasundstrom" target="_blank">
+                        <i class="fab fa-2x fa-linkedin" style="color: #0072b1;"></i>
+                        @* <span class="d-block d-lg-none"> LinkedIn</span> *@
+                    </a>
                 </li>
             </ol>
         </nav>
     </header>
 </div>
 
-    @Body
+@Body
 
 <div class="col-xxl-6 mx-auto p-3 py-md-5">
     <footer class="pt-5 my-5 text-muted border-top">

@@ -13,6 +13,7 @@
     <PackageReference Include="HtmlSanitizer" Version="5.0.274-beta" />
     <PackageReference Include="Markdig" Version="0.18.1" />
     <PackageReference Include="YamlDotNet" Version="8.1.0" />
+    <PackageReference Include="Blazor-Analytics" Version="3.11.0" />
   </ItemGroup>
 
   <ItemGroup>

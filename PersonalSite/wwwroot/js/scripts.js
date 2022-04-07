@@ -42,6 +42,7 @@ var hljs;
 window.setDocumentTitle = function (value) {
     document.title = value;
 };
+/*
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction(); };
 function scrollFunction() {
@@ -52,6 +53,8 @@ function scrollFunction() {
         document.getElementById("scrollTopButton").style.display = "none";
     }
 }
+*/
+
 // When the user clicks on the button, scroll to the top of the document
 window.topFunction = function () {
     window.scrollTo({
@@ -74,6 +77,7 @@ window.openInNewTab = function (href) {
     }).click();
 };
 
+/*
 const sections = document.querySelectorAll(".sections section");
 const navLi = document.querySelectorAll(".sidenav ul li a");
 
@@ -95,3 +99,4 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+*/

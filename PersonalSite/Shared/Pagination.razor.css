@@ -1,3 +1,13 @@
 :not(li.disabled, li.active) {
     cursor: pointer;
 }
+
+.page-link {
+    color: #606060;
+}
+
+.page-item.active .page-link {
+    background-color: #606060;
+    border-color: #606060;
+    color: #fff;
+}

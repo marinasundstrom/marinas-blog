@@ -17,7 +17,7 @@ builder.Services.AddScoped<Highlight>();
 builder.Services.AddScoped<DisqusService>();
 
 builder.Services.AddSingleton<DisqusConfig>(sp => new DisqusConfig() {
-                Site = "robert-sundstrom"
+                Site = "sundstrom-dev"
             });
 
 builder.Services.AddGoogleAnalytics("G-8WNKYRD04R");

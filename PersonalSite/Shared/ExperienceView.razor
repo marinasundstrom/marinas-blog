@@ -33,11 +33,11 @@ else
         </dl>
     }
 
-    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault>Show less</a></small>
+    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
 }
 else 
 {
-    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault>Show more</a></small>
+    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
 }
 
 @code {

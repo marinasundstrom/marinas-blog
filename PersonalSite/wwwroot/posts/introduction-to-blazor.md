@@ -8,7 +8,7 @@ This is an introductory article on Blazor.
 
 Simply put: Blazor is a framework for client-side .NET web development.
 
-<img src="https://github.com/robertsundstrom/blog/blob/master/assets/blazor_brand.png?raw=true" alt="Blazor Brand" width="150"/>
+<img src="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_brand.png?raw=true" alt="Blazor Brand" width="150"/>
 
 ## History
 At NDC Oslo back in 2017, Steve Sanderson, of Microsoft, held a presentation titled ["Web Apps can’t really do *that*, can they?"](https://www.youtube.com/watch?v=MiLAE6HMr10&feature=youtu.be&t=31m45s) In this presentation he, among other things, demonstrated WebAssembly (Wasm), how it works, and the benefits it brings to web development. Later, he unveiled an experiment of his: a *web component framework* for .NET, called: Blazor. Sanderson then showed how to write a basic app in C# that run directly in the browser, thanks to WebAssembly.
@@ -69,8 +69,8 @@ Blazor apps are built using the .NET CLI.
 
 This is what it looks like when running the app:
 
-<a href="https://github.com/robertsundstrom/blog/blob/master/assets/blazor_counter.png?raw=true">
-    <img src="https://github.com/robertsundstrom/blog/blob/master/assets/blazor_counter.png?raw=true" alt="Counter Page" width="100%"/>
+<a href="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_counter.png?raw=true">
+    <img src="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_counter.png?raw=true" alt="Counter Page" width="100%"/>
 </a>
 
 The component can be instantiated from another component like so:
@@ -132,7 +132,7 @@ There is no debugging support for client-side Blazor yet. To debug on client-sid
 
 If you are targeting older browsers that do not support WebAssembly, such as Internet Explorer, you can polyfill with ASM.js.
 
-If you are interested in knowing more about WebAssembly, I recommend reading my [article](http://robertsundstrom.com/?p=/2019/05/25/explaining-webassembly).
+If you are interested in knowing more about WebAssembly, I recommend reading my [article](http://marinasundstrom.com/?p=/2019/05/25/explaining-webassembly).
 
 ### Server-side
 Blazor is running on the server, as part of an ASP.NET Core app. User input and rendered components are sent back and forth between client and server using SignalR (WebSocket protocol). 

@@ -10,12 +10,16 @@
     <div class="post-line"></div>
 </div>
 
+<PageTitle>Marina Sundström</PageTitle>
+
 @if(posts is null) 
 {
     <text>Loading posts</text>
 }
 else 
 {
+    <PageTitle>Blog - Marina Sundström</PageTitle>
+
     <ol>
         @foreach (var post in posts)
         {

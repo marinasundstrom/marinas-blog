@@ -41,7 +41,7 @@ Configuring the environment for running the Access Point was not easy at the tim
 
 ## Open Sourcing
 
-Back in 2019, I dusted off the [code](https://github.com/robertsundstrom/AccessControl) and made it public on Github. I documented everything. There are details on how to build the setup and how to configure the services to run on Azure.
+Back in 2019, I dusted off the [code](https://github.com/marinasundstrom/AccessControl) and made it public on Github. I documented everything. There are details on how to build the setup and how to configure the services to run on Azure.
 
 I published this [video](https://www.youtube.com/watch?v=VlSKTeJASYc) that shows the system in action.
 
@@ -57,4 +57,4 @@ I like revisiting old projects and make them better. My next step for Access Con
 
 I'm also considering archiving this project soon.
 
-As mentioned, the code is open source at GitHub. [Have a look](https://github.com/robertsundstrom/AccessControl)!
+As mentioned, the code is open source at GitHub. [Have a look](https://github.com/marinasundstrom/AccessControl)!

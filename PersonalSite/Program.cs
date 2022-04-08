@@ -4,6 +4,7 @@ using PersonalSite;
 using PersonalSite.Markdown;
 using PersonalSite.Disqus;
 using Blazor.Analytics;
+using System.Globalization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -21,5 +22,8 @@ builder.Services.AddSingleton<DisqusConfig>(sp => new DisqusConfig() {
             });
 
 builder.Services.AddGoogleAnalytics("G-8WNKYRD04R");
+
+CultureInfo.CurrentCulture = new CultureInfo("en-US");
+CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
 
 await builder.Build().RunAsync();

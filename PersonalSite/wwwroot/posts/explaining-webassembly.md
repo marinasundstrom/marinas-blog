@@ -8,7 +8,7 @@ There has been a lot of talk about WebAssembly lately. But what is it really?
 
 In this article we will have a look at the technology and the benefits it brings for developers.
 
-<img src="https://github.com/robertsundstrom/blog/blob/master/assets/wasm_logo.png?raw=true" alt="WebAssembly Logo" width="150"/>
+<img src="https://github.com/marinasundstrom/blog/blob/master/assets/wasm_logo.png?raw=true" alt="WebAssembly Logo" width="150"/>
 
 ## Background
 

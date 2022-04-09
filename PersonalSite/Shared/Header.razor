@@ -12,7 +12,7 @@
 
                 <div class="post-info">
                     <div class="d-flex justify-content-between">
-                        <p>
+                        <span class="mb-2">
                             @if(Author is not null) 
                             {
                                 @Author <text> • </text>
@@ -23,7 +23,7 @@
                             {
                                 <text> • </text> <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
                             }
-                        </p>
+                        </span>
                         <div>
                             <CommentCount Url="@NavigationManager.Uri" />
                         </div>

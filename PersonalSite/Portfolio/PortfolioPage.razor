@@ -54,7 +54,7 @@ else
 
     <div class="mt-5">
 
-        @foreach(var project in projects) 
+        @foreach(var project in projects.ToList()) 
         {
             <div class="row pt-5 mb-5">
                 <div class="col-sm-12 col-md-4 text-center">
@@ -64,7 +64,40 @@ else
                 </div>
                 
                 <div class="col-sm-12 col-md-6">
-                    <h2 class="mb-4">@project.Name</h2>
+                    <h2 class="pb-0 mb-2">@project.Name</h2>
+
+                    <div class="mb-3">
+                        @if(project.StartDate is not null && project.EndDate is not null) 
+                        {
+                            <span class="text-muted">
+                            @if(project.StartDate?.Year != project.EndDate?.Year) 
+                            {
+                                <text>@project.StartDate.GetValueOrDefault().Humanize(project.EndDate)</text>
+                            }
+                            else if(project.Ongoing)
+                            {
+                                <text>@project.StartDate.GetValueOrDefault().ToString("MMM yyyy") - Ongoing</text>
+                            }
+                            else
+                            {
+                                <text>@project.StartDate.GetValueOrDefault().ToString("MMM yyyy")</text>
+                            }
+
+                            @if(project.Type is not null || project.For is not null) 
+                            {
+                                <text> • </text> 
+                                @if(project.Type == "Private") 
+                                {
+                                    <text>@project.Type</text>
+                                }
+                                else if (project.Type == "Professional") 
+                                {
+                                     <text>@project.For</text>
+                                }
+                            }
+                            </span>
+                        }
+                    </div>
 
                     <MarkdownView Content="@project.Description" />
 
@@ -121,7 +154,10 @@ else
                 </div>
             </div>
 
-            <hr />
+            @if(projects.LastOrDefault() != project) 
+            {
+                <hr />
+            }
         }
 
     </div>
@@ -134,6 +170,9 @@ else
     {
         var json = await Http.GetStringAsync("/pages/portfolio.json");
         var portfolio = Models.Portfolio2.FromJson(json);
-        projects = portfolio.Projects;
+
+        projects = portfolio.Projects
+            .OrderByDescending(p => p.EndDate)
+            .ThenByDescending(p => p.StartDate);
     }
 }

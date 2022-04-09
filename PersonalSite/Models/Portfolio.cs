@@ -18,6 +18,21 @@ namespace PersonalSite.Models
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [JsonPropertyName("for")]
+        public string For { get; set; }
+
+        [JsonPropertyName("startDate")]
+        public DateTime? StartDate { get; set; }
+
+        [JsonPropertyName("endDate")]
+        public DateTime? EndDate { get; set; } 
+
+        [JsonPropertyName("ongoing")]
+        public bool Ongoing { get; set; } 
+
         [JsonPropertyName("description")]
         public string Description { get; set; }
 

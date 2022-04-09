@@ -1,0 +1,12 @@
+﻿@inject Highlight Highlight
+
+@HtmlContent
+
+@code
+{
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        await Highlight.InitAsync();
+    }
+}

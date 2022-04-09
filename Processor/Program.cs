@@ -1,8 +1,12 @@
 ﻿using System.Text.Json;
 
+using ReadTimeEstimator.Implementations.Estimators;
+
 string dir = "../PersonalSite/wwwroot/";
 
 List<PostInfo> posts = new List<PostInfo>();
+
+var htmlEstimator = new HtmlEstimator();
 
 foreach(var file in Directory.GetFiles($"{dir}posts", "*.md"))
 {
@@ -16,11 +20,15 @@ foreach(var file in Directory.GetFiles($"{dir}posts", "*.md"))
     if(frontMatter is null)
         continue;
 
-    var excerpt = MarkdownExtensions
-        .ToHtml(text)
-        .TruncateHtml(500);
+    var content = MarkdownExtensions
+        .ToHtml(text);
 
-    posts.Add(new PostInfo(frontMatter.Title, frontMatter.Subtitle, fileName, frontMatter.Author, frontMatter.Image, frontMatter.Published, excerpt, frontMatter.Tags));
+    var excerpt = content.TruncateHtml(500);
+
+    var estimatedTime = TimeSpan.FromMinutes(
+        htmlEstimator.ReadTimeInMinutes(content));
+
+    posts.Add(new PostInfo(frontMatter.Title, frontMatter.Subtitle, fileName, frontMatter.Author, frontMatter.Image, frontMatter.Published, estimatedTime, excerpt, frontMatter.Tags));
 }
 
 var chunks = posts.OrderByDescending(x => x.Published).Chunk(5);
@@ -39,4 +47,4 @@ foreach(var chunk in chunks)
 
 record IndexPage(IEnumerable<PostInfo> Posts, int Page, int TotalPages);
 
-record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, string Excerpt, string[] Tags);
+record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, TimeSpan? EstimatedReadTime, string Excerpt, string[] Tags);

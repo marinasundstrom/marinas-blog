@@ -1,0 +1,5 @@
+@if(EstimatedTime.TotalMinutes < 1) { <text>Less than a minute</text> } else { @EstimatedTime.Humanize(minUnit: Humanizer.Localisation.TimeUnit.Minute) } read
+
+@code {
+    [Parameter] public TimeSpan EstimatedTime { get; set; }
+}

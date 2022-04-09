@@ -1,7 +1,7 @@
 ---
 title: "My work experiences"
 published: 2021-11-14
-author: Marina Sundström"
+author: Marina Sundström
 tags: [Work, Experience, Personal]
 ---
 

@@ -12,14 +12,18 @@
 
                 <div class="post-info">
                     <div class="d-flex justify-content-between">
-                        <div>
+                        <p>
                             @if(Author is not null) 
                             {
                                 @Author <text> • </text>
                             }
                             <time
                                 datetime="@Published.ToString("yyyy-MM-dd")">@Published.ToString("dddd, dd MMMM")</time>
-                        </div>
+                            @if(EstimatedTime is not null) 
+                            {
+                                <text> • </text> <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
+                            }
+                        </p>
                         <div>
                             <CommentCount Url="@NavigationManager.Uri" />
                         </div>
@@ -29,7 +33,7 @@
                         {
                             @foreach (var tag in Tags)
                             {
-                                <span class="badge rounded-pill bg-secondary me-2">@tag</span>
+                                <span class="badge rounded-pill bg-secondary me-2 mb-1">@tag</span>
                             }
                         }
                     </div>
@@ -50,4 +54,6 @@
     [Parameter] public string[] Tags { get; set; } = null!;
 
     [Parameter] public bool HasPadding { get; set; }
+
+    [Parameter] public TimeSpan? EstimatedTime { get; set; }
 }

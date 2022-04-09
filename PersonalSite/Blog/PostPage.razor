@@ -39,7 +39,8 @@ else
                 <section class="mast-head" style="background-image: url('@post.Image');">
                     @* <div class="overlay"> *@
                     <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-            Tags="@post.Tags" HasPadding="true">
+                        Tags="@post.Tags" HasPadding="true" EstimatedTime="@(TimeSpan.FromMinutes(1))">
+
                     </Header>
                     @* </div> *@
                 </section>
@@ -48,7 +49,8 @@ else
             {
                 <div class="pt-4">
                     <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-            Tags="@post.Tags" HasPadding="false">
+                        Tags="@post.Tags" HasPadding="false" EstimatedTime="@(TimeSpan.FromMinutes(1))">
+
                     </Header>
                 </div>
             }
@@ -64,6 +66,7 @@ else
 
                 <div class="col-md-2">
                     <div class="social mx-4">
+                        <FacebookShareButton Url="@NavigationManager.Uri" />
                         <TwitterShareButton Url="@NavigationManager.Uri" Text="@($"{post.Title}")" Hashtags="@(post.Tags ?? new string[0])"></TwitterShareButton>
                         <LinkedInShareButton Url="@NavigationManager.Uri" Title="@($"{post.Title}")" Summary="Test" Source="Marina Sundström"></LinkedInShareButton>
                     </div>
@@ -81,6 +84,9 @@ else
 
     [Parameter]
     public string Slug { get; set; }
+
+    [Parameter]
+    public TimeSpan EstimatedTime { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

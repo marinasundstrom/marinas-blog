@@ -10,7 +10,7 @@
 
 @if (notFound)
 {
-    <div class="col-12 col-xl-6 mx-auto p-3 py-md-5">
+    <div class="col-12 col-xl-8 mx-auto p-3 py-md-5">
     <NotFound />
 </div>
 }
@@ -18,7 +18,7 @@ else
 {
     @if (loadingError && exception is not null)
     {
-        <div class="col-12 col-xl-6 mx-auto p-3 py-md-5">
+        <div class="col-12 col-xl-8 mx-auto p-3 py-md-5">
             <h1>@exception.GetType().Name</h1>
 
             <p>@exception.Message</p>
@@ -55,7 +55,7 @@ else
                 </div>
             }
 
-            <div class="col-12 col-xl-6 mx-auto p-2 py-4 py-md-5 row">
+            <div class="col-12 col-xl-8 mx-auto p-2 py-4 py-md-5 row">
                 <div class="text-content col-md-10">
                     <MarkdownView Content="@post.Content" />
 

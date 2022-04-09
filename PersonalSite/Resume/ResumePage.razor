@@ -127,13 +127,13 @@
                             <ExperienceList Groups="@groups.Skip(5)" />
 
                             <div class="d-flex justify-content-center">
-                                <button class="btn btn-lg btn-outline-secondary" href="#" @onclick="ToggleShowMore">Show less</button>
+                                <button class="btn btn-lg btn-outline-secondary mt-4" href="#" @onclick="ToggleShowMore">Show less</button>
                             </div>
                     }
                     else 
                     {
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-lg btn-outline-secondary" href="#" @onclick="ToggleShowMore">Show @groups.Skip(5).Count() more</button>
+                            <button class="btn btn-lg btn-outline-secondary mt-4" href="#" @onclick="ToggleShowMore">Show @groups.Skip(5).Count() more</button>
                         </div>
                     }
                 </div>
@@ -163,7 +163,10 @@
                         </div>
                     </div>
 
-                      <hr />
+                    @if(resume.Education.LastOrDefault() != education) 
+                    {
+                        <hr />
+                    }
                 }
             }
 

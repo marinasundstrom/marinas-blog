@@ -10,29 +10,37 @@
     DateTime? endDate = education.GetEndDate();
 }
 
-<div class="mb-4">
+<div class="mb-4" style="page-break-inside: avoid;">
         <h2>@education.School</h2>
 
         <p>@education.FieldOfStudy</p>
 
         <p class="text-muted meta">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@education.Location</p>
 
-        <MarkdownView Content="@education.Description" />
-
-        @if(education.Activities?.Any() ?? false)
+        @if(ShowMore) 
         {
-            <dl class="mt-4">
-                <dt>Activities</dt>
-                <dd>@string.Join(", ", education.Activities)</dd>
-            </dl>
+            <MarkdownView Content="@education.Description" />
+
+            if(education.Activities?.Any() ?? false)
+            {
+                <dl class="mt-4">
+                    <dt>Activities</dt>
+                    <dd>@string.Join(", ", education.Activities)</dd>
+                </dl>
+            }
+
+            @if(education.Courses?.Any() ?? false)
+            {
+                <dl class="mt-4">
+                    <dt>Courses</dt>
+                    <dd>@string.Join(", ", education.Courses)</dd>
+                </dl>
+            }
+            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
         }
-
-        @if(education.Courses?.Any() ?? false)
+        else 
         {
-            <dl class="mt-4">
-                <dt>Courses</dt>
-                <dd>@string.Join(", ", education.Courses)</dd>
-            </dl>
+            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
         }
     </div>
 
@@ -40,4 +48,12 @@
     [Parameter]
     [EditorRequired]
     public Education Model { get; set;} = null!;
+
+    [Parameter]
+    public bool ShowMore { get; set; }
+
+    void ToggleShowMore() 
+    {
+        ShowMore = !ShowMore;
+    }
 }

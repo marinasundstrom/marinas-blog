@@ -326,13 +326,14 @@
             "startDate": "2009-09-01",
             "endDate": "2012-05-01",
             "activities": null,
-            "description": null,
+            "description": "Studied Software engineering, gaining broad knowledge and experience from student project towards industry.",
             "courses": [
                 "Programming",
                 "Operating Systems",
                 "Computer Networking",
                 "Compiler Construction",
-                "Software Design"
+                "Software Design",
+                "Project courses"
             ],
             "link": "https://www.bth.se/"
         },
@@ -341,18 +342,19 @@
             "logo": "/assets/logos/jb-gymnasiet.jpg",
             "location": "Ystad, Sweden",
             "degree": "null",
-            "fieldOfStudy": "IT",
+            "fieldOfStudy": "IT programme",
             "startDate": "2006-08-01",
             "endDate": "2009-05-01",
             "activities": [
                 "Europeran Rural Youth Forum",
                 "JB Abroad"
             ],
-            "description": null,
+            "description": "Studied IT with focus on programming.\n\nJB Ystad provided upper-secondary education in the areas of IT, digital media, and entrepreneurship.",
             "courses": [
                 "Computer Management",
                 "Computer Networking",
-                "Programming"
+                "Programming",
+                "Project and Entrepreneurship", "Web Design"
             ],
             "link": null
         }

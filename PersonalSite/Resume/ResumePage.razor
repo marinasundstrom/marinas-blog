@@ -5,6 +5,7 @@
 @using System.Text.Json
 @using PersonalSite.Models
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
 
 <style>
     .grid-dl dt {
@@ -182,13 +183,33 @@
             }
             else
             {
+                            
+                <div class="mb-5">
+                    <small class="text-muted">Click on a skill to learn more.</small>
+                </div>
+
                 <dl class="grid-dl">
 
                     @foreach (var (skillArea, skills) in skillAreas)
                     {
                         <dt>@skillArea</dt>
                         <dd>
-                    @string.Join(", ", skills)
+                            @foreach (var (skillName, skillInfo) in skills)
+                            {
+                                var comment = (skillInfo.Comment is not null ? $"<div class=\"mt-2\"><b>Comment:</b><p> {skillInfo.Comment}</p></div>" : string.Empty);
+                                    
+                                var link = (skillInfo.Link is not null ? $"<div class=\"mt-2\"><small><a href=\"{skillInfo.Link.Href}\" target=\"_blank\">{skillInfo.Link.Title}</a></small></div>" : string.Empty);
+
+                                    var content = $@"<div>
+                                        <div><b>Skill level:</b> {SkillLevelToString(skillInfo.Level)}</div>
+                                        {comment}
+                                        {link}
+                                    </div>";
+
+                                <a tabindex="0" class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="@skillName" data-bs-content="@content" data-bs-html="true">
+                                    @skillName
+                                </a>
+                            }
                 </dd>
                     }
 
@@ -225,7 +246,7 @@
 
 @code {
     Resume? resume;
-    IDictionary<string, string[]>? skillAreas;
+    IDictionary<string, Dictionary<string, SkillInfo>>? skillAreas;
 
     protected override async Task OnInitializedAsync()
     {
@@ -233,7 +254,12 @@
         resume = Resume.FromJson(json);
 
         json = await Http.GetStringAsync("/pages/skills.json");
-        skillAreas = JsonSerializer.Deserialize<Dictionary<string, string[]>>(json)!;
+        skillAreas = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, SkillInfo>>>(json)!;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("blazorHelpers.enablePopovers");
     }
 
     [Parameter]
@@ -242,5 +268,33 @@
     void ToggleShowMore() 
     {
         ShowMore = !ShowMore;
+    }
+
+    class SkillInfo 
+    {
+        public int Level { get; set; }
+
+        public string? Comment { get; set; }
+
+        public LinkInfo? Link { get; set; }
+    }
+
+    class LinkInfo 
+    {
+        public string Title { get; set; }
+
+        public string Href { get; set; }
+    }
+
+    string SkillLevelToString(int skillLevel)
+    {
+        return skillLevel switch {
+            1 => "Novice",
+            2 => "Advanced Beginner",
+            3 => "Competent",
+            4 => "Proficient",
+            5 => "Expert",
+            _ => "Invalid"
+        };
     }
 }

@@ -1,4 +1,5 @@
 "use strict";
+
 window.blazorHelpers = {
     scrollToFragment: function (elementId) {
         var element = document.getElementById(elementId);
@@ -7,6 +8,12 @@ window.blazorHelpers = {
                 behavior: 'smooth'
             });
         }
+    },
+    enablePopovers: function() {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl)
+        })
     }
 };
 window.disqus = {

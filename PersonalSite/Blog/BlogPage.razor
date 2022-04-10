@@ -5,76 +5,85 @@
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 
-<div class=" col-xxl-10">
-    <div class="mb-5">
-        <h1 class="post-title">Blog</h1>
-        <div class="post-line"></div>
-    </div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="mb-5">
+            <h1 class="post-title">Blog</h1>
+            <div class="post-line"></div>
+        </div>
 
-    <PageTitle>Marina Sundström</PageTitle>
+        <PageTitle>Marina Sundström</PageTitle>
 
-    @if(posts is null) 
-    {
-        <text>Loading posts</text>
-    }
-    else 
-    {
-        <PageTitle>Blog - Marina Sundström</PageTitle>
+        @if(posts is null) 
+        {
+            <text>Loading posts</text>
+        }
+        else 
+        {
+            <PageTitle>Blog - Marina Sundström</PageTitle>
 
-        <ol>
-            @foreach (var post in posts)
-            {
-                <li>
-                    <div class="pt-2 mb-5">
-                        <a href="/blog/@post.Slug"><h1>@post.Title</h1></a>
-                        @if(post.Subtitle is not null) 
-                        {
-                            <h2 class="post-subtitle">@post.Subtitle</h2>
-                        } 
-                    <div class="post-line"></div>
+            <ol>
+                @foreach (var post in posts)
+                {
+                    <li>
+                        <div class="pt-2 mb-5">
+                            <a href="/blog/@post.Slug"><h1>@post.Title</h1></a>
+                            @if(post.Subtitle is not null) 
+                            {
+                                <h2 class="post-subtitle">@post.Subtitle</h2>
+                            } 
+                        <div class="post-line"></div>
 
-                    <div class="post-info">
-                        <div class="d-flex justify-content-between">
-                            <span class="mb-2">
-                                @if(post.Author is not null) 
+                        <div class="post-info">
+                            <div class="d-flex justify-content-between">
+                                <span class="mb-2">
+                                    @if(post.Author is not null) 
+                                    {
+                                        @post.Author <text> • </text>
+                                    }
+                                    <time
+                                        datetime="@post.Published.ToString("yyyy-MM-dd")">@post.Published.ToString("dddd, dd MMMM")</time>
+                                    @if(post.EstimatedReadTime is not null) 
+                                    {
+                                        <text> • </text> <ReadTimeEstimateDiplay EstimatedTime="@post.EstimatedReadTime.GetValueOrDefault()" />
+                                    }
+                                </span>
+                                <div>
+                                    <CommentCount Url="@($"{NavigationManager.Uri}/{post.Title}")" />
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                @if(post.Tags is not null) 
                                 {
-                                    @post.Author <text> • </text>
+                                    @foreach (var tag in post.Tags)
+                                    {
+                                    <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" href="/blog/tags/@Uri.EscapeDataString(tag)">
+                                        @tag
+                                    </a>                                    
+                                    }
                                 }
-                                <time
-                                    datetime="@post.Published.ToString("yyyy-MM-dd")">@post.Published.ToString("dddd, dd MMMM")</time>
-                                @if(post.EstimatedReadTime is not null) 
-                                {
-                                    <text> • </text> <ReadTimeEstimateDiplay EstimatedTime="@post.EstimatedReadTime.GetValueOrDefault()" />
-                                }
-                            </span>
-                            <div>
-                                <CommentCount Url="@($"{NavigationManager.Uri}/{post.Title}")" />
                             </div>
                         </div>
-                        <div class="mt-2">
-                            @if(post.Tags is not null) 
-                            {
-                                @foreach (var tag in post.Tags)
-                                {
-                                    <span class="badge rounded-pill bg-secondary me-2 mb-1">@tag</span>
-                                }
-                            }
+
+                        <div class="text-content">
+                        <MarkdownView Content="@post.Excerpt" Truncate="true" />
+
                         </div>
-                    </div>
 
-                    <div class="text-content">
-                    <MarkdownView Content="@post.Excerpt" Truncate="true" />
+                        </div>
+                        <hr />
+                    </li>   
+                }
+            </ol>
 
-                    </div>
+            <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/blog" />
+        }
+    </div>
 
-                    </div>
-                    <hr />
-                </li>   
-            }
-        </ol>
-
-        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/blog" />
-    }
+    <div class="col-md-3">
+        <h3>Tags</h3>
+        <Tags></Tags>
+    </div>
 </div>
 
 @code {

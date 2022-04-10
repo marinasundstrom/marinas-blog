@@ -33,7 +33,9 @@
                         {
                             @foreach (var tag in Tags)
                             {
-                                <span class="badge rounded-pill bg-secondary me-2 mb-1">@tag</span>
+                                 <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" href="/blog/tags/@Uri.EscapeDataString(tag)">
+                                    @tag
+                                </a>
                             }
                         }
                     </div>

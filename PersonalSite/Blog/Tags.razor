@@ -1,0 +1,39 @@
+@inject HttpClient Http
+
+    @if(tags is null) 
+    {
+        <text>Loading tags</text>
+    }
+    else 
+    {
+        <PageTitle>Tags - Marina Sundström</PageTitle>
+
+        <div>
+            @foreach (var tag in tags)
+            {
+ <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" href="/blog/tags/@Uri.EscapeDataString(tag.Key)">
+                                    @tag.Key
+                                </a>
+            }
+        </div>
+    }
+
+@code {
+    IDictionary<string, int>? tags;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData() 
+    {        
+        var response = await Http.GetAsync($"/tags/index.json");
+
+        response.EnsureSuccessStatusCode();
+
+        var str = await response.Content.ReadAsStringAsync();
+        
+        tags = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, int>>(str);
+    }
+}

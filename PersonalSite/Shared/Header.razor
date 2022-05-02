@@ -17,16 +17,22 @@
                             {
                                 @Author <text> • </text>
                             }
-                            <time
-                                datetime="@Published.ToString("yyyy-MM-dd")">@Published.ToString("dddd, dd MMMM")</time>
-                            @if(EstimatedTime is not null) 
+                            @if(Published is not null) 
+                            {
+                                <time
+                                    datetime="@Published?.ToString("yyyy-MM-dd")">@Published?.ToString("dddd, dd MMMM")</time>
+                            }
+                            @if(ShowEstimatedTime && EstimatedTime is not null) 
                             {
                                 <text> • </text> <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
                             }
                         </span>
-                        <div>
-                            <CommentCount Url="@NavigationManager.Uri" />
-                        </div>
+                        @if(ShowCommentCount) 
+                        {
+                            <div>
+                                <CommentCount Url="@NavigationManager.Uri" />
+                            </div>
+                        }
                     </div>
                     <div class="mt-2">
                         @if(Tags is not null) 
@@ -51,11 +57,15 @@
 
     [Parameter] [EditorRequired] public string Author { get; set; } = null!;
 
-    [Parameter] [EditorRequired] public DateTime Published { get; set; }
+    [Parameter] [EditorRequired] public DateTime? Published { get; set; }
 
     [Parameter] public string[] Tags { get; set; } = null!;
 
     [Parameter] public bool HasPadding { get; set; }
 
     [Parameter] public TimeSpan? EstimatedTime { get; set; }
+
+    [Parameter] public bool ShowEstimatedTime { get; set; }
+
+    [Parameter] public bool ShowCommentCount { get; set; }
 }

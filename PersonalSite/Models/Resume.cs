@@ -24,6 +24,9 @@ namespace PersonalSite.Models
         [JsonPropertyName("employmentType")]
         public string EmploymentType { get; set; }  = null!;
 
+        [JsonPropertyName("highlight")]
+        public bool Highlight { get; set; }
+
         [JsonPropertyName("company")]
         public string Company { get; set; }  = null!;
 

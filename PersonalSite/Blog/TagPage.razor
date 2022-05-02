@@ -17,7 +17,7 @@
         <PageTitle># @Tag - Marina Sundström</PageTitle>
 
         <div class="mb-5">
-            <h1 class="post-title"># @Tag</h1>
+            <h1 class="post-title"># @title</h1>
             <div class="post-line"></div>
         </div>
 
@@ -78,7 +78,10 @@
 </div>
 
 @code {
+    string? title;
+
     IEnumerable<PostInfo>? posts;
+
     int totalPages = 0;
 
     [Parameter]
@@ -115,16 +118,15 @@
     private async Task LoadData() 
     {
         if(Page is null) Page = 1;
-        
-        Console.WriteLine(Tag);
-        
-        var response = await Http.GetAsync($"/tags/{Uri.EscapeDataString(Tag)}-{Page}.json");
+                
+        var response = await Http.GetAsync($"/tags/{Uri.EscapeDataString(Tag).Replace(".", "%2E").Replace("#", "%23")}-{Page}.json");
 
         response.EnsureSuccessStatusCode();
 
         var str = await response.Content.ReadAsStringAsync();
         
         var index = System.Text.Json.JsonSerializer.Deserialize<IndexPage>(str);
+        title = index.Name;
         posts = index.Posts;
         totalPages = index.TotalPages;
     }
@@ -134,7 +136,7 @@
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
 
-    record IndexPage(IEnumerable<PostInfo> Posts, int Page, int TotalPages);
+    record IndexPage(string Name, IEnumerable<PostInfo> Posts, int Page, int TotalPages);
 
     record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, TimeSpan? EstimatedReadTime, string Excerpt, string[] Tags);
 }

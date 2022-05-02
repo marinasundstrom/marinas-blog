@@ -12,7 +12,7 @@ public class Post
 
     public string Author { get; set; }
 
-    public DateTime Published { get; set; }
+    public DateTime? Published { get; set; }
 
     public DateTime? LastModified { get; set; }
 

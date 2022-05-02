@@ -113,4 +113,4 @@ foreach(var tag in tags)
 
 record IndexPage(string? Name, IEnumerable<PostInfo> Posts, int Page, int TotalPages);
 
-record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, TimeSpan? EstimatedReadTime, string Excerpt, string[] Tags);
+record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime? Published, TimeSpan? EstimatedReadTime, string Excerpt, string[] Tags);

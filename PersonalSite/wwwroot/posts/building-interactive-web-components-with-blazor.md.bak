@@ -1,0 +1,669 @@
+---
+title: "Building interactive Web components with Blazor"
+subtitle: From scratch
+published: 2022-04-10
+image: /assets/blazor.png
+---
+
+## Hosting models
+
+There are a number of supported hosting models when building Web apps with Blazor:
+
+* **Blazor WebAssembly** - Running in the browser using WebAssembly.
+  * **Stand-alone** - Just static files
+  * **Hosted** - Files hosted by an ASP.NET Core app w/o Web API.
+* **Blazor Server** - Server-rendered in an ASP.NET Core app.
+
+In addition, you can run **Mobile Blazor Hybrid** in a MAUI/WPF/WinForm app. Blazor is entirely rendered in-process and there is no WebAssembly or HTTP involved. And you have full access to the platform.
+
+In this post, we will focus on building a standalone Blazor WebAssembly app.
+
+## Creating your first Blazor app
+
+Normally, you would use the Blazor templates. But we will start from scratch with a Console app, and proceed from there. 
+
+In your terminal, run this:
+
+```sh
+$ dotnet new console -o BlazorApp
+```
+
+A folder called "BlazorApp" has been created.
+
+## Project structure
+
+This is the typical project structure in Blazor app:
+
+```
+- BlazorApp
+    - wwwroot
+        - css
+        - js
+        - index.html
+    - _Imports.razor
+    - BlazorApp.csproj
+    - Counter.razor
+    - Program.cs
+
+```
+
+A .NET project contains a project file, and an entry point (Program.cs). In addition, Blazor WebAssembly apps contain components (.razor-files), and static web content.
+
+The ```wwwroot``` folder is where you put your static content.
+
+When you create an app from the Blazor templates you get a lot more - sample pages and the router. By default, it also includes [Bootstrap 5](https://getbootstrap.com/) for styling.
+
+## Project file
+
+The project file is quite simple. In it we specify the SDK (```Microsoft.NET.Sdk.BlazorWebAssembly```). We also reference the packages requires for targeting WebAssembly. The ``DevServer``` package is required in order to serve the files while developing.
+
+When you are targeting *Blazor Server*, you use another set of packages since it is going to be hosted by ASP.NET Core.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>
+```
+
+## index.html
+
+The entry point of all Web apps is ``index.html``, in the ```wwwroot``` folder. Here we reference our StyleSheets and JavaScript as we normally do. 
+
+To make Blazor load, we reference the ```_framework/blazor.webassembly.js``` script. The file will be provided by the SDK as part of the build process. It loads the .NET runtime in WebAssembly, and then tells it what application files (DLLs) to load.
+
+Create the file ```wwwroot\index.html``` with this content:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>BlazorApp</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="BlazorApp.styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>
+```
+
+## Startup code
+
+The startup code lives in ``Program.cs``, and should look like this:
+
+```csharp
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using BlazorApp;
+
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<Counter>("#app");
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+await builder.Build().RunAsync();
+```
+
+Update the file in your project.
+
+Here we create a ```WebAssemblyHostBuilder```, and add the root component that Blazor will render in our Web app. In our case, the component we want to render is called ```Counter```. And it will be rendered in ```index.html``` - replacing the HTML element with id ```app``` with our interactive component. We will have a look at the actual code for this component in a bit.
+
+In this file, we can also register services that can be injected into our components - as is done with ```HttpClient```.
+
+Finally, we Create and invoke Run on the host, i.e. starting the app. 
+
+## Your first Blazor component
+
+Now we will create our first component.
+
+Create a file named ```Counter.razor```, and write (or copy and paste) this code in it:
+
+```csharp
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+As you can see, Blazor components are a mix of HTML and C# - using the Razor templating language. The syntax might be familiar if you have developed apps for ASP.NET Core MVC or Razor Pages.
+
+### _Imports.razor
+
+In order for everything to work, we should also add a ```_Imports.razor``` file. It contains references to namespaces that will be available in all components. You can, of course, add them to every ```.razor``` file but this is much cleaner.
+
+The ```@using Microsoft.AspNetCore.Components*``` namespaces are required for Blazor to do its magic.
+
+```csharp
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using BlazorApp
+```
+
+### Run the app
+
+But let's run the app!
+
+```
+$ dotnet run
+```
+
+The app will build and start successfully. After the app has launched in the browser, you will see that the content is getting rendered. No styling though :(
+
+Click the button, and the current count is incremented. Click again, and the same behavior repeats.
+
+### Understanding the code
+
+The first thing that you have probably noticed is the use of the ```@``` - at-sign, or the "razor". It tells Razor to interpret what is coming next as either directives special to Razor, or as a C# expression.
+
+The ```@currentCount``` renders the value of variable expression ```currentCount``` inside the target ```p``` element. Blazor detects when the value of ```currentCount``` changes and automatically updates the component.
+
+```@onclick``` is one of many built-in directive that corresponds to DOM events. When the element is clicked the specified method - namely ```IncrementCount"```, gets invoked. 
+
+The method ```IncrementCount``` is located it the ```@code``` block. This block may contain class members that belong to the component. Here you can define your own methods and properties, just like in a class. You can also override component lifecycle methods. But let's not get ahead of ourselves! :)
+
+### What happens to the Razor templates?
+
+When the app is being built, the SDK will transform the component file into a .NET class. We will not go into details here. All that you really need to know is that a Blazor component is a .NET class.
+
+Subsequently, you can write a component entirely in C# without using the Razor syntax if you, for some reason, have to have more control. It might be for a special requirement such as performance, or when doing something that the Razor syntax is not suited for. The base class ```ComponentBase``` provides a Render-method to override when dynamically building a component.
+
+### Control statements
+
+In Razor, you can conditionally render parts of the code using control statement.
+
+Just type ```@``` followed by a control statement, such as an ```if``` statement. The same also works for ```while```, ```do-while```, ```for``` and ```foreach``` statements.
+
+We can change our ```Counter```component like so:
+
+```csharp
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button @onclick="IncrementCount">
+    @if (currenCount == 0) 
+    {
+        <text>Click me</text>
+    }
+    else if (currentCount == 1) 
+    {
+        <text>1 time</text>
+    }
+    else
+    {
+        <text>@currencCount time</text>
+    }
+</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+Sometimes the Razor templating engine cannot determine where the HTML or C# code starts or ends. The ```<text>``` tag is to tell Razor to treat text content inside as text to be parsed by Razor. It essentially escapes a C# code block.
+
+
+If we run it (```dotnet run```) and click the button 4 times, we will observe that the button text changes according to the logic of the ```if``` statements.
+
+## Adding another component
+
+Create a file called ```App.razor``` in the project folder. 
+
+```csharp
+<h1>My app</h1>
+
+<Counter />
+```
+
+We will substitute ```App``` for ```Counter``` as the root component of this app.
+
+In ```Program.cs```, change ```Counter``` to ```App```, like so:
+
+````csharp
+builder.RootComponents.Add<App>("#app"); 
+````
+
+Run the app again - this time with ```watch```.
+
+```
+$ dotnet watch
+```
+
+Launch your browser. You will see that the component ```App``` will render with ```Counter``` nested within it.
+
+```Watch``` will run your code, but in addition to that: It will compile and apply changes to you app incrementally as you write and press "Save". This feature is called *Hot Reload*, and it is great when developing. Though there are cases when it cannot perform its magic, when changes are to extreme, and it will inevitably have to re-compile the entire app.
+
+So lets test Hot Reload!
+
+Create a duplicate of the ```<Counter />``` in the ```App``` component like so:
+
+```csharp
+<h1>My app</h1>
+
+<Counter />
+<Counter />
+```
+
+Save the changes, and you will see them reflected in your browser. You will now see two ```Counter``` components. 
+
+If you click a button in of the components, you will see that only that specific component it belongs to gets affected. This is because each instance of the component holds its own state.
+
+### Parameters
+
+We want to set the value by which ```Counter``` should be incremented by, from the consuming component. Parameters is a way to pass data into components.
+
+A parameter is a public property marked with the ```[Parameter]``` attribute. And if it does not satisfy those 2 conditions, it will not work.
+
+Updating the code... For simplicitys sake, we revert some of our previous changes.
+
+```csharp
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button @onclick="IncrementCount">
+    Click me
+</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount += IncrementBy;
+    }
+
+    [Parameter]
+    public int IncrementBy { get; set; }
+}
+```
+
+Now we set the ```IncrementBy``` parameter for ```Counter```, in ```App.razor```:
+
+```csharp
+<h1>My app</h1>
+
+<Counter IncrementBy="2" />
+```
+
+When you click the button, you notice that the count get incremented by 2.
+
+Since they are Blazor parameters, you can pass variables into them:
+
+```csharp
+<h1>My app</h1>
+
+<Counter IncrementBy="value" />
+
+@code {
+    int value = 5;
+}
+```
+
+You can even use complex expressions, like this one:
+
+```csharp
+<h1>My app</h1>
+
+<Counter IncrementBy="@(value + Dup(i))" />
+
+@code {
+    int value = 5;
+
+    int Dup (int i) =>  i * 2;
+}
+```
+
+### Two-way parameter binding
+
+We have seen how to pass parents into a component, but what if we want to pass a value back to the parent component? This can be done with two-way binding.
+
+Two-way binding for a component parameters is achieved by adding a complimenting parameter with a callback that notifies the parent about the changes.
+
+The ```EventCallback``` and ```EventCallback<T>``` delegate types are used for parameters binding to methods - in cases such as components events, and, of course, two-way binding. In fact, the ```@onclick``` directive from before takes a ```EventCallback<MouseEventArgs>```.
+
+The convention for two-way binding parameters looks like this:
+
+```csharp
+[Parameter]
+public string Name { get; set; }
+
+[Parameter]
+public EventCallback<string> NameChanged { get; set; }
+```
+
+As you can see, two-way binding requires a parameter named ```{Parameter}Changed``` with an ```EventCallback<T>``` taking the property type as a type argument (instead of ```T```).
+
+Now we update our components. We change ```currentCount``` field into a  property that will be a parameter. Then we add the callback parameter, and call it right after we have updated the ```CurrentCount``` in the method ```IncrementCount```. Notice that the signature of ```IncrementCount``` has changed into being ```async Task```. We also re-arrange and clean-up.
+
+This is what ```Counter.razor``` should look like:
+
+```csharp
+<button @onclick="IncrementCount">
+    Click me
+</button>
+
+@code {
+    private async Task IncrementCount()
+    {
+        CurrentCount += IncrementBy;
+
+        await CurrentCountChanged.InvokeAsync(CurrentCount);
+    }
+
+    [Parameter]
+    public int CurrentCount { get; set; } = 0;
+
+    [Parameter]
+    public EventCallback<int> CurrentCountChanged { get; set; }
+
+    [Parameter]
+    public int IncrementBy { get; set; }
+}
+```
+
+To do the actual two-way binding, you need to use the ```@bind-{Property}``` directive. It essentially tells Blazor to both pass the value of a variable, and to subscribe to changes that update the value of that variable.
+
+In ```App.razor```:
+
+```csharp
+<h1>My app</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<Counter @bind-CurrentCount="currentCount" IncrementBy="value" />
+
+@code {
+    int value = 5;
+    int currentCount = 2;
+}
+```
+
+Now the value of ```currentCount``` will be passed in and back from the component when updated.
+
+You can still wire two-way binding up manually by setting the ```{Property}Changed```. It is useful in cases when you want to perform certain logic when a property has changed.
+
+```csharp
+<h1>My app</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<Counter CurrentCount="currentCount" CurrentCountChanged="OnCurrentCountChanged" IncrementBy="value" />
+
+@code {
+    int value = 5;
+    int currentCount = 2;
+
+    void OnCurrentCountChanged(int count) 
+    {
+        currentCount = count;
+
+        if (count % 2 == 0) 
+        {
+            // Do something
+        }
+    }
+}
+```
+
+## Lifecycle events
+
+A component has a lifecyle that can be hooked into by overriding methods.
+
+Each method that handles lifecycle events comes in two flavors: a synchronous variant, and an asynchronous variant (post-fix "Async") returning ```Task```. If you are usings ```async``` and ```await```, you pick the asynchronous version.
+
+Below we walk through the lifecyle events in the order that they get executed.
+
+### OnParametersSet
+Is executed every time the parameters of the component have been set,
+
+```csharp
+protected override async Task OnParametersSetAsync()
+{
+    
+}
+```
+
+### OnInitialized
+Is executed when the component has been created, and the parameters have been set.
+
+In this method you can perform initialization of the component, and set the initial state. For example, calling a service, or using the HttpClient.
+
+```csharp
+protected override async Task OnInitializedAsync()
+{
+
+}
+```
+
+### OnAfterRender
+Is executed everytime the component has rendered, or re-rendered. You can check ```firstRender``` to determine if it is the first time it has rendered, or not. 
+
+It is recommended that you perform initial JavaScript interop in this method, instead of in ```OnInitializedAsync``` - especially when it affects the DOM, or if you do *Server-side prerendering*, or *Blazor Server*. The reason is that since the component is initialized on the server, the JavaScript cannot execute before it actually has rendered on the client.
+
+```csharp
+protected override async Task OnAfterRenderAsync(bool firstRender)
+{
+    if(firstRender) 
+    {
+
+    }
+}
+```
+
+### SetParameters
+
+```SetParameters``` is the method that sets parameters that are being supplied by the components parent. You can override the method and interact with the ```ParametersView``` parameters. The dictionary contains the parameters being set. 
+
+Just remember to call the base implementation of the method, or else the parameters will not be set.
+
+Sample code from [docs](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0#when-parameters-are-set-setparametersasync).
+
+```csharp
+@page "/set-params-async/{Param?}"
+
+<p>@message</p>
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue<string>(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+```
+
+## Dependency injection
+
+You inject services into your components using the ```@inject``` directive.
+
+Services are registered in the ```Program.cs``` file, as we have seen with ```HttpClient```. 
+
+Learning about how to configure the IoC container lies beyond the goal of this article. I refer you to [this](https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-6.0) instead.
+
+Here is an extensive sample showing off ```HttpClient```. We fetch some JSON data from a remote source, deserialize it, and displays it in our component.
+
+By now, you will know how to use it.
+
+```csharp
+@inject HttpClient Http
+
+@if(person is null) 
+{
+    <text>Loading...</text>
+}
+else 
+{
+    <h1>@person.firstName @person.lastName</h1>
+
+    <dl>
+        <dt>First Name</dt>
+        <dd>@person.firstName</dd>
+
+        <dt>Last Name</dt>
+        <dd>@person.lastName</dd>
+
+        <dt>Gender</dt>
+        <dd>@person.gender</dd>
+
+        <dt>Age</dt>
+        <dd>@person.age</dd>
+    </dl>
+
+    @if(person.address is not null) 
+    {
+        <h2>Address</h2>
+
+        <dl>
+            <dt>Street address</dt>
+            <dd>@person.address.streetAddress</dd>
+
+            <dt>City</dt>
+            <dd>@person.address.city</dd>
+
+            <dt>State</dt>
+            <dd>@person.address.state</dd>
+        </dl>
+    }
+
+    @if(person.phoneNumbers.Any()) 
+    {
+        <h2>Phone numbers</h2>
+
+        @foreach(var phoneNumber in person.phoneNumbers) 
+        {
+            <dl>
+                <dt>Type</dt>
+                <dd>@phoneNumber.type</dd>
+
+                <dt>Number</dt>
+                <dd>@phoneNumber.number</dd>
+            </dl>
+        }
+    }
+}
+
+@code {
+    Person? person;
+
+    protected override async Task OnInitializedAsync()
+    {
+        person = await Http.GetFromJsonAsync<Person?>("https://filesamples.com/samples/code/json/sample2.json");
+    }
+
+    record Person(string firstName, string lastName, string gender, int age, Address? address, IEnumerable<PhoneNumber> phoneNumbers);
+
+    record Address(string streetAddress, string city, string state);
+
+    record PhoneNumber(string type, string number);
+}
+```
+
+## JavaScrip interop
+
+Since Blazor, most times, is about building apps running in the browser, we sometimes want to call into JavaScript to consume third-party JS libraries, as well as our own code.
+
+The topic of C# interacting with JavaScript and vice versa, is a big one. It is possible to pass object references, and to invoke methods cross boundaries. But the simplest case is invoking a JavaScript function from C#.
+
+You invoke a JavaScript function using the methods provided by the ```IJSRuntime``` service which has already been added to Blazor by default. Just note that the ```InvokeAsync``` method has a corresponding ```InvokeVoidAsync``` version too.
+
+If you want to learn more about, then this [documentation](https://docs.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/?view=aspnetcore-6.0) is the resource where to start at.
+
+```csharp
+@inject IJSRuntime JSRuntime
+
+@if(!ready)
+{
+    <button @onclick="Ask">Ask me</button>
+}
+else 
+{
+    <h1>Thank you!</h1>
+}
+
+@code {
+    bool ready;
+
+    async Task Ask()
+    {
+        // INFO: "confirm" is a JS function defined in the global "window" object.
+        //       But you could be calling a function that you have defined yourself.
+
+        ready = await JSRuntime.InvokeAsync<bool>("confirm", new object [] { "Are you ready? :)" });
+    }
+}
+```
+
+## Beyond this
+
+* Routing
+* Cascading values
+* JavaScript interop with modules
+* CSS isolation - component scoped styles
+
+## Limitations to Blazor WebAssembly
+
+*Blazor WebAssembly* runs in the browser. Just like JavaScript, WebAssembly is restricted by the sandbox, and you cannot access resources outside of it. So not 
+
+These limitations do not exist in *Blazor Server* and *Mobile Blazor Hybrid* as they are native apps.

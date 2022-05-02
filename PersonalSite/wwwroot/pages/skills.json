@@ -286,7 +286,7 @@
             } 
         }
     },
-    "Domains": {
+    "Business domains": {
         "Enterprise Resource Planning (ERP)": {
             "Level": 3,
             "Link": {
@@ -303,6 +303,14 @@
                 "Title": "Wikipedia",
                 "Href": "https://en.wikipedia.org/wiki/Enterprise_resource_planning"
             } 
+        },
+        "Insurance": {
+            "Level": 1,
+            "Comment": "Basic knowledge about how insurance business works."
+        },
+        "Housing cooperative": {
+            "Level": 1,
+            "Comment": "Knowledge about how how housing cooperatives work."
         }
     }
 }

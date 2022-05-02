@@ -1,4 +1,5 @@
 @page "/blog/{*slug}"
+@page "/{*slug}"
 @implements IDisposable
 @using Models
 @using PersonalSite.Disqus
@@ -37,19 +38,17 @@ else
     @if (post.Image is not null)
             {
                 <section class="mast-head" style="background-image: url('@post.Image');">
-                    @* <div class="overlay"> *@
                     <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-                        Tags="@post.Tags" HasPadding="true" EstimatedTime="@(TimeSpan.FromMinutes(1))">
+                        Tags="@post.Tags" HasPadding="true" EstimatedTime="@(TimeSpan.FromMinutes(1))" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog">
 
                     </Header>
-                    @* </div> *@
                 </section>
             }
             else
             {
                 <div class="pt-4">
                     <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-                        Tags="@post.Tags" HasPadding="false" EstimatedTime="@(TimeSpan.FromMinutes(1))">
+                        Tags="@post.Tags" HasPadding="false" EstimatedTime="@(TimeSpan.FromMinutes(1))" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog">
 
                     </Header>
                 </div>
@@ -59,9 +58,12 @@ else
                 <div class="text-content col-md-10">
                     <MarkdownView Content="@post.Content" />
 
-                    <div class="mt-4">
-                        <DisqusThread />
-                    </div>
+                    @if(isBlog) 
+                    {
+                        <div class="mt-4">
+                            <DisqusThread />
+                        </div>
+                    }
                 </div>
 
                 <div class="col-md-2">
@@ -81,6 +83,7 @@ else
     private bool loadingError;
     private Exception? exception;
     private bool notFound;
+    private bool isBlog;
 
     [Parameter]
     public string Slug { get; set; }
@@ -107,18 +110,20 @@ else
 
         try
         {
-            /*
-            post = new Post()
-            {
-            Title = "Hello, World!",
-            Slug = "hello-word",
-            Author = new[] { "Marina Sundström" },
-            Published = DateTime.Now,
-            Content = "# Hello, World!\n\nThis is a *test*."
-            };
-            */
+            string url = null!;
 
-            var response = await Http.GetAsync($"/posts/{Slug}.md");
+            isBlog = NavigationManager.Uri.ToLower().Contains("blog");
+
+            if(isBlog)
+            {
+                url = $"/posts/{Slug}.md";
+            }
+            else 
+            {
+                url = $"/pages/{Slug}.md";
+            }
+
+            var response = await Http.GetAsync(url);
 
             response.EnsureSuccessStatusCode();
 
@@ -136,7 +141,7 @@ else
                 Image = frontmatter.Image,
                 Tags = frontmatter.Tags,
                 Content = str
-            }; ;
+            };
         }
         catch (HttpRequestException exc)
         {

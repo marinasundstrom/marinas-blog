@@ -116,8 +116,8 @@
             else
             {
                 var groups = resume.Experience
-                   .OrderByDescending(x => x.StartDate)
-                   .ThenByDescending(x => x.EndDate)
+                   .OrderByDescending(x => x.Highlight)
+                   .ThenByDescending(x => Default(x.EndDate))
                    .GroupBy(e => e.Company);
 
                 <div class="mt-4 mb-5" style="max-width: 820px">
@@ -296,5 +296,14 @@
             5 => "Expert",
             _ => "Invalid"
         };
+    }
+
+    DateTime Default(DateTime? dt) 
+    {
+        if(dt == null) 
+        {
+            return DateTime.Now.AddDays(365);
+        }
+        return dt.GetValueOrDefault();
     }
 }

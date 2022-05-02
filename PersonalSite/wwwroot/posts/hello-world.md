@@ -1,3 +1,8 @@
+---
+title: "Hello, World!"
+published: 2018-09-24
+---
+
 Welcome to my blog!
 
 ## Code sample

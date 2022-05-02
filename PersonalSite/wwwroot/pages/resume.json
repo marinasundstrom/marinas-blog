@@ -2,7 +2,21 @@
     "experience": [
         {
             "title": "Software Developer",
+            "employmentType": "Contract",
+            "company": "HSB",
+            "companyLogo": "/assets/logos/hsb.jpeg",
+            "link": "https://www.hsb.se/",
+            "location": "Malmö, Sweden",
+            "current": true,
+            "startDate": "2022-04-20",
+            "endDate": null,
+            "description": "Digitalizing housing cooperative business.\n\nFor Nexer Group.",
+            "skills": ["C#", ".NET", "Microsoft Azure", "Microservices", "ASP.NET Core", "MassTransit"]
+        },
+        {
+            "title": "Software Developer",
             "employmentType": "Full-time",
+            "highlight": true,
             "company": "Nexer Group",
             "companyLogo": "/assets/logos/nexer.jpg",
             "link": "https://www.nexergroup.com/",

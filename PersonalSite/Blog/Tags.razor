@@ -11,7 +11,7 @@
         <div>
             @foreach (var tag in tags)
             {
- <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" href="/blog/tags/@Uri.EscapeDataString(tag.Key)">
+ <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none" href="/blog/tags/@Uri.EscapeDataString(tag.Key).Replace(".", "%2E").Replace("#", "%23")">
                                     @tag.Key
                                 </a>
             }

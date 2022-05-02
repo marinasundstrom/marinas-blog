@@ -15,7 +15,7 @@ public class BlogFrontMatter
     public string Author { get; set; }
 
     [YamlMember(Alias = "published")]
-    public DateTime Published { get; set; }
+    public DateTime? Published { get; set; }
 
     [YamlMember(Alias = "image")]
     public string Image { get; set; }

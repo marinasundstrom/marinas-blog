@@ -7,11 +7,11 @@
             "companyLogo": "/assets/logos/hsb.jpeg",
             "link": "https://www.hsb.se/",
             "location": "Malmö, Sweden",
-            "current": true,
+            "current": false,
             "startDate": "2022-04-20",
-            "endDate": null,
+            "endDate": "2022-09-12",
             "description": "Digitalizing housing cooperative business.\n\nFor Nexer Group.",
-            "skills": ["C#", ".NET", "Microsoft Azure", "Microservices", "ASP.NET Core", "MassTransit"]
+            "skills": ["C#", ".NET", "Microsoft Azure", "Microservices", "ASP.NET Core", "MassTransit" ]
         },
         {
             "title": "Software Developer",
@@ -21,9 +21,9 @@
             "companyLogo": "/assets/logos/nexer.jpg",
             "link": "https://www.nexergroup.com/",
             "location": "Malmö, Sweden",
-            "current": true,
+            "current": false,
             "startDate": "2022-04-04",
-            "endDate": null,
+            "endDate": "2022-09-30",
             "description": "Consulting as part of Nexer Group.",
             "skills": []
         },

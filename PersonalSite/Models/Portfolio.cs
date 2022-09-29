@@ -24,6 +24,9 @@ namespace PersonalSite.Models
         [JsonPropertyName("for")]
         public string For { get; set; }
 
+         [JsonPropertyName("license")]
+        public string? License { get; set; }
+
         [JsonPropertyName("startDate")]
         public DateTime? StartDate { get; set; }
 
@@ -79,6 +82,8 @@ namespace PersonalSite.Models
 
     public partial class Portfolio2
     {
-        public static Portfolio2 FromJson(string json) => JsonSerializer.Deserialize<Portfolio2>(json)!;
+        public static Portfolio2 FromJson(string json) => JsonSerializer.Deserialize<Portfolio2>(json, new JsonSerializerOptions() {
+            ReadCommentHandling = JsonCommentHandling.Skip
+        })!;
     }
 }

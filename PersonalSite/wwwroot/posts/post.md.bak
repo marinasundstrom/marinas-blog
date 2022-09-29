@@ -1,0 +1,139 @@
+---
+title: "Approaches to in-process event-driven programming"
+published: 2022-09-28
+author: Marina Sundström
+tags: ["Event-driven programming"]
+---
+
+Event-driven programming is about the program using notifications i.e. messages or events to signal to some listener about changes in the application. There are two kinds of events: internal in-process events ("domain events") and events to be consumed by external processes ("integration events").
+
+In this article, we are going to focus on events that are being published and handled in-process. We will explore what they are, how they are used, and some stuffs worth thinking about when designing an event-driven system.
+
+## Why events?
+
+Normally, you would reason about your program as a sequential flow of operations within a function or a method.
+
+Having the semantics of a notification or an event may make it easier reason about the software you are building. And easier to model and map code to business processes. You are simply stating that something has happened and it has got a name.
+
+In this way, it is easier to communicate in a non-technical manner. Compared to the imperative flow: *"Save the data to the Items table, and send an email using SendGrid"*. Instead we can express the flow as *"When the item has been saved, send an email".* 
+
+In event-based programming you emit events that are handled somewhere else. There is not a specific way to events, but normally there is one or multiple event handlers somewhere from which your code branches.
+
+There are libraries across languages that allow for loose coupling between emitter and event handler. A common pattern enabling this is the mediator pattern, of which there are multiple implementations.
+
+ In .NET, MediatR is a common library which have the concepts of Request, Notification, and Handler. And of course, not to confuse, .NET has its own built-in concept called "events" which stems from Visual Basic (VB) and are used in UI programming - Click event on a Button etc. Basically, they are multicast delegates (function pointers) able to be bound to multiple handler methods.
+
+## Defining an event
+
+A characteristic for events is that they are actions that are described in past tense. When the action *"(I) Eat an apple"* has been perfomed then the event was *"(I) Ate an apple"*. In programming, the names of events are attached to the name of the object it is about, and usually formed as ```<Verb in past these> + <Object>```, so the identifier is ```AteApple```. 
+
+In programmer's terms, conceptualize a method named ```EatApple```, representing the action, and the corresponding event ```AteApple```.
+
+## Quick intro: MediatR
+In the following sections we are going to use MediatR to demonstrate events as notifications. So let's walkthrough very quickly:
+
+MediatR is a library that consists of an implementation of the Mediator pattern that can act as a sender of a type of request to one handler, or a publisher of notifications with multiple handlers. Everything is handled in-process - so no out-of-process message queues or such involved.
+
+A "notification" is an object of a class that is implementing the ```INotification``` interface, having one or more handlers that are implementing ```INotificationHandler<T>``` where ```T``` is the type of notification implementing ```INotification```. The handler has a ```Handle``` method in which the logic lives.
+
+```c#
+public class MyNotification : INotification { }
+```
+
+Publishing an event is as simple as invoking Publish and handing it an instance a the notification type (which may hold some data):
+
+```c#
+await mediator.Publish(new MyNotification());
+```
+
+This will invoke the Handle method in a handler like this one:
+
+```c#
+class MyNotificationHandler : INotificationHandler<MyNotification> 
+{
+    public Task Handle(MyNotification notification, CancellationToken cancellationToken) 
+    {
+        // Handle the notification
+    }
+}
+```
+
+Remember, for notifications there can be multiple handlers, and they are executed in the order they have been registered to MediatR.
+
+Enough with this quick introduction, and on to the some scenarios!
+
+## Publishing events
+
+The process of emitting an event is referred to as "publishing” or sometimes "dispatching". Although it might be simple, publishing events can be a hassle depending on the scenario and requirements::
+Here is a typical example of using Mediator. (This is mostly valid code in C# as part of a file with Top-level statements)
+
+```c#
+var services = new ServiceCollection();
+services.AddScoped<ApplicationContext>(); // ApplicationContext is omitted
+services.AddScoped<IEmailService, EmailService>(); //IEmailService is omitted
+services.AddMediatR(typeof(Item).Assembly);
+
+var serviceProvider = services.BuildServiceProvider();
+
+ApplicationContext context = serviceProvider.GetRequiredService<ApplicationContext>();
+IMediator mediator = serviceProvider.GetRequiredService<IMediator>();
+
+// Program start
+
+await CreateItem("Foo");
+
+// Program end
+
+async Task CreateItem(string name) 
+{
+    var newItem = new Item(name);
+    context.Items.Add(newItem);
+    await context.SaveChangesAsync()
+    
+    await _mediator.Publish(new ItemCreated(item.Id));
+}
+
+public class Item 
+{
+    public Item(string name) 
+    {
+        Id = Guid.NewGuid();
+        Name = name;
+    }
+
+    public Guid Id { get; }
+
+    public string Name { get; }
+}
+
+public record ItemCreated(Guid ItemId) : INotification;
+
+class ItemCreatedHandler : INotificationHandler<ItemCreated> 
+{
+    IEmailService _emailService;
+    ApplicationContext _ context;
+
+    public ItemCreatedHandler(ApplicationContext context, IEmailService emailService) 
+    {
+        _emailService = emailService;
+        _context = context;
+    }
+
+    public async Task Handle(ItemCreated notification, CancellationToken cancellationToken) 
+    {
+        _context = 
+
+        await _emailService.Send(receiver: "test@email.com", subject: "Item created", body: $"Item was created: {notification.Id}");
+    }
+}
+````
+
+The application does not know about the handlers, the mediator resolves to which handler(s) the notification is gonna be dispatched. All we surely know anout is the contract type: ```ItemCreated```.
+
+
+
+Now that you have seen the code, and hopefully you can follow what it does: 
+
+Can you spot any problems with this code? Any cases that could or should be handled differently?
+
+We invoke the method ```CreateItem```

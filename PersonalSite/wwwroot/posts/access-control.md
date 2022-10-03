@@ -16,14 +16,7 @@ Back in 2017, I was looking for some fun project to do in my spare time - but I 
 Since I was working as a consultant at [Axis](https://www.axis.com/) I had been exposed to the Internet of Things (IoT) while developing the on-device experiences. In particular, I had been working with their Access Control system. Its purpose is basically to guard physical access points, such as doors. Controlling the lock as well as a card reader. This was my inspiration for trying to build my own security system from scratch - using as Raspberry Pi and code written in .NET and C#.
 
 <a href="/assets/accesscontrol.jpg">
-<img class="mb-5" style="
-  max-height: 300px; 
-  max-width: 300px; 
-  float: right;
-  margin: 8px 0 0 20px;
-  padding: 4px;" 
-  src="/assets/accesscontrol.jpg" />
-</a>
+<img class="right" src="/assets/accesscontrol.jpg" /></a>
 
 At the time, there were already multiple open-source home security projects for Raspberry Pi, but I did not intend to compete with them. Remember, I was doing this for fun.
 

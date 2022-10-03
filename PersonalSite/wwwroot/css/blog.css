@@ -15,8 +15,10 @@ article .outer {
     padding: 0 !important;
 }
 
-article .inner, article.inner {
-    max-width: 840px; /* 720px; 692px; */
+article .inner,
+article.inner {
+    max-width: 840px;
+    /* 720px; 692px; */
     margin-right: auto;
     margin-left: auto;
 }
@@ -31,7 +33,7 @@ article a:hover {
 
 article hr {
     margin-top: 45px;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 article h1,
@@ -58,7 +60,7 @@ article h4 {
     word-break: break-word;
 }
 
-article h2 + h3 {
+article h2+h3 {
     margin-top: 25px;
 }
 
@@ -68,7 +70,7 @@ article p+h4 {
 }
 
 article p,
-article dl dt, 
+article dl dt,
 article dl dd,
 article ul,
 article ol {
@@ -114,6 +116,22 @@ article ul>li {
     margin-bottom: 15px;
 }
 
+article img:not(.cover) {
+    max-height: 100%;
+    max-width: 300px;
+    padding: 4px;
+}
+
+article img:not(.cover).right {
+    margin: 20px 0 20px 20px;
+    float: right;
+}
+
+article img:not(.cover).left {
+    margin: 20px 20px 20px 0;
+    float: left;
+}
+
 :root {
     --font1: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font2: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -132,14 +150,15 @@ article ul>li {
 }
 
 @media only screen and (max-width: 768px) {
+
     article p+h2,
     article p+h3,
     article p+h4 {
-        margin-top: 48.08px;
+        margin-top: 42.08px;
     }
 
     article p,
-    article dl dt, 
+    article dl dt,
     article dl dd,
     article ul,
     article ol {
@@ -152,6 +171,23 @@ article ul>li {
     }
 
     article p+p {
-        margin-top: 32px;
+        margin-top: 30px;
+    }
+
+    article p+ul {
+        margin-top: 30px;
+    }
+
+    article ul+p,
+    ol+p {
+        margin-top: 35px;
+    }
+
+    article img:not(.cover)  {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-top: 24px !important;
+        margin-bottom: 20px !important;
     }
 }

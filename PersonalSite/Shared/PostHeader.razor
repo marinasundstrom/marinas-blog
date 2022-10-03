@@ -28,7 +28,7 @@
                 }
                 @if (Published is not null)
                 {
-                    <time datetime="@Published?.ToString("yyyy-MM-dd")">@Published?.ToString("dddd, dd MMMM")</time>
+                    <time datetime="@Published?.ToString("yyyy-MM-dd")">@Published?.ToString("d MMMM yyyy")</time>
                 }
                 @if (ShowEstimatedTime && EstimatedTime is not null)
                 {

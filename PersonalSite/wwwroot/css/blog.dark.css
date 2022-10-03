@@ -16,7 +16,7 @@
         color: #4786af;
     }
 
-    h2.post-subtitle {
-        color: #b5b5b5;
+    header h2.post-subtitle {
+        color: #b7b7b7 !important;
     }
   }

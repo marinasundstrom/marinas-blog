@@ -30,12 +30,17 @@ else
     {
         <PageTitle>@post.Title - Marina Sundström</PageTitle>
 
-        <article class="blog post outer">
+        <article class="post outer">
 
             <div class="inner container">
 
                 <PostHeader Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
                     Tags="@post.Tags" EstimatedTime="@EstimatedTime" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog" />
+
+                @if(post.Image is not null) 
+                {
+                    <img src="@post.Image" class="my-2" style="max-height: 280px;width: 100%;object-fit: cover;" />
+                }
 
             </div>
 

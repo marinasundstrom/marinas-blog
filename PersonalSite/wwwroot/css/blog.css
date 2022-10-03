@@ -3,7 +3,7 @@ header h2.post-subtitle {
     color: #797a7a !important;
 }
 
-.blog .outer {
+article .outer {
     max-width: 1030px;
     margin-right: auto;
     margin-left: auto;
@@ -15,36 +15,35 @@ header h2.post-subtitle {
     padding: 0 !important;
 }
 
-.blog .inner {
-    max-width: 720px;
-    /* 692px; */
+article .inner {
+    max-width: 840px; /* 720px; 692px; */
     margin-right: auto;
     margin-left: auto;
 }
 
-.blog a {
+article a {
     text-decoration: none;
 }
 
-.blog a:hover {
+article a:hover {
     text-decoration: underline;
 }
 
-.blog hr {
+article hr {
     margin-top: 45px;
     margin-bottom: 45px;
 }
 
-.blog h1,
-.blog h2,
-.blog h3,
-.blog h4 {
+article h1,
+article h2,
+article h3,
+article h4 {
     font-family: var(--font1);
 }
 
-.blog h2,
-.blog h3,
-.blog h4 {
+article h2,
+article h3,
+article h4 {
     box-sizing: border-box;
     display: block;
     margin-bottom: -8.14px;
@@ -59,21 +58,21 @@ header h2.post-subtitle {
     word-break: break-word;
 }
 
-.blog p+h3,
-p+h4 {
+article p+h3,
+article p+h4 {
     margin-top: 50.08px;
 }
 
-.blog p,
-.blog ul,
-.blog ol {
+article p,
+article ul,
+article ol {
     box-sizing: border-box;
     display: block;
     margin-bottom: -9.2px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 20px;
-    font-family: var(--font2);
+    /* font-family: var(--font2); */
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -82,25 +81,25 @@ p+h4 {
     word-break: break-word;
 }
 
-.blog p+p {
+article p+p {
     margin-top: 40px;
 }
 
-.blog ul+p,
+article ul+p,
 ol+p {
     margin-top: 40px;
 }
 
-.blog *+pre {
+article *+pre {
     margin-top: 40px;
 }
 
-.blog p+ul {
+article p+ul {
     margin-top: 40px;
 }
 
-.blog ol>li,
-.blog ul>li {
+article ol>li,
+article ul>li {
     margin-bottom: 15px;
 }
 

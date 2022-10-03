@@ -207,6 +207,10 @@ header.main {
   border-color: #8050d3;
 }
 
+.fab {
+  color: white !important;
+}
+
 .text-muted {
   color: #7e878f!important;
 }

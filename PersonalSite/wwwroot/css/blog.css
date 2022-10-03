@@ -58,12 +58,18 @@ article h4 {
     word-break: break-word;
 }
 
+article h2 + h3 {
+    margin-top: 25px;
+}
+
 article p+h3,
 article p+h4 {
     margin-top: 50.08px;
 }
 
 article p,
+article dl dt, 
+article dl dd,
 article ul,
 article ol {
     box-sizing: border-box;
@@ -79,6 +85,11 @@ article ol {
     letter-spacing: 0.06px;
     line-height: 32px;
     word-break: break-word;
+}
+
+article dl dt {
+    margin-top: 5px;
+    font-weight: 600 !important;
 }
 
 article p+p {
@@ -117,5 +128,30 @@ article ul>li {
 
     body .post .printarea {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    article p+h2,
+    article p+h3,
+    article p+h4 {
+        margin-top: 48.08px;
+    }
+
+    article p,
+    article dl dt, 
+    article dl dd,
+    article ul,
+    article ol {
+        box-sizing: border-box;
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.06px;
+        line-height: 28px;
+    }
+
+    article p+p {
+        margin-top: 32px;
     }
 }

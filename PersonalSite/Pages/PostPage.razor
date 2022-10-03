@@ -11,70 +11,57 @@
 
 @if (notFound)
 {
-    <div class="col-12 col-xl-8 mx-auto p-3 py-md-5">
     <NotFound />
-</div>
 }
 else
 {
     @if (loadingError && exception is not null)
     {
-        <div class="col-12 col-xl-8 mx-auto p-3 py-md-5">
-            <h1>@exception.GetType().Name</h1>
+        <h1>@exception.GetType().Name</h1>
 
-            <p>@exception.Message</p>
+        <p>@exception.Message</p>
 
-            <code>
-                @exception.StackTrace
-            </code>
-        </div>
+        <code>
+            @exception.StackTrace
+        </code>
     }
 
     @if (post is not null)
     {
         <PageTitle>@post.Title - Marina Sundström</PageTitle>
 
-        <div class="post">
-    @if (post.Image is not null)
-            {
-                <section class="mast-head" style="background-image: url('@post.Image');">
-                    <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-                        Tags="@post.Tags" HasPadding="true" EstimatedTime="@(TimeSpan.FromMinutes(1))" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog">
+        <article class="blog post outer">
 
-                    </Header>
-                </section>
-            }
-            else
-            {
-                <div class="pt-4">
-                    <Header Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-                        Tags="@post.Tags" HasPadding="false" EstimatedTime="@(TimeSpan.FromMinutes(1))" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog">
+            <div class="inner container">
 
-                    </Header>
-                </div>
-            }
+                <PostHeader Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
+                    Tags="@post.Tags" EstimatedTime="@EstimatedTime" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog" />
 
-            <div class="col-12 col-xl-8 mx-auto p-2 py-4 py-md-5 row">
-                <div class="text-content col-md-10">
-                    <MarkdownView Content="@post.Content" />
-
-                    @if(isBlog) 
-                    {
-                        <div style="margin-top: 42px;">
-                            <DisqusThread />
-                        </div>
-                    }
-                </div>
-
-                <div class="col-md-2">
-                    <div class="social mx-4">
-                        <FacebookShareButton Url="@NavigationManager.Uri" />
-                        <TwitterShareButton Url="@NavigationManager.Uri" Text="@($"{post.Title}")" Hashtags="@(post.Tags ?? new string[0])"></TwitterShareButton>
-                        <LinkedInShareButton Url="@NavigationManager.Uri" Title="@($"{post.Title}")" Summary="Test" Source="Marina Sundström"></LinkedInShareButton>
-                    </div>
-                </div>
             </div>
-        </div>
+
+            <div class="inner container">
+                <MarkdownView Content="@post.Content" />
+
+                @if (isBlog)
+                {
+                    <div style="margin-top: 42px;">
+                        <DisqusThread />
+                    </div>
+                }
+            </div>
+        </article>
+
+        @*
+    <div class="col-md-2">
+    <div class="social mx-4">
+    <FacebookShareButton Url="@NavigationManager.Uri" />
+    <TwitterShareButton Url="@NavigationManager.Uri" Text="@($"{post.Title}")" Hashtags="@(post.Tags ?? new
+    string[0])"></TwitterShareButton>
+    <LinkedInShareButton Url="@NavigationManager.Uri" Title="@($"{post.Title}")" Summary="Test" Source="Marina
+    Sundström"></LinkedInShareButton>
+    </div>
+    </div>
+*@
     }
 }
 
@@ -114,11 +101,11 @@ else
 
             isBlog = NavigationManager.Uri.ToLower().Contains("blog");
 
-            if(isBlog)
+            if (isBlog)
             {
                 url = $"/posts/{Slug}.md";
             }
-            else 
+            else
             {
                 url = $"/pages/{Slug}.md";
             }
@@ -142,6 +129,9 @@ else
                 Tags = frontmatter.Tags,
                 Content = str
             };
+
+            var estimator = new ReadTimeEstimator.Implementations.Estimators.MarkdownEstimator();
+            EstimatedTime = TimeSpan.FromMinutes(estimator.ReadTimeInMinutes(post.Content));
         }
         catch (HttpRequestException exc)
         {

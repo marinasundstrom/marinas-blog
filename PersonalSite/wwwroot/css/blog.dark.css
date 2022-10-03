@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+
+    article.blog  a {
+        color: #7fc1ee;
+    }
+
+    article.blog   a:hover {
+        color: #4786af;
+    }
+
+    article.blog  .blog a.nav-link {
+        color: #7fc1ee;
+    }
+
+    article.blog  a.nav-link:hover {
+        color: #4786af;
+    }
+
+    h2.post-subtitle {
+        color: #b5b5b5;
+    }
+  }

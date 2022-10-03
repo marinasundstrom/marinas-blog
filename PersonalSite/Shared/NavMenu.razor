@@ -1,37 +1,58 @@
-﻿<div class="top-row ps-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Marina Sundström</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple px-3">
+    <a class="navbar-brand mr-auto mr-lg-0" href="#">
+        <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
+            style="margin-right: 10px; height: 32px;" />
+        Marina Sundström</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" @onclick="ToggleOpen">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
+    <div class="navbar-collapse offcanvas-collapse bg-purple @(isOpen ? "open" : null)" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <NavLink Match="NavLinkMatch.All" class="nav-link" href="">About <span class="sr-only">(current)</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="blog">Blog</NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="resume">Résumé</NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="portfolio">Portfolio</NavLink>
+            </li>
+        </ul>
+        <ol class="navbar-nav flex-row flex-wrap ms-md-auto list-inline list-unstyled" style="margin: 0;">
+            <li class="nav-item list-inline-item">
+                <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                    href="https://github.com/marinasundstrom" target="_blank">
+                    <i class="fab fa-2x fa-github"></i>
+                    @* <span class="d-block d-lg-none"> GitHub</span> *@
+                </a>
+            </li>
+
+            <li class="nav-item list-inline-item">
+                <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                    href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank">
+                    <i class="fab fa-2x fa-youtube"></i>
+                    @* <span class="d-block d-lg-none"> YouTube</span> *@
+                </a>
+            </li>
+
+            <li class="nav-item list-inline-item">
+                <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                    href="https://www.linkedin.com/in/marinasundstrom" target="_blank">
+                    <i class="fab fa-2x fa-linkedin"></i>
+                    @* <span class="d-block d-lg-none"> LinkedIn</span> *@
+                </a>
+            </li>
+        </ol>
+    </div>
+</nav>
 
 @code {
-    private bool collapseNavMenu = true;
+    bool isOpen = false;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    void ToggleOpen() => isOpen = !isOpen;
 }

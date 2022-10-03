@@ -1,0 +1,24 @@
+@media (prefers-color-scheme: dark) {
+
+    code.hljs {
+        border: 1px solid #6a6565;
+        color: rgb(225, 218, 218);
+        background-color: #242424;
+    }
+
+    .hljs-ln-n {
+        padding-right: 20px;
+    }
+
+    .hljs-keyword, .hljs-built_in {
+        color: #8282be !important;
+    }
+
+    .hljs-class .hljs-title {
+        color: #21b6aa !important;
+    }
+
+    .hljs-function .hljs-title, .hljs-title.function_ {
+        color: #d4f489 !important;
+    }
+  }

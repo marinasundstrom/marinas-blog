@@ -1,5 +1,4 @@
 @page "/resume"
-@layout PageLayout
 @using System.Linq
 @using System.IO
 @using System.Text.Json
@@ -7,71 +6,16 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
 
-<style>
-    .grid-dl dt {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 0.5em 0 0.5em 0;
-        font-weight: 600;
-    }
-
-    .grid-dl dd {
-        margin: 0;
-        padding: 0.5em 0 0.5em 0;
-    }
-
-    @@media (min-width: 550px) {
-        .grid-dl {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto;
-        }
-
-        .grid-dl dt {
-            grid-column-start: 1;
-        }
-
-        .grid-dl dd {
-            grid-column-start: 2;
-        }
-
-        .grid-dl dt+dd {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-    }
-
-    .sidenav {
-        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-
-    .mystyle {
-        font-weight: bold;
-    }
-
-    .mystyle:before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        display: inline-block;
-        background-color: #007bff;
-        ;
-        vertical-align: middle;
-    }
-</style>
-
-<PageTitle>Resume - Marina Sundström</PageTitle>
+<PageTitle>Résumé - Marina Sundström</PageTitle>
 
 <div class="row">
     <div class="sections col-xxl-10">
 
-        <h1 class="post-title">Resume</h1>
-        <div class="post-line"></div>
+        <h1>Résumé</h1>
 
-        <section class="text-content pt-1 pe-4 mb-5">
+        <section class="blog text-content pt-1 pe-4 mb-5">
 
-            <h2 id="objective" class="">Objective</h2>
+            <h2 id="objective" class="mb-2 mt-4">Objective</h2>
 
             <div class="row">
 
@@ -107,7 +51,7 @@
         </section>
 
         <section>
-            <h1 id="experience" class="pb-2">Experience</h1>
+            <h2 id="experience" class="pb-2 mt-4">Experience</h2>
 
             @if (resume is null)
             {

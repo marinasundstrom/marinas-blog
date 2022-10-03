@@ -1,45 +1,10 @@
 @page "/portfolio"
-@layout PageLayout
 @using PersonalSite.Markdown
 @inject HttpClient Http
 
-<style>
-    .grid-dl dt {
-        padding: 0.5em 0 0.5em 0;
-        font-weight: 600;
-    }
-    .grid-dl dd {
-        margin: 0;
-        padding: 0.5em 0 0.5em 0;
-    }
-    @@media (min-width: 550px) {
-        .grid-dl {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto;
-        }
-        .grid-dl dt {
-            grid-column-start: 1;
-        }
-        .grid-dl dd {
-            grid-column-start: 2;
-        }
-        .grid-dl dt+dd {
-        }
-    }
-    h2 {
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-</style>
-
 <PageTitle>Portfolio - Marina Sundström</PageTitle>
 
-<div>
-    <h1 class="post-title">Portfolio</h1>
-    <div class="post-line"></div>  
-</div>
+<h1>Portfolio</h1>
 
 @if(projects is null) 
 {

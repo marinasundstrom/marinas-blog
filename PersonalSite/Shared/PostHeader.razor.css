@@ -1,0 +1,13 @@
+h2 {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.post-title a {
+    color: inherit !important;
+    text-decoration: none;
+  }
+  
+  .post-title a:hover {
+    text-decoration: underline !important;
+  }

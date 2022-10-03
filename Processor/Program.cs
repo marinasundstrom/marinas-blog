@@ -8,7 +8,7 @@ string tagsDir = $"{wwwrootDir}tags";
 
 List<PostInfo> posts = new List<PostInfo>();
 
-var htmlEstimator = new HtmlEstimator();
+var markdownEstimator = new MarkdownEstimator();
 
 try 
 {
@@ -52,7 +52,7 @@ foreach (var file in Directory.GetFiles(postsDir, "*.md"))
     var excerpt = content.TruncateHtml(500);
 
     var estimatedTime = TimeSpan.FromMinutes(
-        htmlEstimator.ReadTimeInMinutes(content));
+        markdownEstimator.ReadTimeInMinutes(text));
 
     var post = new PostInfo(frontMatter.Title, frontMatter.Subtitle, fileName, frontMatter.Author, frontMatter.Image, frontMatter.Published, estimatedTime, excerpt, frontMatter.Tags);
 

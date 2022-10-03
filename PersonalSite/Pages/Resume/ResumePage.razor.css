@@ -1,0 +1,51 @@
+.grid-dl dt {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5em 0 0.5em 0;
+    font-weight: 600;
+}
+
+.grid-dl dd {
+    margin: 0;
+    padding: 0.5em 0 0.5em 0;
+}
+
+@@media (min-width: 550px) {
+    .grid-dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .grid-dl dt {
+        grid-column-start: 1;
+    }
+
+    .grid-dl dd {
+        grid-column-start: 2;
+    }
+
+    .grid-dl dt+dd {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.sidenav {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.mystyle {
+    font-weight: bold;
+}
+
+.mystyle:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    background-color: #007bff;
+    ;
+    vertical-align: middle;
+}

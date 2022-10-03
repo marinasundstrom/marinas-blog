@@ -1,79 +1,13 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
-<div class="col-12 col-xxl-8 mx-auto px-3">
-    <header class="d-flex flex-column flex-md-row align-items-center border-bottom">
-        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
-                style="margin-left: 0;" />
-            <span class="fs-4" style="font-weight: 500px">Marina Sundström</span>
-        </a>
+<header class="main">
+    <NavMenu />
+</header>
 
-        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <ol class="list-inline list-unstyled" style="margin: 0;">
-                <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none" href=""
-                        Match="NavLinkMatch.All">
-                        About me
-                    </NavLink>
-                </li>
+<main role="main" class="container">
+    @Body
+</main>
 
-                <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none"
-                        href="blog">
-                        Blog
-                    </NavLink>
-                </li>
-
-                <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none"
-                        href="resume">
-                        Resume
-                    </NavLink>
-                </li>
-
-                <li class="nav-item list-inline-item">
-                    <NavLink class="nav-link menu-link me-0 py-2 text-dark text-decoration-none"
-                        href="portfolio">
-                        Portfolio
-                    </NavLink>
-                </li>
-            </ol>
-        </nav>
-
-        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <ol class="list-inline list-unstyled" style="margin: 0;">
-                <li class="nav-item list-inline-item">
-                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
-                        href="https://github.com/marinasundstrom" target="_blank">
-                        <i class="fab fa-2x fa-github" style="color: black;"></i>
-                        @* <span class="d-block d-lg-none"> GitHub</span> *@
-                    </a>
-                </li>
-
-                <li class="nav-item list-inline-item">
-                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
-                        href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank">
-                        <i class="fab fa-2x fa-youtube"  style="color: #FF0000;"></i>
-                        @* <span class="d-block d-lg-none"> YouTube</span> *@
-                    </a>
-                </li>
-
-                <li class="nav-item list-inline-item">
-                    <a class="nav-link menu-link me-0 py-2 text-dark text-decoration-none text-uppercase"
-                        href="https://www.linkedin.com/in/marinasundstrom" target="_blank">
-                        <i class="fab fa-2x fa-linkedin" style="color: #0072b1;"></i>
-                        @* <span class="d-block d-lg-none"> LinkedIn</span> *@
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </header>
-</div>
-
-@Body
-
-<div class="col-12 col-xl-8 mx-auto p-3 py-md-5">
-    <footer class="pt-5 my-5 text-muted border-top">
-        © @DateTime.Now.Year Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages
-    </footer>
-</div>
+<footer class="pt-3 px-4 my-5 mx-auto container text-center border-top">
+    <span class="text-muted">© @DateTime.Now.Year Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</span>
+</footer>

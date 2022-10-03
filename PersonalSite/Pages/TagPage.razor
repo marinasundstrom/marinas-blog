@@ -1,0 +1,98 @@
+@page "/blog/tags/{tag}"
+@using PersonalSite.Markdown
+@implements IDisposable
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<div class=" col-xxl-10">
+    <PageTitle>Marina Sundström</PageTitle>
+
+    @if(posts is null) 
+    {
+        <text>Loading posts</text>
+    }
+    else 
+    {
+        <PageTitle># @Tag - Marina Sundström</PageTitle>
+
+            <h1 class="post-title mb-5"># @title</h1>
+
+            @foreach (var post in posts)
+            {
+               <article class="blog pt-2 mb-5">
+
+                    <PostHeader Title="@post.Title" Slug="@post.Slug" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
+                        Tags="@post.Tags" EstimatedTime="@post.EstimatedReadTime" ShowEstimatedTime="true"
+                        ShowCommentCount="true" />
+                        
+                </article>
+                <hr />
+            }
+
+        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="@($"/blog/tags/{Tag}")" />
+    }
+</div>
+
+@code {
+    string? title;
+
+    IEnumerable<PostInfo>? posts;
+
+    int totalPages = 0;
+
+    [Parameter]
+    public string Tag { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery] 
+    public int? Page { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        await LoadData();
+    }
+
+    private async void OnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        await LoadData();
+
+        StateHasChanged();
+    }
+
+    async Task OnPageChanged(int page) 
+    {
+        /*
+        Page = page;
+        await LoadData();
+
+        StateHasChanged();
+        */
+    }
+
+    private async Task LoadData() 
+    {
+        if(Page is null) Page = 1;
+                
+        var response = await Http.GetAsync($"/tags/{Uri.EscapeDataString(Tag).Replace(".", "%2E").Replace("#", "%23")}-{Page}.json");
+
+        response.EnsureSuccessStatusCode();
+
+        var str = await response.Content.ReadAsStringAsync();
+        
+        var index = System.Text.Json.JsonSerializer.Deserialize<IndexPage>(str);
+        title = index.Name;
+        posts = index.Posts;
+        totalPages = index.TotalPages;
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    record IndexPage(string Name, IEnumerable<PostInfo> Posts, int Page, int TotalPages);
+
+    record PostInfo(string Title, string? Subtitle, string Slug, string Author, string? Image, DateTime Published, TimeSpan? EstimatedReadTime, string Excerpt, string[] Tags);
+}

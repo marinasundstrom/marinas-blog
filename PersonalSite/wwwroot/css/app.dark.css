@@ -1,0 +1,37 @@
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: rgb(50, 57, 68);
+        color: rgb(237, 237, 241) !important;
+    }
+
+    .page-item .page-link {
+        background-color: inherit;
+        color: white;
+    }
+
+    .page-item.active .page-link {
+        color: white;
+    }
+
+    .page-item.disabled .page-link {
+        color: gray;
+        background-color: rgb(35, 35, 35) !important;
+    }
+
+    a.badge {
+        color: white;
+    }
+
+    a.badge:hover {
+        color: lightgray;
+    }
+
+    .fab {
+        color: white !important;
+    }
+
+    .text-muted {
+        color: #898d91!important;
+    }
+  }

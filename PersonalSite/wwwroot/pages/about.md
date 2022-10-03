@@ -17,4 +17,4 @@ I’ve been across the entire technology stack ("full stack") in several project
 
 I'm a creative person and I enjoy working on my own projects. I share some of them on GitHub and in my video portfolio on YouTube.
 
-My experiences and skills are listed in [resume](/resume).
+My experiences and skills are listed my [résumé](/resume).

@@ -15,7 +15,7 @@ article .outer {
     padding: 0 !important;
 }
 
-article .inner {
+article .inner, article.inner {
     max-width: 840px; /* 720px; 692px; */
     margin-right: auto;
     margin-left: auto;

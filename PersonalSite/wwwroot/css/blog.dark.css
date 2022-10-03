@@ -1,18 +1,18 @@
 @media (prefers-color-scheme: dark) {
 
-    article.blog  a {
+    article  a {
         color: #7fc1ee;
     }
 
-    article.blog   a:hover {
+    article   a:hover {
         color: #4786af;
     }
 
-    article.blog  .blog a.nav-link {
+    article a.nav-link {
         color: #7fc1ee;
     }
 
-    article.blog  a.nav-link:hover {
+    article a.nav-link:hover {
         color: #4786af;
     }
 

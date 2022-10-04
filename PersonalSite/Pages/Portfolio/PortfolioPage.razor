@@ -1,5 +1,4 @@
 @page "/portfolio"
-@using PersonalSite.Markdown
 @inject HttpClient Http
 
 <PageTitle>Portfolio - Marina Sundström</PageTitle>
@@ -23,109 +22,7 @@ else
 
             @foreach (var project in projects.ToList())
             {
-                <div class="row pt-5 mb-5">
-                    <div class="col-sm-12 col-md-4 text-center">
-                        <a href="@project.Image" target="_blank">
-                            <img class="mb-5" style="max-height: 200px; max-width: 200px; margin: auto;" src="@project.Image" />
-                        </a>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6">
-                        <h2 class="pb-0 mb-2">@project.Name</h2>
-
-                        <div class="mb-3">
-                            @if (project.StartDate is not null)
-                            {
-                                <span class="text-muted">
-                                    @if (project.Ongoing)
-                                    {
-                                        <text>@project.StartDate.GetValueOrDefault().ToString("MMM yyyy") - Ongoing</text>
-                                    }
-                                    else if (project.StartDate?.Year == project.EndDate?.Year && project.StartDate?.Month ==
-                                    project.EndDate?.Month)
-                                    {
-                                        <text>@project.StartDate.GetValueOrDefault().ToString("MMM yyyy")</text>
-                                    }
-                                    else
-                                    {
-                                        <text>@project.StartDate.GetValueOrDefault().Humanize(project.EndDate)</text>
-                                    }
-
-                                    @if (project.Type is not null || project.For is not null)
-                                    {
-                                        <text> • </text>
-                                        @if (project.Type == "Private")
-                                        {
-                                            <text>@project.Type</text>
-                                        }
-                                        else if (project.Type == "Professional")
-                                        {
-                                            <text>@project.For</text>
-                                        }
-                                    }
-                                </span>
-                            }
-                        </div>
-
-                        <MarkdownView Content="@project.Description" />
-
-                        <div class="mt-5">
-                            @foreach (var link in project.Links)
-                            {
-                                string icon = "fab fa-link";
-                                if (link.Type.Contains("YouTube"))
-                                {
-                                    icon = "fab fa-youtube";
-                                }
-                                else if (link.Type.Contains("GitHub"))
-                                {
-                                    icon = "fab fa-github";
-                                }
-                                <a class="btn btn-sm btn-secondary me-2" href="@link.Url" target="_blank"><i
-                            class="@icon fa-lg me-1"></i> @link.Name</a>
-                            }
-                        </div>
-
-                        @if (project.Skills != null)
-                        {
-                            var skills = project.Skills;
-
-                            <dl class="grid-dl mt-4">
-
-                                @if (skills.Platforms != null)
-                                {
-                                    <dt>Platforms</dt>
-                                    <dd>@string.Join(", ", skills.Platforms)</dd>
-                                }
-
-                                @if (skills.ProgrammingLanguages != null)
-                                {
-                                    <dt>Programming languages</dt>
-                                    <dd>@string.Join(", ", skills.ProgrammingLanguages)</dd>
-                                }
-
-                                @if (skills.Frameworks != null)
-                                {
-                                    <dt>Frameworks</dt>
-                                    <dd>@string.Join(", ", skills.Frameworks)</dd>
-                                }
-
-                                @if (skills.Applications != null)
-                                {
-                                    <dt>Applications</dt>
-                                    <dd>@string.Join(", ", skills.Applications)</dd>
-                                }
-
-                                @if (skills.Technologies != null)
-                                {
-                                    <dt>Technologies</dt>
-                                    <dd>@string.Join(", ", skills.Technologies)</dd>
-                                }
-                            </dl>
-
-                        }
-                    </div>
-                </div>
+                <ProjectView Project="project" />
 
                 @if (projects.LastOrDefault() != project)
                 {

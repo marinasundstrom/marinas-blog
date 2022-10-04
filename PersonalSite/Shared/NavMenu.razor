@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse offcanvas-collapse bg-purple @(isOpen ? "open" : null)" id="navbarsExampleDefault">
+    <div class="navbar-collapse offcanvas-collapse bg-purple @(isOpen ? "open" : null)" id="navbarsExampleDefault" @onclick="ToggleOpen">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <NavLink class="nav-link" href="about">About <span class="sr-only">(current)</span>

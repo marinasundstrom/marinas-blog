@@ -51,7 +51,7 @@
         </section>
 
         <section>
-            <h2 id="experience" class="pb-2 pt-3 mt-4">Experience</h2>
+            <h2 id="experience" class="pb-4 pt-4 mt-4">Experience</h2>
 
             @if (resume is null)
             {
@@ -132,7 +132,7 @@
                     <small class="text-muted">Click on a skill to learn more.</small>
                 </div>
 
-                <dl class="grid-dl">
+                <dl class="skills grid-dl">
 
                     @foreach (var (skillArea, skills) in skillAreas)
                     {
@@ -163,29 +163,6 @@
         </section>
 
     </article>
-
-   @*
-    <div class="col-md-2 right-border">
-        <section class="sidenav" style="position: -webkit-sticky; position: sticky; top: 80px;">
-            <h4 class="mb-4">Sections</h4>
-
-            <ul style="margin: 0; padding: 0; list-style: none" class="mb-4">
-                <li>
-                    <a href="/resume#objective">Objective</a>
-                </li>
-                <li>
-                    <a href="/resume#experience">Experience</a>
-                </li>
-                <li>
-                    <a href="/resume#education">Education</a>
-                </li>
-                <li>
-                    <a href="/resume#skills">Skills</a>
-                </li>
-            </ul>
-        </section>
-    </div>
-    *@ 
 </div>
 
 @code {

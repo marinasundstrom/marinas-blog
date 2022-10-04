@@ -29,13 +29,21 @@ else
     
     @if(experience.Skills?.Any() ?? false)
     {
-        <dl class="mt-4">
+        <dl class="mt-5 pb-6">
             <dt>Skills</dt>
-            <dd><small>@string.Join(" · ", experience.Skills)</small></dd>
+            <dd>
+                @foreach (var skillName in experience.Skills)
+                {
+                    <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none">
+                        @skillName
+                    </a>
+                }
+            </dd>
         </dl>
     }
-
-    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
+    <div class="mt-5">
+        <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
+    </div>
 }
 else 
 {
@@ -50,7 +58,9 @@ else
         <MarkdownView Content="@content" />
    </div>
 
-    <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
+    <div class="mt-5">
+        <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
+    </div>
 }
 
 @code {

@@ -10,7 +10,7 @@
     DateTime? endDate = education.GetEndDate();
 }
 
-<div class="mb-4" style="page-break-inside: avoid;">
+<section class="mb-4" style="page-break-inside: avoid;">
         <h3 style="margin-top: 21px !important;">@education.School</h3>
 
         <p>@education.FieldOfStudy</p>
@@ -19,7 +19,7 @@
 
         @if(ShowMore) 
         {
-            <div class="mb-4">
+            <div class="mb-5">
                 <MarkdownView Content="@education.Description" />
             </div>
             
@@ -38,7 +38,10 @@
                     <dd><small>@string.Join(" · ", education.Courses)</small></dd>
                 </dl>
             }
-            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
+
+            <div class="mt-5">
+                <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
+            </div>
         }
         else 
         {
@@ -53,9 +56,11 @@
                 <MarkdownView Content="@content" />
             </div>
             
-            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>   
+            <div class="mt-5">
+                <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>  
+            </div> 
         }
-    </div>
+    </section>
 
 @code {
     [Parameter]

@@ -13,21 +13,19 @@
         }
         else
         {
-            <PageTitle>Blog - Marina Sundström</PageTitle>
+            <PageTitle>Posts - Marina Sundström</PageTitle>
 
-            <h1 class="post-title mb-5">Posts</h1>
+            <h1 class="post-title mb-4 mb-md-5">Posts</h1>
 
             @foreach (var post in posts)
             {
-                <article class="pt-2 mb-5">
+                <article class="pt-2 mb-4 mb-md-5">
 
                     <PostHeader Title="@post.Title" Slug="@post.Slug" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
                         Tags="@post.Tags" EstimatedTime="@post.EstimatedReadTime" ShowEstimatedTime="true"
-                        ShowCommentCount="true" />
+                        ShowCommentCount="false" Smaller="true" />
                         
-                </article>
-                
-                <hr />
+                </article>             
             }
 
             <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/blog" />

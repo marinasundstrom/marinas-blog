@@ -5,7 +5,6 @@
 @import url('hightlight.css');
 @import url('syntax.css');
 @import url('syntax.dark.css');
-@import url('dark.css');
 
 
 html,
@@ -22,7 +21,7 @@ body {
 }
 
 body {
-  padding-top: 7.0em;
+  padding-top: 110px;
 }
 
 @media (max-width: 991.98px) {
@@ -213,4 +212,16 @@ header.main {
 
 .text-muted {
   color: #7e878f!important;
+}
+
+@media print {
+  /*
+  body * {
+      display: none;
+  }
+
+  #app, #app * {
+      display: block;
+  }
+  */
 }

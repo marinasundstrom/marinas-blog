@@ -12,36 +12,43 @@
 
 @if(Model.isSub) 
 {
-    <p>@experience.EmploymentType</p>
+    <p>
+        @experience.EmploymentType
+
+        @if(experience.Consultant) 
+        {
+            @if(experience.For is not null) 
+            {
+                <spa> with @experience.For</spa>
+            }
+        } 
+    </p>
 }
 else 
 {
-    <p>@experience.Company • @experience.EmploymentType</p>
+    <p>
+        <b>@experience.Company</b> • @experience.EmploymentType
+        
+        @if(experience.Consultant) 
+        {
+            @if(experience.For is not null) 
+            {
+                <spa> with @experience.For</spa>
+            }
+        } 
+    
+    </p>
 }
 
-<p class="text-muted meta">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
+<p class="mt-4 text-muted">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
 
 @if(ShowMore) 
 {
-    <div class="mb-4">
+    <div class="mb-4 pt-2">
         <MarkdownView Content="@experience.Description" />
     </div>
     
-    @if(experience.Skills?.Any() ?? false)
-    {
-        <dl class="mt-5 pb-6">
-            <dt>Skills</dt>
-            <dd>
-                @foreach (var skillName in experience.Skills)
-                {
-                    <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none">
-                        @skillName
-                    </a>
-                }
-            </dd>
-        </dl>
-    }
-    <div class="mt-5">
+    <div class="mt-2 mb-4">
         <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
     </div>
 }
@@ -54,14 +61,29 @@ else
    }
    var content = breakIndex == -1 ? experience.Description : experience.Description.Substring(0, breakIndex + 1);
 
-    <div class="mb-4">
+    <div class="mb-4 pt-2">
         <MarkdownView Content="@content" />
    </div>
 
-    <div class="mt-5">
+    <div class="mt-2 mb-4">
         <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
     </div>
 }
+
+    @if(experience.Skills?.Any() ?? false)
+    {
+        <dl class="mt-4">
+            <dt>Key skills</dt>
+            <dd>
+                @foreach (var skillName in experience.Skills)
+                {
+                    <div class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none">
+                        @skillName
+                    </div>
+                }
+            </dd>
+        </dl>
+    }
 
 @code {
     [Parameter]

@@ -1,3 +1,10 @@
+.consultant-tag {
+    display: inline;
+    margin: 0;
+    color: gray;
+    padding-left: 10px;
+}
+
 ol.timeline {
     list-style-type: none;
     position: relative;
@@ -36,6 +43,10 @@ ol.timeline > li:before {
     width: 20px;
     height: 20px;
     z-index: 400;
+}
+
+ol li:not(:first-child) {
+    padding-top: 25px;
 }
 
 @media(max-width: 602px) 

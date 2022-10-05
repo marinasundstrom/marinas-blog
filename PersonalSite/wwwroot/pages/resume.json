@@ -3,6 +3,8 @@
         {
             "title": "Software Developer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Nexer Group",
             "company": "HSB",
             "companyLogo": "/assets/logos/hsb.jpeg",
             "link": "https://www.hsb.se/",
@@ -10,8 +12,8 @@
             "current": false,
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
-            "description": "Digitalizing housing cooperative business.\nFocus on backend.\n\nFor Nexer Group.",
-            "skills": ["Entity Framework (EF) Core", "Microsoft SQL Server", "Service-Oriented Architecture (SOA)", "Microsoft Azure", "Agile Methodologies", "Software Development", ".NET", "C#", "Web Development", "Git", "ASP.NET Core", "Back-End Web Development", "Microservices"]
+            "description": "Digitalizing housing cooperative business.\nFocus on backend.",
+            "skills": [ ".NET", "C#", "Web Development", "ASP.NET Core", "Microservices" ]
         },
         {
             "title": "Software Developer",
@@ -30,6 +32,8 @@
         {
             "title": ".NET Developer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Skymill",
             "company": "Trygg Hansa",
             "companyLogo": "/assets/logos/trygghansa.jpg",
             "link": "https://www.trygghansa.se/",
@@ -37,9 +41,9 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "Developing Line of Business (LOB) app for handling insurance claims.\n\nFor Skymill.",
+            "description": "Developing Line of Business (LOB) app for handling insurance claims.",
             "skills": [
-                "Entity Framework (EF) Core", "Microsoft SQL Server", "Windows Presentation Foundation (WPF)", "Agile Methodologies", "Software Development", ".NET", "C#", "Back-End Web Development"
+                ".NET", "C#", "Windows Presentation Foundation (WPF)", "Back-End Development"
             ]
         },
         {
@@ -65,14 +69,16 @@
             "current": false,
             "startDate": "2020-05-01",
             "endDate": "2021-09-20",
-            "description": "Developing a full CRM and e-Commerce solution from ground up in a customer-focused business - backend and frontend.\n\nKnowledge earned in the domains of marketing, invoicing, and accounting. Responsible for Software Design and Architecture.\n\nWeb, C#/.NET, ASP.NET Core, Blazor. Service-oriented architecture (SOA). IIS. Sites in Wordpress.NET (PeachPie PHP).\n\nOne of our customers was a company providing cleaning services.\n\nMaking proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
+            "description": "Developing a full CRM and e-Commerce solution from ground up in a customer-focused business - backend and frontend.\n\nKnowledge earned in the domains of marketing, invoicing, and accounting. Responsible for Software Design and Architecture.\n\nOne of our customers was a company providing cleaning services.\n\nMaking proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
             "skills": [
-                "Entity Framework (EF) Core", "Microsoft SQL Server", "WordPress", "Service-Oriented Architecture (SOA)", "PHP", "Software Development", ".NET", "C#", "JavaScript", "TypeScript", "HTML", "Web Development", "MySQL", "Git", "Software Design", "Cascading Style Sheets (CSS)", "SQL", "Blazor", "Software Architecture", "ASP.NET Core", "Back-End Web Development", "Full-Stack Development", "Front-End Development", "User Experience (UX)"
+                ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
         },
         {
             "title": "Software Developer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "ESSIQ AB",
             "company": "Nordengren AI",
             "companyLogo": null,
             "link": null,
@@ -80,13 +86,13 @@
             "current": false,
             "startDate": "2020-02-01",
             "endDate": "2020-05-01",
-            "description": "Developing e-Commerce site for customer, using ASP.NET Core och Blazor.\n\nProject for insurance firm.\n\nFor ESSIQ.",
+            "description": "Developing e-Commerce site for customer\n\nProject for insurance firm.",
             "skills": [
-                "Entity Framework (EF) Core", "Microsoft SQL Server", "WordPress", "Service-Oriented Architecture (SOA)", "PHP", "Software Development", ".NET", "C#", "JavaScript", "TypeScript", "HTML", "Web Development", "Git", "Software Design", "Cascading Style Sheets (CSS)", "SQL", "Blazor", "Software Architecture", "ASP.NET Core", "Back-End Web Development", "Full-Stack Development", "Front-End Development", "User Experience (UX)"
+                ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Design", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
         },
         {
-            "title": "Software Engineering Consultant",
+            "title": "Software Engineer",
             "employmentType": "Full-time",
             "company": "ESSIQ AB",
             "companyLogo": "/assets/logos/essiq.jpg",
@@ -101,6 +107,8 @@
         {
             "title": ".NET Senior Expert",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "ESSIQ AB",
             "company": "Tetra Pak",
             "companyLogo": "/assets/logos/tetrapak.jpg",
             "link": "https://www.tetrapak.com/",
@@ -108,14 +116,16 @@
             "current": false,
             "startDate": "2019-01-01",
             "endDate": "2019-12-30",
-            "description": "Developing current Manufacturing Execution System (MES) for running plants in the area of Processing and Packaging.\n\nModular solution with backend services written in C#/.NET. React for frontend. Tools in C# and WPF.\n\nBeing part of a fresh and diverse team. In close collaboration with other individuals and teams both on site and in other places around the world.\n\nInitiative to make refactoring in project structure in order to facilitate cross-team development.\n\nScaled Agile Framework (SAFe)\n\nFor ESSIQ.",
+            "description": "Developing current Manufacturing Execution System (MES) for running plants in the area of Processing and Packaging.\n\nI worked on a modular solution with backend services and web frontend.\n\nBeing part of a fresh and diverse team. In close collaboration with other individuals and teams both on site and in other places around the world.\n\nInitiative to make refactoring in project structure in order to facilitate cross-team development.",
             "skills": [
-                ".NET Framework", "Microsoft SQL Server", "Service-Oriented Architecture (SOA)", "Windows Presentation Foundation (WPF)", "Agile Methodologies", "Software Development", ".NET", "C#", "JavaScript", "TypeScript", "HTML", "Web Development", "Git", "Cascading Style Sheets (CSS)", "SQL", "ASP.NET", "React", "Back-End Web Development", "ASP.NET Web API", "Full-Stack Development", "Front-End Development"
+                ".NET", "C#", "ASP.NET", "Windows Presentation Foundation (WPF)", "JavaScript", "TypeScript",  "React", "Full-Stack Development", "Scaled Agile Framework (SAFe)"
             ]
         },
         {
             "title": "Software Engineer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "ESSIQ AB",
             "company": "AXIS Communications",
             "companyLogo": "/assets/logos/axis.jpg",
             "link": "https://www.axis.com/",
@@ -123,14 +133,16 @@
             "current": false,
             "startDate": "2018-04-01",
             "endDate": "2018-11-30",
-            "description": "Developing Video Management Software (VMS) targeting small businesses.\n\nFor ESSIQ.",
+            "description": "Developing Video Management Software (VMS) targeting small businesses.",
             "skills": [
-                ".NET Framework", "Windows Presentation Foundation (WPF)", "Agile Methodologies", "Software Development", ".NET", "C#", "Git"
+                ".NET", "C#", "Windows Presentation Foundation (WPF)"
             ]
         },
         {
             "title": "Web Developer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Tedsys AB",
             "company": "AXIS Communications",
             "companyLogo": "/assets/logos/axis.jpg",
             "link": "https://www.axis.com/",
@@ -138,9 +150,9 @@
             "current": false,
             "startDate": "2017-05-01",
             "endDate": "2018-04-01",
-            "description": "Building UX for Audio and Access Control products, as part of the New Business (NB) division.\n\nFrontend development mainly in JavaScript (ES2015/2016) and React. Also Backbone and Ractive.\n\nAgile product development. Working closely with backend-developers and testers.\n\nConfiguration experience (UI) for the then new Axis A8207-VE MkII Network Video Door Station.\n\nFor Tedsys.",
+            "description": "Building UX for Audio and Access Control products, as part of the New Business (NB) division.\n\nFrontend development mainly in JavaScript (ES2015/2016) and React. Also Backbone and Ractive.\n\nAgile product development. Working closely with backend-developers and testers.\n\nConfiguration experience (UI) for the then new Axis A8207-VE MkII Network Video Door Station.",
             "skills": [
-                "Agile Methodologies", "Software Development", "JavaScript", "TypeScript", "HTML", "Web Development", "Git", "Linux", "Cascading Style Sheets (CSS)", "React", "Front-End Development", "User Experience (UX)"
+                "JavaScript", "TypeScript", "Web Development", "React", "Front-End Development"
             ]
         },
         {
@@ -157,8 +169,10 @@
             "skills": ["Software Development"]
         },
         {
-            "title": "Software Developer Consultant",
+            "title": "Software Developer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Tedsys AB",
             "company": "Skanska AB",
             "companyLogo": "/assets/logos/skanska.jpg",
             "link": "https://www.skanska.com/",
@@ -166,14 +180,16 @@
             "current": false,
             "startDate": "2017-02-01",
             "endDate": "2017-05-01",
-            "description": "Search integration for global enterprise intranet based on the .NET platform.\n\nASP.NET and JavaScript/JQuery\n\nFor Tedsys, through Sigma Society.",
+            "description": "I developed the visual part of the search integration for global enterprise intranet\n\nFor Tedsys, through Sigma Society.",
             "skills": [
-                " .NET Framework", "Software Development", ".NET", "C#", "JavaScript", "Web Development", "Cascading Style Sheets (CSS)", "jQuery", "ASP.NET", "Front-End Development"
+                ".NET", "C#", "JavaScript", "Web Development", "ASP.NET", "Front-End Development"
             ]
         },
         {
             "title": "Software Engineer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Tedsys AB",
             "company": "CellaVision",
             "companyLogo": "/assets/logos/cellavision.jpg",
             "link": "https://www.cellavision.com/",
@@ -181,14 +197,16 @@
             "current": false,
             "startDate": "2016-08-01",
             "endDate": "2017-02-01",
-            "description": "Developing medical system for microscopic analysis in the field of haematology.\n\nWorking on client software used when performing blood analysis - written in C#/.NET, WCF, C++/CLR and MFC.\n\nWeb app for training haematologists - in Silverlight.\n\nFor Tedsys.",
+            "description": "Developing medical system for microscopic analysis in the field of haematology.\n\nWorking on client software used when performing blood analysis,\n\nWeb app for training haematologists.",
             "skills": [
-                ".NET Framework", "Windows Presentation Foundation (WPF)", "Software Development", ".NET", "C#", "TypeScript", "C++", "HTML", "Web Development"
+                ".NET", "C#", "Windows Presentation Foundation (WPF)", "TypeScript", "C++", "Web Development"
             ]
         },
         {
             "title": "Software Engineer",
             "employmentType": "Contract",
+            "consultant": true,
+            "for": "Tedsys AB",
             "company": "BRA - Braathens Regional Airlines",
             "companyLogo": "/assets/logos/bra.jpg",
             "link": "https://www.braflyg.se/",
@@ -196,9 +214,9 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2016-07-01",
-            "description": "Work on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.\n\nFor Tedsys.",
+            "description": "Work on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.",
             "skills": [
-                ".NET Framework", "Microsoft SQL Server", "Software Development", ".NET", "C#", "JavaScript", "HTML", "Web Development", "ASP.NET MVC", "Cascading Style Sheets (CSS)", "ASP.NET", "Front-End Development"
+                ".NET", "C#", "JavaScript", "HTML", "Web Development", "ASP.NET", "Front-End Development"
             ]
         },
         {
@@ -211,9 +229,9 @@
             "current": false,
             "startDate": "2014-08-01",
             "endDate": "2016-03-01",
-            "description": "Working in the Dev Department - Supported the company´s business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.\n\n.Technologies mainly used: NET, C#, WPF, Web, PHP, JavaScript, TypeScript, NodeJS, C++",
+            "description": "Working in the Dev Department - Supported the company´s business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.",
             "skills": [
-                ".NET Framework", "Microsoft SQL Server", "Service-Oriented Architecture (SOA)", "PHP", "Windows Presentation Foundation (WPF)", "Software Development", ".NET", "C#", "JavaScript", "Node.js", "C++", "HTML", "Web Development", "MySQL", "Git", "ASP.NET MVC", "Linux", "Cascading Style Sheets (CSS)", "SQL", "KnockoutJS", "jQuery", "ASP.NET", "Entity Framework", "Back-End Web Development", "Full-Stack Development", "Front-End Development"
+                ".NET", "C#", "Windows Presentation Foundation (WPF)", "PHP",  "JavaScript", "Node.js", "C++", "MySQL", "ASP.NET MVC", "KnockoutJS", "jQuery", "ASP.NET", "Full-Stack Development"
             ]
         },
         {
@@ -226,9 +244,9 @@
             "current": false,
             "startDate": "2014-01-01",
             "endDate": "2014-08-01",
-            "description": "Developed Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.\n\n.NET, C#, WPF, Internet of Things (IoT)",
+            "description": "Developed Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.",
             "skills": [
-                ".NET Framework", "Windows Presentation Foundation (WPF)", "Software Development", ".NET", "C#", "JavaScript", "HTML", "Web Development", "Git", "ASP.NET MVC", "Cascading Style Sheets (CSS)", "SQL", "KnockoutJS", "ASP.NET", "Back-End Web Development", "Full-Stack Development", "Front-End Development"
+                ".NET", "C#", "Windows Presentation Foundation (WPF)"
             ]
         },
         {
@@ -243,7 +261,7 @@
             "endDate": "2012-08-01",
             "description": "Developed smartphone apps and working a bit on web portal. (Continuation of student internship)",
             "skills": [
-                "Software Development", "JavaScript", "HTML", "Web Development", "Git"
+                "Web Development", "JavaScript" 
             ]
         },
         {
@@ -258,7 +276,7 @@
             "endDate": "2012-06-01",
             "description": "Student project - Developed smartphones app using HTML/JavaScript and Windows Phone.",
             "skills": [
-                "Software Development", "JavaScript", "HTML", "Web Development", "Git", "Window Phone"
+                "Web Development", "JavaScript", "Window Phone"
             ]
         },
         {
@@ -273,7 +291,7 @@
             "endDate": "2012-01-01",
             "description": "Developed proof-of-concept system for healthcare. Web development.",
             "skills": [
-                "Software Development", "JavaScript", "HTML", "Web Development"
+                "Web Development", "JavaScript", "HTML"
             ]
         }
     ],

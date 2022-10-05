@@ -137,18 +137,6 @@ article img:not(.cover).left {
     --font2: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-@media print {
-
-    body,
-    .post * {
-        display: none;
-    }
-
-    body .post .printarea {
-        display: block;
-    }
-}
-
 @media only screen and (max-width: 768px) {
 
     article p+h2,

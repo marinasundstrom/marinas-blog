@@ -2,57 +2,76 @@
 @inject NavigationManager NavigationManager
 
 <header>
-    <h1 class="post-title">
-        @if(Slug is not null) 
+        @if(Smaller)
         {
-            <a href="/blog/@Slug">@Title</a>
+            <h2 class="post-title">
+                @if(Slug is not null) 
+                {
+                    <a href="/blog/@Slug">@Title</a>
+                }
+                else 
+                {
+                    @Title
+                }
+            </h2>
         }
-        else 
+        else
         {
-            @Title
+            <h1 class="post-title">
+                @if(Slug is not null) 
+                {
+                    <a href="/blog/@Slug">@Title</a>
+                }
+                else 
+                {
+                    @Title
+                }
+            </h1>
         }
-    </h1>
+
 
     @if (Subtitle is not null)
     {
         <h2 class="post-subtitle">@Subtitle</h2>
     }
-    <div class="post-line"></div>
 
-    <div class="post-info">
+    <div class="mt-2 mt-md-3">
         <div class="d-flex justify-content-between">
-            <span class="mb-2 text-muted">
-                @if (Author is not null)
+             <span>
+                <small class="mb-2 text-muted">
+                    @if (Author is not null)
+                    {
+                        @Author <text> • </text>
+                    }
+                    @if (Published is not null)
+                    {
+                        <time datetime="@Published?.ToString("yyyy-MM-dd")">@Published?.ToString("d MMM yyyy")</time>
+                    }
+                    @if (ShowEstimatedTime && EstimatedTime is not null)
+                    {
+                        <text> • </text>
+                        <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
+                    }
+                </small>
+           
+                @if (Tags is not null)
                 {
-                    @Author <text> • </text>
-                }
-                @if (Published is not null)
-                {
-                    <time datetime="@Published?.ToString("yyyy-MM-dd")">@Published?.ToString("d MMMM yyyy")</time>
-                }
-                @if (ShowEstimatedTime && EstimatedTime is not null)
-                {
-                    <text> • </text>
-                    <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
+                    <small> • </small>
+                    @foreach (var tag in Tags)
+                    {
+                        <a class="badge rounded-pill text-bg-light me-1 mb-1 text-decoration-none"
+                            href="/blog/tags/@Uri.EscapeDataString(tag)">
+                            @tag
+                        </a>
+                    }
                 }
             </span>
+            
             @if (ShowCommentCount)
             {
                 <div>
                     <CommentCount Url="@NavigationManager.Uri" />
                 </div>
-            }
-        </div>
-        <div class="mt-2">
-            @if (Tags is not null)
-            {
-                @foreach (var tag in Tags)
-                {
-                    <a class="badge rounded-pill bg-secondary me-1 mb-1 text-decoration-none"
-                href="/blog/tags/@Uri.EscapeDataString(tag)">
-                        @tag
-                    </a>
-                }
             }
         </div>
     </div>
@@ -70,6 +89,8 @@
     [Parameter] [EditorRequired] public DateTime? Published { get; set; }
 
     [Parameter] public string[] Tags { get; set; } = null!;
+
+    [Parameter] public bool Smaller { get; set; }
 
     [Parameter] public TimeSpan? EstimatedTime { get; set; }
 

@@ -14,7 +14,7 @@ namespace PersonalSite
     {
         public static string Humanize(this DateTime startDate, DateTime? endDate)
         {
-            return $"{startDate.ToString("MMM yyyy")} - {(endDate == null ? "Present" : endDate.GetValueOrDefault().ToString("MMM yyyy"))}"; 
+            return $"{startDate.ToString("MMM yyyy", CultureInfo.InvariantCulture)} - {(endDate == null ? "Present" : endDate.GetValueOrDefault().ToString("MMM yyyy", CultureInfo.InvariantCulture))}"; 
         }
 
         public static string Humanize2(this DateTime startDate, DateTime? endDate)

@@ -11,3 +11,9 @@ h2 {
   .post-title a:hover {
     text-decoration: underline !important;
   }
+
+  .text-bg-light {
+    color: #767676 !important;
+    font-weight: normal;
+    background-color: #e9e9e9 !important;
+  }

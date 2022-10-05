@@ -15,8 +15,13 @@
             </div>
 
             <div class="flex-grow-1">
-                <div class="mb-4">
-                    <h3 class="mt-3">@experience.Title</h3>
+                <div class="mb-4" style="margin-top: 34px !important;">
+                    <h3 class="mt-3">@experience.Title
+                        @if(experience.Consultant) 
+                        {
+                            <span> Consultant</span>
+                        }
+                    </h3>
 
                     <ExperienceView Model="@Foo(experience, false)" />
                 </div>
@@ -35,9 +40,9 @@
             </div>
 
             <div class="flex-grow-1">
-                <h3 class="mt-3">@firstExperience.Company</h3>
+                <h3 style="margin-top: 32px !important;">@firstExperience.Company</h3>
 
-                <p class="text-muted meta mb-5">
+                <p class="text-muted mb-5">
                     @firstExperience.GetStartDate().Humanize2(lastExperience.GetEndDate())</p>
 
                 <ol class="timeline mt-5">
@@ -47,7 +52,12 @@
                     {
                         <li>
                             <div class="mb-5 pt-1">
-                                <h4 style="margin-top: -6px !important;">@experience.Title</h4>
+                                <h4 style="margin-top: -6px !important;">@experience.Title
+                                    @if(experience.Consultant) 
+                                    {
+                                        <span> Consultant</span>
+                                    }
+                                </h4>
 
                                 <ExperienceView Model="@Foo(experience, true)" />
                             </div>

@@ -39,12 +39,12 @@ else
 
                 @if(post.Image is not null) 
                 {
-                    <img src="@post.Image"  class="cover my-2" style="max-height: 280px;width: 100%;object-fit: cover;" />
+                    <img src="@post.Image"  class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" />
                 }
 
             </div>
 
-            <div class="inner container">
+            <div class="mt-4 inner container">
                 <MarkdownView Content="@post.Content" />
 
                 @if (isBlog)

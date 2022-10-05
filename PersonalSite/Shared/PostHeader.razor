@@ -56,10 +56,10 @@
            
                 @if (Tags is not null)
                 {
-                    <small> • </small>
+                    <small class="text-muted"> • </small>
                     @foreach (var tag in Tags)
                     {
-                        <a class="badge rounded-pill text-bg-light me-1 mb-1 text-decoration-none"
+                        <a class="badge rounded-pill tag me-1 mb-1 text-decoration-none"
                             href="/blog/tags/@Uri.EscapeDataString(tag)">
                             @tag
                         </a>

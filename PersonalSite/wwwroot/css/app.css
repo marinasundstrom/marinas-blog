@@ -211,7 +211,20 @@ header.main {
 }
 
 .text-muted {
-  color: #7e878f!important;
+  color: #7e878f !important;
+}
+
+.badge.tag {
+  background-color: rgb(231 231 231);
+  color: #4b4b4b;
+  font-weight: normal;
+}
+
+.badge.comment-badge {
+  background-color: rgb(190, 190, 190) !important;
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+  font-size: 15px;
 }
 
 @media print {

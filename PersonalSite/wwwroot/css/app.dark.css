@@ -30,4 +30,16 @@
     .text-muted {
         color: #898d91!important;
     }
+
+    .badge.tag {
+        background-color: rgb(82 82 82) !important;
+        color: #d3d3d3 !important;
+        font-weight: normal !important;
+    } 
+
+    .badge.comment-badge 
+    {
+        background-color: rgb(190, 190, 190) !important;
+        color: #46464D !important;
+    }
   }

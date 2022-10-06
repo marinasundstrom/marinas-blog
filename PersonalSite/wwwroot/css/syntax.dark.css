@@ -6,23 +6,23 @@
         background-color: #242424;
     }
 
-    code[class*='language-c#'] .hljs-ln-n {
+    .hljs-ln-n {
         padding-right: 20px;
     }
 
-    code[class*='language-c#'] .hljs-keyword, .hljs-built_in {
+    .hljs-keyword, .hljs-built_in {
         color: #8282be !important;
     }
 
-    code[class*='language-c#'] .hljs-params {
+    .hljs-params {
         color: #8282be !important;
     }
 
-    code[class*='language-c#'] .hljs-class .hljs-title {
+    .hljs-class .hljs-title {
         color: #21b6aa !important;
     }
 
-    code[class*='language-c#'] .hljs-function .hljs-title, .hljs-title.function_ {
+    .hljs-function .hljs-title, .hljs-title.function_ {
         color: #d4f489 !important;
     }
   }

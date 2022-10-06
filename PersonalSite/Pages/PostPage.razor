@@ -39,7 +39,11 @@ else
 
                 @if(post.Image is not null) 
                 {
-                    <img src="@post.Image"  class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" />
+                    <img src="@post.Image" alt="@post.ImageAlt"  class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" />
+                    @if(post.ImageAlt is not null) 
+                    {
+                        <small class="text-muted">@post.ImageAlt@if(post.ImageCredit is not null) { <span> • By @post.ImageCredit</span> }</small>
+                    }
                 }
 
             </div>
@@ -131,6 +135,8 @@ else
                 Author = frontmatter.Author,
                 Published = frontmatter.Published,
                 Image = frontmatter.Image,
+                ImageAlt = frontmatter.ImageAlt,
+                ImageCredit = frontmatter.ImageCreditName,
                 Tags = frontmatter.Tags,
                 Content = str
             };

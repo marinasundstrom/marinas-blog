@@ -6,52 +6,33 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
 
-<PageTitle>Résumé - Marina Sundström</PageTitle>
+<PageTitle>Resumé - Marina Sundström</PageTitle>
 
 <div class="row">
     <article class="sections inner">
 
-        <h1>Résumé</h1>
+        <h1>Resumé</h1>
 
-        <section class="text-content pt-1 pe-4 mb-5">
-
-            <h2 id="objective" class="mb-2 mt-4">Objective</h2>
-
-            <div class="row">
-
-                <div class="pe-4">
-
-                    <p>I am a Software Developer with interest in Software design and the Development process.
-                    </p>
-
-                    <p>To me, developing software is not just about programming, but understanding both the
-                        domain and
-                        the people we
-                        are developing for, and their experience.</p>
-
-                    <p>I have @(DateTime.Now.Year - 2014) years of professional experience in Software development - Desktop and Web
-                        (Frontend &
-                        Backend). I
-                        am good at C#/.NET. I have been building apps with WPF and ASP.NET Core & Blazor.</p>
-
-                    <p>Other languages that I know well are JavaScript/Typescript. I have been writing React
-                        apps
-                        professionally. I
-                        also have basic database skills.</p>
-
-                    <p>I am structured and Solution-oriented. I thrive in a creative environment, in which you
-                        can be
-                        yourself,
-                        where you can freely express your individuality. That is where we can grow together.</p>
-
-                </div>
-
-            </div>
-
+        @if(!loaded) 
+        {
+            <span>Loading...</span>
+        }
+        else 
+        {
+        <section class="mb-5">
+            <PersonalSite.Markdown.MarkdownView Content="@objectiveContent" />
         </section>
 
         <section>
-            <h2 id="experience" class="pb-4 pt-4 mt-4">Experience</h2>
+        
+        <div class="d-flex pb-4 pt-4 mt-4">
+            <div class="flex-grow-1">
+                <h2 id="experience" class="pt-0 mt-0">Experience</h2>
+            </div>
+            <div>
+                <a class="btn btn-sm btn-outline-secondary" href="/pages/resume.json" target="_blank"><i class="oi oi-data-transfer-download"></i><span> JSON</span></a>
+            </div>
+        </div>
 
             @if (resume is null)
             {
@@ -119,7 +100,14 @@
 
         <section class="mt-4 mb-4" style="page-break-inside: avoid;">
 
-            <h1 id="skills" class="pb-2">Skills</h1>
+             <div class="d-flex pb-2">
+                <div class="flex-grow-1">
+                    <h2 id="skills" class="pt-0 mt-0">Skills</h2>
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-outline-secondary" href="/pages/skills.json" target="_blank"><i class="oi oi-data-transfer-download"></i><span> JSON</span></a>
+                </div>
+            </div>
 
             @if (skillAreas is null)
             {
@@ -161,21 +149,34 @@
             }
 
         </section>
-
+        }
     </article>
 </div>
 
 @code {
+    bool loaded = false;
     Resume? resume;
     IDictionary<string, Dictionary<string, SkillInfo>>? skillAreas;
+    string? objectiveContent;
 
     protected override async Task OnInitializedAsync()
     {
-        var json = await Http.GetStringAsync("/pages/resume.json");
-        resume = Resume.FromJson(json);
+        await Task.WhenAll(
+            Task.Run(async () => {
+                objectiveContent = await Http.GetStringAsync("/pages/resume.md");
+            }),
 
-        json = await Http.GetStringAsync("/pages/skills.json");
-        skillAreas = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, SkillInfo>>>(json)!;
+            Task.Run(async () => {
+                var json = await Http.GetStringAsync("/pages/resume.json");
+                resume = Resume.FromJson(json);
+            }),
+
+            Task.Run(async () => {
+                var json = await Http.GetStringAsync("/pages/skills.json");
+                skillAreas = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, SkillInfo>>>(json)!;
+            }));
+
+        loaded = true;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

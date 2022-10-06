@@ -12,7 +12,7 @@
             "current": false,
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
-            "description": "Digitalizing housing cooperative business.\nFocus on backend.",
+            "description": "Backend developer in a team developing a service for handling the process of transferring apartments to new occupants.",
             "skills": [ ".NET", "C#", "Web Development", "ASP.NET Core", "Microservices" ]
         },
         {
@@ -41,7 +41,7 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "Developing Line of Business (LOB) app for handling insurance claims.",
+            "description": "Working on system for handling insurance claim requests.",
             "skills": [
                 ".NET", "C#", "Windows Presentation Foundation (WPF)", "Back-End Development"
             ]
@@ -69,7 +69,7 @@
             "current": false,
             "startDate": "2020-05-01",
             "endDate": "2021-09-20",
-            "description": "Developing a full CRM and e-Commerce solution from ground up in a customer-focused business - backend and frontend.\n\nKnowledge earned in the domains of marketing, invoicing, and accounting. Responsible for Software Design and Architecture.\n\nOne of our customers was a company providing cleaning services.\n\nMaking proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
+            "description": "Full-stack developer building an E-commerce solution from ground up.\n\nOne of our customers was a company providing cleaning services.\n\nBuilt proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
             "skills": [
                 ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
@@ -86,7 +86,7 @@
             "current": false,
             "startDate": "2020-02-01",
             "endDate": "2020-05-01",
-            "description": "Developing e-Commerce site for customer\n\nProject for insurance firm.",
+            "description": "Developing E-commerce site for small insurance firm.",
             "skills": [
                 ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Design", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
@@ -116,7 +116,7 @@
             "current": false,
             "startDate": "2019-01-01",
             "endDate": "2019-12-30",
-            "description": "Developing current Manufacturing Execution System (MES) for running plants in the area of Processing and Packaging.\n\nI worked on a modular solution with backend services and web frontend.\n\nBeing part of a fresh and diverse team. In close collaboration with other individuals and teams both on site and in other places around the world.\n\nInitiative to make refactoring in project structure in order to facilitate cross-team development.",
+            "description": "Worked on the software engine for running processing and packaging at customer's facilities.\n\nDrove initiative to make refactoring in project structure in order to facilitate cross-team development.",
             "skills": [
                 ".NET", "C#", "ASP.NET", "Windows Presentation Foundation (WPF)", "JavaScript", "TypeScript",  "React", "Full-Stack Development", "Scaled Agile Framework (SAFe)"
             ]
@@ -133,7 +133,7 @@
             "current": false,
             "startDate": "2018-04-01",
             "endDate": "2018-11-30",
-            "description": "Developing Video Management Software (VMS) targeting small businesses.",
+            "description": "Developing application for managing video feeds from security cameras targeting small and medium business customers.",
             "skills": [
                 ".NET", "C#", "Windows Presentation Foundation (WPF)"
             ]
@@ -150,7 +150,7 @@
             "current": false,
             "startDate": "2017-05-01",
             "endDate": "2018-04-01",
-            "description": "Building UX for Audio and Access Control products, as part of the New Business (NB) division.\n\nFrontend development mainly in JavaScript (ES2015/2016) and React. Also Backbone and Ractive.\n\nAgile product development. Working closely with backend-developers and testers.\n\nConfiguration experience (UI) for the then new Axis A8207-VE MkII Network Video Door Station.",
+            "description": "Developing the on-device web-based interface aimed at installers.\n\nLearning to build applications with React.",
             "skills": [
                 "JavaScript", "TypeScript", "Web Development", "React", "Front-End Development"
             ]

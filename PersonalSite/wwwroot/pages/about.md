@@ -1,5 +1,5 @@
 ---
-title: I'm Marina
+title: Hi! I'm Marina 😊
 image: /assets/nordellen.jpeg
 image_alt: "Nordellen from Avholmsberget, Bjuråker in Hälsingland, Sweden"
 image_credit_name: "myself in 2021"
@@ -9,6 +9,6 @@ I'm a Software developer who is based in [Malmö, Sweden](https://www.google.se/
 
 I have been coding since 2007. Since then, in my career and in my free time, I have been learning a lot about software engineering and all the different aspects involved in building software, not just the technical but also the organizational side.
 
-Some of my other interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails. 😊
+Some of my other interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.
 
 My favorite cocktail at the moment is [Margarita](https://en.wikipedia.org/wiki/Margarita). I enjoy it with two slices of Jalapeño which give it a spicy edge. Now and then, I also enjoy a classic ["Old Fashioned"](https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)).

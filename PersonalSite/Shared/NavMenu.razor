@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple px-3">
     <div class="container">
-    <a class="navbar-brand mr-auto mr-lg-0" href="#">
+        <NavLink class="navbar-brand mr-auto mr-lg-0" href="" Match=@NavLinkMatch.All>
         <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
             style="margin-right: 10px; height: 32px;" />
-        Marina Sundström</a>
+        Marina Sundström</NavLink>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" @onclick="ToggleOpen">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,11 +11,13 @@
     <div class="navbar-collapse offcanvas-collapse bg-purple @(isOpen ? "open" : null)" id="navbarsExampleDefault" @onclick="ToggleOpen">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <NavLink class="nav-link" href="about">About <span class="sr-only">(current)</span>
-                </NavLink>
+                <NavLink class="nav-link" href="about">About</NavLink>
             </li>
             <li class="nav-item">
                 <NavLink class="nav-link" href="blog">Blog</NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="presentation">Presentation</NavLink>
             </li>
             <li class="nav-item">
                 <NavLink class="nav-link" href="resume">Resumé</NavLink>

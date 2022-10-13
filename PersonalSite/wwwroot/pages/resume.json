@@ -13,7 +13,7 @@
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
             "description": "Backend developer in a team developing a service for handling the process of transferring apartments to new occupants.",
-            "skills": [ ".NET", "C#", "Web Development", "ASP.NET Core", "Microservices" ]
+            "skills": [ ".NET", "C#", "Web Development", "ASP.NET Core", "Microsoft Azure" , "Microservices" ]
         },
         {
             "title": "Software Developer",
@@ -41,7 +41,7 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "Working on system for handling insurance claim requests.",
+            "description": "Working on system for handling insurance claim requests.\n\nFocus on integrating Pet insurance.",
             "skills": [
                 ".NET", "C#", "Windows Presentation Foundation (WPF)", "Back-End Development"
             ]
@@ -69,7 +69,7 @@
             "current": false,
             "startDate": "2020-05-01",
             "endDate": "2021-09-20",
-            "description": "Full-stack developer building an E-commerce solution from ground up.\n\nOne of our customers was a company providing cleaning services.\n\nBuilt proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
+            "description": "Building an E-commerce solution from ground up.\n\nSome of my many responsibilities were the features for handling orders and generating invoices.\n\nOur primary customer was a company that provided cleaning services.\n\nBuilt proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
             "skills": [
                 ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
@@ -86,7 +86,7 @@
             "current": false,
             "startDate": "2020-02-01",
             "endDate": "2020-05-01",
-            "description": "Developing E-commerce site for small insurance firm.",
+            "description": "Developing E-commerce site for small insurance firm.\n\nIntegrating with BankId.",
             "skills": [
                 ".NET", "C#", "ASP.NET Core", "Blazor", "JavaScript", "TypeScript", "Web Development", "Software Design", "Software Architecture", "Full-Stack Development", "User Experience (UX)"
             ]
@@ -116,7 +116,7 @@
             "current": false,
             "startDate": "2019-01-01",
             "endDate": "2019-12-30",
-            "description": "Worked on the software engine for running processing and packaging at customer's facilities.\n\nDrove initiative to make refactoring in project structure in order to facilitate cross-team development.",
+            "description": "Developing the software engine for running processing and packaging at customer's facilities.\n\nLed initiative to make refactoring in project structure in order to facilitate cross-team development.",
             "skills": [
                 ".NET", "C#", "ASP.NET", "Windows Presentation Foundation (WPF)", "JavaScript", "TypeScript",  "React", "Full-Stack Development", "Scaled Agile Framework (SAFe)"
             ]
@@ -180,7 +180,7 @@
             "current": false,
             "startDate": "2017-02-01",
             "endDate": "2017-05-01",
-            "description": "I developed the visual part of the search integration for global enterprise intranet\n\nFor Tedsys, through Sigma Society.",
+            "description": "Developing the visual part of the search integration for the global enterprise intranet",
             "skills": [
                 ".NET", "C#", "JavaScript", "Web Development", "ASP.NET", "Front-End Development"
             ]
@@ -214,7 +214,7 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2016-07-01",
-            "description": "Work on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.",
+            "description": "Working on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.",
             "skills": [
                 ".NET", "C#", "JavaScript", "HTML", "Web Development", "ASP.NET", "Front-End Development"
             ]
@@ -229,7 +229,7 @@
             "current": false,
             "startDate": "2014-08-01",
             "endDate": "2016-03-01",
-            "description": "Working in the Dev Department - Supported the company´s business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.",
+            "description": "As part of the development team, I supported the company's business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.",
             "skills": [
                 ".NET", "C#", "Windows Presentation Foundation (WPF)", "PHP",  "JavaScript", "Node.js", "C++", "MySQL", "ASP.NET MVC", "KnockoutJS", "jQuery", "ASP.NET", "Full-Stack Development"
             ]
@@ -244,7 +244,7 @@
             "current": false,
             "startDate": "2014-01-01",
             "endDate": "2014-08-01",
-            "description": "Developed Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.",
+            "description": "Developing Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.",
             "skills": [
                 ".NET", "C#", "Windows Presentation Foundation (WPF)"
             ]
@@ -259,7 +259,7 @@
             "current": false,
             "startDate": "2012-06-01",
             "endDate": "2012-08-01",
-            "description": "Developed smartphone apps and working a bit on web portal. (Continuation of student internship)",
+            "description": "Developing smartphone apps and working a bit on web portal. (Continuation of student internship)",
             "skills": [
                 "Web Development", "JavaScript" 
             ]
@@ -289,7 +289,7 @@
             "current": false,
             "startDate": "2011-06-01",
             "endDate": "2012-01-01",
-            "description": "Developed proof-of-concept system for healthcare. Web development.",
+            "description": "Developing proof-of-concept system for healthcare. Web development.",
             "skills": [
                 "Web Development", "JavaScript", "HTML"
             ]

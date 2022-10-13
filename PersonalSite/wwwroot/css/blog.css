@@ -48,7 +48,7 @@ article h3,
 article h4 {
     box-sizing: border-box;
     display: block;
-    margin-bottom: -7.14px;
+    /* margin-bottom: -7.14px; */
     margin-left: 0;
     margin-right: 0;
     margin-top: 69.08px;
@@ -123,14 +123,19 @@ article img:not(.cover) {
 }
 
 article img:not(.cover).right {
-    margin: 20px 0 20px 20px;
+    margin: 0px 0 20px 20px;
     float: right;
 }
 
 article img:not(.cover).left {
-    margin: 20px 20px 20px 0;
+    margin: 0px 20px 20px 0;
     float: left;
 }
+
+article p+img:not(.cover), p+a img:not(.cover) {
+    padding-top: 20px;
+}
+
 
 :root {
     --font1: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;

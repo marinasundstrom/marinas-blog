@@ -15,4 +15,4 @@ My favorite cocktail at the moment is [Margarita](https://en.wikipedia.org/wiki/
 
 Btw. I'm a cat person.
 
-Here is a professional [presentation](/presentation).
+Here is a more extensive [presentation](/presentation) of myself.

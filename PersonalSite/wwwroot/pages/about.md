@@ -11,8 +11,6 @@ I have been doing programming since 2007. Ever since, in my career and in my fre
 
 Some of my interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.
 
-My favorite cocktail at the moment is [Margarita](https://en.wikipedia.org/wiki/Margarita). I enjoy it with two slices of Jalapeño which give it a spicy edge. Now and then, I also enjoy a classic ["Old Fashioned"](https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)).
-
 Btw. I'm a cat person.
 
 Here is a more extensive [presentation](/presentation) of myself.

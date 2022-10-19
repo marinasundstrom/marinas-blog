@@ -1,4 +1,4 @@
-﻿using Ganss.XSS;
+﻿using Ganss.Xss;
 using Markdig;
 using Markdig.Renderers;
 using Markdig.Syntax;

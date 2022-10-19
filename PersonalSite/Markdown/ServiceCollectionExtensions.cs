@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Ganss.XSS;
+using Ganss.Xss;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace PersonalSite.Markdown
@@ -18,7 +18,7 @@ namespace PersonalSite.Markdown
             {
                 // Configure sanitizer rules as needed here.
                 // For now, just use default rules + allow class attributes
-                var sanitizer = new Ganss.XSS.HtmlSanitizer();
+                var sanitizer = new Ganss.Xss.HtmlSanitizer();
                 sanitizer.AllowedAttributes.Add("class");
                 return sanitizer;
             });

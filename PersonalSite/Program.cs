@@ -7,23 +7,29 @@ using Blazor.Analytics;
 using System.Globalization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-builder.Services.AddMarkdownServices();
-builder.Services.AddScoped<Highlight>();
-
-builder.Services.AddScoped<DisqusService>();
-
-builder.Services.AddSingleton<DisqusConfig>(sp => new DisqusConfig() {
-                Site = "sundstrom-dev"
-            });
-
-builder.Services.AddGoogleAnalytics("G-8WNKYRD04R");
-
-CultureInfo.CurrentCulture = new CultureInfo("en-US");
-CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+ConfigureServices(builder.Services, builder.HostEnvironment.BaseAddress);
 
 await builder.Build().RunAsync();
+
+static void ConfigureServices(IServiceCollection services, string baseAddress)
+{
+    services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(baseAddress) });
+
+    services.AddMarkdownServices();
+    services.AddScoped<Highlight>();
+
+    services.AddScoped<DisqusService>();
+
+    services.AddSingleton<DisqusConfig>(sp => new DisqusConfig() {
+                    Site = "sundstrom-dev"
+                });
+
+    services.AddGoogleAnalytics("G-8WNKYRD04R");
+
+    CultureInfo.CurrentCulture = new CultureInfo("en-US");
+    CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+}

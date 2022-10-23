@@ -177,7 +177,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
     }
 
     article img:not(.cover)  {
-        max-width: 100%;
+        max-width: 100% !important;
         width: 100%;
         margin-left: 0 !important;
         margin-top: 24px !important;

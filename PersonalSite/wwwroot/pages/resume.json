@@ -1,6 +1,20 @@
 {
     "experience": [
         {
+            "title": "Senior Developer",
+            "employmentType": "Full-time",
+            "highlight": true,
+            "company": "CDON",
+            "companyLogo": "/assets/logos/cdon.jpg",
+            "link": "https://www.cdon.com/",
+            "location": "Malmö, Sweden",
+            "current": true,
+            "startDate": "2022-11-14",
+            "endDate": null,
+            "description": "",
+            "skills": [ ".NET", "C#", "ASP.NET Core", "Microsoft Azure" ]
+        },
+        {
             "title": "Software Developer",
             "employmentType": "Contract",
             "consultant": true,
@@ -18,7 +32,6 @@
         {
             "title": "Software Developer",
             "employmentType": "Full-time",
-            "highlight": true,
             "company": "Nexer Group",
             "companyLogo": "/assets/logos/nexer.jpg",
             "link": "https://www.nexergroup.com/",

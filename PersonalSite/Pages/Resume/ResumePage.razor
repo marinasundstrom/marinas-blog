@@ -34,16 +34,32 @@
             </div>
         </div>
 
+        <div class="mb-4">
+            <div class="form-check">
+                <InputCheckbox class="form-check-input" @bind-Value="IncludeAssignments">Show assignments</InputCheckbox>
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                    Show assignments as consultant
+                </label>
+            </div>
+        </div>
+
             @if (resume is null)
             {
                 <text>Loading experiences...</text>
             }
             else
             {
-                var groups = resume.Experience
+                IEnumerable<Experience> groups1 = resume.Experience
                    .OrderByDescending(x => x.Highlight)
-                   .ThenByDescending(x => Default(x.EndDate))
-                   .GroupBy(e => e.Company);
+                   .ThenByDescending(x => Default(x.EndDate));
+
+                if(!IncludeAssignments) 
+                {
+                    groups1 = groups1.Where(x => !x.Consultant);
+                }
+
+                var groups = 
+                   groups1.GroupBy(e => e.Company);
 
                 <div class="mt-4 mb-5" style="max-width: 820px">
                     <ExperienceList Groups="@groups.Take(5)" />
@@ -186,6 +202,8 @@
 
     [Parameter]
     public bool ShowMore { get; set; }
+
+    public bool IncludeAssignments { get; set; }
 
     void ToggleShowMore() 
     {

@@ -107,3 +107,84 @@ window.addEventListener('scroll', () => {
     });
 });
 */
+
+window.isDarkMode = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return true;
+    }
+    return false;
+};
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', async event => {
+    if(event.matches)
+        document.body.classList.add("dark");
+    else
+        document.body.classList.remove("dark");
+
+    await DotNet.invokeMethodAsync("PersonalSite", "OnDarkModeChanged", event.matches);
+});
+
+window.setColorScheme= (colorScheme) => {
+    if(colorScheme === "dark")
+        document.body.classList.add("dark", "text-white", "bg-dark");
+    else
+        document.body.classList.remove("dark", "text-white", "bg-dark");
+};
+
+function splashscreen() {
+    let preferredColorScheme = JSON.parse(window.localStorage["preferredColorScheme"] ?? "null");
+    let colorScheme = preferredColorScheme ?? (window.isDarkMode() ? 1 : 0);
+
+    if (colorScheme == 1) {
+        const elem = document.getElementById("splashscreen");
+        //elem.classList.toggle("dark");
+    }
+}
+
+splashscreen();
+
+function getScrollParent(element, includeHidden) {
+    var style = getComputedStyle(element);
+    var excludeStaticParent = style.position === "absolute";
+    var overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/;
+
+    if (style.position === "fixed") return document.body;
+    for (var parent = element; (parent = parent.parentElement);) {
+        style = getComputedStyle(parent);
+        if (excludeStaticParent && style.position === "static") {
+            continue;
+        }
+        if (overflowRegex.test(style.overflow + style.overflowY + style.overflowX)) return parent;
+    }
+
+    return document.body;
+}
+
+window.navbarInit = function() {
+    const navbar = document.getElementsByClassName("navbar").item(0);
+    const app = document.getElementsByTagName("h1").item(0);
+
+    let p = getScrollParent(app);
+
+    p.addEventListener("scroll", (ev2) => {
+        if (document.body.scrollTop > 20) {
+            navbar.classList.add("bg-brand");
+        }else{
+            navbar.classList.remove("bg-brand");
+        }
+    });
+
+    const el = document.querySelector(".bgimg-1");
+
+    el.addEventListener("mousemove", (e) => {
+        let source = e.target;
+
+        if(source.classList.contains("rounded-circle") || source.classList.contains("btn")) {
+            e.stopPropagation();
+            return;
+        }
+
+        el.style.backgroundPositionX = (-e.offsetX * 0.2) + "px";
+        //el.style.backgroundPositionY = (-e.offsetY * 0.2) + "px";
+    });
+};

@@ -1,22 +1,182 @@
-﻿@page "/"
+@page "/"
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@layout CoverLayout
+@implements IDisposable
 
 <PageTitle>Marina Sundström</PageTitle>
 
-@code {
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "p")]
-    public string Page { get; set; } = null!;
+<div class="bgimg-1">
 
+    <div style="opacity: 0.15;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-color: black;"></div>
+
+    <div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);">
+
+        <img class="rounded-circle pulse" style="height: 200px; margin-bottom: 25px; border: 5px solid var(--brand-color);" src="/images/profile.jpeg" />
+        <h1>Hi! I'm Marina 😊</h1>
+        <p class="lead">I'm a Software Developer.</p>
+        <p class="lead">
+            <a href="#who-am-i" class="mt-4 custom btn btn-lg btn-secondary fw-bold border-white bg-white">About me</a>
+        </p>
+
+    </div>
+
+</div>
+
+<article id="who-am-i" class="context" style="padding-top: 0 !important; text-align:center;padding:50px 15px;text-align: justify;">
+    <div class="container">
+        <div class="col mx-auto" style="max-width: 640px">
+              <h3 style="text-align:center;">Who am I?</h3>
+             <p>I'm a Software developer, based in <a target="_blank" href="https://www.google.se/maps/place/Malmö/@@55.5702455,12.9457618,12z/data=!3m1!4b1!4m5!3m4!1s0x465305a574c491ff:0xd3a905dfbd4888e5!8m2!3d55.604981!4d13.003822?hl=en">Malmö, Sweden</a>.</p>
+
+            <p>I have been doing programming since 2007. Ever since, in my career and in my free time, I have been learning a lot about software engineering and all the different aspects involved in building software, not just the technical but also the organizational side.</p>
+       
+            <p>I have mainly worked with C#/.NET, but also Web development using JavaScript and frameworks like React.</p>
+
+            <p>Some of my interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.</p>
+        </div>
+
+    </div>
+</article>
+
+@*
+
+<div class="bgimg-2">
+  <div class="caption">
+  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>
+  </div>
+</div>
+
+<div class="context" style="position:relative;">
+  <div style="text-align:center;padding:50px 15px;text-align: justify;">
+        <div class="container">
+            <div class="col mx-auto" style="max-width: 640px">
+                <h3 style="text-align:center;">Who am I?</h3>
+    <p>I'm a Software engineer who is based in Malmö, Sweden.</p>
+
+        <p>I have been doing programming since 2007. Ever since, in my career and in my free time, I have been learning a lot about software engineering and all the different aspects involved in building software, not just the technical but also the organizational side.</p>
+            </div>
+
+        </div>
+  </div>
+</div>
+
+<div class="bgimg-3">
+  <div class="caption">
+  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>
+  </div>
+</div>
+
+<div class="context" style="position:relative;">
+  <div style="text-align:center;padding:50px 15px;text-align: justify;">
+    <div class="container">
+        <div class="col-md-4">
+            Test
+        </div>
+
+        <div class="col-md-4">
+            Test
+        </div>
+
+        <div class="col-md-4">
+            Test
+        </div>
+    </div>
+  </div>
+</div>
+  *@
+
+<style>
+    body {
+        box-shadow: 0 2.5rem 0 0 rgba(0, 0, 0, .5) inset;
+    }
+
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        position: relative;
+        /* opacity: 0.65; */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .bgimg-1 {
+        background-image: url('/assets/nordellen.jpeg');
+        min-height: 100%;
+    }
+
+    .bgimg-2 {
+        background-image: url('/assets/oresundsbron2.jpg');
+        min-height: 400px;
+    }
+
+    .bgimg-3 {
+        background-image: url('/assets/manhattan.jpg');
+        min-height: 400px;
+    }
+
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+        opacity: 1;
+    }
+
+    .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+    }
+
+    h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @@media only screen and (max-device-width: 1024px) {
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+        }
+    }
+
+     .context p {
+        color: #777;
+    }
+</style>
+
+@code 
+{
     protected override void OnInitialized()
     {
-        if (Page is not null)
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    async void OnLocationChanged(object? sender, LocationChangedEventArgs e) 
+    {
+        await NavigationManager.NavigateToFragmentAsync(JS);
+    }
+
+    public void Dispose () 
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) 
+    {
+        if(firstRender) 
         {
-            NavigationManager.NavigateTo(Page);
-        }
-        else
-        {
-            NavigationManager.NavigateTo("/about");
+            await JS.InvokeVoidAsync("navbarInit");
+
+            await NavigationManager.NavigateToFragmentAsync(JS);
         }
     }
 }

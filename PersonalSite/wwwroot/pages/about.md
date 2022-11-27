@@ -13,6 +13,4 @@ I have mainly worked with C#/.NET, but also Web development using JavaScript and
 
 Some of my interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.
 
-Btw. I'm a cat person.
-
 Here is a more extensive [presentation](/presentation) of myself.

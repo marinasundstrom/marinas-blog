@@ -1,22 +1,19 @@
-@media (prefers-color-scheme: dark) {
+.dark article a {
+    color: #7fc1ee;
+}
 
-    article  a {
-        color: #7fc1ee;
-    }
+.dark article a:hover {
+    color: #4786af;
+}
 
-    article   a:hover {
-        color: #4786af;
-    }
+.dark article a.nav-link {
+    color: #7fc1ee;
+}
 
-    article a.nav-link {
-        color: #7fc1ee;
-    }
+.dark article a.nav-link:hover {
+    color: #4786af;
+}
 
-    article a.nav-link:hover {
-        color: #4786af;
-    }
-
-    header h2.post-subtitle {
-        color: #b7b7b7 !important;
-    }
-  }
+.dark header h2.post-subtitle {
+    color: #b7b7b7 !important;
+}

@@ -1,23 +1,35 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple px-3">
+@using PersonalSite.Theming;
+@inject IThemeManager ThemeManager
+
+@*
+<nav class="nav nav-masthead justify-content-center float-md-end">
+                <NavLink class="nav-link" href="about">About</NavLink>
+                <NavLink class="nav-link" href="blog">Blog</NavLink>
+                <NavLink class="nav-link" href="resume">Resumé</NavLink>
+                <NavLink class="nav-link" href="portfolio">Portfolio</NavLink>
+
+      </nav> *@
+
+<nav class="navbar navbar-expand-lg @(!Transparent ? "bg-brand" : null) navbar-dark fixed-top px-3">
     <div class="container">
         <NavLink class="navbar-brand mr-auto mr-lg-0" href="" Match=@NavLinkMatch.All>
         <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
-            style="margin-right: 10px; height: 32px;" />
+            style="margin-right: 10px; height: 32px; font-weight: 700" />
         Marina Sundström</NavLink>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" @onclick="ToggleOpen">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse offcanvas-collapse bg-purple @(isOpen ? "open" : null)" id="navbarsExampleDefault" @onclick="ToggleOpen">
+    <div class="navbar-collapse offcanvas-collapse @(isOpen ? "open" : null)" id="navbarsExampleDefault" @onclick="ToggleOpen">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <NavLink class="nav-link" href="about">About</NavLink>
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</NavLink>
+            </li>
+            <li class="nav-item active">
+                <NavLink class="nav-link" href="/#who-am-i">About me</NavLink>
             </li>
             <li class="nav-item">
                 <NavLink class="nav-link" href="blog">Blog</NavLink>
-            </li>
-            <li class="nav-item">
-                <NavLink class="nav-link" href="presentation">Presentation</NavLink>
             </li>
             <li class="nav-item">
                 <NavLink class="nav-link" href="resume">Resumé</NavLink>
@@ -54,6 +66,28 @@
                     <i class="fab fa-2x fa-linkedin"></i>
                 </a>
             </li>
+
+            <li class="nav-item vr"></li>
+
+            <li class="nav-item list-inline-item dropdown">
+                <a class="nav-link menu-link me-0 py-2 dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @switch(ThemeManager.CurrentColorScheme) 
+                    {
+                        case ColorScheme.Light:
+                            <i class="fas fa-2x fa-sun"></i>
+                            break;
+
+                        case ColorScheme.Dark:
+                            <i class="fas fa-2x fa-moon"></i>
+                            break;
+                    }
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Light)"><i class="fas fa-2x fa-sun"></i></a></li>
+                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Dark)"><i class="fas fa-2x fa-moon"></i></a></li>
+                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.UseSystemScheme()"><i class="fas fa-2x fa-cog"></i></a></li>
+                </ul>
+            </li>
         </ol>
     </div>
     </div>
@@ -63,4 +97,15 @@
     bool isOpen = false;
 
     void ToggleOpen() => isOpen = !isOpen;
+
+    protected override void OnInitialized()
+    {
+        ThemeManager.ColorSchemeChanged += (s, e) => {
+            StateHasChanged();
+        };
+    }
+
+    [Parameter]
+    public bool Transparent { get; set; }
 }
+

@@ -1,45 +1,49 @@
-@media (prefers-color-scheme: dark) {
-
-    body {
-        background-color: rgb(50, 57, 68);
+    body.dark {
+        background-color: #191b1f;
         color: rgb(237, 237, 241) !important;
     }
 
-    .page-item .page-link {
+    .dark .bg-brand {
+        background-color: black !important;
+    }
+
+    .dark .navbar {
+        background-color: black;
+    }
+
+    .dark .page-item .page-link {
         background-color: inherit;
         color: white;
     }
 
-    .page-item.active .page-link {
+    .dark .page-item.active .page-link {
         color: white;
     }
 
-    .page-item.disabled .page-link {
+    .dark .page-item.disabled .page-link {
         color: gray;
         background-color: rgb(35, 35, 35) !important;
     }
 
-    a.badge {
+    .dark a.badge {
         color: white;
     }
 
-    a.badge:hover {
+    .dark a.badge:hover {
         color: lightgray;
     }
 
-    .text-muted {
-        color: #898d91!important;
+    .dark .text-muted {
+        color: #898d91 !important;
     }
 
-    .badge.tag {
+    .dark .badge.tag {
         background-color: rgb(82 82 82) !important;
         color: #d3d3d3 !important;
         font-weight: normal !important;
-    } 
+    }
 
-    .badge.comment-badge 
-    {
+    .dark .badge.comment-badge {
         background-color: rgb(190, 190, 190) !important;
         color: #46464D !important;
     }
-  }

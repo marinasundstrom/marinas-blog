@@ -17,7 +17,7 @@ article .outer {
 
 article .inner,
 article.inner {
-    max-width: 840px;
+    max-width: 692px;
     /* 720px; 692px; */
     margin-right: auto;
     margin-left: auto;
@@ -81,12 +81,31 @@ article ol {
     margin-right: 0;
     margin-top: 20px;
     /* font-family: var(--font2); */
-    font-size: 20px;
+    font-size: 18px; /* 20px; */
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0.06px;
     line-height: 34px;
     word-break: break-word;
+}
+
+article.text p,
+article.text dl dt,
+article.text dl dd,
+article.text ul,
+article.text ol {
+    font-family: var(--font2);
+    font-size: 20px !important;
+}
+
+@media only screen and (max-width: 551.98px) {
+    article.text p,
+    article.text dl dt,
+    article.text dl dd,
+    article.text ul,
+    article.text ol {
+        font-size: 18px !important;
+    }
 }
 
 article dl dt {
@@ -142,6 +161,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
     --font2: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+
 @media only screen and (max-width: 768px) {
 
     article p+h2,
@@ -184,3 +204,4 @@ article p+img:not(.cover), p+a img:not(.cover) {
         margin-bottom: 20px !important;
     }
 }
+

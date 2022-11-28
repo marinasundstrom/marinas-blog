@@ -187,4 +187,11 @@ window.navbarInit = function() {
         el.style.backgroundPositionX = (-e.offsetX * 0.2) + "px";
         //el.style.backgroundPositionY = (-e.offsetY * 0.2) + "px";
     });
+
+    var observer = new IntersectionObserver(function(entries) {
+        if(entries[0].isIntersecting === true)
+            console.log('Element is fully visible in screen');
+    }, { threshold: [0.8] });
+    
+    observer.observe(document.querySelector(".context"));
 };

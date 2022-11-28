@@ -3,19 +3,16 @@
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column" style="padding-top: 110px !important;">
   <header class="mb-auto">
     <div>
-      @* <h3 class="float-md-start mb-0"><NavLink class="navbar-brand mr-auto mr-lg-0" href="" Match=@NavLinkMatch.All>
-        <img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile"
-            style="margin-right: 10px; height: 32px;" />
-        Marina Sundström</NavLink></h3> *@
       <NavMenu />
     </div>
   </header>
 
-  <main class="px-3">
+  <main>
     @Body
   </main>
 
-  <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@@mdo</a>.</p>
+  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center border-top">
+      <small class="text-muted">© @DateTime.Now.Year Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small>
   </footer>
 </div>
+

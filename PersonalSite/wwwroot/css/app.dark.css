@@ -2,14 +2,16 @@
         background-color: #191b1f;
         color: rgb(237, 237, 241) !important;
     }
-
+    
     .dark .bg-brand {
-        background-color: black !important;
+        background-color: #181818 !important;
     }
 
+    /*
     .dark .navbar {
-        background-color: black;
+        background-color: #181818;
     }
+    */
 
     .dark .page-item .page-link {
         background-color: inherit;

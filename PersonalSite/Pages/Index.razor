@@ -1,6 +1,8 @@
 @page "/"
+@using PersonalSite.Theming
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
+@inject IThemeManager ThemeManager
 @layout CoverLayout
 @implements IDisposable
 
@@ -8,11 +10,11 @@
 
 <div class="bgimg-1">
 
-    <div style="opacity: 0.15;
+    <div style="
     height: 100%;
     position: absolute;
     width: 100%;
-    background-color: black;"></div>
+    backdrop-filter: brightness(@BackdropBrightness);"></div>
 
     <div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);">
 
@@ -159,9 +161,34 @@
 
 @code 
 {
+    double BackdropBrightness = 0.9;
+
     protected override void OnInitialized()
     {
         NavigationManager.LocationChanged += OnLocationChanged;
+        ThemeManager.ColorSchemeChanged += OnColorSchemeChanged;
+
+        UpdateColor(ThemeManager.CurrentColorScheme);
+    }
+
+    private void OnColorSchemeChanged(object? sender, ColorSchemeChangedEventArgs eventArgs) 
+    {
+        var colorScheme = eventArgs.ColorScheme;
+        UpdateColor(colorScheme);
+
+        StateHasChanged();
+    }
+
+    private void UpdateColor(ColorScheme colorScheme) 
+    {
+        if(colorScheme == ColorScheme.Dark) 
+        {
+            BackdropBrightness = 0.3;
+        }
+        else 
+        {
+            BackdropBrightness = 0.8;
+        }
     }
 
     async void OnLocationChanged(object? sender, LocationChangedEventArgs e) 
@@ -172,6 +199,7 @@
     public void Dispose () 
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
+        ThemeManager.ColorSchemeChanged -= OnColorSchemeChanged;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender) 

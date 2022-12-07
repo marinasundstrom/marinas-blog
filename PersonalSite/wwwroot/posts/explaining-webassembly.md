@@ -8,7 +8,7 @@ There has been a lot of talk about WebAssembly lately. But what is it really?
 
 In this article we will have a look at the technology and the benefits it brings for developers.
 
-<img src="https://github.com/marinasundstrom/blog/blob/master/assets/wasm_logo.png?raw=true" alt="WebAssembly Logo" width="150"/>
+<img src="https://github.com/marinasundstrom/articles/blob/master/assets/wasm_logo.png?raw=true" alt="WebAssembly Logo" width="150"/>
 
 ## Background
 
@@ -50,7 +50,7 @@ WebAssembly lets developers leverage existing code on the Web, without having to
 
 Using Wasm as a compilation target, many companies have now been able to port their apps to the web and earned performance gains, compared to when using JavaScript and ASM.js as a compilation target.
 
-Some notable examples are [AutoCAD](https://www.infoq.com/presentations/autocad-webassembly) and SketchUp apps. Even eBay is [using WebAssembly](https://www.ebayinc.com/stories/blogs/tech/webassembly-at-ebay-a-real-world-use-case/).
+Some notable examples are [AutoCAD](https://www.infoq.com/presentations/autocad-webassembly) and SketchUp apps. Even eBay is [using WebAssembly](https://www.ebayinc.com/stories/articless/tech/webassembly-at-ebay-a-real-world-use-case/).
 
 You will find an extensive list of use cases [here](https://webassembly.org/docs/use-cases/).
 

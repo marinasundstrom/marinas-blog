@@ -13,7 +13,7 @@ I am a positive person who is enthusiastic about life and experiencing the world
 
 I thrive in an environment in which there is commitment and motivation to the task at hand, as well as openness to new ideas and perspectives. I do believe that it is important for everyone to feel included and to be heard.
 
-My career kicked off in 2014, when I was brought on a project [building an app for emergency response services](/blog/building-software-for-emergency-response). That later landed me a position as System developer. Since then I have worked both as a full-time employee and as a consultant for various companies in industries such as medical equipment, physical security, food processing, and housing.
+My career kicked off in 2014, when I was brought on a project [building an app for emergency response services](/articles/building-software-for-emergency-response). That later landed me a position as System developer. Since then I have worked both as a full-time employee and as a consultant for various companies in industries such as medical equipment, physical security, food processing, and housing.
 
 
 My competence lies mainly in development on the .NET platform - from building desktop apps and developing services as part of bigger systems. I have also been doing Web development in a number of projects that used JavaScript/TypeScript and React. Besides that, I have also used and explored a number of other technologies. I am eager to learn new things

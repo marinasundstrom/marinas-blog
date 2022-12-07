@@ -1,4 +1,4 @@
-@page "/blog/{*slug}"
+@page "/articles/{*slug}"
 @page "/{*slug}"
 @implements IDisposable
 @using Models
@@ -108,7 +108,7 @@ else
         {
             string url = null!;
 
-            isBlog = NavigationManager.Uri.ToLower().Contains("blog");
+            isBlog = NavigationManager.Uri.ToLower().Contains("articles");
 
             if (isBlog)
             {

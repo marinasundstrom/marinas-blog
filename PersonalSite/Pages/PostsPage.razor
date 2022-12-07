@@ -1,4 +1,4 @@
-@page "/blog"
+@page "/articles"
 @implements IDisposable
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
@@ -9,13 +9,13 @@
 
         @if (posts is null)
         {
-            <text>Loading posts</text>
+            <text>Loading articles</text>
         }
         else
         {
             <PageTitle>Posts - Marina Sundström</PageTitle>
 
-            <h1 class="post-title mb-4 mb-md-5">Posts</h1>
+            <h1 class="post-title mb-4 mb-md-5">Articles</h1>
 
             @foreach (var post in posts)
             {
@@ -28,7 +28,7 @@
                 </article>             
             }
 
-            <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/blog" />
+            <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="/articles" />
         }
     </div>
 

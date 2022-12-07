@@ -5,6 +5,7 @@
 @inject IThemeManager ThemeManager
 @layout CoverLayout
 @implements IDisposable
+@using System.Globalization
 
 <PageTitle>Marina Sundström</PageTitle>
 
@@ -14,7 +15,7 @@
     height: 100%;
     position: absolute;
     width: 100%;
-    backdrop-filter: brightness(@BackdropBrightness);"></div>
+    backdrop-filter: brightness(@BackdropBrightness.ToString(CultureInfo.InvariantCulture));"></div>
 
     <div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);">
 
@@ -40,6 +41,10 @@
             <p>I have mainly worked with C#/.NET, but also Web development using JavaScript and frameworks like React.</p>
 
             <p>Some of my interests are taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.</p>
+
+            <div class="d-flex justify-content-center">
+                <p><a class="btn btn-primary text-center mt-4" href="/presentation">Read more</a></p>
+            </div>
         </div>
 
     </div>

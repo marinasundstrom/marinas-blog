@@ -136,12 +136,14 @@ function splashscreen() {
     let colorScheme = preferredColorScheme ?? (window.isDarkMode() ? 1 : 0);
 
     if (colorScheme == 1) {
-        const elem = document.getElementById("splashscreen");
-        //elem.classList.toggle("dark");
+        const elem = document.body;
+        elem.classList.toggle("dark");
     }
 }
 
-splashscreen();
+document.addEventListener("DOMContentLoaded", () => {
+    splashscreen();
+});
 
 function getScrollParent(element, includeHidden) {
     var style = getComputedStyle(element);

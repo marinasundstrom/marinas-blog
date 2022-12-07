@@ -8,7 +8,7 @@ This is an introductory article on Blazor.
 
 Simply put: Blazor is a framework for client-side .NET web development.
 
-<img src="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_brand.png?raw=true" alt="Blazor Brand" width="150"/>
+<img src="https://github.com/marinasundstrom/articles/blob/master/assets/blazor_brand.png?raw=true" alt="Blazor Brand" width="150"/>
 
 ## History
 At NDC Oslo back in 2017, Steve Sanderson, of Microsoft, held a presentation titled ["Web Apps can’t really do *that*, can they?"](https://www.youtube.com/watch?v=MiLAE6HMr10&feature=youtu.be&t=31m45s) In this presentation he, among other things, demonstrated WebAssembly (Wasm), how it works, and the benefits it brings to web development. Later, he unveiled an experiment of his: a *web component framework* for .NET, called: Blazor. Sanderson then showed how to write a basic app in C# that run directly in the browser, thanks to WebAssembly.
@@ -17,7 +17,7 @@ That probably blew the minds of the people watching it.
 
  *Sidenote:* At the time, Sanderson was the one who oversaw the integration of SPA frameworks (React and Angular) in ASP.NET Core. Also, worth mentioning is that Sanderson previously had created another popular web framework for the web: [Knockout](https://knockoutjs.com/).
 
-The Blazor project was first hosted on Steve Sandersons own GitHub profile, back when it was based on a portable .NET runtime called DNA. That runtime was later  [replaced by the more mature Mono runtime](http://blog.stevensanderson.com/2017/11/05/blazor-on-mono/) that had had ambition to support WebAssembly.
+The Blazor project was first hosted on Steve Sandersons own GitHub profile, back when it was based on a portable .NET runtime called DNA. That runtime was later  [replaced by the more mature Mono runtime](http://articles.stevensanderson.com/2017/11/05/blazor-on-mono/) that had had ambition to support WebAssembly.
 
 Then the project moved to its own repository under the ASP.NET organization when it became an official Microsoft experiment. That was followed by shifting focus to the server-side model.
 
@@ -69,8 +69,8 @@ Blazor apps are built using the .NET CLI.
 
 This is what it looks like when running the app:
 
-<a href="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_counter.png?raw=true">
-    <img src="https://github.com/marinasundstrom/blog/blob/master/assets/blazor_counter.png?raw=true" alt="Counter Page" width="100%"/>
+<a href="https://github.com/marinasundstrom/articles/blob/master/assets/blazor_counter.png?raw=true">
+    <img src="https://github.com/marinasundstrom/articles/blob/master/assets/blazor_counter.png?raw=true" alt="Counter Page" width="100%"/>
 </a>
 
 The component can be instantiated from another component like so:
@@ -111,7 +111,7 @@ Under the hood, all rendering is implemented as calls to JavaScript code that ma
 
 In client-side Blazor all logic is executed in the browser. In the server-side models, on the other hand, Blazor sends and receives changes from the server. The browser part is a *thin* client.
 
-Here is Sanderson's [technical introduction to Blazor](http://blog.stevensanderson.com/2018/02/06/blazor-intro/).
+Here is Sanderson's [technical introduction to Blazor](http://articles.stevensanderson.com/2018/02/06/blazor-intro/).
 
 
 ## Client-side vs Server-side
@@ -164,7 +164,7 @@ Blazor is open source. It is part of the ASP.NET Core repository on GitHub. Ther
 
 ## Resources
 * [Blazor](https://www.blazor.net) website
-* [Blazor: a technical introduction](http://blog.stevensanderson.com/2018/02/06/blazor-intro/) - Steve Sanderson
+* [Blazor: a technical introduction](http://articles.stevensanderson.com/2018/02/06/blazor-intro/) - Steve Sanderson
 * VIDEO: ["Web Apps can’t really do *that*, can they?"](https://www.youtube.com/watch?v=MiLAE6HMr10&feature=youtu.be&t=31m45s) (NDC Oslo 2017)
 * VIDEO: [Full stack web development with ASP.NET Core 3.0 and Blazor - BRK3017](https://www.youtube.com/watch?v=y7LAbdoNBJA) (Build 2019)
 

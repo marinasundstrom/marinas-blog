@@ -29,7 +29,7 @@
                 <NavLink class="nav-link" href="/#who-am-i">About me</NavLink>
             </li>
             <li class="nav-item">
-                <NavLink class="nav-link" href="blog">Blog</NavLink>
+                <NavLink class="nav-link" href="articles">Articles</NavLink>
             </li>
             <li class="nav-item">
                 <NavLink class="nav-link" href="resume">Resumé</NavLink>
@@ -70,7 +70,7 @@
             <li class="nav-item vr"></li>
 
             <li class="nav-item list-inline-item dropdown">
-                <a class="nav-link menu-link me-0 py-2 dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link menu-link me-0 py-2 dropdown-toggle" @onclick:preventDefault @onclick:stopPropagation href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @switch(ThemeManager.CurrentColorScheme) 
                     {
                         case ColorScheme.Light:
@@ -83,9 +83,30 @@
                     }
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Light)"><i class="fas fa-2x fa-sun"></i></a></li>
-                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Dark)"><i class="fas fa-2x fa-moon"></i></a></li>
-                    <li><a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.UseSystemScheme()"><i class="fas fa-2x fa-cog"></i></a></li>
+                    <li>
+                        <a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Light)"><i class="fas fa-2x fa-sun"></i>
+                        @if(ThemeManager.PreferredColorScheme == ColorScheme.Light) 
+                        {
+                            <span class="ms-2 fs-5">•</span>
+                        }
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.SetPreferredColorScheme(ColorScheme.Dark)"><i class="fas fa-2x fa-moon"></i>
+                        @if(ThemeManager.PreferredColorScheme == ColorScheme.Dark) 
+                        {
+                            <span class="ms-2 fs-5">•</span>
+                        }
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" @onclick:preventDefault @onclick="() => ThemeManager.UseSystemScheme()"><i class="fas fa-2x fa-cog"></i>
+                        @if(ThemeManager.PreferredColorScheme is null) 
+                        {
+                            <span class="ms-2 fs-5">•</span>
+                        }
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ol>

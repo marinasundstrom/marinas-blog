@@ -1,4 +1,4 @@
-@page "/blog/tags/{tag}"
+@page "/articles/tags/{tag}"
 @using PersonalSite.Markdown
 @implements IDisposable
 @inject HttpClient Http
@@ -28,7 +28,7 @@
                 </article>        
             }
 
-        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="@($"/blog/tags/{Tag}")" />
+        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="@($"/articles/tags/{Tag}")" />
     }
 </div>
 

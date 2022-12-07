@@ -1,3 +1,4 @@
+@page "/blog"
 @page "/articles"
 @implements IDisposable
 @inject HttpClient Http
@@ -55,6 +56,13 @@
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
+        var uri = new Uri(NavigationManager.Uri);
+        if(uri.PathAndQuery.Contains("/blog")) 
+        {
+            var newUri = NavigationManager.Uri.Replace("/blog", "/articles");
+            NavigationManager.NavigateTo(newUri, replace: true);
+        }
+
         await LoadData();
 
         StateHasChanged();

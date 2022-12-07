@@ -1,4 +1,5 @@
 @page "/articles/{*slug}"
+@page "/blog/{*slug}"
 @page "/{*slug}"
 @implements IDisposable
 @using Models
@@ -89,6 +90,13 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        var uri = new Uri(NavigationManager.Uri);
+        if(uri.PathAndQuery.Contains("/blog")) 
+        {
+            var newUri = NavigationManager.Uri.Replace("/blog", "/articles");
+            NavigationManager.NavigateTo(newUri, replace: true);
+        }
+
         NavigationManager.LocationChanged += OnLocationChanged;
 
         await LoadData();
@@ -108,7 +116,7 @@ else
         {
             string url = null!;
 
-            isBlog = NavigationManager.Uri.ToLower().Contains("articles");
+            isBlog = NavigationManager.Uri.ToLower().Contains("articles") || NavigationManager.Uri.ToLower().Contains("blog");
 
             if (isBlog)
             {

@@ -21,7 +21,8 @@ Let us assume that you have an existing monolithic Service-oriented application 
 The goals that you have are:
 
 * You want to be able to change, version, and deploy individual parts of the software without interrupting the whole system.
-* You want to scale services horizontally, add load balancing, and to ensure fault tolerance in a production environment. * If one services is busy or goes down, you want a replica to step in.
+* You want to scale services horizontally, add load balancing, and to ensure fault tolerance in a production environment. 
+* If one services is busy or goes down, you want a replica to step in.
 
 This puts some requirements in the way that we build software. But it does not automatically imply microservices.
 

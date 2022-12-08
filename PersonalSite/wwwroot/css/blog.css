@@ -27,7 +27,7 @@ article a {
     text-decoration: none;
 }
 
-article a:hover {
+article a:hover:not(.btn) {
     text-decoration: underline;
 }
 
@@ -51,7 +51,7 @@ article h4 {
     /* margin-bottom: -7.14px; */
     margin-left: 0;
     margin-right: 0;
-    margin-top: 69.08px;
+    margin-top: 50.08px;
 
     font-style: normal;
     font-weight: 600;
@@ -114,20 +114,20 @@ article dl dt {
 }
 
 article p+p {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 article ul+p,
 ol+p {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 article *+pre {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 article p+ul {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 article ol>li,

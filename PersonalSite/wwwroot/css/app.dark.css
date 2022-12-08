@@ -7,6 +7,14 @@
         background-color: #181818 !important;
     }
 
+    .dark .btn.btn-outline-secondary {
+        color: #f3f3f3;
+    }
+
+    .dark .card {
+        background-color: #2b2e32;
+    }
+
     /*
     .dark .navbar {
         background-color: #181818;

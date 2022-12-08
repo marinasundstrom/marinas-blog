@@ -6,26 +6,11 @@
             "for": null,
             "startDate": "2021-11-01",
             "ongoing": true,
-            "description": "E-shop site with admin UI.\n\nContinuation of YourBrand",
-            "image": "/assets/yourbrand.png",
+            "description": "E-shop site with product catalog and checkout experience.",
+            "image": "/assets/eshop.png",
             "links": [
                 {
-                    "name": "Video 1",
-                    "type": "YouTube",
-                    "url": "https://youtu.be/NVqLKeuNO_w"
-                },
-                {
-                    "name": "Video 2",
-                    "type": "YouTube",
-                    "url": "https://youtu.be/rmg41zHW3Nw"
-                },
-                {
-                    "name": "Video 3",
-                    "type": "YouTube",
-                    "url": "https://youtu.be/nHbQ1a7WyyM"
-                },
-                {
-                    "name": "Video 4",
+                    "name": "Video",
                     "type": "YouTube",
                     "url": "https://youtu.be/eHalPncX5W0"
                 },

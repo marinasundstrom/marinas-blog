@@ -1,8 +1,8 @@
-.dark article a {
+.dark article a:not(.btn) {
     color: #7fc1ee;
 }
 
-.dark article a:hover {
+.dark article a:hover:not(.btn) {
     color: #4786af;
 }
 

@@ -19,12 +19,21 @@ body {
 
   overflow-x: hidden;
   /* Prevent scroll on narrow devices */
+
+  background-color: #fefefe;
 }
 
-body {
+:root {
   /* padding-top: 110px; */
 
   --brand-color: #6f42c1;
+}
+
+.card .card-text p {
+  font-size: 12pt !important;
+  margin-top: 25px;
+  line-height: 28px;
+  height: 12vh;
 }
 
 @media (max-width: 991.98px) {

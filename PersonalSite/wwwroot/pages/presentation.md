@@ -26,12 +26,12 @@ I am also active in the software development community on the Internet, where I 
 
 I am a picky coffee lover who likes to grind their own beans.
 
-I enjoy taking walks in beautiful nature, whether I have someone's company or I am alone. When I am on my own it is the time for me to reflect, to clear and focus my mind and energy. 
+I enjoy walks in beautiful nature, whether I have someone's company or I am alone. When I am on my own it is the time for me to reflect, to clear and focus my mind and energy. 
 
 Since way back, I enjoy listening to foreign music, learning the languages and cultures. I also travel when I get the opportunity. My main interest has been the Spanish, Italian, and Hindi/Urdu cultural spheres. I easily pick up the basics of languages. So when I meet native-speakers they often get surprised about how much I know about their cultures.
 
 Now and then, I go out in the country-side to spend some time with my family. I have two wonderful nieces, and a nephew whom I all love so much.
 
-During my last vacation, I got into making cocktails from being inspired by videos. Since then I have made and enjoyed a number of Sours and other kinds of drinks - also making them for others. 
+During my last vacation, I got into making cocktails from being inspired by videos. Since then I have made and enjoyed a number of [sour cocktails](https://en.wikipedia.org/wiki/Sour_(cocktail)) and other kinds of drinks - also making them for others. 
 
 My favorite cocktail at the moment is [Margarita](https://en.wikipedia.org/wiki/Margarita). I enjoy it with two slices of Jalapeño which give it a spicy edge. Now and then, I also enjoy a classic ["Old Fashioned"](https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)).

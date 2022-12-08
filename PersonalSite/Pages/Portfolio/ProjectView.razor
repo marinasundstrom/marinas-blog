@@ -1,5 +1,42 @@
 @using PersonalSite.Markdown
 
+<div class="col">
+                    <div class="card shadow">
+
+                        <a href="@Project.Image" target="_blank">
+                            <img class="bd-placeholder-img card-img-top mt-3" style="max-height: 200px; max-width: 100%; margin: auto; object-fit: contain;" src="@Project.Image" />
+                        </a>
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">@Project.Name</h5>
+                            <div class="card-text">
+                                <MarkdownView Content="@(Project.Description.Split('\n').First())" Truncate="true" />
+                            </div>                   
+                            <div class="d-flex justify-content-between align-items-center pt-4">
+                                <small></small>
+                                <div class="btn-group">
+                                    @foreach (var link in Project.Links)
+                                    {
+                                        string icon = "fab fa-link";
+                                        if (link.Type.Contains("YouTube"))
+                                        {
+                                            icon = "fab fa-youtube";
+                                        }
+                                        else if (link.Type.Contains("GitHub"))
+                                        {
+                                            icon = "fab fa-github";
+                                        }
+                                        <a class="btn btn-sm btn-outline-secondary mt-2 me-2" alt="@link.Name" href="@link.Url" target="_blank"><i
+                                            class="@icon fa-lg"></i></a>
+                                    }
+                                </div>
+                                @* <small class="text-muted">9 mins</small> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+@*
+
 <section class="row pt-3 mb-5">
     <div class="col-sm-12 col-md-4 text-center">
         <a href="@Project.Image" target="_blank">
@@ -127,7 +164,7 @@
         </div>
     </div>
 </section>
-
+*@
 
 @code {
 

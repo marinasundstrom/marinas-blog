@@ -25,7 +25,7 @@
 
             <div style="font-family: unset; font-family: var(--font1) !important;">
 
-        <section>
+        <section style="max-width: 920px">
         
         <div class="d-flex pb-4 pt-4 mt-4">
             <div class="flex-grow-1">
@@ -63,7 +63,7 @@
                 var groups = 
                    groups1.GroupBy(e => e.Company);
 
-                <div class="mt-4 mb-5" style="max-width: 820px">
+                <div class="mt-4 mb-5">
                     <ExperienceList Groups="@groups.Take(5)" />
 
                     @if(ShowMore) 
@@ -85,7 +85,7 @@
             }
         </section>
 
-        <section class="mt-4 mb-4">
+        <section class="mt-4 mb-4" style="max-width: 920px">
 
             @if (resume is null)
             {
@@ -97,27 +97,26 @@
 
                 @foreach (var education in resume.Education)
                 {
-                    <div class="d-flex">
-                         <div class="col-logo">
-                            <Logo Src="@education.Logo" Alt="@($"{education.School} logo")" Class="m-4 mt-2" Href="@education.Link" />
-                        </div>
-                        <div class="flex-grow-1">
-                            <EducationView Model="education" />
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="col-logo">
+                                    <Logo Src="@education.Logo" Alt="@($"{education.School} logo")" Class="ms-md-3 me-md-4" Href="@education.Link" />
+                                </div>
+                                <div class="flex-grow-1 me-md-4 pb-md-1">
+                                    <EducationView Model="education" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    @if(resume.Education.LastOrDefault() != education) 
-                    {
-                        <hr />
-                    }
                 }
             }
 
         </section>
 
-        <section class="mt-4 mb-4" style="page-break-inside: avoid;">
+        <section class="mt-4 mb-4" style="page-break-inside: avoid; max-width: 920px">
 
-             <div class="d-flex pb-2">
+             <div class="d-flex pt-4 pb-2 mt-4">
                 <div class="flex-grow-1">
                     <h2 id="skills" class="pt-0 mt-0">Skills</h2>
                 </div>
@@ -132,10 +131,13 @@
             }
             else
             {
-                            
+                                            
                 <div class="mb-5">
                     <small class="text-muted">Click on a skill to learn more.</small>
                 </div>
+
+                <div class="card shadow mb-4" style="page-break-inside: avoid;">
+            <div class="card-body p-md-4">
 
                 <dl class="skills grid-dl">
 
@@ -163,6 +165,9 @@
                     }
 
                 </dl>
+
+                </div>
+                </div>
             }
 
         </section>

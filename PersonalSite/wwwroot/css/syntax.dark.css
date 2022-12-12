@@ -1,8 +1,7 @@
     .dark code.hljs {
-        border: 0;
-        border-radius: 10px;
         color: #fafafa;
         background-color: #1e293b;
+        border: 0;
     }
 
     .dark .hljs-ln-n {

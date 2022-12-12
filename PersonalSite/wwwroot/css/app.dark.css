@@ -13,7 +13,7 @@
     }
 
     .dark .card {
-        background-color: #282634; /* #2b2e32; */
+        background-color: #1e293b !important; /* #2b2e32; */
     }
 
     /*
@@ -49,7 +49,7 @@
     }
 
     .dark .badge.tag {
-        background-color: rgb(82 82 82) !important;
+        background-color: #1e293b !important;
         color: #d3d3d3 !important;
         font-weight: normal !important;
     }

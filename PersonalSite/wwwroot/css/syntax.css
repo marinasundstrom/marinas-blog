@@ -4,13 +4,15 @@ pre {
 
 code.hljs {
     padding: 0rem;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(199 199 199 / 70%);
+    border-radius: 10px;
     overflow: auto;
 
     background-color: #f9f9f9;
-    border-radius: 3px;
     line-height: 1.4;
     margin: 0 0 1rem;
+
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
 
 .hljs-ln-n {

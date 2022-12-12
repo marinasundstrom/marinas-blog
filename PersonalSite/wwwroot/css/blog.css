@@ -17,7 +17,7 @@ article .outer {
 
 article .inner,
 article.inner {
-    max-width: 692px;
+    max-width: 720px;
     /* 720px; 692px; */
     margin-right: auto;
     margin-left: auto;
@@ -157,8 +157,8 @@ article p+img:not(.cover), p+a img:not(.cover) {
 
 
 :root {
-    --font1: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --font2: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font1: 'Open Sans', sans-serif;
+    --font2: 'Source Serif Pro', Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 

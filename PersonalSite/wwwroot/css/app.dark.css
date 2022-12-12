@@ -1,10 +1,11 @@
     body.dark {
-        background-color: #191b1f;
+        background-color: rgba(17, 24, 39, 1) !important;
         color: rgb(237, 237, 241) !important;
     }
     
     .dark .bg-brand {
-        background-color: #181818 !important;
+        background-color: #282634 !important;
+ 		border-bottom: 1px solid #323232;
     }
 
     .dark .btn.btn-outline-secondary {
@@ -12,7 +13,7 @@
     }
 
     .dark .card {
-        background-color: #2b2e32;
+        background-color: #282634; /* #2b2e32; */
     }
 
     /*

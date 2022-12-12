@@ -74,7 +74,7 @@ window.initHighlight = function () {
     for (var _i = 0, _a = Array.from(document.getElementsByTagName("code")); _i < _a.length; _i++) {
         var element = _a[_i];
         hljs.highlightBlock(element);
-        hljs.lineNumbersBlock(element);
+        //hljs.lineNumbersBlock(element);
     }
 };
 window.openInNewTab = function (href) {

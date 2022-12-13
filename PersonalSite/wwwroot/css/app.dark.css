@@ -49,9 +49,8 @@
     }
 
     .dark .badge.tag {
-        background-color: #1e293b !important;
-        color: #d3d3d3 !important;
-        font-weight: normal !important;
+        background-color: #596883 !important;
+        color: #ffffffab !important;
     }
 
     .dark .badge.comment-badge {

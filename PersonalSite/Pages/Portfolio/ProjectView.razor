@@ -9,7 +9,25 @@
                         <div class="card-body mt-2">
                             <h5 class="card-title">@Project.Name</h5>
                             <div class="card-text">
+                                <p class="text-muted mt-1 mb-0" style="height: auto;"> @if(Project.For is not null) { @Project.For } else { @Project.Type } &bullet; @if(Project.Ongoing) { <text>From </text> } @Project.StartDate?.ToString("MMM yyyy") @if(Project.EndDate is not null) { <text> - </text> @Project.EndDate?.ToString("MMM yyyy"); }</p>
                                 <MarkdownView Content="@(Project.Description.Split('\n').First())" Truncate="true" />
+
+                                <div style="height: 6vh">
+                                @if (Project.Skills != null)
+                                {
+                                    var skills = Project.Skills.Platforms
+                                        .Concat(Project.Skills.ProgrammingLanguages ?? Enumerable.Empty<string>())
+                                        .Concat(Project.Skills.Frameworks ?? Enumerable.Empty<string>())
+                                        .Concat(Project.Skills.Applications ?? Enumerable.Empty<string>())
+                                        .Concat(Project.Skills.Technologies ?? Enumerable.Empty<string>());
+
+                                        @foreach (var skill in skills)
+                                        {
+                                            <span class="badge rounded-pill tag me-1 mb-1 text-decoration-none">@skill</span>                        
+                                        }
+                                }                   
+                                </div>
+
                             </div>                   
                             <div class="d-flex justify-content-between align-items-center pt-4">
                                 <small></small>
@@ -24,6 +42,10 @@
                                         else if (link.Type.Contains("GitHub"))
                                         {
                                             icon = "fab fa-github";
+                                        }
+                                        else if (link.Type.Contains("Link"))
+                                        {
+                                            icon = "fas fa-link";
                                         }
                                         <a class="btn btn-sm btn-outline-secondary mt-2 me-2" alt="@link.Name" href="@link.Url" target="_blank"><i
                                             class="@icon fa-lg"></i></a>

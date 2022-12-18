@@ -6,7 +6,7 @@
             "for": null,
             "startDate": "2021-11-01",
             "ongoing": true,
-            "description": "E-shop site with product catalog and checkout experience.",
+            "description": "E-shop site with product catalog and checkout experience. Learning microservice patterns. Based on previous projects in \"YourBrand\".",
             "image": "/assets/eshop.png",
             "links": [
                 {
@@ -39,7 +39,7 @@
                 "technologies": [
                     "Microservices",
                     "Asynchronous messaging",
-                    "HTTP API"
+                    "Web API"
                 ]
             }
         },
@@ -47,8 +47,8 @@
             "name": "Commuter",
             "type": "Personal",
             "for": null,
-            "startDate": "2019-11-19",
-            "endDate": "2019-02-19",
+            "startDate": "2020-02-19",
+            "endDate": "2020-11-19",
             "ongoing": false,
             "description": "Conceptual commuter app that helps commuters see the upcoming departures at stops close to their current location.\n\nThis apps was developed out of a personal need when I was commuting.\n\nThe stops and timetables are continuously refreshing as the user is moving around.",
             "image": "/assets/commuter.jpg",
@@ -71,7 +71,7 @@
                     "Xamarin.Forms"
                 ],
                 "technologies": [
-                    "HTTP API"
+                    "Web API"
                 ]
             }
         },
@@ -82,7 +82,7 @@
             "startDate": "2018-09-01",
             "endDate": "2022-01-04",
             "ongoing": false,
-            "description": "Physical Access Control system that is built around Raspberry Pi - Home alarm.\n\nThe Raspberry Pi respresents a physical Access Point that provides a RFID reader for authorization by card, or tag, and a magnet switch for detecting unauthorized access. The software on the RPi communicates with the custom cloud service that verifies the identity of the person requesting access.\n\nAccess can also be requested via the Web Portal. From there you can view the access logs. There is also a mobile app.",
+            "description": "Physical Access Control system that is built around Raspberry Pi - Home alarm. [Read more](/articles/access-control)\n\nThe Raspberry Pi respresents a physical Access Point that provides a RFID reader for authorization by card, or tag, and a magnet switch for detecting unauthorized access. The software on the RPi communicates with the custom cloud service that verifies the identity of the person requesting access.\n\nAccess can also be requested via the Web Portal. From there you can view the access logs. There is also a mobile app.",
             "image": "/assets/accesscontrol.jpg",
             "links": [
                 {
@@ -122,7 +122,7 @@
                 ],
                 "technologies": [
                     "Asynchronous messaging",
-                    "HTTP API"
+                    "Web API"
                 ]
             }
         },
@@ -133,7 +133,7 @@
             "startDate": "2018-02-01",
             "endDate": "2018-03-04",
             "ongoing": false,
-            "description": "Audio Player experience that lets you control one or multiple Axis speakers from your phone.\n\nYou can group speakers together into zones to control them as one. There is also built in device discovery via ZeroConf.\n\nThe app uses APIs that were used by an onboard web app.\n\nThis app was my first with a clear use case.",
+            "description": "Side-project: Audio Player experience that lets you control one or multiple Axis speakers from your phone.\n\nYou can group speakers together into zones to control them as one. There is also built in device discovery via ZeroConf.\n\nThe app uses APIs that were used by an onboard web app.\n\nThis app was my first with a clear use case.",
             "image": "/assets/audioplayer.png",
             "links": [
                 {
@@ -161,7 +161,35 @@
                     "Xamarin.Forms"
                 ],
                 "technologies": [
-                    "HTTP API"
+                    "Web API"
+                ]
+            }
+        },
+        {
+            "name": "BLIS Messenger",
+            "type": "Professional",
+            "for": "Teleservice Skåne AB",
+            "startDate": "2014-01-14",
+            "endDate": "2016-03-01",
+            "ongoing": false,
+            "description": "Client software for automation system used by emergency response and industry customers. [Read my story](/articles/building-software-for-emergency-response)",
+            "image": "/assets/blis.png",
+            "links": [
+                {
+                    "name": "Information",
+                    "type": "Link",
+                    "url": "https://www.addsecure.se/product/blis-boss/"
+                }
+            ],
+            "skills": {
+                "platforms": [
+                    ".NET Framework"
+                ],
+                "programmingLanguages": [
+                    "C#"
+                ],
+                "frameworks": [
+                    "Windows Presentation Foundation"
                 ]
             }
         }

@@ -12,7 +12,7 @@
                                 <p class="text-muted mt-1 mb-0" style="height: auto;"> @if(Project.For is not null) { @Project.For } else { @Project.Type } &bullet; @if(Project.Ongoing) { <text>From </text> } @Project.StartDate?.ToString("MMM yyyy") @if(Project.EndDate is not null) { <text> - </text> @Project.EndDate?.ToString("MMM yyyy"); }</p>
                                 <MarkdownView Content="@(Project.Description.Split('\n').First())" Truncate="true" />
 
-                                <div style="height: 6vh">
+                                <div class="tags">
                                 @if (Project.Skills != null)
                                 {
                                     var skills = Project.Skills.Platforms
@@ -31,7 +31,7 @@
                             </div>                   
                             <div class="d-flex justify-content-between align-items-center pt-4">
                                 <small></small>
-                                <div class="btn-group">
+                                <div>
                                     @foreach (var link in Project.Links)
                                     {
                                         string icon = "fab fa-link";

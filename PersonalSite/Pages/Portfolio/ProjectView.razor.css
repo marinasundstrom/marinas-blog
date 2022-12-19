@@ -9,7 +9,7 @@
 
 }
 
-@@media (min-width: 550px) {
+@media (min-width: 550px) {
     .grid-dl {
         display: grid;
         grid-template-columns: 1fr 1fr;

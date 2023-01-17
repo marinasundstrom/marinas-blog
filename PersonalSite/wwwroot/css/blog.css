@@ -55,7 +55,7 @@ article h4 {
 
     font-style: normal;
     font-weight: 600;
-    letter-spacing: 0.06px;
+    /* letter-spacing: 0.06px; */
     line-height: 28px;
     word-break: break-word;
 }
@@ -84,7 +84,7 @@ article ol {
     font-size: 18px; /* 20px; */
     font-style: normal;
     font-weight: 400;
-    letter-spacing: 0.06px;
+     /* letter-spacing: 0.06px; */
     line-height: 34px;
     word-break: break-word;
 }
@@ -132,7 +132,7 @@ article p+ul {
 
 article ol>li,
 article ul>li {
-    margin-bottom: 15px;
+    margin-bottom: 6px;
 }
 
 article img:not(.cover).left, article img:not(.cover).right {
@@ -179,7 +179,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
         display: block;
         font-size: 16px;
         font-weight: 400;
-        letter-spacing: 0.06px;
+         /* letter-spacing: 0.06px; */
         line-height: 28px;
     }
 

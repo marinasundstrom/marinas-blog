@@ -11,3 +11,7 @@ env PRERENDER=true dotnet publish -c Release
 ```sh
 dotnet publish -c Release
 ```
+
+```sh
+env PRERENDER=true dotnet publish -c Release && dotnet publish -c Release
+```

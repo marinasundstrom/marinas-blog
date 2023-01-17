@@ -27,3 +27,5 @@ But times changed. I joined the development department as a System Engineer, and
 What really makes me proud is that the software that I originally built is still out there saving the lives of people all around Sweden.
 
 I still fondly remember my time at this company. The friendships that I formed with people both with and after this first project. It was for me forming years that affected me deeply as a person.
+
+Read the full story [here](/articles/the-truth-about-my-first-employment).

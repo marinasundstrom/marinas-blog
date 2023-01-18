@@ -7,7 +7,7 @@
     else 
     {
         <div>
-            @foreach (var tag in tags)
+            @foreach (var tag in tags.OrderByDescending(x => x.Value))
             {
  <a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/@Uri.EscapeDataString(tag.Key).Replace(".", "%2E").Replace("#", "%23")">
                                     @tag.Key

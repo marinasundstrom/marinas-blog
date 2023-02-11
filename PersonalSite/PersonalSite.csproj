@@ -28,4 +28,8 @@
     <ProjectReference Include="..\Markdown\Markdown.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\posts\drafts\**\*" CopyToPublishDirectory="Never" />     
+</ItemGroup>   
+
 </Project>

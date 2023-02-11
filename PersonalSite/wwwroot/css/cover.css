@@ -32,6 +32,7 @@ body {
 .navbar-nav .nav-link {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    display: inline-block;
 }
 
 nav .nav-link {

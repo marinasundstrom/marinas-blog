@@ -1,190 +1,210 @@
 @using PersonalSite.Markdown
 
-<div class="col">
-                    <div class="card shadow">
+<div class="col card-group">
+    <div class="card shadow">
 
-                        <a href="@Project.Image" target="_blank">
-                            <img class="bd-placeholder-img card-img-top mt-3" style="height: 200px; max-width: 100%; margin: auto; object-fit: contain;" src="@Project.Image" />
-                        </a>
-                        <div class="card-body mt-2">
-                            <h5 class="card-title">@Project.Name</h5>
-                            <div class="card-text">
-                                <p class="text-muted mt-1 mb-0" style="height: auto;"> @if(Project.For is not null) { @Project.For } else { @Project.Type } &bullet; @if(Project.Ongoing) { <text>From </text> } @Project.StartDate?.ToString("MMM yyyy") @if(Project.EndDate is not null) { <text> - </text> @Project.EndDate?.ToString("MMM yyyy"); }</p>
-                                <MarkdownView Content="@(Project.Description.Split('\n').First())" Truncate="true" />
+        <a href="@Project.Image" target="_blank">
+            <img class="bd-placeholder-img card-img-top mt-3"
+                style="height: 200px; max-width: 100%; margin: auto; object-fit: contain;" src="@Project.Image" />
+        </a>
+        <div class="card-body mt-2">
+            <h5 class="card-title">@Project.Name</h5>
+            <div class="card-text">
+                <p class="text-muted mt-1" style="height: auto;"> @if (Project.For is not null)
+                    {
+                        @Project.For
+                    }
+                    else
+                    {
+                        @Project.Type
+                    } &bullet; @if (Project.Ongoing)
+                    {
+                        <text>From </text>
+                    }
+                    @Project.StartDate?.ToString("MMM yyyy") @if (Project.EndDate is not null)
+                    {
+                        <text> - </text>
+                        @Project.EndDate?.ToString("MMM yyyy")
+                        ;
+                    }</p>
+                    
+                <MarkdownView Content="@(Project.Description.Split('\n').First())" Truncate="true" />
 
-                                <div class="tags">
-                                @if (Project.Skills != null)
-                                {
-                                    var skills = Project.Skills.Platforms
-                                        .Concat(Project.Skills.ProgrammingLanguages ?? Enumerable.Empty<string>())
-                                        .Concat(Project.Skills.Frameworks ?? Enumerable.Empty<string>())
-                                        .Concat(Project.Skills.Applications ?? Enumerable.Empty<string>())
-                                        .Concat(Project.Skills.Technologies ?? Enumerable.Empty<string>());
+                <div class="tags mt-4">
+                    @if (Project.Skills != null)
+                    {
+                        var skills = Project.Skills.Platforms
+                        .Concat(Project.Skills.ProgrammingLanguages ?? Enumerable.Empty<string>())
+                        .Concat(Project.Skills.Frameworks ?? Enumerable.Empty<string>())
+                        .Concat(Project.Skills.Applications ?? Enumerable.Empty<string>())
+                        .Concat(Project.Skills.Technologies ?? Enumerable.Empty<string>());
 
-                                        @foreach (var skill in skills)
-                                        {
-                                            <span class="badge rounded-pill tag me-1 mb-1 text-decoration-none">@skill</span>                        
-                                        }
-                                }                   
-                                </div>
-
-                            </div>                   
-                            <div class="d-flex justify-content-between align-items-center pt-4">
-                                <small></small>
-                                <div>
-                                    @foreach (var link in Project.Links)
-                                    {
-                                        string icon = "fab fa-link";
-                                        if (link.Type.Contains("YouTube"))
-                                        {
-                                            icon = "fab fa-youtube";
-                                        }
-                                        else if (link.Type.Contains("GitHub"))
-                                        {
-                                            icon = "fab fa-github";
-                                        }
-                                        else if (link.Type.Contains("Link"))
-                                        {
-                                            icon = "fas fa-link";
-                                        }
-                                        <a class="btn btn-sm btn-outline-secondary mt-2 me-2" alt="@link.Name" href="@link.Url" target="_blank"><i
-                                            class="@icon fa-lg"></i></a>
-                                    }
-                                </div>
-                                @* <small class="text-muted">9 mins</small> *@
-                            </div>
-                        </div>
-                    </div>
+                        @foreach (var skill in skills)
+                        {
+                            <span class="badge rounded-pill tag me-1 mb-1 text-decoration-none">@skill</span>
+                        }
+                    }
                 </div>
+
+            </div>
+        </div>
+        <div class="card-footer">
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <small></small>
+                    <div>
+                        @foreach (var link in Project.Links)
+                        {
+                            string icon = "fab fa-link";
+                            if (link.Type.Contains("YouTube"))
+                            {
+                                icon = "fab fa-youtube";
+                            }
+                            else if (link.Type.Contains("GitHub"))
+                            {
+                                icon = "fab fa-github";
+                            }
+                            else if (link.Type.Contains("Link"))
+                            {
+                                icon = "fas fa-link";
+                            }
+                            <a class="btn btn-sm btn-outline-secondary mt-2 me-2" alt="@link.Name" href="@link.Url"
+                                target="_blank"><i class="@icon fa-lg"></i></a>
+                        }
+                    </div>
+                    @* <small class="text-muted">9 mins</small> *@
+                </div>
+            </div>
+    </div>
+</div>
 
 @*
 
 <section class="row pt-3 mb-5">
-    <div class="col-sm-12 col-md-4 text-center">
-        <a href="@Project.Image" target="_blank">
-            <img class="mb-5" style="max-height: 200px; max-width: 100%; margin: auto; object-fit: cover;" src="@Project.Image" />
-        </a>
-    </div>
+<div class="col-sm-12 col-md-4 text-center">
+<a href="@Project.Image" target="_blank">
+<img class="mb-5" style="max-height: 200px; max-width: 100%; margin: auto; object-fit: cover;" src="@Project.Image" />
+</a>
+</div>
 
-    <div class="col-sm-12 col-md-6">
-        <h2 class="pb-0 mb-3">@Project.Name</h2>
+<div class="col-sm-12 col-md-6">
+<h2 class="pb-0 mb-3">@Project.Name</h2>
 
-        <div class="mb-3">
-            @if (Project.StartDate is not null)
-            {
-                <span class="text-muted">
-                    @if (Project.Ongoing)
-                    {
-                        <text>@Project.StartDate.GetValueOrDefault().ToString("MMM yyyy") - Ongoing</text>
-                    }
-                    else if (Project.StartDate?.Year == Project.EndDate?.Year && Project.StartDate?.Month ==
-                    Project.EndDate?.Month)
-                    {
-                        <text>@Project.StartDate.GetValueOrDefault().ToString("MMM yyyy")</text>
-                    }
-                    else
-                    {
-                        <text>@Project.StartDate.GetValueOrDefault().Humanize(Project.EndDate)</text>
-                    }
+<div class="mb-3">
+@if (Project.StartDate is not null)
+{
+<span class="text-muted">
+@if (Project.Ongoing)
+{
+<text>@Project.StartDate.GetValueOrDefault().ToString("MMM yyyy") - Ongoing</text>
+}
+else if (Project.StartDate?.Year == Project.EndDate?.Year && Project.StartDate?.Month ==
+Project.EndDate?.Month)
+{
+<text>@Project.StartDate.GetValueOrDefault().ToString("MMM yyyy")</text>
+}
+else
+{
+<text>@Project.StartDate.GetValueOrDefault().Humanize(Project.EndDate)</text>
+}
 
-                    @if (Project.Type is not null || Project.For is not null)
-                    {
-                        <text> • </text>
-                        @if (Project.Type == "Private")
-                        {
-                            <text>@Project.Type</text>
-                        }
-                        else if (Project.Type == "Professional")
-                        {
-                            <text>@Project.For</text>
-                        }
-                    }
-                </span>
-            }
-        </div>
+@if (Project.Type is not null || Project.For is not null)
+{
+<text> • </text>
+@if (Project.Type == "Private")
+{
+<text>@Project.Type</text>
+}
+else if (Project.Type == "Professional")
+{
+<text>@Project.For</text>
+}
+}
+</span>
+}
+</div>
 
-        @if (ShowMore)
-        {
-            <div class="mb-4">
-                <MarkdownView Content="@Project.Description" />
-            </div>
+@if (ShowMore)
+{
+<div class="mb-4">
+<MarkdownView Content="@Project.Description" />
+</div>
 
-            @if (Project.Skills != null)
-            {
-                var skills = Project.Skills;
+@if (Project.Skills != null)
+{
+var skills = Project.Skills;
 
-                <dl class="grid-dl mt-5">
+<dl class="grid-dl mt-5">
 
-                    @if (skills.Platforms != null)
-                    {
-                        <dt>Platforms</dt>
-                        <dd>@string.Join(" · ", skills.Platforms)</dd>
-                    }
+@if (skills.Platforms != null)
+{
+<dt>Platforms</dt>
+<dd>@string.Join(" · ", skills.Platforms)</dd>
+}
 
-                    @if (skills.ProgrammingLanguages != null)
-                    {
-                        <dt>Programming languages</dt>
-                        <dd>@string.Join(" · ", skills.ProgrammingLanguages)</dd>
-                    }
+@if (skills.ProgrammingLanguages != null)
+{
+<dt>Programming languages</dt>
+<dd>@string.Join(" · ", skills.ProgrammingLanguages)</dd>
+}
 
-                    @if (skills.Frameworks != null)
-                    {
-                        <dt>Frameworks</dt>
-                        <dd>@string.Join(" · ", skills.Frameworks)</dd>
-                    }
+@if (skills.Frameworks != null)
+{
+<dt>Frameworks</dt>
+<dd>@string.Join(" · ", skills.Frameworks)</dd>
+}
 
-                    @if (skills.Applications != null)
-                    {
-                        <dt>Applications</dt>
-                        <dd>@string.Join(" · ", skills.Applications)</dd>
-                    }
+@if (skills.Applications != null)
+{
+<dt>Applications</dt>
+<dd>@string.Join(" · ", skills.Applications)</dd>
+}
 
-                    @if (skills.Technologies != null)
-                    {
-                        <dt>Technologies</dt>
-                        <dd>@string.Join(" · ", skills.Technologies)</dd>
-                    }
-                </dl>
+@if (skills.Technologies != null)
+{
+<dt>Technologies</dt>
+<dd>@string.Join(" · ", skills.Technologies)</dd>
+}
+</dl>
 
-            }
+}
 
-            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show
-                    less</a></small>
-        }
-        else
-        {
-            var breakIndex = Project.Description.IndexOf(".");
-            if (breakIndex == -1)
-            {
-                breakIndex = Project.Description.IndexOf("\n");
-            }
-            var content = breakIndex == -1 ? Project.Description : Project.Description.Substring(0, breakIndex + 1);
+<small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show
+less</a></small>
+}
+else
+{
+var breakIndex = Project.Description.IndexOf(".");
+if (breakIndex == -1)
+{
+breakIndex = Project.Description.IndexOf("\n");
+}
+var content = breakIndex == -1 ? Project.Description : Project.Description.Substring(0, breakIndex + 1);
 
-            <div class="mb-4">
-                <MarkdownView Content="@content" />
-            </div>
+<div class="mb-4">
+<MarkdownView Content="@content" />
+</div>
 
-            <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i>
-                    Show more</a></small>
-        }
+<small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i>
+Show more</a></small>
+}
 
-        <div class="mt-5">
-            @foreach (var link in Project.Links)
-            {
-                string icon = "fab fa-link";
-                if (link.Type.Contains("YouTube"))
-                {
-                    icon = "fab fa-youtube";
-                }
-                else if (link.Type.Contains("GitHub"))
-                {
-                    icon = "fab fa-github";
-                }
-                <a class="btn btn-sm btn-secondary mt-2 me-2" href="@link.Url" target="_blank"><i
-                    class="@icon fa-lg me-1"></i> @link.Name</a>
-            }
-        </div>
-    </div>
+<div class="mt-5">
+@foreach (var link in Project.Links)
+{
+string icon = "fab fa-link";
+if (link.Type.Contains("YouTube"))
+{
+icon = "fab fa-youtube";
+}
+else if (link.Type.Contains("GitHub"))
+{
+icon = "fab fa-github";
+}
+<a class="btn btn-sm btn-secondary mt-2 me-2" href="@link.Url" target="_blank"><i
+class="@icon fa-lg me-1"></i> @link.Name</a>
+}
+</div>
+</div>
 </section>
 *@
 

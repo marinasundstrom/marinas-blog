@@ -29,38 +29,6 @@ body {
   --brand-color: #6f42c1;
 }
 
-.card .card-text p {
-  font-size: 12pt !important;
-  margin-top: 25px;
-  line-height: 28px;
-  height: 8rem;
-}
-
-  .card .card-text .tags {
-    height: 6rem
-  }
-
-@media only screen and (max-width: 768px)
-{
-  .card .card-text p {
-    height: 10rem;
-  }
-
-  .card .card-text .tags {
-    height: 6rem;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .card .card-text p {
-    height: 15rem;
-  }
-
-  .card .card-text .tags {
-    height: 13rem;
-  }
-}
-
 @media (max-width: 991.98px) {
   .offcanvas-collapse {
     position: fixed;
@@ -310,4 +278,12 @@ header.main {
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	}
+}
+
+section a {
+  text-decoration: none;
+}
+
+section a:hover:not(.btn) {
+  text-decoration: underline;
 }

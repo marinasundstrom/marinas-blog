@@ -57,3 +57,20 @@
         background-color: rgb(190, 190, 190) !important;
         color: #46464D !important;
     }
+
+    .dark section a:not(.btn) {
+        color: #7fc1ee;
+    }
+    
+    .dark section a:hover:not(.btn) {
+        color: #4786af;
+    }
+    
+    .dark section a.nav-link {
+        color: #7fc1ee;
+    }
+    
+    .dark section a.nav-link:hover {
+        color: #4786af;
+    }
+    

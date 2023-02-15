@@ -4,38 +4,62 @@ published: 2023-01-20
 tags: [Personal]
 ---
 
-Here are some highlights from my programming career. I've done so much more but I think that this is worth mentioning. 
+Here are some of the defining events and projects in my life and career as a programmer and software developer. 
 
-_Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_timeline) who did his own timeline and inspired me to do my own._
+_Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_timeline) who did his timeline and inspired me to do my own._
 
-* **~2003** - Got exposed to VBScript. Started building simple scripts with alerts and prompts.
+**~1997** - Got introduced to computers by my dad. I started to draw in KidPix. MS Paint later became a favorite of mine. As well as playing games. Exploring different programs. This was before we even were connected to the Internet. So I got my knowledge from monthly computer magazines, with which programs came on a CD. Later introducing me to web development and programming.
 
-* **2006** - Got introduced to C# by a guy who worked at Microsoft. (*My teacher's son)
+**~2001** - Got exposed to VBScript. Started building simple scripts with alerts and prompts. Also got to know that there was something called "Active Server Pages (ASP)", but that was so hard for me to setup on my computer.
 
-* **2007** - Walked through the book "Visual C# 2015 Step by Step" in the summer. Back at school, I did a test and skipped my A course in Programming.
+**~2005** - As we got broadband, I downloaded and started looking at Visual Basic.NET and building apps with Windows Forms. Did not really know about specific programming concepts, not even what a variable was. Though I had probably used them.
 
-* **2008 - 2009** - Built a compiler for a school project. Learning parsing and advanced problem-solving. The language was based on C and C# so I called it "C micro". The compiler was built in C#.
+**2006** 
 
-* **2011** - Built a Visual Basic.NET compiler in C#. Its architecture and design was based on the Mono VB.NET compiler. Even added improvements to error handling.
+*  Got introduced to C# by a guy who worked at Microsoft. (*My teacher's son). He would later introduce me to a lot of concepts in .NET, like Reflection. And encouraged me and my interest in developing software.
 
-* **2014** - Started working for a company where I built a messenger-like desktop app for emergency response (police, ambulance, firefighters). It interfaced with custom hardware. The technology used was C#/.NET and WPF with the MVVM pattern. Then I built another tool for programming the hardware.
+* Built  website for the local parish, with ASP.NET Web Forms and SQL Server for database. The guy mentioned above used it as an example to teach me about SQL injections.
 
-* **2015 - 2016** - Worked as a System developer in a team developing internal system integrations for handling incidents and managing customers for broadband & fiber provisioning. The company acted as an Internet Service Provider (ISP). Projects built for Web with PHP, NodeJS, and C#.
+**2007** - Got the book "Visual C# 2015 Step by Step" and went through it during summer holiday. Learned all the concepts, from the basics to object-oriented programming. Back at school, I did a test and skipped my A course in Programming.
 
-* **2015** - Built a website for tracking thunder and lightning with some friends. It included a custom-made map displaying live data from Blitzortung. It was built for Web with NodeJS for backend.
+**2008** 
 
-* **2017** - Built a music player mobile app for an Axis speaker, as a side-project. Ran on iOS and Android. Built with C#/.NET and Xamarin.Forms.
+* Exploring concepts and figuring stuff out - building my own JSON parser, and building a MVC framework which used basic reflection.
 
-* **2017 - 2018** - Build my own Access Control system on Raspberry Pi. Service-oriented architecture. C#/.NET. Web and Blazor. Mobile apps in Xamarin.Forms.
+* As a Christmas project, I built my own "Virtual Computer" that took instructions, executed them and visualized what happened to register and such in a UI built with WPF.
 
-* **2018** - Built a site for presenting consultant, as a side-project when waiting for assignment. I learned about organizing code by features and to focus on use cases. The app was branded. It was built with C#/.NET ASP.NET Core and Blazor. Used MediatR.
+* School project, built a compiler Learning parsing and advanced problem-solving. The language was based on C and C# so I called it "C micro". The compiler was built in C#. Documented as well.
 
-* **2019** - Working as a consultant on solution for the Processing and Packaging industry. Helped refactoring and upgrading a big monolithic codebase. Built in C#/.NET Framework.
+**2011** - Built a Visual Basic.NET compiler in C#. Its architecture and design was based on the Mono VB.NET compiler. Also learned some from the IronPython compiler. Even added improvements to error handling. ([Source code](https://github.com/marinasundstrom/vb-lite-compiler))
 
-* **2019** - Built my own mobile app for keeping track of bus and train departures while commuting. Styled it to look like the timetables. Used public Web APIs. Built with C#/.NET and Xamarin.Forms.
+**2014** - Started working for a company where I built a messenger-like desktop app for emergency response (police, ambulance, firefighters). It interfaced with custom hardware. The technology used was C#/.NET and WPF with the MVVM pattern. Then I built another tool for programming the hardware. ([Read more](/articles/building-software-for-emergency-response))
 
-* **2020 - 2021** - Worked for a company where I developed an entire ERP system (CRM, Ordering, Invoicing etc) with e-commerce abilities. Dealing with a monolithic architecture. Implemented integration with BankId. Built customer sites. Customers were an insurance company and a cleaning company. The system was built in C#/.NET ASP.NET Core and Blazor. Used Wordpress as CMS. Explored a lot of technology on options of the side.
+**2015 - 2016** 
 
-* **2021** - Getting into Software Design and Architecture patterns. Explored Monoliths and Microservices, and what Event-driven architecture is about. Worked on various pet projects: Product Catalog, TimeReport, and continued on Showroom. How to integrate the various projects. Resulting in "[YourBrand](https://github.com/marinasundstrom/YourBrand)".
+* Worked as a System developer in a team developing internal system integrations for handling incidents and managing customers for broadband & fiber provisioning. The company acted as an Internet Service Provider (ISP). Projects built for Web with PHP, NodeJS, and C#.
 
-* **2022** - Dove into Domain-driven design (DDD) practices. Further exploring Software Design and Architecture patterns. Refined the projects that I had built previously, and integrated them into one business case and domain. Ending up with "[eShop](https://github.com/marinasundstrom/eShop)".
+* Built a website for tracking thunder and lightning with some friends. It included a custom-made map displaying live data from Blitzortung. It was built for Web with NodeJS for backend. Also built SMS service C#/.NET running on Raspberry Pi with a GSM modem.
+
+**2017 - 2018**
+
+* Was a consultant in a team developing web interfaces for products at AXIS. Learned React. 
+
+* Built a music player mobile app for an Axis speaker, as a side-project. Ran on iOS and Android. Built with C#/.NET and Xamarin.Forms. ([Source code](https://github.com/marinasundstrom/AudioPlayer-18))
+
+* Built my own Access Control system on Raspberry Pi. Service-oriented architecture. C#/.NET. Web and Blazor. Mobile apps in Xamarin.Forms. ([Source code](https://github.com/marinasundstrom/AccessControl))
+
+**2018** - Built a site for presenting consultant, as a side-project when waiting for assignment. I learned about organizing code by features and to focus on use cases. The app was branded. It was built with C#/.NET ASP.NET Core and Blazor. Used MediatR. ([Source code](https://github.com/marinasundstrom/Showroom))
+
+**2019** 
+
+* Working as a consultant on solution for the Processing and Packaging industry. Helped refactoring and upgrading a big modular monolithic codebase. Built in C#/.NET Framework. ASP.NET WebForms, MVC, and React.
+
+* Built my own mobile app for keeping track of bus and train departures while commuting. Styled it to look like the timetables. Used public Web APIs. Built with C#/.NET and Xamarin.Forms. ([Source code](https://github.com/marinasundstrom/Commuter))
+
+**2020 - 2021** 
+
+* Worked for a company where I developed an entire ERP system (CRM, Ordering, Invoicing etc) with e-commerce abilities. Dealing with a monolithic architecture. Implemented integration with BankId. Built customer sites. Customers were an insurance company and a cleaning company. The system was built in C#/.NET ASP.NET Core and Blazor. Used Wordpress as CMS. Explored a lot of technology and options on the side.
+
+* Getting into Software Design and Architecture patterns. Explored Monoliths and Microservices, and what Event-driven architecture is about. Worked on various pet projects: Product Catalog, TimeReport, and continued on Showroom. How to integrate the various projects. Resulting in "[YourBrand](https://github.com/marinasundstrom/YourBrand)".
+
+**2022** - Dove into Domain-driven design (DDD) practices. Further exploring Software Design and Architecture patterns. Refined the projects that I had built previously, and integrated them into one business case and domain. Ending up with "[eShop](https://github.com/marinasundstrom/eShop)".

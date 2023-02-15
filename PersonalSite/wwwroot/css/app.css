@@ -26,7 +26,7 @@ body {
 :root {
   /* padding-top: 110px; */
 
-  --brand-color: #6f42c1;
+  --brand-color: rgb(96 105 230);
 }
 
 @media (max-width: 991.98px) {

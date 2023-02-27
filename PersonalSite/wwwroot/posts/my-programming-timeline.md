@@ -20,11 +20,13 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 * Built  website for the local parish, with ASP.NET Web Forms and SQL Server for database. The guy mentioned above used it as an example to teach me about SQL injections.
 
-**2007** - Got the book "Visual C# 2015 Step by Step" and went through it during summer holiday. Learned all the concepts, from the basics to object-oriented programming. Back at school, I did a test and skipped my A course in Programming.
+**2007** - Got the book "Visual C# 2005 Step by Step" and went through it during summer holiday. Learned all the concepts, from the basics to object-oriented programming. Back at school, I did a test and skipped my A course in Programming.
 
 **2008** 
 
 * Exploring concepts and figuring stuff out - building my own JSON parser, and building a MVC framework which used basic reflection.
+
+* Built a Sudoku solver with UI as a school assignment. C#/.NET and WPF.
 
 * As a Christmas project, I built my own "Virtual Computer" that took instructions, executed them and visualized what happened to register and such in a UI built with WPF.
 
@@ -32,13 +34,22 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 **2011** - Built a Visual Basic.NET compiler in C#. Its architecture and design was based on the Mono VB.NET compiler. Also learned some from the IronPython compiler. Even added improvements to error handling. ([Source code](https://github.com/marinasundstrom/vb-lite-compiler))
 
+**2012** - Was an intern in a student project where my role was building mobile apps for a concept product. Initially built an app for Windows Phone in C#/.NET. Then also cross-platform apps for Android and iOS with Cordova using HTML/JavaScript.
+
+**2013** - Had a couple of pet projects building unpublished apps for the Windows 8 platform. Built app that showed scraped articles from local news site. Also built a tour guide app for Windows Phone that used geo-fencing and had a service hosted in Azure.
+
 **2014** - Started working for a company where I built a messenger-like desktop app for emergency response (police, ambulance, firefighters). It interfaced with custom hardware. The technology used was C#/.NET and WPF with the MVVM pattern. Then I built another tool for programming the hardware. ([Read more](/articles/building-software-for-emergency-response))
 
 **2015 - 2016** 
-
 * Worked as a System developer in a team developing internal system integrations for handling incidents and managing customers for broadband & fiber provisioning. The company acted as an Internet Service Provider (ISP). Projects built for Web with PHP, NodeJS, and C#.
 
 * Built a website for tracking thunder and lightning with some friends. It included a custom-made map displaying live data from Blitzortung. It was built for Web with NodeJS for backend. Also built SMS service C#/.NET running on Raspberry Pi with a GSM modem.
+
+**2016** 
+
+* Built my own IoT apps for Windows 10 IoT on Raspberry Pi with C#/.NET.
+
+* Built a [HttpListener](https://github.com/marinasundstrom/HttpListener) API for .NET Core 1 on the Windows 10 IoT platform since that functionality was lacking at the time. Allows for the device to listen for HTTP/Web requests. Uses underlying Windows platform APIs (UAP).
 
 **2017 - 2018**
 
@@ -48,11 +59,11 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 * Built my own Access Control system on Raspberry Pi. Service-oriented architecture. C#/.NET. Web and Blazor. Mobile apps in Xamarin.Forms. ([Source code](https://github.com/marinasundstrom/AccessControl))
 
-**2018** - Built a site for presenting consultant, as a side-project when waiting for assignment. I learned about organizing code by features and to focus on use cases. The app was branded. It was built with C#/.NET ASP.NET Core and Blazor. Used MediatR. ([Source code](https://github.com/marinasundstrom/Showroom))
+**2018** - Built a site for presenting consultants, as a side-project when waiting for an assignment. I learned about organizing code by features and to focus on use cases. The app was branded. It was built with C#/.NET ASP.NET Core and Blazor. Used MediatR. ([Source code](https://github.com/marinasundstrom/Showroom))
 
 **2019** 
 
-* Working as a consultant on solution for the Processing and Packaging industry. Helped refactoring and upgrading a big modular monolithic codebase. Built in C#/.NET Framework. ASP.NET WebForms, MVC, and React.
+* Working as a consultant on solution for the Processing and Packaging industry. Helped refactoring and upgrading a big modular monolithic codebase. Built in C#/.NET Framework with components in ASP.NET WebForms, MVC, and React.
 
 * Built my own mobile app for keeping track of bus and train departures while commuting. Styled it to look like the timetables. Used public Web APIs. Built with C#/.NET and Xamarin.Forms. ([Source code](https://github.com/marinasundstrom/Commuter))
 
@@ -63,3 +74,5 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 * Getting into Software Design and Architecture patterns. Explored Monoliths and Microservices, and what Event-driven architecture is about. Worked on various pet projects: Product Catalog, TimeReport, and continued on Showroom. How to integrate the various projects. Resulting in "[YourBrand](https://github.com/marinasundstrom/YourBrand)".
 
 **2022** - Dove into Domain-driven design (DDD) practices. Further exploring Software Design and Architecture patterns. Refined the projects that I had built previously, and integrated them into one business case and domain. Ending up with "[eShop](https://github.com/marinasundstrom/eShop)".
+
+_Last updated on February 27, 2023_.

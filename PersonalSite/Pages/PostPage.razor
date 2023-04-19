@@ -7,6 +7,7 @@
 @using PersonalSite.Markdown
 @inject NavigationManager NavigationManager
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Marina Sundström</PageTitle>
 
@@ -102,9 +103,16 @@ else
         await LoadData();
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await ScrollToFragment();
+    }
+
     private async void OnLocationChanged(object sender, LocationChangedEventArgs e)
     {
         await LoadData();
+
+        await ScrollToFragment();
     }
 
     private async Task LoadData()
@@ -178,5 +186,27 @@ else
     public void Dispose()
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    private async Task ScrollToFragment()
+    {
+        var uri = new Uri(NavigationManager.Uri, UriKind.Absolute);
+        var fragment = uri.Fragment;
+        if (fragment.StartsWith('#'))
+        {
+            // Handle text fragment (https://example.org/#test:~:text=foo)
+            // https://github.com/WICG/scroll-to-text-fragment/
+            var elementId = fragment.Substring(1);
+            var index = elementId.IndexOf(":~:", StringComparison.Ordinal);
+            if (index > 0)
+            {
+                elementId = elementId.Substring(0, index);
+            }
+
+            if (!string.IsNullOrEmpty(elementId))
+            {
+                await JSRuntime.InvokeVoidAsync("blazorHelpers.scrollToFragment", elementId);
+            }
+        }
     }
 }

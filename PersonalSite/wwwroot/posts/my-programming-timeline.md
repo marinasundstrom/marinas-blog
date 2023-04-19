@@ -30,7 +30,7 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 * Got the book "Visual C# 2005 Step by Step" and went through it during summer holiday. Learned all the concepts, from the basics to object-oriented programming. Back at school, I did a test and skipped my A course in Programming.
 
-* Learned PHP at school.
+* Learned PHP in school.
 
 **2008** 
 
@@ -74,6 +74,8 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 * Got my last Windows Phone: a Microsoft Lumia 640 XL (2015) with Windows 10 Mobile.
 
 * Switched to iPhone: iPhone 6S (2015)
+
+* Got my first Mac - Macbook Air (2011)
 
 **2016** 
 

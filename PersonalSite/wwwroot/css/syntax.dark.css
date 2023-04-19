@@ -9,7 +9,7 @@
     }
 
     .dark .hljs-keyword,
-    .hljs-built_in {
+    .dark .hljs-built_in {
         color: #8282be !important;
     }
 
@@ -17,11 +17,16 @@
         color: #8282be !important;
     }
 
-    .dark .hljs-class .hljs-title {
-        color: #21b6aa !important;
+    .dark .hljs-class .hljs-title, .dark .class_ {
+        color: white !important;
     }
 
     .dark .hljs-function .hljs-title,
-    .hljs-title.function_ {
+    .dark .hljs-title.function_ {
         color: #d4f489 !important;
+    }
+
+    .dark .class_, .dark .function_ 
+    {
+
     }

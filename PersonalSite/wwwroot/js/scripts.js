@@ -1,11 +1,10 @@
-"use strict";
-
 window.blazorHelpers = {
     scrollToFragment: function (elementId) {
         var element = document.getElementById(elementId);
         if (element) {
             element.scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'center'
             });
         }
     },
@@ -45,7 +44,6 @@ window.disqus = {
         }
     }
 };
-var hljs;
 window.setDocumentTitle = function (value) {
     document.title = value;
 };

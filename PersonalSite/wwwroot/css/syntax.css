@@ -18,3 +18,21 @@ code.hljs {
 .hljs-ln-n {
     padding-right: 20px;
 }
+
+.hljs-keyword,
+.hljs-built_in {
+    color: #8282be !important;
+}
+
+/* Class title */
+.hljs-class .hljs-title {
+    color: #21b6aa !important;
+}
+
+.hljs-params {
+    color: #021180;
+}
+
+.function_ {
+    color: #7a5e26  !important;
+}

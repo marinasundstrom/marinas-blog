@@ -35,11 +35,15 @@ namespace PersonalSite.Markdown
                 var pipeline = new MarkdownPipelineBuilder()
                         .UseYamlFrontMatter()
                         .UseAdvancedExtensions()
+                        .UseGenericAttributes()
                         .Build();
 
                 //var markdownDocument = Markdig.Markdown.Parse(value, pipeline);
 
                 var html = Markdig.Markdown.ToHtml(value, pipeline); //ToHtml(pipeline, markdownDocument);
+
+                if(!HtmlSanitizer.AllowedAttributes.Contains("id"))
+                    HtmlSanitizer.AllowedAttributes.Add("id");
 
                 // Sanitize HTML before rendering
                 var sanitizedHtml = HtmlSanitizer.Sanitize(html);

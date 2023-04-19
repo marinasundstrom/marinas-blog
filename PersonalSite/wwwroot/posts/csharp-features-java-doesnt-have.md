@@ -10,6 +10,8 @@ I explain how stuff works and also demonstrate some in C# code.
 
 My goal has been to show some C# specific syntax without highlighting it, like expression-bodied methods and alternative syntax for initializing objects. You will also notice my alternating use of ``var`` for type inference.
 
+I'm aware that Kotlin, another Java platform language, has some of these features. So they are not entirely unavailable for Java developers. In fact, Kotlin is the recommended language for the Java Platform by Google.
+
 I hope that both C# and Java developers alike are enjoying this read. :) 
 
 *Don't get mad at me if there are any errors! Some of the code may not have been tested. ;)*
@@ -388,7 +390,9 @@ Foo2 foo2 = new ();
 Foo1 foo1 = (Foo1)foo2;
 ```
 
-Java has no operator overloading. This results in Java records comparing references with ``==`` and ``!=`` operators.
+Java has no operator overloading. For instance, C# records overload the equality operator to compare by value, but Java records are comparing references with ``==`` and ``!=`` operators, which is the default behavior of ```Object``.
+
+Kotlin support operator overloading.
 
 <h2 id="section-6">Delegates</h2>
 
@@ -580,9 +584,9 @@ record Person(string FirstName, string LastName, int Age)
 };
 ```
 
-Java has no extension methods, but instead provide similar functionality to LINQ using "Streams" and by collections extending the ``Stream<T>`` interface.
+Java has no extension methods, though Kotlin has them. Instead, Java provides similar functionality to LINQ using "Streams" and by collections extending the ``Stream<T>`` interface and the ``stream()``method.
 
-Streams in C# are something different. They are about a primitive involved in reading buffers of data, like a ``FileStream``.
+In C#, Streams are something different. They are about a group of primitives involved in reading buffers of data, like a ``FileStream``, deriving from the ``Stream``class.
 
 <h2 id="section-9">Async Await</h2>
 
@@ -628,7 +632,9 @@ var result = await DownloadPage();
 
 Under the hood the compiler effectively splits the method at each ``await`` statement, and creates another method for the rest which acts as a continuation when the task has completed. There is state machine which handles the transitions between various states and surfaces exceptions.
 
-Java doesn't have a native ``await`` feature similar to the one in C#. But there are initiatives in the Java community that is working on it. JavaScript has had the await syntax with their Promise objects for many years.
+Java doesn't have a native ``await`` feature similar to the one in C#. But there are initiatives in the Java community that are working on it. JavaScript has had the await syntax with their ``Promise`` objects for many years.
+
+Kotlin has coroutines, but no equivalent syntax.
 
 ### Did you know?
 
@@ -685,7 +691,7 @@ You can override the nullability checks by putting ! after an expression that mi
 Foo foo = null!; // Allowed - since you told the compiler to ignore the warning with !
 ```
 
-Java has no nullability syntax. Though they have an ```Option``` type.
+Java has no nullability syntax. Though they have an ```Option``` type. Kotlin has similar syntax to that of C# and other languages.
 
 ### Why "nullable" works as it does
 
@@ -732,9 +738,31 @@ WhatsTheType<int>(); // Prints "Int32"
 WhatsTheType<Foo>(); // Prints "Foo"
 ```
 
-It is impossible to express it this easy in Java, because of type erasure.
+It is impossible to express it this simple in Java, because of type erasure. The closest thing is:
+
+```java
+static <T> void WhatsTheType(Class<T> cls) 
+{
+    System.out.println(cls.getSimpleName());
+}
+
+WhatsTheType(Integer.class); // Prints "Integer"
+WhatsTheType(Foo.class); // Prints "Foo"
+```
+
+As you can see, the parameter itself doesn't participate in retrieving the actual ``Class<T>``.
 
 In .NET, generic type parameters are widely used by dependency injection frameworks for when to resolve type instances.
+
+A sample using ``Microsoft.Extensions.DependencyInjection``:
+
+```java
+ServiceCollection services = new ();
+services.AddScoped<ICar, Volvo>();
+
+var serviceProvider = services.BuildServiceProvider();
+var car = serviceProvider.GetService<ICar>();
+```
 
 ### Did you know?
 

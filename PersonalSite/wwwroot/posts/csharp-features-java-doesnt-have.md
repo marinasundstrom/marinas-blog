@@ -42,7 +42,7 @@ C# (C Sharp) is a general-purpose imperative object-oriented programming languag
 
 Just like C++ is an increment of C, the name C# can be seen as an increment C++. There are four pluses forming a ligature in #. In musical language the # indicates that the written note should be a semitone higher in pitch.
 
-The language initially borrowed a lot of its syntax from Java, which was based on C++. The lead designer Anders Hejlsberg had previously worked on Microsoft's own implementation of Java: J++. But when that endeavour ended he started working on what would become C#. The language was supposed to be like Java for the new .NET Framework. There were influences from Visual Basic. Hejlsberg had previously had a career building compilers for Pascal, Object Pascal and Delphi so he incorporated some influences from that.
+The language initially borrowed a lot of its syntax from Java, which was based on C++. The lead designer [Anders Hejlsberg](https://sv.wikipedia.org/wiki/Anders_Hejlsberg) had previously worked on Microsoft's own implementation of Java: J++. But when that endeavour ended he started working on what would become C#. The language was supposed to be like Java for the new .NET Framework. There were influences from Visual Basic. Hejlsberg had earlier been building compilers for Pascal, Object Pascal and Delphi so he incorporated some influences from that.
 
 .NET itself is the software platform on which C# is based. It provides a managed execution environment, the Common Language Runtime (CLR), similar to Java Virtual Machine. Just like the JVM, the CLR executes  bytecode, and provide automatic memory management via a Garbage Collector. .NET has a Just-in-Time (JIT) compiler that compiles bytecode into machine code on the fly.
 
@@ -175,7 +175,10 @@ Fun fact: Razor syntax has already had global usings for many years. But that di
 
 <h2 id="section-3">Reference types vs Value types</h2>
 
-.NET and C# has this distinction between reference types (classes, interfaces, etc) and value types (primitives, enums, and structs). This affects how they are represented and treated differently by the runtime in terms of how memory is managed.
+In C#, we have values, and objects that are allocated on the heap. Values are allocated on the stack unless they are fields on an object. Whether a type results in a value or an object is determined by what kind of type they are. 
+
+For simplicity's sake, classes and interfaces are reference types, and types that considered structs or enums are value types.
+
 
 The distinction reference type vs value type basically affects how variables behave with respect to the type. A variable holding a reference type will be a reference to an object. Value types will directly refer to the data, usually allocated on the stack.
 
@@ -185,7 +188,7 @@ Reference types are types that when instantiated result in an object being alloc
 
 The value of the reference type variable is the reference. When assigning from one variable to another the reference to the object gets copied - not the object itself.
 
-A variable with a reference type is nullable - meaning that it can be set to ``null`` and thus not refer or point to any object instance.
+A variable with a reference type is nullable - meaning that it can be set to ``null`` and thus not refer or point to any object instance. This is a potential source of error in many languages.
 
 ```c#
 StringBuilder sb = new ();
@@ -222,13 +225,19 @@ Value types derive from the class ``System.ValueType`` which inherits ``System.O
 var maxValue = int.MaxValue; // Static property on System.Int32
 ```
 
-C# has no significant distinction between primitive types and a class representation like in Java (no Integer, Boolean etc). So in C# the keyword ``int`` simply is an alias for the ``System.Int32`` struct.
+C# has no significant distinction between primitive types and a class representation like in Java (no Integer, Boolean classes etc). So in C# the keyword ``int`` simply is an alias for the ``System.Int32`` struct.
 
 ```c#
-// Different ways of declaring an int or System.Int32
+// Same thing
 
 int x = 42; 
 System.Int32 y = 42;
+```
+
+Since primitive types are recognized as Structs, you can use them as generic type parameters:
+
+```c#
+List<int> list = new (); // The same as List<System.Int32>
 ```
 
 ### Structs - User-defined value types
@@ -238,9 +247,14 @@ User-defined value types can be defined as ```struct``` (keyword). They are simi
 ```c#
 public struct Test 
 {
-    public int X;
+    public int X { get; set; };
 }
+
+Test test; // Same as below
+Test test = new Test();
 ```
+
+A value is allocated once the variable has been declared. No need to explicitly call a constructor for that. It has a default constructor that is always being called. But you can define your own constructors.
 
 There is so much more to structs that doesn't fit into this article. But I thought they were worth mentioning.
 
@@ -707,7 +721,7 @@ How C# deals with nullable reference types has been greatly influenced by TypeSc
 
 <h2 id="section-11">Generics</h2>
 
-.NET has runtime support for generics. That means that the Common Language Runtime (CLR) is aware of an instantiated "closed generic type" and its type parameters. So it can make runtime optimizations depending on whether the parameterized types are value or reference types. 
+.NET has runtime support for generics - also known as Reified generics. That means that the Common Language Runtime (CLR) is aware of an instantiated "closed generic type" and its type parameters. So it can make runtime optimizations depending on whether the parameterized types are value types or reference types. 
 
 The program can also query the types at runtime using Reflection to see what generic arguments an object has been instantiated with.
 
@@ -719,6 +733,8 @@ Console.WriteLine(genericArg.Name); // Int32
 ```
 
 By contrast, Java generics is built on "type erasure". Parameterized types are only known and enforced at compile-time and effectively erased - replaced by ``Object`` - when the code is compiled. So parameter types can not be retrieved at runtime. The JVM doesn't know about the instantiated generic type and its arguments.
+
+In, Java also you can not pass primitive types (int, bool) as parameters, and they instead have to be wrapped by their respective wrappers class (Integer, Boolean etc).
 
 In C#, you don't have to wrap a primitive type in a class in order to pass it as a generic type parameter. Primitive types are fully integrated into the language and runtime with corresponding value types (``int`` for ``System.Int32``, ``bool``for ``System.Boolean`` etc).
 
@@ -766,9 +782,9 @@ var car = serviceProvider.GetService<ICar>();
 
 ### Did you know?
 
-Generics in .NET was designed by Don Syme at Microsoft Research in Cambridge, who later created the functional programming language F#, which is based on OCaml. Generics was incorporated in the F# language.
+Generics in .NET was designed by [Don Syme](https://en.wikipedia.org/wiki/Don_Syme) at Microsoft Research in Cambridge, who later created the [F#](https://en.wikipedia.org/wiki/F_Sharp_(programming_language)) functional programming language, which was based on OCaml. Generics in .NET was important to the development of F#.
 
-The current lead designer for C#, Mads Torgersen was involved in Java when they introduced their version of generics.
+The current lead designer for C#, [Mads Torgersen](https://www.linkedin.com/in/madst/) was involved in Java when they developed their version of generics.
 
 <h2 id="section-12">Expression Trees</h2>
 

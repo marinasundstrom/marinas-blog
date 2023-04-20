@@ -175,12 +175,14 @@ Fun fact: Razor syntax has already had global usings for many years. But that di
 
 <h2 id="section-3">Reference types vs Value types</h2>
 
-In C#, we have values, and objects that are allocated on the heap. Values are allocated on the stack unless they are fields on an object. Whether a type results in a value or an object is determined by what kind of type they are. 
+In C#, we have values, and objects that are allocated on the heap. Values exist where they are allocated: the stack or with an object. Whether a type results in a value or an object is determined by what kind of type it has.
 
-For simplicity's sake, classes and interfaces are reference types, and types that considered structs or enums are value types.
+The stack is a block of memory that exists within the context of the executing method. It contains the data of the local variables: the value data and references to objects. Once the method has returned the stack will be “popped”. The heap is a space of memory that is managed by the garbage collector which also keeps track of the references. An object is a blob of structured data on the heap.
 
+For simplicity's sake, classes and interfaces are reference types, and types that are structs (incl. primitive types) or enums are value types.
 
-The distinction reference type vs value type basically affects how variables behave with respect to the type. A variable holding a reference type will be a reference to an object. Value types will directly refer to the data, usually allocated on the stack.
+For a programer: the distinction between reference type and value type mainly affects how variables (and fields, and properties) behave for each class of type - how their value gets passed around. A variable holding a reference type will actually hold a reference to an object on the heap. As previously stated: Value types exist where they are allocated: on the stack or with an object.
+
 
 ### Reference types
 
@@ -258,7 +260,7 @@ A value is allocated once the variable has been declared. No need to explicitly 
 
 There is so much more to structs that doesn't fit into this article. But I thought they were worth mentioning.
 
-### History fact
+### History fact: Boxing
 
 Before generics, the type Object was heavily used by collection classes since there were no type parameters. Every collection type had to store and retrieve any item from an array of Object (``object[]``) - then the programmer had to cast the object into the appropriate type. And if an item was of a value type that implied boxing and unboxing them on the managed heap. This had big implications on how you wrote code when dealing with complex value types such as structs. You could not just change a property of a struct in a list since you had to unbox the value and thus copy it to the stack.
 

@@ -1,0 +1,76 @@
+    body.dark {
+        background-color: rgba(17, 24, 39, 1) !important;
+        color: rgb(237, 237, 241) !important;
+    }
+    
+    .dark .bg-brand {
+        background-color: #282634 !important;
+ 		border-bottom: 1px solid #323232;
+    }
+
+    .dark .btn.btn-outline-secondary {
+        color: #f3f3f3;
+    }
+
+    .dark .card {
+        background-color: #1e293b !important; /* #2b2e32; */
+    }
+
+    /*
+    .dark .navbar {
+        background-color: #181818;
+    }
+    */
+
+    .dark .page-item .page-link {
+        background-color: inherit;
+        color: white;
+    }
+
+    .dark .page-item.active .page-link {
+        color: white;
+    }
+
+    .dark .page-item.disabled .page-link {
+        color: gray;
+        background-color: rgb(35, 35, 35) !important;
+    }
+
+    .dark a.badge {
+        color: white;
+    }
+
+    .dark a.badge:hover {
+        color: lightgray;
+    }
+
+    .dark .text-muted {
+        color: #898d91 !important;
+    }
+
+    .dark .badge.tag {
+        background-color: #596883 !important;
+        color: #ffffffab !important;
+    }
+
+    .dark .badge.comment-badge {
+        background-color: rgb(190, 190, 190) !important;
+        color: #46464D !important;
+    }
+
+    .dark section a:not(.btn) {
+        color: #7fc1ee;
+    }
+    
+    .dark section a:hover:not(.btn) {
+        color: #4786af;
+    }
+    
+    .dark section a.nav-link {
+        color: #7fc1ee;
+    }
+    
+    .dark section a.nav-link:hover {
+        color: #4786af;
+    }
+    

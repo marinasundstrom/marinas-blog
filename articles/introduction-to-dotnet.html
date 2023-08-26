@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <title>Marina Sundström</title>
+    
+    <meta name="description" content="Personal blog of Marina Sundström."/>
+    <meta name="keywords" content="Blog, Personal, Software Development"/>
+
+    <base href="/"/>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="PersonalSite.styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+
+    <script src="/js/scripts.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+    
+
+<!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
+<title>Introduction to .NET - Marina Sundström</title>
+<!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
+<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+
+<body>
+    <div id="app" class="d-flex h-100">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%"></circle>
+            <circle r="40%" cx="50%" cy="50%"></circle>
+        </svg>
+        <div class="loading-progress-text"></div>
+    
+<!-- %%-PRERENDERING-BEGIN-%% -->
+<div style="opacity: 0; position: fixed; z-index: -1; top: 0; left: 0; bottom: 0; right: 0;">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column" style="padding-top: 110px !important;"><header><div><nav class="navbar navbar-expand-lg bg-brand navbar-dark fixed-top px-3"><div class="container"><a href="" class="navbar-brand mr-auto mr-lg-0"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700">
+        Marina Sundström</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="navbar-collapse offcanvas-collapse " id="navbarsExampleDefault"><ul class="navbar-nav mr-auto"><li class="nav-item active"><a href="" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="/#who-am-i" class="nav-link">About me</a></li>
+            <li class="nav-item"><a href="articles" class="nav-link active">Articles</a></li>
+            <li class="nav-item"><a href="resume" class="nav-link">Resumé</a></li>
+            <li class="nav-item"><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
+        <ol class="navbar-nav flex-row flex-wrap ms-md-auto list-inline list-unstyled" style="margin: 0;"><li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank"><i class="fab fa-2x fa-github"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank"><i class="fab fa-2x fa-youtube"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="Twitter" target="_blank"><i class="fab fa-2x fa-twitter"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li>
+
+            <li class="nav-item vr"></li>
+
+            <li class="nav-item list-inline-item dropdown"><a class="nav-link menu-link me-0 py-2 dropdown-toggle" __internal_preventDefault_onclick __internal_stopPropagation_onclick href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-2x fa-sun"></i></a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"><li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-sun"></i><span class="ms-2 fs-5">•</span></a></li>
+                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-moon"></i></a></li>
+                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-cog"></i></a></li></ul></li></ol></div></div></nav></div></header>
+
+  <main><article class="post outer"><div class="inner container"><header b-76by154q0w><h1 class="post-title" b-76by154q0w>Introduction to .NET</h1><div class="mt-2 mt-md-3" b-76by154q0w><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w>Marina Sundstr&#xF6;m • <time datetime="2021-04-25" b-76by154q0w>25 Apr 2021</time> • 
+                        4 minutes read
+
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/introduction-to-dotnet">#</span></h4></div></div></div></header></div>
+
+            <div class="mt-4 inner container"><p>.NET is an open-source platform for building applications for the Web, Mobile, Desktop, and Cloud. Currently, it is at version 5, which was released in November 2020.</p>
+<p>.NET provides a runtime environment, the Common Language Runtime (CLR), an extensive base Base Class Library (BCL), programming languages like C#, VB.NET, and F#. On top of the platform you find many application frameworks, such as ASP.NET Core and WPF. It also integrates well with Microsoft Azure.</p>
+<p>The platform officially runs on Windows, macOS, and Linux, and targets CPU architectures. You can even run .NET on a Raspberry Pi.</p>
+<p>First released in 2002, the platform has kept evolving during the past 20 years. Adding more and more features and APIs.</p>
+<p>And the ecosystem is being developed in the open on GitHub. In fact, the .NET ecosystem was the first that Microsoft really started open-sourcing. Since then it has just increased in scope, and Microsoft has become a leading open-source company.</p>
+<h2 id="the-old.net-framework">The "Old" .NET Framework</h2>
+<p>The versions up to .NET Framework 4.8 run exclusively on Windows and is closed-source, in contrast to .NET 5 which is  open-source, and run on Windows, macOS, and Linux.</p>
+<p>Not all of the frameworks from the older Windows-exclusive versions are available in .NET 5 or later. Although, they did port WPF and Windows Forms ("WinForms") in order to let developers migrate their existing apps to the newer versions of .NET. Taking benefit of the improved performance, and continued supported by component vendors. WPF and WinForms remain exclusive to Windows.</p>
+<p>The newer .NET platform (.NET Core 3.0 and later) will be able to reference libraries targeting 4.8. However, there is no guarantee that all the APIs are present, or that the behavior will be the same.</p>
+<h2 id="the-clr">The CLR</h2>
+<p>.NET consists of a Common Language Runtime (CLR) that consists of an Virtual Execution Engine (VES), and a Base Class Library (BCL). It supports various operating systems and CPU architectures: Windows, macOS, and Linux. The supported architecture are x86, x65 and ARM64. This means that your .NET apps can run on a Raspberry Pi.</p>
+<p>Code is written in a high-level language, such as C#, and compiled into portable bytecode (CIL) that, when executed, is being verified, and compiled by the runtime into the type of machine code that is compatible with the CPU that it is currently running on. The process is called Just-in-Time (JIT) compilation.</p>
+<p>.NET also lets you bundle a specific version of the runtime with your app - a so called "Self-contained app". This allows you to run apps using different runtime versions without having to install shared runtimes on your system. It thus removes the risk of a runtime install affecting another. This is ideal for cloud apps that are being hosted on servers.</p>
+<p>The other option, Ahead-of-Time (AOT) compilation lets you compile and bundle your app and runtime ahead of time for a specific target Operating System platform. It come with the possibility of publishing you app and runtime as a single-file.</p>
+<h2 id="c-programming-language">C# programming language</h2>
+<p>C# (C Sharp) is the preferred programming language. It is a multiparadigm programming language which is imperative and object-oriented at its core. It is a member of the C language family, and draws a lot of influences from Java in both syntax and semantics. The language also borrows from C++, especially for its low-level interop features.</p>
+<p>Over the years, the language has evolved to integrate elements from other programming paradigms, like functional programming, with features such as pattern matching.</p>
+<h2 id="tools">Tools</h2>
+<p>Development starts with the .NET Command-Line Interface (CLI). The CLI lets you create a new project from a project template, then building your project, and finally publish it. It integrates with the MSBuild engine.</p>
+<pre><code class="language-sh">dotnet new console -o MyApp
+cd MyApp
+
+dotnet run
+</code></pre>
+<p>There are many Integrated Development Environments (IDE) to choose from: Visual Studio, Visual Studio for Mac, Visual Studio Code, and JetBrains Rider.</p>
+<h2 id="app-models">App Models</h2>
+<p>The .NET stack supports these main scenarios: Web, Mobile Desktop, and Cloud.</p>
+<p>You write your code using a language like C#, VB.NET, or F#. These languages are all evolving in the open.</p>
+<p>Using those languages you can develop apps for a number of app platforms that come out-of-box with .NET 5 and later:</p>
+<p>Web apps with the ASP.NET Core Web Framework (including MVC and Web API). You can build Mobile apps for Windows UWP, iOS, and Android. Cloud apps that integrate with Microsoft Azure services. You can also write Desktop apps for Windows in WinForm or WPF.</p>
+<p>The preferred way of defining UIs in UWP and WPF is declaratively using an XML language called XAML - which is to these frameworks what HTML is to the Web. All of the dialects have an evolved templating and styling system.</p>
+<p>You can also write modern web apps for client-side app using Blazor, running in the browser, targeting WebAssembly. You build UIs in a templating language called Razor, that mixes HTML and C#.</p>
+<p>You can write apps that run in Azure, and you can write apps that run on a Raspberry Pi.</p>
+<p>Uno is an open-source project that aims att bringing Microsoft UWP app model to platforms other than Windows, like Android, iOS and macOS. They even support targeting the Web via WebAssembly. Allowing you to write C# and XAML for the Web.</p>
+<p>.NET has an ecosystem of libraries and frameworks developed by third-parties, the majority of them are also open-source. They are distributed as NuGet packages through a package manager.</p>
+<h2 id="net-core">.NET “Core”</h2>
+<p>There were some versions of the cross-platform .NET runtime branded “.NET Core “, but they have now been superseded by .NET 5. Using the .NET branding instead.</p>
+<p>The initial goal for .NET Core was to build a runtime that was optimized for hosted cloud-scenarios. That later expanded to support more scenarios and app models.</p>
+<p>This might be a simplification, but for all intents and purposes, pre-Core versions are considered exclusive to Windows.</p>
+<h2 id="so-whats-up-next">So what's up next?</h2>
+<p>The upcoming release, .NET 6, will integrate support for developing apps for Android, iOS, and macOS - and bring a new framework for building cross-platform apps: .NET Maui (Multi-platform App UI). This is the successor to the Xamarin.Forms mobile app framework.</p>
+<p>A theme that was planned for .NET 5 was the unification of .NET, which was  delayed due of COVID. The .NET 6 release will finally make the tooling uniform across the stacks and existing app models.</p>
+<p>The Mobile stack (previously Xamarin), and the WebAssembly stack, that use the Mono runtime, will be fully integrated in .NET 6.</p>
+<p>Microsoft is committed to release a new major version of .NET every year. Every other release will be an LTS release. (Long-Term Support) The next LTS release is .NET 6 that will be released in November 2021.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As you can see, .NET is an evolving ecosystem. And it is open-source, meaning that you as a developer can contribute to the projects that make up the framework.</p>
+<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></main>
+
+  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center"><small class="text-muted">© 2023 Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small></footer></div>
+        
+
+
+
+</div>
+<!-- %%-PRERENDERING-END-%% -->
+</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Blazor-Analytics/blazor-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+</body></html>

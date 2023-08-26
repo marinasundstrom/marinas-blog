@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <title>Marina Sundström</title>
+    
+    <meta name="description" content="Personal blog of Marina Sundström."/>
+    <meta name="keywords" content="Blog, Personal, Software Development"/>
+
+    <base href="/"/>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="PersonalSite.styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+
+    <script src="/js/scripts.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+    
+
+<!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
+<title>Scaling a Monolith - without Microservices - Marina Sundström</title>
+<!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
+<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+
+<body>
+    <div id="app" class="d-flex h-100">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%"></circle>
+            <circle r="40%" cx="50%" cy="50%"></circle>
+        </svg>
+        <div class="loading-progress-text"></div>
+    
+<!-- %%-PRERENDERING-BEGIN-%% -->
+<div style="opacity: 0; position: fixed; z-index: -1; top: 0; left: 0; bottom: 0; right: 0;">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column" style="padding-top: 110px !important;"><header><div><nav class="navbar navbar-expand-lg bg-brand navbar-dark fixed-top px-3"><div class="container"><a href="" class="navbar-brand mr-auto mr-lg-0"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700">
+        Marina Sundström</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="navbar-collapse offcanvas-collapse " id="navbarsExampleDefault"><ul class="navbar-nav mr-auto"><li class="nav-item active"><a href="" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="/#who-am-i" class="nav-link">About me</a></li>
+            <li class="nav-item"><a href="articles" class="nav-link active">Articles</a></li>
+            <li class="nav-item"><a href="resume" class="nav-link">Resumé</a></li>
+            <li class="nav-item"><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
+        <ol class="navbar-nav flex-row flex-wrap ms-md-auto list-inline list-unstyled" style="margin: 0;"><li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank"><i class="fab fa-2x fa-github"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank"><i class="fab fa-2x fa-youtube"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="Twitter" target="_blank"><i class="fab fa-2x fa-twitter"></i></a></li>
+
+            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li>
+
+            <li class="nav-item vr"></li>
+
+            <li class="nav-item list-inline-item dropdown"><a class="nav-link menu-link me-0 py-2 dropdown-toggle" __internal_preventDefault_onclick __internal_stopPropagation_onclick href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-2x fa-sun"></i></a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"><li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-sun"></i><span class="ms-2 fs-5">•</span></a></li>
+                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-moon"></i></a></li>
+                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-cog"></i></a></li></ul></li></ol></div></div></nav></div></header>
+
+  <main><article class="post outer"><div class="inner container"><header b-76by154q0w><h1 class="post-title" b-76by154q0w>Scaling a Monolith - without Microservices</h1><div class="mt-2 mt-md-3" b-76by154q0w><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2021-09-06" b-76by154q0w>6 Sep 2021</time> • 
+                        3 minutes read
+
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Software%20engineering" b-76by154q0w>Software engineering</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Distributed%20applications" b-76by154q0w>Distributed applications</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/scaling-a-monolith-without-microservices">#</span></h4></div></div></div></header></div>
+
+            <div class="mt-4 inner container"><p>One myth is that you need to "do" microservices in order to scale your service applications horizontally. This has prompted a lot of people to rewrite their existing monoliths into microservices.</p>
+<p>Don't get me wrong. There are benefits in microservices, but you need to understand the problems that the tools address before you start to use them - especially in an existing project. The cost of changing existing code might outrun the potential benefits in terms of the technical challenges and development time.</p>
+<p>A monolith implies that there is a single codebase.</p>
+<p>As a first step, when you want to scale an existing monolith, you should start by thinking about decoupling your functionality. It is totally possible to scale a monolith horizontally without dividing it into microservices.</p>
+<h2 id="the-scenario">The Scenario</h2>
+<p>Let us assume that you have an existing monolithic Service-oriented application (SOA) which handles a lot of stuff. It spans multiple domains in the field of a Mobile service provider: From device provisioning, subscriptions, and handing of payments. Allt the data is stored in a single database.</p>
+<h3 id="goals">Goals</h3>
+<p>The goals that you have are:</p>
+<ul>
+<li>You want to be able to change, version, and deploy individual parts of the software without interrupting the whole system.</li>
+<li>You want to scale services horizontally, add load balancing, and to ensure fault tolerance in a production environment.</li>
+<li>If one services is busy or goes down, you want a replica to step in.</li>
+</ul>
+<p>This puts some requirements in the way that we build software. But it does not automatically imply microservices.</p>
+<h3 id="bounded-contexts">Bounded Contexts</h3>
+<p>The first thing you learn about microservices is that each "micro" service should have its own Bounded context, a fancy word for a determined boundary within a domain. For example, payments could be considered its own Bounded context. It is generally up to the Domain experts to identify these boundaries. Often in smaller projects, in which there are no designer or architect roles, developers are left to design and to organize code. Arguably, this is how we ended up with monoliths in the first place. Programmers get instructions and just write code - without a strategy.</p>
+<p>In the case of our example above, often you see that the Provisioning part of the service, might directly call into Subscription, which then calls Payments. This is introducing coupling and complexity.</p>
+<h2 id="the-remedy">The Remedy</h2>
+<h3 id="decoupling">Decoupling</h3>
+<p>With the right mindset you can (re)write an application as a set of loosely-coupled functionality within one single codebase. That means that Subscriptions does not really have to know about, for instance, Payments. It knows that there is an interface for the Payment service but it does not have access the implementation.</p>
+<p>By building your project around sending Messages - like Commands and Events, you can make your single codebase more maintainable.</p>
+<p>Picture the the application like this: Subscription sends a CreateInvoice command/request. Provisioning listens for a SubscriptionChanged event. Who handles the commands or events is irrelevant to the producer - hence it is decoupled.</p>
+<h3 id="project-boundaries">Project boundaries</h3>
+<p>If you have not already, you can split the parts of the application (your services) into separate projects, while still referencing them from the main project. That will create a boundary between, for instance, Provision and Subscriptions, which can not directly access each ones implementations.</p>
+<p>How would you access functionality across these project boundaries?</p>
+<p>You put all your service contracts, interfaces, Data Transfer Objects (DTOs), Commands, etc in another project. That project is in its turn referenced by the consuming service. The contracts can then be used when wiring up Dependency Injection or using a Message Bus.</p>
+<h3 id="database">Database</h3>
+<p>Another trait of microservices is that a service own its own data - meaning that only that service can directly insert into or update the database. In other words, the bounded context applies even here. In a monolith database it is totally possible to maintain boundaries using something like schemas. You can also enforce the boundaries at code level via a well defined Data Access layer.</p>
+<p>On top of this, you can scale the database itself using replication.</p>
+<h3 id="asynchronous-messaging">Asynchronous Messaging</h3>
+<p>Regardless whether you have a microservice or a monolith, you can off-load internal communication between context by using out-off-process messaging, such as a message queue, like RabbitMQ. This way you can orchestrate messages across multiple consumers. This goes hand-in-hand with what was mentioned about "messaging" before.</p>
+<p>Example: Subscription will issue a CreateInvoice command/message to the queue, and Billing will consume (or handle) the message once available.</p>
+<p>Remember that a message is going to be handled by the first consumer that is available - be it a service, or an instance of a service.</p>
+<h3 id="scaling-horizontally">Scaling horizontally</h3>
+<p>To scale the functionality horizontally, you can run replicas of the service applications that are being fronted by a load balancers that redirects requests to any of the replicas that are available.</p>
+<p>To repeat, a microservice is based around a single bounded context. A monolith code base usually contains multiple contexts. If you logically separate them, you can isolate the functionality, to be able to turn it on and off. Then you can dedicate a certain instance to handling the bounded context for Subscription etc. You just disable the functionality of the other contexts in that particular instance,</p>
+<p>If you use asynchronous out-of-process messaging you can communicate with other instances. So you can invoke functionality that is enabled in other instances through messages. even if that is turned off in the current instance. If there are replicas, the message will be handled by the first instance available.</p>
+<p>This is how you achieve scaling in a monolithic application.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Keep in mind! Evolving an existing system towards microservices is a step by step process. And once you go from a monolith to having a set of microservices, you actually have a system. You have decoupled your application, increased maintainabilty of the components, but also increased complexity.</p>
+<p>Sometimes it is, in fact, easier to maintain a monolithic codebase. What makes a difference is how you design your application.</p>
+<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></main>
+
+  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center"><small class="text-muted">© 2023 Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small></footer></div>
+        
+
+
+
+</div>
+<!-- %%-PRERENDERING-END-%% -->
+</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Blazor-Analytics/blazor-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+</body></html>

@@ -1,6 +1,6 @@
 ---
 title: Hi! I'm Marina 😊
-image: /assets/nordellen.jpeg
+image: /assets/nordellen.webp
 image_alt: "Northern Dellen (Dellen lakes) - View from Avholmsberget, Bjuråker in Hälsingland, Sweden"
 image_credit_name: "me, July 2021"
 ---

@@ -36,4 +36,4 @@ I like to explore the art of cooking. On the menu there are flavors from Italy, 
 
 I also got into making cocktails from being inspired by videos. Since then I've made and enjoyed a number of [sour cocktails](https://en.wikipedia.org/wiki/Sour_(cocktail)) and other kinds of drinks - also making them for others. 
 
-My favorite dish is Creole Jambalaya - a spicy tomato-based rice dish with chicken, sausage, and Creole spices. As a drink ob top of that, I would serve a [Margarita](https://en.wikipedia.org/wiki/Margarita). I enjoy it with two slices of Jalapeño which give it a spicy edge. Now and then, I also enjoy a classic ["Old Fashioned"](https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)).
+My favorite dish is Creole Jambalaya - a spicy tomato-based rice dish with chicken, sausage, and Creole spices. For drink, I would serve a [Margarita](https://en.wikipedia.org/wiki/Margarita). I enjoy it with two slices of Jalapeño which give it a spicy edge. Now and then, I also enjoy a classic ["Old Fashioned"](https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)).

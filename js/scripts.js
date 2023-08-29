@@ -114,11 +114,6 @@ window.isDarkMode = () => {
 };
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', async event => {
-    if(event.matches)
-        document.body.classList.add("dark");
-    else
-        document.body.classList.remove("dark");
-
     await DotNet.invokeMethodAsync("PersonalSite", "OnDarkModeChanged", event.matches);
 });
 

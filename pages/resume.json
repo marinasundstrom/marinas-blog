@@ -1,14 +1,28 @@
 {
     "experience": [
         {
-            "title": "Senior Developer",
+            "title": "Software Developer",
             "employmentType": "Full-time",
             "highlight": true,
+            "company": "Telavox",
+            "companyLogo": "/assets/logos/telavox.jpg",
+            "link": "https://www.telavox.com/",
+            "location": "Malmö, Sweden",
+            "current": true,
+            "startDate": "2023-03-27",
+            "endDate": null,
+            "description": "Working on system used by support engineers in supporting retailers.",
+            "skills": [ "Java", "Web", "Docker", "Kubernetes" ]
+        },
+        {
+            "title": "Senior Developer",
+            "employmentType": "Full-time",
+            "highlight": false,
             "company": "CDON",
             "companyLogo": "/assets/logos/cdon.jpg",
             "link": "https://www.cdon.com/",
             "location": "Malmö, Sweden",
-            "current": true,
+            "current": false,
             "startDate": "2022-11-14",
             "endDate": "2023-01-15",
             "description": "Working on product page experience. Frontend and backend.",

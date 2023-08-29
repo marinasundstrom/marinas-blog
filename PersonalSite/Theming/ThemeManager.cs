@@ -19,12 +19,13 @@ public sealed class ThemeManager : IDisposable, IThemeManager
     public void Initialize()
     {
         CurrentColorScheme = PreferredColorScheme ?? _systemColorSchemeDetector.CurrentColorScheme;
+
         RaiseCurrentColorSchemeChanged();
     }
 
     private void _systemColorSchemeDetector_ColorSchemeChanged(object? sender, SystemColorSchemeChangedEventArgs e)
     {
-        if (PreferredColorScheme == null)
+        if (PreferredColorScheme is null)
         {
             CurrentColorScheme = e.ColorScheme;
 
@@ -63,7 +64,6 @@ public sealed class ThemeManager : IDisposable, IThemeManager
             CurrentColorScheme = colorScheme;
 
             RaiseCurrentColorSchemeChanged();
-
         }
 
         _localStorage.SetItem<ColorScheme?>(PreferredColorSchemeKey, colorScheme);

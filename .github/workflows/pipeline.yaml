@@ -24,6 +24,9 @@ jobs:
       - name: Install .NET WASM Build Tools
         run: dotnet workload install wasm-tools
 
+      - name: Process .NET Core Project
+        run: dotnet run --project Processor/Processor.csproj
+
       - name: Prerender .NET Core Project
         run: env PRERENDER=true dotnet publish PersonalSite/PersonalSite.csproj -c:Release -o dist/PersonalSite
 

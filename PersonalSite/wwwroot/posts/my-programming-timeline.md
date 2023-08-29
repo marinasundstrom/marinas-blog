@@ -109,4 +109,6 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 **2022** - Dove into Domain-driven design (DDD) practices. Further exploring Software Design and Architecture patterns. Refined the projects that I had built previously, and integrated them into one business case and domain. Ending up with "[eShop](https://github.com/marinasundstrom/eShop)".
 
-_Last updated on March 16, 2023, before that on February 27, 2023_.
+**2023** - Learned about GitHub Actions, and deployed Container Apps to Microsoft Azure.
+
+_Last updated on August 29, 2023. Before that on March 16, 2023, and February 27, 2023_.

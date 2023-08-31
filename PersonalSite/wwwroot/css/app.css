@@ -287,3 +287,12 @@ section a {
 section a:hover:not(.btn) {
   text-decoration: underline;
 }
+
+.card {
+  border: 0 !important;
+}
+
+.card-footer {
+  background-color: transparent;
+  border: 0;
+}

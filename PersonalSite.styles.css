@@ -39,43 +39,6 @@ h2[b-7589bh6t3o] {
         object-fit: contain !important;
     }
 }
-
-
-.card-group[b-7589bh6t3o] {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.card[b-7589bh6t3o] 
-{
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
-}
-
-.card .card-img-top[b-7589bh6t3o]
-{
-    border-radius: var(--bs-card-border-radius);
-}
-
-.card .card-body[b-7589bh6t3o]
-{
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-.card .card-body .card-text[b-7589bh6t3o] 
-{
-    font-size: 0.9rem;
-}
-
-.card .card-footer[b-7589bh6t3o]
-{
-    border: 0;
-    background-color: transparent;
-    padding-left: 2px;
-    padding-right: 2px;
-}
 /* /Pages/PostsPage.razor.rz.scp.css */
 .post-title[b-j2zbuj81jx] {
     color: inherit;

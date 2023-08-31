@@ -22,7 +22,7 @@
             ],
             "skills": {
                 "platforms": [
-                    ".NET 7",
+                    ".NET 6",
                     "Web"
                 ],
                 "programmingLanguages": [

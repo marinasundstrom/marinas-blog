@@ -30,6 +30,8 @@ There are other significant enhancements, such as _enhanced navigation_, that wi
 
 This doesn't affect other hosting models, such as standalone Blazor WebAssembly and MAUI Blazor Hybrid. Though they are of course getting all the enhancements to Blazor itself.
 
+The features covered in this article are in the new "Blazor Web App" template.
+
 ## Server-side rendering (SSR)
 
 ASP.NET Core 8 and Blazor Server-side rendering (SSR) fills the remaining gap between ASP.NET Core and Blazor - by making Blazor Server able to serve traditional non-interactive pages, like MVC Razor Pages does, but with Razor components. The twist is that you can make any component interactive if you want to. 
@@ -213,6 +215,8 @@ With these enhancements that are coming to ASP.NET Core 8, Blazor on the server 
 
 Check out the new "Blazor Web App" template in .NET 8 Previews or the upcoming RC 1.
 
+Ad follow the progress in the [ASP.NET Core repo](https://github.com/dotnet/aspnetcore) on GitHub.
+
 ## And let me know
 
-**Are you excited for what is coming to Blazor in ASP.NET Core 8? Do you still prefer MVC Razor Pages over Blazor?**
+**Are you excited for what is coming to Blazor in ASP.NET Core 8? Or do you still prefer MVC Razor Pages over Blazor?**

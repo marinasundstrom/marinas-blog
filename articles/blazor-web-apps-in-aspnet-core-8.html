@@ -163,8 +163,12 @@
 </code></pre>
 <p>Stream rendering utilizes HTTP Streaming to send partial content in chunks over the same HTTP Request.</p>
 <h2 id="form-binding-in-blazor-ssr">Form binding in Blazor SSR</h2>
-<p>In Blazor SSR, you can bind a model to a form using the <code>[SupplyParameterFromForm]</code> attribute - and with some minor adjustments to the form because this page is bound to a HTTP request</p>
-<pre><code class="language-csharp">&lt;form method="post" @formname="contact" @onsubmit="AddContact"&gt;
+<p>In Blazor SSR, you can bind a model to a form using the <code>[SupplyParameterFromForm]</code> attribute - and with some minor adjustments to the form because this page is bound to a HTTP request. You can even have multiple named forms on a page.</p>
+<pre><code class="language-csharp">@using System.ComponentModel.DataAnnotations
+
+&lt;EditForm method="post" FormName="contact" OnValidSubmit="AddContact"&gt;
+    &lt;DataAnnotationsValidator /&gt;
+
     &lt;div&gt;
         &lt;label for="name"&gt;Name&lt;/label&gt;
         &lt;InputText id="name" @bind-Value="NewContact.Name" /&gt;
@@ -178,8 +182,7 @@
         &lt;label for="send-me-deals"&gt;Send me deals&lt;/label&gt;
     &lt;/div&gt;
     &lt;button&gt;Submit&lt;/button&gt;
-    &lt;AntiforgeryToken /&gt;
-&lt;/form&gt;
+&lt;/EditForm&gt;
 
 @code {
     [SupplyParameterFromForm]
@@ -187,8 +190,12 @@
 
     public class Contact
     {
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string Email { get; set; }
+
         public bool SendMeDeals { get; set; }
     }
 
@@ -199,7 +206,7 @@
     }
 }
 </code></pre>
-<p>Source: <a href="https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/">ASP.NET Core updates in .NET 8 Preview 7</a></p>
+<p>Based on sample: <a href="https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/">ASP.NET Core updates in .NET 8 Preview 7</a></p>
 <p>On a side note: Antiforgery has also been implemented for Minimal APIs. This applies to forms such as this one in Blazor SSR.</p>
 <h2 id="pre-rendering-of-components">Pre-rendering of components</h2>
 <p>It is worth noting that pre-rendering is supported by default in Blazor Web apps. Entire pages including embedded interactive components will be rendered statically on the first request.</p>

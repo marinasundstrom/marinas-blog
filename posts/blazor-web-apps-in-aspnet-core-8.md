@@ -138,10 +138,14 @@ Stream rendering utilizes HTTP Streaming to send partial content in chunks over 
 
 ## Form binding in Blazor SSR
 
-In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromForm]`` attribute - and with some minor adjustments to the form because this page is bound to a HTTP request
+In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromForm]`` attribute - and with some minor adjustments to the form because this page is bound to a HTTP request. You can even have multiple named forms on a page.
 
 ```csharp
-<form method="post" @formname="contact" @onsubmit="AddContact">
+@using System.ComponentModel.DataAnnotations
+
+<EditForm method="post" FormName="contact" OnValidSubmit="AddContact">
+    <DataAnnotationsValidator />
+
     <div>
         <label for="name">Name</label>
         <InputText id="name" @bind-Value="NewContact.Name" />
@@ -155,8 +159,7 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
         <label for="send-me-deals">Send me deals</label>
     </div>
     <button>Submit</button>
-    <AntiforgeryToken />
-</form>
+</EditForm>
 
 @code {
     [SupplyParameterFromForm]
@@ -164,8 +167,12 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
 
     public class Contact
     {
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string Email { get; set; }
+
         public bool SendMeDeals { get; set; }
     }
 
@@ -177,7 +184,7 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
 }
 ```
 
-Source: [ASP.NET Core updates in .NET 8 Preview 7](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/)
+Based on sample: [ASP.NET Core updates in .NET 8 Preview 7](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/)
 
 On a side note: Antiforgery has also been implemented for Minimal APIs. This applies to forms such as this one in Blazor SSR.
 

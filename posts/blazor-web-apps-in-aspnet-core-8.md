@@ -78,6 +78,8 @@ You can manually map a component to an endpoint, by creating your own Minimal AP
 app.Map("/mything", () => new RazorComponentResult<MyPageComponent>());
 ```
 
+You can, of course, pass parameters to the component.
+
 ## Render modes
 
 A Blazor Web App is fundamentally rendered on the server. But as mentioned, you can turn on interactivity per-component in the SSR context. You can also tell a component where it should run: on the server, or on the client using WebAssembly. It all is a seamless experience. And pre-rendering just works out of box.
@@ -220,9 +222,11 @@ You might consider Blazor Web app when...
 
 With these enhancements that are coming to ASP.NET Core 8, Blazor on the server will be fully integrated into ASP.NET Core - enabling mixed server-side rendered and interactive experiences for the future to come.
 
-Check out the new "Blazor Web App" template in .NET 8 Previews or the upcoming RC 1.
+.NET 8 will be officially released in November (2023). Following that there will be the 3-day long [.NET Conf](https://www.dotnetconf.net/) online event celebrating .NET 8.
 
-Ad follow the progress in the [ASP.NET Core repo](https://github.com/dotnet/aspnetcore) on GitHub.
+In the meantime, check out the new "Blazor Web App" template in .NET 8 Previews, or the upcoming RC 1 - will arrive in September.
+
+Follow the progress and discussions in the [ASP.NET Core repo](https://github.com/dotnet/aspnetcore) on GitHub.
 
 ## And let me know
 

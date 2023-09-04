@@ -87,7 +87,7 @@
                     <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-cog"></i></a></li></ul></li></ol></div></div></nav></div></header>
 
   <main><article class="post outer"><div class="inner container"><header b-76by154q0w><h1 class="post-title" b-76by154q0w>Blazor Web Apps in ASP.NET Core 8</h1><div class="mt-2 mt-md-3" b-76by154q0w><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-09-02" b-76by154q0w>2 Sep 2023</time> • 
-                        6 minutes read
+                        7 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/ASP.NET%20Core" b-76by154q0w>ASP.NET Core</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web%20development" b-76by154q0w>Web development</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/blazor-web-apps-in-aspnet-core-8">#</span></h4></div></div></div></header></div>
 
@@ -130,6 +130,7 @@
 <p>You can manually map a component to an endpoint, by creating your own Minimal API endpoint that returns a <code>RazorComponentResult</code>.</p>
 <pre><code class="language-csharp">app.Map("/mything", () =&gt; new RazorComponentResult&lt;MyPageComponent&gt;());
 </code></pre>
+<p>You can, of course, pass parameters to the component.</p>
 <h2 id="render-modes">Render modes</h2>
 <p>A Blazor Web App is fundamentally rendered on the server. But as mentioned, you can turn on interactivity per-component in the SSR context. You can also tell a component where it should run: on the server, or on the client using WebAssembly. It all is a seamless experience. And pre-rendering just works out of box.</p>
 <pre><code class="language-csharp">@* For being rendered on the server *@
@@ -230,8 +231,9 @@
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>With these enhancements that are coming to ASP.NET Core 8, Blazor on the server will be fully integrated into ASP.NET Core - enabling mixed server-side rendered and interactive experiences for the future to come.</p>
-<p>Check out the new "Blazor Web App" template in .NET 8 Previews or the upcoming RC 1.</p>
-<p>Ad follow the progress in the <a href="https://github.com/dotnet/aspnetcore">ASP.NET Core repo</a> on GitHub.</p>
+<p>.NET 8 will be officially released in November (2023). Following that there will be the 3-day long <a href="https://www.dotnetconf.net/">.NET Conf</a> online event celebrating .NET 8.</p>
+<p>In the meantime, check out the new "Blazor Web App" template in .NET 8 Previews, or the upcoming RC 1 - will arrive in September.</p>
+<p>Follow the progress and discussions in the <a href="https://github.com/dotnet/aspnetcore">ASP.NET Core repo</a> on GitHub.</p>
 <h2 id="and-let-me-know">And let me know</h2>
 <p><strong>Are you excited for what is coming to Blazor in ASP.NET Core 8? Or do you still prefer MVC Razor Pages over Blazor?</strong></p>
 <div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></main>

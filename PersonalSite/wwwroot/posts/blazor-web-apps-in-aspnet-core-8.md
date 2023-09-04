@@ -78,6 +78,8 @@ You can manually map a component to an endpoint, by creating your own Minimal AP
 app.Map("/mything", () => new RazorComponentResult<MyPageComponent>());
 ```
 
+You can, of course, pass parameters to the component.
+
 ## Render modes
 
 A Blazor Web App is fundamentally rendered on the server. But as mentioned, you can turn on interactivity per-component in the SSR context. You can also tell a component where it should run: on the server, or on the client using WebAssembly. It all is a seamless experience. And pre-rendering just works out of box.
@@ -138,10 +140,14 @@ Stream rendering utilizes HTTP Streaming to send partial content in chunks over 
 
 ## Form binding in Blazor SSR
 
-In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromForm]`` attribute - and with some minor adjustments to the form because this page is bound to a HTTP request
+In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromForm]`` attribute - and with some minor adjustments to the form because this page is bound to a HTTP request. You can even have multiple named forms on a page.
 
 ```csharp
-<form method="post" @formname="contact" @onsubmit="AddContact">
+@using System.ComponentModel.DataAnnotations
+
+<EditForm method="post" FormName="contact" OnValidSubmit="AddContact">
+    <DataAnnotationsValidator />
+
     <div>
         <label for="name">Name</label>
         <InputText id="name" @bind-Value="NewContact.Name" />
@@ -155,8 +161,7 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
         <label for="send-me-deals">Send me deals</label>
     </div>
     <button>Submit</button>
-    <AntiforgeryToken />
-</form>
+</EditForm>
 
 @code {
     [SupplyParameterFromForm]
@@ -164,8 +169,12 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
 
     public class Contact
     {
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string Email { get; set; }
+
         public bool SendMeDeals { get; set; }
     }
 
@@ -177,7 +186,7 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
 }
 ```
 
-Source: [ASP.NET Core updates in .NET 8 Preview 7](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/)
+Based on sample: [ASP.NET Core updates in .NET 8 Preview 7](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-preview-7/)
 
 On a side note: Antiforgery has also been implemented for Minimal APIs. This applies to forms such as this one in Blazor SSR.
 
@@ -213,9 +222,11 @@ You might consider Blazor Web app when...
 
 With these enhancements that are coming to ASP.NET Core 8, Blazor on the server will be fully integrated into ASP.NET Core - enabling mixed server-side rendered and interactive experiences for the future to come.
 
-Check out the new "Blazor Web App" template in .NET 8 Previews or the upcoming RC 1.
+.NET 8 will be officially released in November (2023). Following that there will be the 3-day long [.NET Conf](https://www.dotnetconf.net/) online event celebrating .NET 8.
 
-Ad follow the progress in the [ASP.NET Core repo](https://github.com/dotnet/aspnetcore) on GitHub.
+In the meantime, check out the new "Blazor Web App" template in .NET 8 Previews, or the upcoming RC 1 - will arrive in September.
+
+Follow the progress and discussions in the [ASP.NET Core repo](https://github.com/dotnet/aspnetcore) on GitHub.
 
 ## And let me know
 

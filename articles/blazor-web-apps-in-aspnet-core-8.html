@@ -25,8 +25,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
 
     <script src="/js/scripts.js"></script>
 
@@ -151,7 +152,7 @@
 <pre><code class="language-csharp">&lt;Counter @rendermode="RenderMode.Auto" /&gt;
 </code></pre>
 <h2 id="enhanced-navigation">Enhanced navigation</h2>
-<p>Whenever you normally navigate tn a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.</p>
+<p>Whenever you normally navigate to a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.</p>
 <p>Blazor has got a trick:</p>
 <p>Whenever the user navigates to a page inside the application, the navigation gets intercepted, and instead a HTTP request gets sent. Once a response has returned, Blazor figures out the difference between the HTML returned in the response and the one of the current page in the browser, and then applies only the changes to the browser.</p>
 <p>This makes your server-side rendered app feel like it is a SPA while it is not. There will be no flickering. You will see that the shell of the application and its menus get preserved.</p>

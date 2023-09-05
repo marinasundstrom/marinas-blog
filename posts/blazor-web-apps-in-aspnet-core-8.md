@@ -114,7 +114,7 @@ The Auto render mode will prefer WebAssembly, but fall back on Server for intera
 
 ## Enhanced navigation
 
-Whenever you normally navigate tn a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.
+Whenever you normally navigate to a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.
 
 Blazor has got a trick:
 

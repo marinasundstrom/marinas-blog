@@ -28,8 +28,12 @@ p {
   font-size: 1.125rem;
 }
 
+ul li, ol li {
+  font-size: 1.125rem !important;
+}
+
 .small p {
-  font-size: 0.95rem;
+  font-size: 0.95rem !important;
 }
 
 :root {

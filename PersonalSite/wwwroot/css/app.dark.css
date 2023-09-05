@@ -51,6 +51,7 @@
     .dark .badge.tag {
         background-color: #596883 !important;
         color: #ffffffab !important;
+        font-weight: 460;
     }
 
     .dark .badge.comment-badge {

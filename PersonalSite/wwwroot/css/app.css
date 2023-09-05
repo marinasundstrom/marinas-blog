@@ -3,7 +3,6 @@
 @import url('app.dark.css');
 @import url('blog.css');
 @import url('blog.dark.css');
-@import url('highlight.css');
 @import url('syntax.css');
 @import url('syntax.dark.css');
 
@@ -22,6 +21,15 @@ body {
   /* Prevent scroll on narrow devices */
 
   background-color: #fefefe;
+}
+
+p {
+  line-height: 1.75 !important;
+  font-size: 1.125rem;
+}
+
+.small p {
+  font-size: 0.95rem;
 }
 
 :root {
@@ -236,7 +244,7 @@ header.main {
 .badge.tag {
   background-color: rgb(231 231 231);
   color: #4b4b4b;
-  font-weight: 540;
+  font-weight: 460;
 }
 
 .badge.comment-badge {

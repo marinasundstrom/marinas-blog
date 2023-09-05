@@ -46,27 +46,18 @@ article h4 {
 article h2,
 article h3,
 article h4 {
-    box-sizing: border-box;
-    display: block;
-    /* margin-bottom: -7.14px; */
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 42.08px;
 
-    font-style: normal;
-    font-weight: 600;
-    /* letter-spacing: 0.06px; 
-    line-height: 28px;*/
-    word-break: break-word;
 }
 
 article h2+h3 {
     margin-top: 25px;
 }
 
-article p+h3,
-article p+h4 {
-    margin-top: 50.08px;
+article *+h2,
+article *+h3,
+article *+h4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 article p,
@@ -74,19 +65,7 @@ article dl dt,
 article dl dd,
 article ul,
 article ol {
-    box-sizing: border-box;
-    display: block;
-    margin-bottom: -9.2px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 20px;
-    /* font-family: var(--font2); */
-    font-size: 16px; /* 20px; */
-    font-style: normal;
-    font-weight: 400;
-     /* letter-spacing: 0.06px; */
-    line-height: 2em;
-    word-break: break-word;
+    margin-top: 10px;
 }
 
 article.text p,
@@ -114,7 +93,7 @@ article dl dt {
 }
 
 article p+p {
-    margin-top: 35px;
+    margin-top: 25px;
 }
 
 article ul+p,
@@ -123,7 +102,8 @@ ol+p {
 }
 
 article *+pre {
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 article p+ul {

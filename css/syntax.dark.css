@@ -7,26 +7,3 @@
     .dark .hljs-ln-n {
         padding-right: 20px;
     }
-
-    .dark .hljs-keyword,
-    .dark .hljs-built_in {
-        color: #8282be !important;
-    }
-
-    .dark .hljs-params {
-        color: #8282be !important;
-    }
-
-    .dark .hljs-class .hljs-title, .dark .class_ {
-        color: white !important;
-    }
-
-    .dark .hljs-function .hljs-title,
-    .dark .hljs-title.function_ {
-        color: #d4f489 !important;
-    }
-
-    .dark .class_, .dark .function_ 
-    {
-
-    }

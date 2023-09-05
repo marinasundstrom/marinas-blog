@@ -2,13 +2,16 @@ pre {
     margin-bottom: 0;
 }
 
+code, pre {
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;
+    font-size: 1em;
+}
+
 code.hljs {
     padding: 0rem;
-    border: 1px solid rgb(199 199 199 / 70%);
+    /* border: 1px solid rgb(199 199 199 / 70%); */
     border-radius: 10px;
     overflow: auto;
-
-    background-color: #282a36;
 
     /* background-color: #f9f9f9;
     line-height: 1.4;
@@ -17,6 +20,12 @@ code.hljs {
     margin: 0 0 1rem;
 
     box-shadow: 0 .125rem .25rem rgba(17, 17, 17, 0.075)!important;
+}
+
+code.hljs.language-undefined {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(199 199 199 / 70%);
 }
 
 /*

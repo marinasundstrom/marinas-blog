@@ -13,8 +13,6 @@ code.hljs {
     border-radius: 10px;
     overflow: auto;
 
-    background-color: #282a36;
-
     /* background-color: #f9f9f9;
     line-height: 1.4;
     color: black;
@@ -27,6 +25,7 @@ code.hljs {
 code.hljs.language-undefined {
     background-color: white;
     color: black;
+    border: 1px solid rgb(199 199 199 / 70%);
 }
 
 /*

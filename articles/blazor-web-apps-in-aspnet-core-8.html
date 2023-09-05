@@ -109,7 +109,7 @@
 <p>ASP.NET Core 8 and Blazor Server-side rendering (SSR) fills the remaining gap between ASP.NET Core and Blazor - by making Blazor Server able to serve traditional non-interactive pages, like MVC Razor Pages does, but with Razor components. The twist is that you can make any component interactive if you want to.</p>
 <p>To clarify, Blazor is the name of the product in all of its variations - <em>Razor Components</em> is the technology behind it. <em>Razor</em> is the C#/HTML templating syntax, of which there are the MVC/Razor Pages and Blazor flavors.</p>
 <p>Previously, Blazor Server had also been reliant on Razor Pages for bootstrapping, but that is no longer necessary since ASP.NET Core now can render Razor components as plain HTML directly at a certain endpoint.</p>
-<p>So the way you should think of this new "Blazor Web App" an improvement on the <em>Blazor Server</em> hosting model. The standalone WebAssembly type is still the same, but these improvements do open up for some interesting hybrid scenarios on the server as we will see with render modes.</p>
+<p>So the way you should think of this new "Blazor Web App" is as an improvement on the <em>Blazor Server</em> hosting model. The standalone WebAssembly type is still the same, but these improvements do open up for some interesting hybrid scenarios on the server as we will see with render modes.</p>
 <h3 id="routing">Routing</h3>
 <p>The Blazor router fully integrates and take advantage of ASP.NET Core endpoints in SSR mode.</p>
 <p>Then you let ASP.NET Core register the components in the Dependency Injection container.</p>
@@ -145,13 +145,13 @@
 @attribute [RenderModeWebAssembly]
 </code></pre>
 <p>The render mode is then inherited by sub-components. You can apply these attributes to the router, and that would make the entire site interactive. But by default, a project created from a template has no interactivity at root-level.</p>
-<p>The WebAssembly render mode does require you to set up a separate project that will contain all the bits (components and services) that will be shipped to the browsers. So although integrated, it are still technically two apps.</p>
+<p>The WebAssembly render mode does require you to set up a separate project that will contain all the bits (components and services) that will be shipped to the browsers. So although seamlessly integrated, there are still technically two apps: one for server - and another for client.</p>
 <h3 id="auto-render-mode">Auto render mode</h3>
 <p>The Auto render mode will prefer WebAssembly, but fall back on Server for interactivity when the WebAssembly files have not yet been downloaded. Once the WebAssembly files have downloaded, the next time you load those components, the component will be running in WebAssembly.</p>
 <pre><code class="language-csharp">&lt;Counter @rendermode="RenderMode.Auto" /&gt;
 </code></pre>
 <h2 id="enhanced-navigation">Enhanced navigation</h2>
-<p>Whenever you normally navigate on a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.</p>
+<p>Whenever you normally navigate tn a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.</p>
 <p>Blazor has got a trick:</p>
 <p>Whenever the user navigates to a page inside the application, the navigation gets intercepted, and instead a HTTP request gets sent. Once a response has returned, Blazor figures out the difference between the HTML returned in the response and the one of the current page in the browser, and then applies only the changes to the browser.</p>
 <p>This makes your server-side rendered app feel like it is a SPA while it is not. There will be no flickering. You will see that the shell of the application and its menus get preserved.</p>
@@ -222,7 +222,7 @@
 <ul>
 <li><p>You have an app that largely runs on the server</p>
 </li>
-<li><p>Your app serve pages with content - being a CMS, or e-commerce site.</p>
+<li><p>Your app serves pages full of content - being a CMS, or e-commerce site.</p>
 </li>
 <li><p>You might have limited need for interactivity - wanting to opt-in where it is needed.</p>
 </li>

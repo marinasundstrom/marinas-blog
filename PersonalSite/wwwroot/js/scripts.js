@@ -118,10 +118,22 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', asy
 });
 
 window.setColorScheme= (colorScheme) => {
+    //<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css">
+
+    var linkElem = document.head.querySelector('link[href^="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles"]');
+
+    if(linkElem == null) return;
+
     if(colorScheme === "dark")
+    {
         document.body.classList.add("dark", "text-white", "bg-dark");
-    else
+        linkElem.href = linkElem.href.replace("vs.min.css", "vs2015.min.css");
+    }
+    else 
+    {
         document.body.classList.remove("dark", "text-white", "bg-dark");
+        linkElem.href = linkElem.href.replace("vs2015.min.css", "vs.min.css");
+    }
 };
 
 function splashscreen() {

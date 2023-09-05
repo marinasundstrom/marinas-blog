@@ -64,7 +64,7 @@ app.MapRazorComponents<App>()
 
 Given that you have set the router up, you then add the ``@page`` as you normally do.
 
-```csharp
+```razor
 @page "/my-page"
 ```
 
@@ -84,7 +84,7 @@ You can, of course, pass parameters to the component.
 
 A Blazor Web App is fundamentally rendered on the server. But as mentioned, you can turn on interactivity per-component in the SSR context. You can also tell a component where it should run: on the server, or on the client using WebAssembly. It all is a seamless experience. And pre-rendering just works out of box.
 
-```csharp
+```razor
 @* For being rendered on the server *@
 <Counter @rendermode="RenderMode.Server" />
 
@@ -94,7 +94,7 @@ A Blazor Web App is fundamentally rendered on the server. But as mentioned, you 
 
 You can also specify the default render mode for a component using these attributes.
 
-```csharp
+```razor
 @attribute [RenderModeServer]
 
 @attribute [RenderModeWebAssembly]
@@ -108,7 +108,7 @@ The WebAssembly render mode does require you to set up a separate project that w
 
 The Auto render mode will prefer WebAssembly, but fall back on Server for interactivity when the WebAssembly files have not yet been downloaded. Once the WebAssembly files have downloaded, the next time you load those components, the component will be running in WebAssembly.
 
-```csharp
+```razor
 <Counter @rendermode="RenderMode.Auto" />
 ```
 
@@ -130,9 +130,9 @@ Blazor has got yet another trick:
 
 Blazor can render and send you the shell before the page component has been fully initialized. Once that has completed, it just sends the rest of the rendered content, and applies it to the page in the browser.
 
-Just add this attribute to your Page components.
+Just add this attribute to your Page components:
 
-```csharp
+```razor
 @attribute [StreamRendering(prerender: true)]
 ```
 
@@ -142,7 +142,7 @@ Stream rendering utilizes HTTP Streaming to send partial content in chunks over 
 
 In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromForm]`` attribute - and with some minor adjustments to the form because this page is bound to a HTTP request. You can even have multiple named forms on a page.
 
-```csharp
+```razor
 @using System.ComponentModel.DataAnnotations
 
 <EditForm method="post" FormName="contact" OnValidSubmit="AddContact">

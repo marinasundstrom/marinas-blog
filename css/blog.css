@@ -1,5 +1,5 @@
 header h2.post-subtitle {
-    font-size: 21px;
+    font-size: 1.6rem;
     color: #797a7a !important;
 }
 
@@ -73,8 +73,6 @@ article.text dl dt,
 article.text dl dd,
 article.text ul,
 article.text ol {
-    font-family: var(--font2);
-    font-size: 20px !important;
 }
 
 @media only screen and (max-width: 551.98px) {
@@ -83,7 +81,6 @@ article.text ol {
     article.text dl dd,
     article.text ul,
     article.text ol {
-        font-size: 16px !important;
     }
 }
 
@@ -157,10 +154,6 @@ article p+img:not(.cover), p+a img:not(.cover) {
     article ol {
         box-sizing: border-box;
         display: block;
-        font-size: 16px;
-        font-weight: 400;
-         /* letter-spacing: 0.06px;
-        line-height: 28px; */
     }
 
     article p+p {

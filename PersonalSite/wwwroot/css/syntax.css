@@ -8,31 +8,53 @@ code.hljs {
     border-radius: 10px;
     overflow: auto;
 
-    background-color: #f9f9f9;
+    background-color: #282a36;
+
+    /* background-color: #f9f9f9;
     line-height: 1.4;
+    color: black;
+    */
     margin: 0 0 1rem;
 
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    box-shadow: 0 .125rem .25rem rgba(17, 17, 17, 0.075)!important;
 }
 
-.hljs-ln-n {
-    padding-right: 20px;
-}
+/*
 
-.hljs-keyword,
 .hljs-built_in {
-    color: #8282be !important;
+    color: #ae00db !important;
 }
 
-/* Class title */
-.hljs-class .hljs-title {
-    color: #21b6aa !important;
+.hljs-type {
+    color: #267f99 !important;
 }
 
-.hljs-params {
-    color: #021180;
+.hljs-string {
+    color: #a31515 !important;
 }
 
-.function_ {
-    color: #7a5e26  !important;
+.hljs-meta {
+    color: #33859e !important;
 }
+
+.hljs-keyword {
+    color: #211eff !important;
+}
+
+.hljs-tag > .hljs-keyword {
+    color: #800000 !important;
+}
+
+.hljs-tag > .hljs-name {
+    color: #800000 !important;
+}
+
+.hljs-tag > .hljs-attr {
+    color: #e60100 !important;
+}
+
+.hljs-comment {
+    color: #008000 important;
+}
+
+*/

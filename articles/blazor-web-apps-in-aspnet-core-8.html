@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/highlightjs-cshtml-razor/dist/cshtml-razor.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -124,7 +125,7 @@
     .AddServerRenderMode();
 </code></pre>
 <p>Given that you have set the router up, you then add the <code>@page</code> as you normally do.</p>
-<pre><code class="language-csharp">@page "/my-page"
+<pre><code class="language-razor">@page "/my-page"
 </code></pre>
 <p>Unless the render modes of either the Router component or the page component has been set to Server or WebAssembly, this will be served as a static page. More on render modes below.</p>
 <h4 id="using-minimal-api">Using Minimal API</h4>
@@ -134,14 +135,14 @@
 <p>You can, of course, pass parameters to the component.</p>
 <h2 id="render-modes">Render modes</h2>
 <p>A Blazor Web App is fundamentally rendered on the server. But as mentioned, you can turn on interactivity per-component in the SSR context. You can also tell a component where it should run: on the server, or on the client using WebAssembly. It all is a seamless experience. And pre-rendering just works out of box.</p>
-<pre><code class="language-csharp">@* For being rendered on the server *@
+<pre><code class="language-razor">@* For being rendered on the server *@
 &lt;Counter @rendermode="RenderMode.Server" /&gt;
 
 @* For running in WebAssembly *@
 &lt;Counter @rendermode="RenderMode.WebAssembly" /&gt;
 </code></pre>
 <p>You can also specify the default render mode for a component using these attributes.</p>
-<pre><code class="language-csharp">@attribute [RenderModeServer]
+<pre><code class="language-razor">@attribute [RenderModeServer]
 
 @attribute [RenderModeWebAssembly]
 </code></pre>
@@ -149,7 +150,7 @@
 <p>The WebAssembly render mode does require you to set up a separate project that will contain all the bits (components and services) that will be shipped to the browsers. So although seamlessly integrated, there are still technically two apps: one for server - and another for client.</p>
 <h3 id="auto-render-mode">Auto render mode</h3>
 <p>The Auto render mode will prefer WebAssembly, but fall back on Server for interactivity when the WebAssembly files have not yet been downloaded. Once the WebAssembly files have downloaded, the next time you load those components, the component will be running in WebAssembly.</p>
-<pre><code class="language-csharp">&lt;Counter @rendermode="RenderMode.Auto" /&gt;
+<pre><code class="language-razor">&lt;Counter @rendermode="RenderMode.Auto" /&gt;
 </code></pre>
 <h2 id="enhanced-navigation">Enhanced navigation</h2>
 <p>Whenever you normally navigate to a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.</p>
@@ -160,13 +161,13 @@
 <p>When you first visit a page you may have to wait for the page to execute some logic, and to then return the fully rendered page - while all you are seeing is a blank screen. It can be quite frustrating even when it is just for a second or two.</p>
 <p>Blazor has got yet another trick:</p>
 <p>Blazor can render and send you the shell before the page component has been fully initialized. Once that has completed, it just sends the rest of the rendered content, and applies it to the page in the browser.</p>
-<p>Just add this attribute to your Page components.</p>
-<pre><code class="language-csharp">@attribute [StreamRendering(prerender: true)]
+<p>Just add this attribute to your Page components:</p>
+<pre><code class="language-razor">@attribute [StreamRendering(prerender: true)]
 </code></pre>
 <p>Stream rendering utilizes HTTP Streaming to send partial content in chunks over the same HTTP Request.</p>
 <h2 id="form-binding-in-blazor-ssr">Form binding in Blazor SSR</h2>
 <p>In Blazor SSR, you can bind a model to a form using the <code>[SupplyParameterFromForm]</code> attribute - and with some minor adjustments to the form because this page is bound to a HTTP request. You can even have multiple named forms on a page.</p>
-<pre><code class="language-csharp">@using System.ComponentModel.DataAnnotations
+<pre><code class="language-razor">@using System.ComponentModel.DataAnnotations
 
 &lt;EditForm method="post" FormName="contact" OnValidSubmit="AddContact"&gt;
     &lt;DataAnnotationsValidator /&gt;

@@ -40,7 +40,7 @@ To clarify, Blazor is the name of the product in all of its variations - _Razor 
 
 Previously, Blazor Server had also been reliant on Razor Pages for bootstrapping, but that is no longer necessary since ASP.NET Core now can render Razor components as plain HTML directly at a certain endpoint.
 
-So the way you should think of this new "Blazor Web App" an improvement on the _Blazor Server_ hosting model. The standalone WebAssembly type is still the same, but these improvements do open up for some interesting hybrid scenarios on the server as we will see with render modes.
+So the way you should think of this new "Blazor Web App" is as an improvement on the _Blazor Server_ hosting model. The standalone WebAssembly type is still the same, but these improvements do open up for some interesting hybrid scenarios on the server as we will see with render modes.
 
 ### Routing
 
@@ -102,7 +102,7 @@ You can also specify the default render mode for a component using these attribu
 
 The render mode is then inherited by sub-components. You can apply these attributes to the router, and that would make the entire site interactive. But by default, a project created from a template has no interactivity at root-level.
 
-The WebAssembly render mode does require you to set up a separate project that will contain all the bits (components and services) that will be shipped to the browsers. So although integrated, it are still technically two apps.
+The WebAssembly render mode does require you to set up a separate project that will contain all the bits (components and services) that will be shipped to the browsers. So although seamlessly integrated, there are still technically two apps: one for server - and another for client.
 
 ### Auto render mode
 
@@ -114,7 +114,7 @@ The Auto render mode will prefer WebAssembly, but fall back on Server for intera
 
 ## Enhanced navigation
 
-Whenever you normally navigate on a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.
+Whenever you normally navigate tn a new server-side rendered page, the entire DOM is replaced, and the window is redrawn. This sometimes causes flickers that affect the user experience even if the browser tries to mitigate it.
 
 Blazor has got a trick:
 
@@ -212,7 +212,7 @@ You might consider Blazor Web app when...
 
 * You have an app that largely runs on the server
 
-* Your app serve pages with content - being a CMS, or e-commerce site.
+* Your app serves pages full of content - being a CMS, or e-commerce site.
 
 * You might have limited need for interactivity - wanting to opt-in where it is needed.
 

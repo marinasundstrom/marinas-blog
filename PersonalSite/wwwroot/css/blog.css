@@ -89,7 +89,7 @@ article dl dt {
 }
 
 article p+p {
-    margin-top: 25px;
+    margin-top: 1.8em;
 }
 
 article ul+p,
@@ -156,7 +156,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
     }
 
     article p+p {
-        /* margin-top: 30px; */
+        margin-top: 1.56em;
     }
 
     article p+ul {

@@ -70,6 +70,14 @@ This is the project file (``.csproj``):
 </Project>
 ```
 
+To run the app:
+
+```sh
+dotnet run
+```
+
+Then, view the page in your browser: ``http://localhost:5000/``
+
 I don't think that I need to explain this code. It is a simple endpoint for ``GET /hello`` that returns a string .
 
 All you need to do is to target the ``Microsoft.NET.Sdk.Web``. No additional dependencies are required for this since this is built into .NET SDK.
@@ -97,7 +105,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-The factory ``WebApplication.CreateBuilder`` creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.
+The factory method ``WebApplication.CreateBuilder`` creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.
 
 Once the ``WebApplication`` object has been created in your code, you can start mapping routes to handlers, and add middleware to the pipeline - to add some behavior.
 

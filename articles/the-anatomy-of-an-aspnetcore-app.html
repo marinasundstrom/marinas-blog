@@ -142,6 +142,10 @@ app.Run();
 
 &lt;/Project&gt;
 </code></pre>
+<p>To run the app:</p>
+<pre><code class="language-sh">dotnet run
+</code></pre>
+<p>Then, view the page in your browser: <code>http://localhost:5000/</code></p>
 <p>I don't think that I need to explain this code. It is a simple endpoint for <code>GET /hello</code> that returns a string .</p>
 <p>All you need to do is to target the <code>Microsoft.NET.Sdk.Web</code>. No additional dependencies are required for this since this is built into .NET SDK.</p>
 <p>The example above uses top-level statements, which is a feature that eliminates the ceremony of having to declare a <code>Main</code> method.</p>
@@ -159,7 +163,7 @@ var app = builder.Build();
 
 app.Run();
 </code></pre>
-<p>The factory <code>WebApplication.CreateBuilder</code> creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.</p>
+<p>The factory method <code>WebApplication.CreateBuilder</code> creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.</p>
 <p>Once the <code>WebApplication</code> object has been created in your code, you can start mapping routes to handlers, and add middleware to the pipeline - to add some behavior.</p>
 <p>And finally you can start the app, by calling <code>Run</code>.</p>
 </h3><h4 id="dependency-injection">Dependency injection</h4>

@@ -163,7 +163,8 @@ In Blazor SSR, you can bind a model to a form using the ``[SupplyParameterFromFo
     <button>Submit</button>
 </EditForm>
 
-@code {
+@code 
+{
     [SupplyParameterFromForm]
     public Contact NewContact { get; set; } = new();
 

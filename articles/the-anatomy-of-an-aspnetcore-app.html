@@ -91,7 +91,7 @@
   <main><article class="post outer"><div class="inner container"><header b-76by154q0w><h1 class="post-title" b-76by154q0w>The anatomy of an ASP.NET Core app</h1><h2 class="post-subtitle" b-76by154q0w>Understanding the basic concepts</h2><div class="mt-2 mt-md-3" b-76by154q0w><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-09-07" b-76by154q0w>7 Sep 2023</time> • 
                         10 minutes read
 
-</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/ASP.NET%20Core" b-76by154q0w>ASP.NET Core</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web%20development" b-76by154q0w>Web development</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Razor" b-76by154q0w>Razor</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/the-anatomy-of-an-aspnetcore-app">#</span></h4></div></div></div></header></div>
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/ASP.NET%20Core" b-76by154q0w>ASP.NET Core</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web%20development" b-76by154q0w>Web development</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Razor" b-76by154q0w>Razor</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/the-anatomy-of-an-aspnetcore-app/">#</span></h4></div></div></div></header></div>
 
             <div class="mt-4 inner container"><h2 id="preface">Preface</h2>
 <p>The goal of this article is to give someone who is new to ASP.NET Core an overview over the basic concepts of ASP.NET Core - by not going too much into technical details. Though, I will try to cover the essentials - Showing you the simplicity of the ASP.NET Core app model.</p>
@@ -101,20 +101,20 @@
 <p><em>Parts of the article, specifically that about <em>Razor components</em>, is about the upcoming .NET 8. (To be released in November 2023)</em></p>
 <h2 id="contents">Contents</h2>
 <ol>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-1">What is ASP.NET Core?</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-2">Hello World!</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-3">Core concepts</a>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-1">What is ASP.NET Core?</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-2">Hello World!</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3">Core concepts</a>
 <ol>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-3-1">Application</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-3-2">HttpContext</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-3-3">Endpoints</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-3-4">Middleware</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Endpoints</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a></li>
 </ol>
 </li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-4">Razor components</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-5">Native AOT compilation</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-6">Conclusion</a></li>
-<li><a href="/articles/how-do-aspnet-core-apps-work/#section-7">Links</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-4">Razor components</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-5">Native AOT compilation</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-6">Conclusion</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-7">Links</a></li>
 </ol>
 <h2 id="section-1">What is ASP.NET Core?</h2>
 <p>ASP.NET Core is a framework for building apps for the Web that run on the server, using .NET, and programming languages like C#. Running on the server means that it processes HTTP requests and produces HTTP responses.</p>

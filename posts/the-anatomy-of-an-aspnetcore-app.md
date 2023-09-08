@@ -20,17 +20,17 @@ _Parts of the article, specifically that about _Razor components_, is about the 
 
 ## Contents
 
-1. <a href="/articles/how-do-aspnet-core-apps-work/#section-1">What is ASP.NET Core?</a>
-2. <a href="/articles/how-do-aspnet-core-apps-work/#section-2">Hello World!</a>
-3. <a href="/articles/how-do-aspnet-core-apps-work/#section-3">Core concepts</a>
-   1. <a href="/articles/how-do-aspnet-core-apps-work/#section-3-1">Application</a>
-   2. <a href="/articles/how-do-aspnet-core-apps-work/#section-3-2">HttpContext</a>
-   3. <a href="/articles/how-do-aspnet-core-apps-work/#section-3-3">Endpoints</a>
-   4. <a href="/articles/how-do-aspnet-core-apps-work/#section-3-4">Middleware</a>
-4. <a href="/articles/how-do-aspnet-core-apps-work/#section-4">Razor components</a>
-5. <a href="/articles/how-do-aspnet-core-apps-work/#section-5">Native AOT compilation</a>
-6. <a href="/articles/how-do-aspnet-core-apps-work/#section-6">Conclusion</a>
-7. <a href="/articles/how-do-aspnet-core-apps-work/#section-7">Links</a>
+1. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-1">What is ASP.NET Core?</a>
+2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-2">Hello World!</a>
+3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3">Core concepts</a>
+   1. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a>
+   2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a>
+   3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Endpoints</a>
+   4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a>
+4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-4">Razor components</a>
+5. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-5">Native AOT compilation</a>
+6. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-6">Conclusion</a>
+7. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-7">Links</a>
 
 <h2 id="section-1">What is ASP.NET Core?</h2>
 

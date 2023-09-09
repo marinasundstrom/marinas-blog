@@ -25,7 +25,7 @@ _Parts of the article, specifically that about _Razor components_, is about the 
 3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3">Core concepts</a>
    1. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a>
    2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a>
-   3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Endpoints</a>
+   3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Route handlers</a>
    4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a>
 4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-4">Razor components</a>
 5. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-5">Native AOT compilation</a>
@@ -150,7 +150,7 @@ Since ASP.NET Core is a server Web framework, it deals with HTTP. That means pro
 
 In the world of ASP.NET Core, a Request and a Response are bound to what is called a ``HttpContext``. This contains all the information pertaining to the request, as well as the object representing the response that will be returned. The response object can be modified.
 
-You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an endpoint handler, or using middleware.
+You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an route handler, or using middleware.
 
 The current instance of ``HttpContext`` can be obtained through dependency injection - but it is only necessary when doing response manipulation, like modifying the response headers.
 
@@ -165,11 +165,15 @@ app.MapGet("/", async (HttpContext httpContext) =>
 app.Run();
 ```
 
-<h3 id="section-3-3">Endpoints</h3>
+<h3 id="section-3-3">Route handlers</h3>
 
-The perhaps most important part of your Web application is to handle requests that are being sent to specific routes in order to perform some operation, and then return a response with some result. We refer to these as "endpoints" - sometimes more specifically, "Minimal API" endpoints.
+The perhaps most important part of your Web application is to handle requests that are being sent to specific routes in order to perform some operation, and then return a response with some result. 
 
-You can map a a specific path and HTTP verb, such as ``GET`` and ``POST``, to a handler using the ``Map`` (``MapGet``, ``MapPost`` etc) extension methods on the ``WebApplication`` object.
+You can map a a specific path (or route) and HTTP verb, such as ``GET`` and ``POST``, to a route handler using the ``Map`` (``MapGet``, ``MapPost`` etc) extension methods on the ``WebApplication`` object.
+
+In software development, we often interchangeably refer to a route handler that handles a specific route as an **Endpoint**.
+
+Sometimes you also might stumble on the term "Minimal API" endpoints in ASP.NET Core. That is simply a name for this feature.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -198,15 +202,17 @@ public record FooResult(int Value);
 public record GreetingRequest(string Name);
 ```
 
+#### Parameter binding
+
 As demonstrated above, you can bind query strings and request bodies to parameters. Even inject services as parameters, as seen before. And you can return both primitive values and complex objects, as well as results that modify the response and its status code. 
 
 And worth noting that the default serialization format is JSON.
 
-Before the endpoint route handlers, middleware might be executed. We will have a look at that in the next section.
+Before the route handlers, middleware might be executed. We will have a look at Middlware later in this article.
 
 #### Result types
 
-An endpoint might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like ``400 BadRequest``, or ``201 Created``, or for sending a file.
+A route handler might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like ``400 BadRequest``, or ``201 Created``, or for sending a file.
 
 The ``TypedResults`` factory class contains static methods for creating these result objects:
 
@@ -254,9 +260,44 @@ app.MapGet("/helloworld", Results<Ok<string>, BadRequest> () =>
 });
 ```
 
+#### Filters
+
+A filter is a piece of code that runs after the route, or endpoint, has been resolved, but before the route handler has been invoked.
+
+Filters allow you to intercept, access parameters, and do some manipulation. The reasons for intercepting an endpoint might be logging, or validation of data. 
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+string ColorName(string color) => $"Color specified: {color}!";
+
+app.MapGet("/colorSelector/{color}", ColorName)
+    .AddEndpointFilter(async (invocationContext, next) =>
+    {
+        var color = invocationContext.GetArgument<string>(0);
+
+        if (color == "Red")
+        {
+            return Results.Problem("Red not allowed!");
+        }
+        return await next(invocationContext);
+    });
+
+app.Run();
+```
+
+Filters are similar to Middleware (next section) but differ in that they act on the endpoint, while middleware act on the request, before the endpoint is resolved.
+
+You can chain filters to an endpoint. They will be executed in the order if First In, Last Out (FIFO), before invoking the route handler.
+
+You can make endpoint filers re-usable by putting them into their own classes that implement ``IEndpointFilter``.
+
+
 <h3 id="section-3-4">Middleware</h3>
 
-The purpose of middleware is to process a request and to modify the response. They are placed in a pipeline, and executed before the actual endpoint handler.
+The purpose of middleware is to process a request and to modify the response. They are placed in a pipeline, and executed before the actual route handler.
 
 Using middleware we extend our web apps with additional functionality, such as Response Compression, and Open API/Swagger support.
 
@@ -319,11 +360,10 @@ This is what it will look like when invoking ``/hello``:
 ```sh
 Start
 Foo
-"/hello" handler
+"/hello" route handler
 Bar
 End
 ```
-
 
 You can also define middleware as a class, and add it to the pipeline using the ``UseMiddleware<T>()`` method.
 
@@ -379,7 +419,7 @@ var app = builder.Build();
 app.Map("/helloworld", () => new RazorComponentResult<HelloWorld>());
 
 app.Run();
-``````
+```
 
 Upon navigating to ``/helloworld`` this will be rendered:
 
@@ -458,7 +498,7 @@ Here is the ``Counter.razor`` page component:
 }
 ```
 
-The ``@page`` directive tells the router that this component is a page with a specific route: ``/counter``. 
+The ``@page`` directive tells the router that this component is a page with a specific route: ``/``. 
 
 The initialization in ``Program.cs`` is a bit different because the app will itself make sure to find the page components and register endpoints for them. And also, we enable interactivity with the Server render mode.
 
@@ -480,7 +520,7 @@ app.MapRazorComponents<App>()
 app.Run();
 ```
 
-When this endpoint has been navigated to in your browser, this will happen:
+When navigating to ``/`` in your browser, this will happen:
 
 The component will show up in your browser. Set up a WebSocket connection to the server where the component will run - the reason for the script. 
 

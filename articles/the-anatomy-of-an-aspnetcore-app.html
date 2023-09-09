@@ -89,7 +89,7 @@
                     <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-cog"></i></a></li></ul></li></ol></div></div></nav></div></header>
 
   <main><article class="post outer"><div class="inner container"><header b-76by154q0w><h1 class="post-title" b-76by154q0w>The anatomy of an ASP.NET Core app</h1><h2 class="post-subtitle" b-76by154q0w>Understanding the basic concepts</h2><div class="mt-2 mt-md-3" b-76by154q0w><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-09-07" b-76by154q0w>7 Sep 2023</time> • 
-                        10 minutes read
+                        11 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/ASP.NET%20Core" b-76by154q0w>ASP.NET Core</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web%20development" b-76by154q0w>Web development</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Razor" b-76by154q0w>Razor</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/the-anatomy-of-an-aspnetcore-app/">#</span></h4></div></div></div></header></div>
 
@@ -107,7 +107,7 @@
 <ol>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a></li>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Endpoints</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Route handlers</a></li>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a></li>
 </ol>
 </li>
@@ -192,7 +192,7 @@ class Dog
 <h3 id="section-3-2">HttpContext</h3>
 <p>Since ASP.NET Core is a server Web framework, it deals with HTTP. That means processing HTTP Requests and producing HTTP Responses.</p>
 <p>In the world of ASP.NET Core, a Request and a Response are bound to what is called a <code>HttpContext</code>. This contains all the information pertaining to the request, as well as the object representing the response that will be returned. The response object can be modified.</p>
-<p>You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an endpoint handler, or using middleware.</p>
+<p>You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an route handler, or using middleware.</p>
 <p>The current instance of <code>HttpContext</code> can be obtained through dependency injection - but it is only necessary when doing response manipulation, like modifying the response headers.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
 
@@ -203,9 +203,11 @@ app.MapGet("/", async (HttpContext httpContext) =&gt;
 
 app.Run();
 </code></pre>
-<h3 id="section-3-3">Endpoints</h3>
-<p>The perhaps most important part of your Web application is to handle requests that are being sent to specific routes in order to perform some operation, and then return a response with some result. We refer to these as "endpoints" - sometimes more specifically, "Minimal API" endpoints.</p>
-<p>You can map a a specific path and HTTP verb, such as <code>GET</code> and <code>POST</code>, to a handler using the <code>Map</code> (<code>MapGet</code>, <code>MapPost</code> etc) extension methods on the <code>WebApplication</code> object.</p>
+<h3 id="section-3-3">Route handlers</h3>
+<p>The perhaps most important part of your Web application is to handle requests that are being sent to specific routes in order to perform some operation, and then return a response with some result.</p>
+<p>You can map a a specific path (or route) and HTTP verb, such as <code>GET</code> and <code>POST</code>, to a route handler using the <code>Map</code> (<code>MapGet</code>, <code>MapPost</code> etc) extension methods on the <code>WebApplication</code> object.</p>
+<p>In software development, we often interchangeably refer to a route handler that handles a specific route as an <strong>Endpoint</strong>.</p>
+<p>Sometimes you also might stumble on the term "Minimal API" endpoints in ASP.NET Core. That is simply a name for this feature.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
@@ -231,11 +233,12 @@ public record FooResult(int Value);
 
 public record GreetingRequest(string Name);
 </code></pre>
+<h4 id="parameter-binding">Parameter binding</h4>
 <p>As demonstrated above, you can bind query strings and request bodies to parameters. Even inject services as parameters, as seen before. And you can return both primitive values and complex objects, as well as results that modify the response and its status code.</p>
 <p>And worth noting that the default serialization format is JSON.</p>
-<p>Before the endpoint route handlers, middleware might be executed. We will have a look at that in the next section.</p>
+<p>Before the route handlers, middleware might be executed. We will have a look at Middlware later in this article.</p>
 <h4 id="result-types">Result types</h4>
-<p>An endpoint might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like <code>400 BadRequest</code>, or <code>201 Created</code>, or for sending a file.</p>
+<p>A route handler might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like <code>400 BadRequest</code>, or <code>201 Created</code>, or for sending a file.</p>
 <p>The <code>TypedResults</code> factory class contains static methods for creating these result objects:</p>
 <pre><code class="language-csharp">using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -272,8 +275,34 @@ app.MapGet("/helloworld", Results&lt;Ok&lt;string&gt;, BadRequest&gt; () =&gt;
     return Ok("Hello, World"!);
 });
 </code></pre>
+<h4 id="filters">Filters</h4>
+<p>A filter is a piece of code that runs after the route, or endpoint, has been resolved, but before the route handler has been invoked.</p>
+<p>Filters allow you to intercept, access parameters, and do some manipulation. The reasons for intercepting an endpoint might be logging, or validation of data.</p>
+<pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+string ColorName(string color) =&gt; $"Color specified: {color}!";
+
+app.MapGet("/colorSelector/{color}", ColorName)
+    .AddEndpointFilter(async (invocationContext, next) =&gt;
+    {
+        var color = invocationContext.GetArgument&lt;string&gt;(0);
+
+        if (color == "Red")
+        {
+            return Results.Problem("Red not allowed!");
+        }
+        return await next(invocationContext);
+    });
+
+app.Run();
+</code></pre>
+<p>Filters are similar to Middleware (next section) but differ in that they act on the endpoint, while middleware act on the request, before the endpoint is resolved.</p>
+<p>You can chain filters to an endpoint. They will be executed in the order if First In, Last Out (FIFO), before invoking the route handler.</p>
+<p>You can make endpoint filers re-usable by putting them into their own classes that implement <code>IEndpointFilter</code>.</p>
 <h3 id="section-3-4">Middleware</h3>
-<p>The purpose of middleware is to process a request and to modify the response. They are placed in a pipeline, and executed before the actual endpoint handler.</p>
+<p>The purpose of middleware is to process a request and to modify the response. They are placed in a pipeline, and executed before the actual route handler.</p>
 <p>Using middleware we extend our web apps with additional functionality, such as Response Compression, and Open API/Swagger support.</p>
 <p>For example, the Response Compression middleware compresses a response. It can be added to the container, and then the Web App, using extension methods.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
@@ -324,7 +353,7 @@ app.Run();
 <p>This is what it will look like when invoking <code>/hello</code>:</p>
 <pre><code class="language-sh">Start
 Foo
-"/hello" handler
+"/hello" route handler
 Bar
 End
 </code></pre>
@@ -435,7 +464,7 @@ app.Run();
     }
 }
 </code></pre>
-<p>The <code>@page</code> directive tells the router that this component is a page with a specific route: <code>/counter</code>.</p>
+<p>The <code>@page</code> directive tells the router that this component is a page with a specific route: <code>/</code>.</p>
 <p>The initialization in <code>Program.cs</code> is a bit different because the app will itself make sure to find the page components and register endpoints for them. And also, we enable interactivity with the Server render mode.</p>
 <pre><code class="language-csharp">using TestApp1;
 
@@ -453,7 +482,7 @@ app.MapRazorComponents&lt;App&gt;()
 
 app.Run();
 </code></pre>
-<p>When this endpoint has been navigated to in your browser, this will happen:</p>
+<p>When navigating to <code>/</code> in your browser, this will happen:</p>
 <p>The component will show up in your browser. Set up a WebSocket connection to the server where the component will run - the reason for the script.</p>
 <p>When you click the button, the <code>IncrementCount</code>method will be invoked on the server, and increase the value of the <code>currentCount</code> field by 1. The UI will then be updated to reflect that change of state.</p>
 <p>What makes a difference is the <code>@attribute [RenderModeServer]</code>, and the little piece of JS script that activates interactivity in the browser.</p>

@@ -180,6 +180,8 @@ app.MapGet("/", async (HttpContext httpContext) =>
 app.Run();
 ```
 
+In general, you don't need to worry about the ``HttpContext`` since route handlers have parameter binding.
+
 <h3 id="section-3-3">Route handlers</h3>
 
 The perhaps most important part of your Web application is to handle requests that are being sent to specific routes in order to perform some operation, and then return a response with some result. 
@@ -219,7 +221,9 @@ public record GreetingRequest(string Name);
 
 #### Parameter binding
 
-As demonstrated above, you can bind query strings and request bodies to parameters. Even inject services as parameters, as seen before. And you can return both primitive values and complex objects, as well as results that modify the response and its status code. 
+As demonstrated above, you can bind route parameters, query strings, and request bodies to parameters. You can also inject services as parameters, as seen earlier. 
+
+And you can return both primitive values and complex objects, as well as results that modify the response and its status code. 
 
 And worth noting that the default serialization format is JSON.
 

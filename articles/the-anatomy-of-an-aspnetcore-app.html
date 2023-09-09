@@ -106,7 +106,7 @@
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3">Core concepts</a>
 <ol>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a></li>
+<li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">Request and Response</a></li>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Route handlers</a></li>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a></li>
 </ol>
@@ -189,8 +189,18 @@ class Dog
 <p>You see that services might be injected as parameters into any handler, next to bound parameters. The framework will try to figure out whether, or not, a class type is a bound parameter, or a service - based on what is in the service container.</p>
 <p>The <code>AddScoped&lt;T&gt;()</code> adds a service to the service container with the scoped lifetime. In the ASP.NET Core context, that means that the same instance of type <code>T</code> is being resolved during the scope of the current HTTP request. When there is another request, a new instance is being created.</p>
 <p>The frameworks makes some object available through dependency injection, including <code>HttpContext</code>, and both <code>HttpRequest</code> and <code>HttpResponse</code> separately. The ones mentioned are scoped.</p>
-<h3 id="section-3-2">HttpContext</h3>
-<p>Since ASP.NET Core is a server Web framework, it deals with HTTP. That means processing HTTP Requests and producing HTTP Responses.</p>
+<h3 id="section-3-2">Request and Response</h3>
+<p>Since ASP.NET Core is used to build Web apps on the server, it deals with HTTP: That means processing HTTP Requests and producing HTTP Responses.</p>
+<h4 id="how-requests-are-processed">How requests are processed</h4>
+<p>Requests are being processed in this way in your app:</p>
+<ol>
+<li><em>Request</em> comes in</li>
+<li><em>Middleware</em> processes request</li>
+<li><em>Route handler</em> handles request.</li>
+<li><em>Response</em> is returned</li>
+</ol>
+<p>We will further explain the concepts later in this article.</p>
+<h4 id="the-httpcontext">The HttpContext</h4>
 <p>In the world of ASP.NET Core, a Request and a Response are bound to what is called a <code>HttpContext</code>. This contains all the information pertaining to the request, as well as the object representing the response that will be returned. The response object can be modified.</p>
 <p>You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an route handler, or using middleware.</p>
 <p>The current instance of <code>HttpContext</code> can be obtained through dependency injection - but it is only necessary when doing response manipulation, like modifying the response headers.</p>
@@ -237,7 +247,7 @@ public record GreetingRequest(string Name);
 <p>As demonstrated above, you can bind query strings and request bodies to parameters. Even inject services as parameters, as seen before. And you can return both primitive values and complex objects, as well as results that modify the response and its status code.</p>
 <p>And worth noting that the default serialization format is JSON.</p>
 <p>Before the route handlers, middleware might be executed. We will have a look at Middlware later in this article.</p>
-<h4 id="result-types">Result types</h4>
+<h4 id="results">Results</h4>
 <p>A route handler might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like <code>400 BadRequest</code>, or <code>201 Created</code>, or for sending a file.</p>
 <p>The <code>TypedResults</code> factory class contains static methods for creating these result objects:</p>
 <pre><code class="language-csharp">using Microsoft.AspNetCore.Http.HttpResults;

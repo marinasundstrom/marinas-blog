@@ -146,11 +146,11 @@ The frameworks makes some object available through dependency injection, includi
 
 <h3 id="section-3-2">Request and Response</h3>
 
-Since ASP.NET Core is used to build Web apps on the server, it deals with HTTP: That means processing HTTP Requests and producing HTTP Responses.
+Since ASP.NET Core is used to build Web apps on the server, it deals with HTTP. That means processing HTTP Requests and producing HTTP Responses.
 
 #### How requests are processed
 
-Requests are being processed in this way in your app:
+Requests are being processed in the following way by ASP.NET Core:
 
 1. _Request_ comes in
 2. _Middleware_ processes request
@@ -159,13 +159,15 @@ Requests are being processed in this way in your app:
 
 We will further explain the concepts later in this article.
 
-#### The HttpContext
+#### HttpContext
 
-In the world of ASP.NET Core, a Request and a Response are bound to what is called a ``HttpContext``. This contains all the information pertaining to the request, as well as the object representing the response that will be returned. The response object can be modified.
+Information about the current request and the response is encapsulated in the ``HttpContext`` object - which has properties representing both the ``Request`` and ``Response``.
 
-You can get the request headers as well as information about the authenticated user. (If that has been enabled) Then you can modify the response, either from an route handler, or using middleware.
+You can read the request, and inspect its headers and content - to the determine what to do in either route handlers, or in middleware.
 
-The current instance of ``HttpContext`` can be obtained through dependency injection - but it is only necessary when doing response manipulation, like modifying the response headers.
+You can then modify the response - setting the status code, writing to the body, and modifying the response headers
+
+The ``HttpContext`` is accessible from middleware, and injectible into route handlers. Both ``HttpRequest`` and ``HttpResponse`` can be separately injected as well.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);

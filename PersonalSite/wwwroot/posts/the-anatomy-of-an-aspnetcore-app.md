@@ -24,7 +24,7 @@ _Parts of the article, specifically that about _Razor components_, is about the 
 2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-2">Hello World!</a>
 3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3">Core concepts</a>
    1. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-1">Application</a>
-   2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">HttpContext</a>
+   2. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-2">Request and Response</a>
    3. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-3">Route handlers</a>
    4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-3-4">Middleware</a>
 4. <a href="/articles/the-anatomy-of-an-aspnetcore-app/#section-4">Razor components</a>
@@ -144,9 +144,22 @@ The ``AddScoped<T>()`` adds a service to the service container with the scoped l
 
 The frameworks makes some object available through dependency injection, including ``HttpContext``, and both ``HttpRequest`` and ``HttpResponse`` separately. The ones mentioned are scoped.
 
-<h3 id="section-3-2">HttpContext</h3>
+<h3 id="section-3-2">Request and Response</h3>
 
-Since ASP.NET Core is a server Web framework, it deals with HTTP. That means processing HTTP Requests and producing HTTP Responses.
+Since ASP.NET Core is used to build Web apps on the server, it deals with HTTP: That means processing HTTP Requests and producing HTTP Responses.
+
+#### How requests are processed
+
+Requests are being processed in this way in your app:
+
+1. _Request_ comes in
+2. _Middleware_ processes request
+3. _Route handler_ handles request.
+4. _Response_ is returned
+
+We will further explain the concepts later in this article.
+
+#### The HttpContext
 
 In the world of ASP.NET Core, a Request and a Response are bound to what is called a ``HttpContext``. This contains all the information pertaining to the request, as well as the object representing the response that will be returned. The response object can be modified.
 
@@ -210,7 +223,7 @@ And worth noting that the default serialization format is JSON.
 
 Before the route handlers, middleware might be executed. We will have a look at Middlware later in this article.
 
-#### Result types
+#### Results
 
 A route handler might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like ``400 BadRequest``, or ``201 Created``, or for sending a file.
 

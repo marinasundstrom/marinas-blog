@@ -85,11 +85,11 @@ All you need to do is to target the ``Microsoft.NET.Sdk.Web``. No additional dep
 The example above uses top-level statements, which is a feature that eliminates the ceremony of having to declare a ``Main`` method.
 
 
-<h2 id="section-3">Core concepts<h2>
+<h2 id="section-3">Core concepts</h2>
 
 This section is meant to give you a basic understanding of what an ASP.NET Core app looks like - the anatomy of an ASP.NET Core application, if you want.
 
-<h3 id="section-3-1">Application<h3>
+<h3 id="section-3-1">Application</h3>
 
 The ``WebApplication`` object is representing the application with what is needed to serve HTTP, and the ``WebApplicationBuilder`` is responsible for constructing that object. It sets up the basic dependencies for the app to work - the Web server.
 
@@ -386,7 +386,7 @@ End
 
 You can also define middleware as a class, and add it to the pipeline using the ``UseMiddleware<T>()`` method.
 
-<h2 id="section-4">Razor components<h2>
+<h2 id="section-4">Razor components</h2>
 
 _This section is about things coming in .NET 8. (To be released in November 2023)_
 

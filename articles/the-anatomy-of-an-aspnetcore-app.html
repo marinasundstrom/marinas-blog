@@ -149,9 +149,9 @@ app.Run();
 <p>I don't think that I need to explain this code. It is a simple endpoint for <code>GET /hello</code> that returns a string .</p>
 <p>All you need to do is to target the <code>Microsoft.NET.Sdk.Web</code>. No additional dependencies are required for this since this is built into .NET SDK.</p>
 <p>The example above uses top-level statements, which is a feature that eliminates the ceremony of having to declare a <code>Main</code> method.</p>
-<h2 id="section-3">Core concepts</h2><h2>
+<h2 id="section-3">Core concepts</h2>
 <p>This section is meant to give you a basic understanding of what an ASP.NET Core app looks like - the anatomy of an ASP.NET Core application, if you want.</p>
-</h2><h3 id="section-3-1">Application</h3><h3>
+<h3 id="section-3-1">Application</h3>
 <p>The <code>WebApplication</code> object is representing the application with what is needed to serve HTTP, and the <code>WebApplicationBuilder</code> is responsible for constructing that object. It sets up the basic dependencies for the app to work - the Web server.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
 
@@ -166,7 +166,7 @@ app.Run();
 <p>The factory method <code>WebApplication.CreateBuilder</code> creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.</p>
 <p>Once the <code>WebApplication</code> object has been created in your code, you can start mapping routes to handlers, and add middleware to the pipeline - to add some behavior.</p>
 <p>And finally you can start the app, by calling <code>Run</code>.</p>
-</h3><h4 id="dependency-injection">Dependency injection</h4>
+<h4 id="dependency-injection">Dependency injection</h4>
 <p>Dependency injection is built into ASP.NET Core. And it is with the builder that you register any dependencies that you want to go into the service container of the app.</p>
 <p>If you want to enable, for instance Open API, then you have to add services that allow for that. Usually you are provided with handy extension methods that do all that hard work for you. These often take delegates that can be used to configure those services.</p>
 <p>This is what dependency injection looks like when registering your own service:</p>
@@ -371,7 +371,7 @@ Bar
 End
 </code></pre>
 <p>You can also define middleware as a class, and add it to the pipeline using the <code>UseMiddleware&lt;T&gt;()</code> method.</p>
-<h2 id="section-4">Razor components</h2><h2>
+<h2 id="section-4">Razor components</h2>
 <p><em>This section is about things coming in .NET 8. (To be released in November 2023)</em></p>
 <p>Razor components are components written in the Razor syntax, which is a templating language that combines HTML and C# code in order to dynamically generate web pages. It basically is for .NET what JSX is to React - but not really.</p>
 <p>Consider this <code>HelloWorld.razor</code> component:</p>
@@ -422,7 +422,7 @@ app.Run();
     &lt;li&gt;B&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-</h2><h3 id="interactive-components">Interactive components</h3>
+<h3 id="interactive-components">Interactive components</h3>
 <p>Although Razor components are server-side rendered by default, you can make them interactive. You can build an entire interactive SPA (Single-page application) with routable pages if you so want.</p>
 <p>Interactive apps are more commonly known as Blazor apps. Blazor is the product name. Though the name dates back to the early prototype.</p>
 <p>With Blazor, you basically get the choice of running the component on the server, or in the browser using WebAssembly. These are called <em>Render modes</em>.</p>

@@ -1,0 +1,54 @@
+@page "/"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@layout CoverLayout
+@using System.Globalization
+
+<PageTitle>Marina Sundström</PageTitle>
+
+<div class="bgimg-1">
+
+    <div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5); padding-top: 200px;">
+
+        <img class="rounded-circle pulse" style="height: 200px; margin-bottom: 25px; border: 5px solid var(--brand-color);" src="/images/profile.jpeg" />
+        <h1>Hi! I'm Marina 😊</h1>
+        <p class="lead">I'm a Software Developer.</p>
+        <p class="lead">
+            <a href="#who-am-i" class="mt-4 custom btn btn-lg btn-secondary fw-bold">About me</a>
+        </p>
+
+    </div>
+
+</div>
+
+<section id="who-am-i" class="context" style="padding-top: 0 !important; padding:50px 15px;text-align: start;">
+    <div class="container">
+        <div class="col mx-auto mt-4" style="max-width: 640px">
+              <h3 style="text-align:center;">Who am I?</h3>
+             <p>I'm a Software developer, based in <a target="_blank" href="https://www.google.se/maps/place/Malmö/@@55.5702455,12.9457618,12z/data=!3m1!4b1!4m5!3m4!1s0x465305a574c491ff:0xd3a905dfbd4888e5!8m2!3d55.604981!4d13.003822?hl=en">Malmö, Sweden</a>.</p>
+
+            <p>I build awesome software for people. My main expertise is in C#/.NET and Web.</p>
+
+            <p>In my free time, I like taking walks in beautiful nature, philosophizing while enjoying a good cup of coffee, and making tasty cocktails.</p>
+
+            <div class="d-flex justify-content-center">
+                <p><a class="btn btn-primary text-center mt-4" href="/presentation">Read more</a></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center">
+      <small class="text-muted">© @DateTime.Now.Year Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small>
+  </footer>
+
+  @code {
+    protected override async Task OnAfterRenderAsync(bool firstRender) 
+    {
+        if(firstRender) 
+        {
+            await NavigationManager.NavigateToFragmentAsync(JS);
+        }
+    }
+  }

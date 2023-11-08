@@ -4,7 +4,7 @@
 <header>
         @if(Smaller)
         {
-            <h2 class="post-title">
+            <h2 class="post-title mb-">
                 @if(Slug is not null) 
                 {
                     <a href="/articles/@Slug">@Title</a>
@@ -32,7 +32,14 @@
 
     @if (Subtitle is not null)
     {
-        <h2 class="post-subtitle">@Subtitle</h2>
+        @if(Smaller)
+        {
+            <h4 class="post-subtitle">@Subtitle</h4>
+        }
+        else 
+        {
+            <h3 class="post-subtitle">@Subtitle</h3>
+        }
     }
 
     <div class="mt-2 mt-md-3">

@@ -3,7 +3,7 @@ title: Marina Sundström
 ---
 
 <a href="/images/profile.jpeg">
-<img class="rounded-circle right" src="/images/profile.jpeg" /></a>
+<img class="rounded-circle right" src="/images/profile.jpeg" height="120" style="margin-bottom: 35px" /></a>
 
 I've been doing programming since 2007. Ever since, in my career and in my free time, I've been learning a lot about software engineering and all the different aspects involved in building software, not just the technical but also the organizational side.
 

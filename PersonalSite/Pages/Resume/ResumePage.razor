@@ -97,7 +97,7 @@
 
                 @foreach (var education in resume.Education)
                 {
-                    <div class="card shadow mb-4">
+                    <div class="card shadow-sm mb-4">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="col-logo">
@@ -136,7 +136,7 @@
                     <small class="text-muted">Click on a skill to learn more.</small>
                 </div>
 
-                <div class="card shadow mb-4" style="page-break-inside: avoid;">
+                <div class="card shadow-sm mb-4" style="page-break-inside: avoid;">
             <div class="card-body p-md-4">
 
                 <dl class="skills grid-dl">
@@ -157,7 +157,7 @@
                                         {link}
                                     </div>";
 
-                                <a tabindex="0" class="badge rounded-pill tag me-1 mb-1 text-decoration-none" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="@skillName" data-bs-content="@content" data-bs-html="true">
+                                <a tabindex="0" class="badge mini rounded-pill tag me-1 mb-1 text-decoration-none" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="@skillName" data-bs-content="@content" data-bs-html="true">
                                     @skillName
                                 </a>
                             }

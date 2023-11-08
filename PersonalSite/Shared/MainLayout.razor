@@ -1,18 +1,11 @@
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
 
-<div class="container d-flex w-100 h-100 mx-auto flex-column" style="padding-top: 110px !important;">
-  <header>
-    <div>
-      <NavMenu />
+<NavMenu />
+
+<main class="bg-body pb-5">
+    <div class="container">
+        @Body
     </div>
-  </header>
+</main>
 
-  <main>
-      @Body
-  </main>
-
-  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center">
-      <small class="text-muted">© @DateTime.Now.Year Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small>
-  </footer>
-</div>
-
+<Footer />

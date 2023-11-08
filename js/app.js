@@ -6,7 +6,14 @@ function initScrollToTop() {
     scrollToTop.addEventListener("click", ev => {
         ev.preventDefault();
         
-        window.scrollTo(0, 0);
+        scrollToTop();
+    });
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 }
 

@@ -103,7 +103,7 @@
                 <li class="nav-item list-inline-item" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
 
 <main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>C# features that Java doesn&#x27;t have</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-04-14" b-76by154q0w>14 Apr 2023</time> • 
-                        22 minutes read
+                        23 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/csharp-features-java-doesnt-have">#</span></h4></div></div></div></header></div>
 
@@ -113,6 +113,7 @@
 <p>I'm aware that Kotlin, another Java platform language, has some of these features. So they are not entirely unavailable for Java developers. In fact, Kotlin is the recommended language for the Java Platform by Google.</p>
 <p>I hope that both C# and Java developers alike are enjoying this read. :)</p>
 <p><em>Don't get mad at me if there are any errors! Some of the code may not have been tested. ;)</em></p>
+<p><em>Updated on 8 Nov 2023, with details on equivalent to delegates in Java.</em></p>
 <h2 id="contents">Contents</h2>
 <ol start="0">
 <li><a href="/articles/csharp-features-java-doesnt-have#section-0">What is C# and .NET?</a></li>
@@ -392,6 +393,7 @@ Foo1 foo1 = (Foo1)foo2;
 <p>Delegates are type-safe method pointers that hold reference to one of more methods. These references can be invoked through the delegate instance.</p>
 <p>Delegates allow you to pass method references as arguments to functions, enabling functional programming patterns.</p>
 <p>A delegate has a signature and is type-safe. Meaning that you can not cast between other delegates even if they have a similar signature. Of course, they can take generic type parameters as well.</p>
+<p>.NET delegates are runtime concepts.</p>
 <pre><code class="language-c#">delegate int ArithmeticOperation(int lhs, int rhs);
 </code></pre>
 <pre><code class="language-c#">int DoOperation(ArithmeticOperation operation, int lhs, int rhs) 
@@ -417,6 +419,37 @@ The common ones are: <code>Action&lt;T&gt;</code> and <code>Func&lt;T, R&gt;</co
 
 Test((x) =&gt; x == 2);
 </code></pre>
+<p>Java uses interfaces to pass method references around. Where a method is passed you see an interface, that you implement in either a regular class, or inline in an anonymous class.</p>
+<pre><code class="language-java">int count = 1;
+Runnable action = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Runnable with captured variables: " + count);
+    }           
+};
+</code></pre>
+<p>Thanks, to <a href="https://www.baeldung.com/java-anonymous-classes">Baeldung</a> for this sample.</p>
+<p><code>Runnable</code> being an interface that is being implemented anonymously, and then object passed into the method</p>
+<p>A lambda expression in Java is syntactic sugar for a method in a hidden generated anonymous class, implementing an interface, that has a single method representing the lambda function.</p>
+<p>Here's a sample from <a href="https://www.w3schools.com/java/java_lambda.asp">W3 Schools</a>:</p>
+<pre><code class="language-java">interface StringFunction {
+  String run(String str);
+}
+
+public class Main {
+  public static void main(String[] args) {
+    StringFunction exclaim = (s) -&gt; s + "!";
+    StringFunction ask = (s) -&gt; s + "?";
+    printFormatted("Hello", exclaim);
+    printFormatted("Hello", ask);
+  }
+  public static void printFormatted(String str, StringFunction format) {
+    String result = format.run(str);
+    System.out.println(result);
+  }
+}
+</code></pre>
+<p>The end result is similar to .NET, but without delegates. It captures variables as fields in a hidden compiler-generated class containing the actual method.</p>
 <h3 id="events">Events</h3>
 <p>Delegates are used for Events in .NET - which are to delegates what properties are to fields. They restrict access to a delegate instance. Events are commonly used by UI frameworks like Windows Forms and WPF.</p>
 <p>This sample shows an auto-implemented event. Though you could implement the <code>add</code> and <code>remove</code> accessors yourself.</p>
@@ -440,7 +473,14 @@ car.Start();
 </code></pre>
 <p>.NET Events make sure that only the declaring type can raise an event to execute event handlers. This restriction doesn't apply to plain delegates which can be invoked everywhere.</p>
 <p>The common event delegate types are <code>EventHandler</code> and <code>EventHandler&lt;T&gt;</code> (where <code>T</code> is constrained to <code>EventArgs</code>).</p>
-<p>Java has no delegates or specific language constructs for events. Instead it uses interfaces and anonymous classes to implement both lambda expressions and event-listener patterns. Java is creating and passing an object which holds the method implementation of the lambda, rather than a reference to a method.</p>
+<p>Java has no delegates or specific language constructs for events. As shown in previous section, it instead uses interfaces and anonymous classes to implement lambda expressions to enable the event-listener pattern.</p>
+<p>Here's an example from a GUI library:</p>
+<pre><code class="language-java">button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        ...
+    }
+}
+</code></pre>
 <h3 id="did-you-know-1">Did you know?</h3>
 <p>Delegates have been part of .NET since version 1.0.</p>
 <p>Delegates can represent both static methods and instance methods. And you can retrieve information about both the method and the target object.</p>

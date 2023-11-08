@@ -606,8 +606,9 @@ record Person(string FirstName, string LastName, int Age)
 var result = await DownloadPage();
 </code></pre>
 <p>Under the hood the compiler effectively splits the method at each <code>await</code> statement, and creates another method for the rest which acts as a continuation when the task has completed. There is state machine which handles the transitions between various states and surfaces exceptions.</p>
-<p>Java doesn't have a native <code>await</code> feature similar to the one in C#. But there are initiatives in the Java community that are working on it. JavaScript has had the await syntax with their <code>Promise</code> objects for many years.</p>
+<p>Java doesn't have a native <code>await</code> feature similar to the one in C#. Though there is a <code>Future</code> type, analogous to a <code>Task</code> in .NET.</p>
 <p>Kotlin has coroutines, but no equivalent syntax.</p>
+<p>Java 21 is introducing lightweight <em>virtual threads</em>, which are threads that the JVM will create and manage - not the operating system. Eliminating the need for writing asynchronous code, since the JVM handles that for you.</p>
 <h3 id="did-you-know-2">Did you know?</h3>
 <p>Before the Task-based asynchronous model, there was a couple of other models for dealing with asynchronous code. One of them was based on .NET events that you had to handle. But that lacked the scheduling and thread synchronization part that the Task-based model now provides.</p>
 <p>You can turn event-based asynchronous APIs into Tasks using the TaskCompletionSource - which is the factory-part to a Task.</p>
@@ -640,6 +641,7 @@ Foo? foo = null; // Allowed
 <pre><code class="language-c#">Foo foo = null!; // Allowed - since you told the compiler to ignore the warning with !
 </code></pre>
 <p>Java has no nullability syntax. Though they have an <code>Option</code> type. Kotlin has similar syntax to that of C# and other languages.</p>
+<p>Java has a <code>java.utils.Optional&lt;T&gt;</code> type, which is similar to what <code>Nullable&lt;T&gt;</code> is for C#. It wraps any Java class type. But there is not special syntax with it.</p>
 <h3 id="why-nullable-works-as-it-does">Why "nullable" works as it does</h3>
 <p>So why is nullability so different for reference types and for value types? Simply: Due to introducing the semantic distinction in the first place.</p>
 <p>Reference types have always been implicitly nullable (without the ? syntax). It is something that is built into the runtime. You just had to know whether something was a class and realize that it could be null and had to be handled. Value types have always had a default value and thus they did not require initialization with <code>new</code> either.</p>

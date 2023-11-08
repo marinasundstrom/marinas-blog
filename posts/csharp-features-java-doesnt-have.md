@@ -704,9 +704,11 @@ var result = await DownloadPage();
 
 Under the hood the compiler effectively splits the method at each ``await`` statement, and creates another method for the rest which acts as a continuation when the task has completed. There is state machine which handles the transitions between various states and surfaces exceptions.
 
-Java doesn't have a native ``await`` feature similar to the one in C#. But there are initiatives in the Java community that are working on it. JavaScript has had the await syntax with their ``Promise`` objects for many years.
+Java doesn't have a native ``await`` feature similar to the one in C#. Though there is a ``Future`` type, analogous to a ``Task`` in .NET.
 
 Kotlin has coroutines, but no equivalent syntax.
+
+Java 21 is introducing lightweight _virtual threads_, which are threads that the JVM will create and manage - not the operating system. Eliminating the need for writing asynchronous code, since the JVM handles that for you.
 
 ### Did you know?
 
@@ -764,6 +766,8 @@ Foo foo = null!; // Allowed - since you told the compiler to ignore the warning 
 ```
 
 Java has no nullability syntax. Though they have an ```Option``` type. Kotlin has similar syntax to that of C# and other languages.
+
+Java has a ``java.utils.Optional<T>`` type, which is similar to what ``Nullable<T>`` is for C#. It wraps any Java class type. But there is not special syntax with it.
 
 ### Why "nullable" works as it does
 

@@ -105,11 +105,11 @@ article p+p {
 
 article ul+p,
 ol+p {
-    margin-top: 1.2rem;
+    margin-top: 1.6rem;
 }
 
 article *+pre {
-    margin-top: 1.4em;
+    margin-top: 1.6em;
     margin-bottom: 1em;
 }
 

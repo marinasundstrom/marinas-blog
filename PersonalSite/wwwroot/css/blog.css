@@ -100,7 +100,7 @@ article dl dt {
 }
 
 article p+p {
-    margin-top: 1.2em;
+    margin-top: 1.4em; /* .2 */
 }
 
 article ul+p,

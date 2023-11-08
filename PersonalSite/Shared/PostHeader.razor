@@ -2,9 +2,10 @@
 @inject NavigationManager NavigationManager
 
 <header>
+    <div class="mb-4">
         @if(Smaller)
         {
-            <h2 class="post-title mb-">
+            <h2 class="post-title mb-2">
                 @if(Slug is not null) 
                 {
                     <a href="/articles/@Slug">@Title</a>
@@ -17,7 +18,7 @@
         }
         else
         {
-            <h1 class="post-title">
+            <h1 class="post-title mb-2">
                 @if(Slug is not null) 
                 {
                     <a href="/articles/@Slug">@Title</a>
@@ -34,16 +35,15 @@
     {
         @if(Smaller)
         {
-            <h4 class="post-subtitle">@Subtitle</h4>
+            <h4 class="post-subtitle mb-3">@Subtitle</h4>
         }
         else 
         {
-            <h3 class="post-subtitle">@Subtitle</h3>
+            <h3 class="post-subtitle mb-3">@Subtitle</h3>
         }
     }
 
-    <div class="mt-2 mt-md-3">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-4">
              <span>
                 <small class="mb-2 text-muted">
                     @if (Author is not null)

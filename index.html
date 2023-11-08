@@ -20,11 +20,13 @@
     <meta name="msapplication-TileColor" content="#da532c"/>
     <meta name="theme-color" content="#ffffff"/>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/highlightjs-cshtml-razor/dist/cshtml-razor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap/color-modes.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -54,8 +56,8 @@
 <!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
 <script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
 
-<body>
-    <div id="app" class="d-flex h-100">
+<body class="bg-body-tertiary">
+    <div id="app" class="h-100">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%"></circle>
             <circle r="40%" cx="50%" cy="50%"></circle>
@@ -64,38 +66,53 @@
     
 <!-- %%-PRERENDERING-BEGIN-%% -->
 <div style="opacity: 0; position: fixed; z-index: -1; top: 0; left: 0; bottom: 0; right: 0;">
-    <header class="mb-auto"><div><nav class="navbar navbar-expand-lg  navbar-dark fixed-top px-3"><div class="container"><a href="" class="navbar-brand mr-auto mr-lg-0 active"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700">
-        Marina Sundström</a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas"><span class="navbar-toggler-icon"></span></button>
+    <header class="mb-auto"><div><header class="navbar navbar-expand-lg fixed-top navbar-dark bg-brand" b-kujckncdpz><nav class="container px-4 px-md-3 flex-wrap flex-md-nowrap" aria-label="Main navigation" b-kujckncdpz><a href="" class="navbar-brand mr-auto mr-lg-0 active" aria-current="page"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700" b-kujckncdpz>
+            Marina Sundström
+        </a>
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation" b-kujckncdpz><span class="navbar-toggler-icon" b-kujckncdpz></span></button>
 
-    <div class="navbar-collapse offcanvas-collapse " id="navbarsExampleDefault"><ul class="navbar-nav mr-auto"><li class="nav-item active"><a href="" class="nav-link active">Home</a></li>
-            <li class="nav-item active"><a href="/#who-am-i" class="nav-link">About me</a></li>
-            <li class="nav-item"><a href="articles" class="nav-link">Articles</a></li>
-            <li class="nav-item"><a href="resume" class="nav-link">Resumé</a></li>
-            <li class="nav-item"><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
-        <ol class="navbar-nav flex-row flex-wrap ms-md-auto list-inline list-unstyled" style="margin: 0;"><li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank"><i class="fab fa-2x fa-github"></i></a></li>
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" b-kujckncdpz><ul class="navbar-nav me-auto mb-2 mb-lg-0" b-kujckncdpz><li class="nav-item active" b-kujckncdpz><a href="" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item active" b-kujckncdpz><a href="/#who-am-i" class="nav-link">About me</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="articles" class="nav-link">Articles</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="resume" class="nav-link">Resumé</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
+            <hr class="d-md-none text-white-50" b-kujckncdpz>
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto" b-kujckncdpz><svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><symbol id="check2" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg>
 
-            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank"><i class="fab fa-2x fa-youtube"></i></a></li>
+<li class="nav-item dropdown bd-mode-toggle theme-selector"><a class="nav-link btn-bd-primary py-2 dropdown-toggle d-flex align-items-center opacity-50" id="bd-theme" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)"><svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></a>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text"><li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li>
+                <li class="nav-item list-inline-item" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank" b-kujckncdpz><i class="fab fa-github" b-kujckncdpz></i></a></li>
 
-            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="Twitter" target="_blank"><i class="fab fa-2x fa-twitter"></i></a></li>
+                <li class="nav-item list-inline-item" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank" b-kujckncdpz><i class="fab fa-youtube" b-kujckncdpz></i></a></li>
 
-            <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li>
+                <li class="nav-item list-inline-item" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="X" target="_blank" b-kujckncdpz><i class="fab fa-x-twitter" b-kujckncdpz></i></a></li>
 
-            <li class="nav-item vr"></li>
+                <li class="nav-item list-inline-item" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header></div></header>
 
-            <li class="nav-item list-inline-item dropdown"><a class="nav-link menu-link me-0 py-2 dropdown-toggle" __internal_preventDefault_onclick __internal_stopPropagation_onclick href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-2x fa-sun"></i></a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"><li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-sun"></i><span class="ms-2 fs-5">•</span></a></li>
-                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-moon"></i></a></li>
-                    <li><a class="dropdown-item" href="#" __internal_preventDefault_onclick><i class="fas fa-2x fa-cog"></i></a></li></ul></li></ol></div></div></nav></div></header>
+<main class="w-100" style="padding-top: 58px">
 
-<main class="w-100">
-
-<div class="bgimg-1"><div style="&#xA;    height: 100%;&#xA;    position: absolute;&#xA;    width: 100%;&#xA;    -webkit-backdrop-filter: brightness(0.8);&#xA;    backdrop-filter: brightness(0.8);"></div>
-
-    <div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);"><img class="rounded-circle pulse" style="height: 200px; margin-bottom: 25px; border: 5px solid var(--brand-color);" src="/images/profile.jpeg">
+<div class="bgimg-1"><div class="text-center w-100 text-light caption" style="text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5); padding-top: 200px;"><img class="rounded-circle pulse" style="height: 200px; margin-bottom: 25px; border: 5px solid var(--brand-color);" src="/images/profile.jpeg">
         <h1>Hi! I'm Marina 😊</h1>
         <p class="lead">I'm a Software Developer.</p>
-        <p class="lead"><a href="#who-am-i" class="mt-4 custom btn btn-lg btn-secondary fw-bold border-white bg-white">About me</a></p></div></div>
+        <p class="lead"><a href="#who-am-i" class="mt-4 custom btn btn-lg btn-secondary fw-bold">About me</a></p></div>
+
+    <div style="
+        height: 100%;
+        position: absolute;
+        width: 100%;"></div></div>
 
 <section id="who-am-i" class="context" style="padding-top: 0 !important; padding:50px 15px;text-align: start;"><div class="container"><div class="col mx-auto mt-4" style="max-width: 640px"><h3 style="text-align:center;">Who am I?</h3>
              <p>I'm a Software developer, based in <a target="_blank" href="https://www.google.se/maps/place/Malmö/@55.5702455,12.9457618,12z/data=!3m1!4b1!4m5!3m4!1s0x465305a574c491ff:0xd3a905dfbd4888e5!8m2!3d55.604981!4d13.003822?hl=en">Malmö, Sweden</a>.</p>
@@ -106,66 +123,7 @@
 
             <div class="d-flex justify-content-center"><p><a class="btn btn-primary text-center mt-4" href="/presentation">Read more</a></p></div></div></div></section>
 
-  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center"><small class="text-muted">© 2023 Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small></footer>
-
-
-<style>
-    body {
-        box-shadow: 0 2.5rem 0 0 rgba(0, 0, 0, .5) inset;
-    }
-
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        position: relative;
-        /* opacity: 0.65; */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .bgimg-1 {
-        background-image: url('/assets/nordellen.webp');
-        min-height: 100%;
-    }
-
-    .bgimg-2 {
-        background-image: url('/assets/oresundsbron2.jpg');
-        min-height: 400px;
-    }
-
-    .bgimg-3 {
-        background-image: url('/assets/manhattan.jpg');
-        min-height: 400px;
-    }
-
-    .caption {
-        position: absolute;
-        left: 0;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        color: #000;
-        opacity: 1;
-    }
-
-    .caption span.border {
-        background-color: #111;
-        color: #fff;
-        padding: 18px;
-    }
-
-    h3 {
-        text-transform: uppercase;
-        margin-bottom: 30px;
-    }
-
-    /* Turn off parallax scrolling for tablets and phones */
-    @media only screen and (max-device-width: 1024px) {
-        .bgimg-1, .bgimg-2, .bgimg-3 {
-            background-attachment: scroll;
-        }
-    }
-</style></main>
+  <footer class="pt-3 pb-3 px-4 my-5 mx-auto w-100 container text-center"><small class="text-muted">© 2023 Marina Sundström | Built with .NET & Blazor - Hosted by GitHub Pages</small></footer></main>
         
 
 
@@ -179,8 +137,11 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    
+
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap/color-modes.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/app.js"></script>
     <script src="_content/Blazor-Analytics/blazor-analytics.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   

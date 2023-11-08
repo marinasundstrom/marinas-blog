@@ -18,23 +18,23 @@ I hope that both C# and Java developers alike are enjoying this read. :)
 
 ## Contents
 
-0. <a href="/articles/csharp-features-java-doesnt-have/#section-0">What is C# and .NET?</a>
-1. <a href="/articles/csharp-features-java-doesnt-have/#section-1">Entrypoint (Main method)</a>
-2. <a href="/articles/csharp-features-java-doesnt-have/#section-2">Global and Implicit usings</a>
-3. <a href="/articles/csharp-features-java-doesnt-have/#section-3">Reference types vs Value types</a>
-4. <a href="/articles/csharp-features-java-doesnt-have/#section-4">Properties</a>
-5. <a href="/articles/csharp-features-java-doesnt-have/#section-5">Operator overloading</a>
-6. <a href="/articles/csharp-features-java-doesnt-have/#section-6">Delegates</a>
-7. <a href="/articles/csharp-features-java-doesnt-have/#section-7">Extension methods</a>
-8. <a href="/articles/csharp-features-java-doesnt-have/#section-8">LINQ - Language Integrated Query</a>
-9. <a href="/articles/csharp-features-java-doesnt-have/#section-9">Async Await</a>
-10. <a href="/articles/csharp-features-java-doesnt-have/#section-10">Nullable types</a>
-11. <a href="/articles/csharp-features-java-doesnt-have/#section-11">Generics</a>
-12. <a href="/articles/csharp-features-java-doesnt-have/#section-12">Expression Trees</a>
-13. <a href="/articles/csharp-features-java-doesnt-have/#section-13">IQueryable</a>
-14. <a href="/articles/csharp-features-java-doesnt-have/#section-14">Unsafe code & Pointers</a>
-15. <a href="/articles/csharp-features-java-doesnt-have/#section-15">Compiler as a Service</a>
-16. <a href="/articles/csharp-features-java-doesnt-have/#section-16">Unified ecosystem</a>
+0. <a href="/articles/csharp-features-java-doesnt-have#section-0">What is C# and .NET?</a>
+1. <a href="/articles/csharp-features-java-doesnt-have#section-1">Entrypoint (Main method)</a>
+2. <a href="/articles/csharp-features-java-doesnt-have#section-2">Global and Implicit usings</a>
+3. <a href="/articles/csharp-features-java-doesnt-have#section-3">Reference types vs Value types</a>
+4. <a href="/articles/csharp-features-java-doesnt-have#section-4">Properties</a>
+5. <a href="/articles/csharp-features-java-doesnt-have#section-5">Operator overloading</a>
+6. <a href="/articles/csharp-features-java-doesnt-have#section-6">Delegates</a>
+7. <a href="/articles/csharp-features-java-doesnt-have#section-7">Extension methods</a>
+8. <a href="/articles/csharp-features-java-doesnt-have#section-8">LINQ - Language Integrated Query</a>
+9. <a href="/articles/csharp-features-java-doesnt-have#section-9">Async Await</a>
+10. <a href="/articles/csharp-features-java-doesnt-have#section-10">Nullable types</a>
+11. <a href="/articles/csharp-features-java-doesnt-have#section-11">Generics</a>
+12. <a href="/articles/csharp-features-java-doesnt-have#section-12">Expression Trees</a>
+13. <a href="/articles/csharp-features-java-doesnt-have#section-13">IQueryable</a>
+14. <a href="/articles/csharp-features-java-doesnt-have#section-14">Unsafe code & Pointers</a>
+15. <a href="/articles/csharp-features-java-doesnt-have#section-15">Compiler as a Service</a>
+16. <a href="/articles/csharp-features-java-doesnt-have#section-16">Unified ecosystem</a>
 
 <h2 id="section-0">What is C# and .NET</h2>
 

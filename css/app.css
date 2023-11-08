@@ -16,8 +16,6 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
 
     overflow-x: hidden;
 }
@@ -243,4 +241,8 @@ ul li, ol li {
 
 .nav-item {
   font-weight: 400;
+}
+
+h1 {
+  font-weight: normal;
 }

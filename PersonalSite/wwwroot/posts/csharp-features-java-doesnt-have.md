@@ -16,6 +16,8 @@ I hope that both C# and Java developers alike are enjoying this read. :)
 
 *Don't get mad at me if there are any errors! Some of the code may not have been tested. ;)*
 
+*Updated on 8 Nov 2023, with details on equivalent to delegates in Java.*
+
 ## Contents
 
 0. <a href="/articles/csharp-features-java-doesnt-have#section-0">What is C# and .NET?</a>
@@ -418,6 +420,9 @@ Delegates allow you to pass method references as arguments to functions, enablin
 
 A delegate has a signature and is type-safe. Meaning that you can not cast between other delegates even if they have a similar signature. Of course, they can take generic type parameters as well.
 
+.NET delegates are runtime concepts.
+
+
 ```c#
 delegate int ArithmeticOperation(int lhs, int rhs);
 ```
@@ -452,6 +457,47 @@ void Test(Func<int, bool> f)
 Test((x) => x == 2);
 ```
 
+Java uses interfaces to pass method references around. Where a method is passed you see an interface, that you implement in either a regular class, or inline in an anonymous class.
+
+```java
+int count = 1;
+Runnable action = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Runnable with captured variables: " + count);
+    }           
+};
+```
+
+Thanks, to [Baeldung](https://www.baeldung.com/java-anonymous-classes) for this sample.
+
+``Runnable`` being an interface that is being implemented anonymously, and then object passed into the method
+
+A lambda expression in Java is syntactic sugar for a method in a hidden generated anonymous class, implementing an interface, that has a single method representing the lambda function. 
+
+Here's a sample from [W3 Schools](https://www.w3schools.com/java/java_lambda.asp):
+
+```java
+interface StringFunction {
+  String run(String str);
+}
+
+public class Main {
+  public static void main(String[] args) {
+    StringFunction exclaim = (s) -> s + "!";
+    StringFunction ask = (s) -> s + "?";
+    printFormatted("Hello", exclaim);
+    printFormatted("Hello", ask);
+  }
+  public static void printFormatted(String str, StringFunction format) {
+    String result = format.run(str);
+    System.out.println(result);
+  }
+}
+```
+
+The end result is similar to .NET, but without delegates. It captures variables as fields in a hidden compiler-generated class containing the actual method.
+
 ### Events
 
 Delegates are used for Events in .NET - which are to delegates what properties are to fields. They restrict access to a delegate instance. Events are commonly used by UI frameworks like Windows Forms and WPF.
@@ -482,7 +528,17 @@ car.Start();
 
 The common event delegate types are ``EventHandler`` and ``EventHandler<T>`` (where ``T`` is constrained to ``EventArgs``).
 
-Java has no delegates or specific language constructs for events. Instead it uses interfaces and anonymous classes to implement both lambda expressions and event-listener patterns. Java is creating and passing an object which holds the method implementation of the lambda, rather than a reference to a method.
+Java has no delegates or specific language constructs for events. As shown in previous section, it instead uses interfaces and anonymous classes to implement lambda expressions to enable the event-listener pattern.
+
+Here's an example from a GUI library:
+
+```java
+button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        ...
+    }
+}
+```
 
 ### Did you know?
 
@@ -648,9 +704,11 @@ var result = await DownloadPage();
 
 Under the hood the compiler effectively splits the method at each ``await`` statement, and creates another method for the rest which acts as a continuation when the task has completed. There is state machine which handles the transitions between various states and surfaces exceptions.
 
-Java doesn't have a native ``await`` feature similar to the one in C#. But there are initiatives in the Java community that are working on it. JavaScript has had the await syntax with their ``Promise`` objects for many years.
+Java doesn't have a native ``await`` feature similar to the one in C#. Though there is a ``Future`` type, analogous to a ``Task`` in .NET.
 
 Kotlin has coroutines, but no equivalent syntax.
+
+Java 21 is introducing lightweight _virtual threads_, which are threads that the JVM will create and manage - not the operating system. Eliminating the need for writing asynchronous code, since the JVM handles that for you.
 
 ### Did you know?
 
@@ -708,6 +766,8 @@ Foo foo = null!; // Allowed - since you told the compiler to ignore the warning 
 ```
 
 Java has no nullability syntax. Though they have an ```Option``` type. Kotlin has similar syntax to that of C# and other languages.
+
+Java has a ``java.utils.Optional<T>`` type, which is similar to what ``Nullable<T>`` is for C#. It wraps any Java class type. But there is not special syntax with it.
 
 ### Why "nullable" works as it does
 

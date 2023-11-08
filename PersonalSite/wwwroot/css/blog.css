@@ -38,25 +38,36 @@ article hr {
 article h1,
 article h2,
 article h3,
-article h4 {
+article h4,
+article h5 {
     font-family: var(--font1);
 }
 
 article h2,
 article h3,
-article h4 {
+article h4,
+article h5 {
 
 }
 
 article h2+h3 {
-    margin-top: 25px;
+    margin-top: 1.2em;
+}
+
+article h3+h4 {
+    margin-top: 1.2em;
+}
+
+article h4+h5 {
+    margin-top: 1.2em;
 }
 
 article *+h2,
 article *+h3,
-article *+h4 {
-    margin-top: 40px;
-    margin-bottom: 20px;
+article *+h4, 
+article *+h5 {
+    margin-top: 1.6em;
+    margin-bottom: 0;
 }
 
 article p,
@@ -64,7 +75,7 @@ article dl dt,
 article dl dd,
 article ul,
 article ol {
-    margin-top: 10px;
+    margin-top: 1em;
 }
 
 article.text p,
@@ -89,17 +100,17 @@ article dl dt {
 }
 
 article p+p {
-    margin-top: 1.8em;
+    margin-top: 1.2em;
 }
 
 article ul+p,
 ol+p {
-    margin-top: 35px;
+    margin-top: 1.6rem;
 }
 
 article *+pre {
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: 1.6em;
+    margin-bottom: 1em;
 }
 
 article p+ul {
@@ -139,10 +150,11 @@ article p+img:not(.cover), p+a img:not(.cover) {
 
 
 @media only screen and (max-width: 768px) {
-
+/*
     article p+h2,
     article p+h3,
-    article p+h4 {
+    article p+h4,
+    article p+h5 {
         margin-top: 37px;
     }
 
@@ -175,6 +187,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
         margin-top: 24px !important;
         margin-bottom: 20px !important;
     }
+    */
 }
 
 .post-subtitle {

@@ -70,6 +70,13 @@ article *+h5 {
     margin-bottom: 0;
 }
 
+article pre+h2,
+article pre+h3,
+article pre+h4, 
+article pre+h5 {
+    margin-top: 1.2em;
+}
+
 article p,
 article dl dt,
 article dl dd,

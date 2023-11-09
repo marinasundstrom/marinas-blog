@@ -8,14 +8,18 @@ code, pre {
     font-size: 14px !important;
 }
 
-pre code.hljs {
-    padding: 1.5rem !important;
+code.hljs {
     border-radius: 10px;
     overflow: auto;
     background-color: #f3f3f3;
     margin: 0 0 1rem;
 
     box-shadow: 0 .125rem .25rem rgba(17, 17, 17, 0.075) !important;
+}
+
+
+pre code.hljs {
+    padding: 1.5rem !important;
 }
 
 /*

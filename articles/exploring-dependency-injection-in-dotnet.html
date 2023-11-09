@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <title>Marina Sundström</title>
+    
+    <meta name="description" content="Personal blog of Marina Sundström."/>
+    <meta name="keywords" content="Blog, Personal, Software Development"/>
+
+    <base href="/"/>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="PersonalSite.styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/highlightjs-cshtml-razor/dist/cshtml-razor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap/color-modes.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+
+    <script src="/js/scripts.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+    
+
+<!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
+<title>Exploring dependency injection in .NET - Marina Sundström</title>
+<!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
+<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+
+<body class="bg-body-tertiary">
+    <div id="app" class="h-100">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%"></circle>
+            <circle r="40%" cx="50%" cy="50%"></circle>
+        </svg>
+        <div class="loading-progress-text"></div>
+    
+<!-- %%-PRERENDERING-BEGIN-%% -->
+<div style="opacity: 0; position: fixed; z-index: -1; top: 0; left: 0; bottom: 0; right: 0;">
+    <header class="navbar navbar-expand-lg fixed-top navbar-dark bg-brand" b-kujckncdpz><nav class="container px-4 px-md-3 flex-wrap flex-md-nowrap" aria-label="Main navigation" b-kujckncdpz><a href="" class="navbar-brand mr-auto mr-lg-0"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700" b-kujckncdpz>
+            Marina Sundström
+        </a>
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation" b-kujckncdpz><span class="navbar-toggler-icon" b-kujckncdpz></span></button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" b-kujckncdpz><ul class="navbar-nav me-auto mb-2 mb-lg-0" b-kujckncdpz><li class="nav-item active" b-kujckncdpz><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item active" b-kujckncdpz><a href="/#who-am-i" class="nav-link">About me</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="articles" class="nav-link active" aria-current="page">Articles</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="resume" class="nav-link">Resumé</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
+            <hr class="d-md-none text-white-50" b-kujckncdpz>
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto" b-kujckncdpz><svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><symbol id="check2" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg>
+
+<li class="nav-item dropdown bd-mode-toggle theme-selector me-4 me-md-0"><a class="nav-link btn-bd-primary py-2 dropdown-toggle d-flex align-items-center opacity-50" id="bd-theme" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)"><svg class="bi my-special theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></a>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text"><li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li>
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank" b-kujckncdpz><i class="fab fa-github" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank" b-kujckncdpz><i class="fab fa-youtube" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="X" target="_blank" b-kujckncdpz><i class="fab fa-x-twitter" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
+
+<main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Exploring dependency injection in .NET</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-09" b-76by154q0w>9 Nov 2023</time> • 
+                        5 minutes read
+
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/exploring-dependency-injection-in-dotnet">#</span></h4></div></div></div></header></div>
+
+            <div class="inner container"><p>Microsoft provides a nifty set of dependency injection framework abstractions, as well as a default service container (IoC) implementation. Because of this architecture, it does however allow you to plug in your favorite dependency framework, like AutoFac.</p>
+<p>We will cover the <code>ServiceCollection</code>, <code>ServiceProvider</code>, service lifetimes, and scopes.</p>
+<p>For the code to run in a Console application, you need to add a package reference:</p>
+<pre><code class="language-xml">&lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" /&gt;
+</code></pre>
+<p>Though, ASP.NET Core already references that packages.</p>
+<h2 id="what-is-dependency-injection">What is Dependency injection?</h2>
+<p>Dependency injection simply means that we inject a service (or dependency) into another class, like via constructors, or parameters.</p>
+<p>This is constructor injection, in which a dependency is injected as a parameter in the constructor:</p>
+<pre><code class="language-csharp">var todoService = new TodoService();
+var todoController = new TodoController(todoService);
+</code></pre>
+<p>There are several types of dependency injection:</p>
+<ul>
+<li><strong>Constructor injection</strong> - as demonstrated above</li>
+<li><strong>Field or Property injection</strong> - into a field, or a property</li>
+<li><strong>Method parameter injection</strong> - as a parameter into a method</li>
+</ul>
+<p>The framework that is covered only supports constructor injection. But there are places like in Blazor, where services can be injected into properties. That is not ultimately handled by this framework, although it uses it.</p>
+<h3 id="unit-testing">Unit testing</h3>
+<p>Dependency injection is especially useful when doing unit testing. Since you can pass mock instances into the class.</p>
+<h2 id="what-is-inversion-of-control">What is Inversion of control?</h2>
+<p>The default way of creating ("newing up") an object in a class would be like this:</p>
+<pre><code class="language-csharp">class Foo 
+{
+    Bar bar = new Bar();
+}
+</code></pre>
+<p>This has its downsides. The object is created inside the class, and you have no easy way of controlling what type you are instantiating. What if you need to switch that type and its implementation out for another type when doing testing, or perhaps when running on another platform?</p>
+<p>What if we instead could hand over that control of creating the object to an external service, that is inverting the control.</p>
+<p>The "How" gets clear when you combine it with dependency injection.</p>
+<pre><code class="language-csharp">class Foo(Bar bar)
+{
+    Bar bar = bar;
+}
+</code></pre>
+<p>We may get a service instance from a service provider - a so called IoC container.</p>
+<p>As demonstrated below, you request an instance of a service from the service container, and it creates the object, resolves the service dependencies that are to be passed into it as parameters.</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddTransient&lt;Foo&gt;();
+services.AddSingleton&lt;Bar&gt;();
+
+var serviceProvider = services.BuildProvider();
+
+var foo = serviceProvider.GetService&lt;Foo&gt;();
+
+var bar = foo.Bar;
+
+var foo2 = serviceProvider.GetService&lt;Foo&gt;();
+
+var bar2 = foo2.Bar;
+
+Console.WriteLine($"Same Foo: {foo == foo2}");
+Console.WriteLine($"Same Boo: {bar == bar2}");
+
+// Same Foo: false
+// Same Bar: true
+</code></pre>
+<p>As you can see, <code>Bar</code> has a singleton lifetime, so there will only be one instance of it within the container.</p>
+<p>While <code>Foo</code> is transient, and a new instance is created each time when being requested.</p>
+<p>We will go through service lifetimes.</p>
+<h2 id="servicecollection">ServiceCollection</h2>
+<p>Let's dig into the service collection, what it is, and how to use it.</p>
+<h3 id="adding-services">Adding services</h3>
+<p>In its simplest form you call a method:</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+// Service type
+services.AddTransient&lt;Foo&gt;();
+</code></pre>
+<p>There are 4 essential ways of registering a service, and it will decide the way it is being created.</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+// Service type
+services.AddTransient(typeof(Foo));
+
+services.AddTransient&lt;Foo&gt;();
+
+// Service type and implementation type
+services.AddTransient(typeof(IFoo), typeof(Foo));
+
+services.AddTransient&lt;IFoo, Foo&gt;();
+
+// Factory
+services.AddTransient(serviceProvider =&gt; new Foo());
+
+// Instance
+services.AddTransient(new Foo());
+
+// The above are aliases for inserting a ServiceDescriptor
+services.Insert(0, new ServiceDescriptor(typeof(Foo), typeof(Foo), ServiceLifetime.Scoped));
+</code></pre>
+<p>The factory overload makes it possible to control some of the service creation. It receives the actual <code>IServiceProvider</code> as an argument so you can resolve services.</p>
+<h4 id="registering-open-generic-types">Registering open generic types</h4>
+<p>You can register open generic types, and resolve a instance with type parameter.</p>
+<p>This is ideal for repositories, and factory types. The standard <code>ILogger&lt;T&gt;</code> interface has been registered this way.</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddScoped(typeof(IRepository&lt;&gt;), typeof(Repository&lt;&gt;));
+
+var serviceProvider = services.BuildProvider();
+
+var fooRepository = serviceProvider.GetService&lt;IRepository&lt;Foo&gt;&gt;();
+
+
+class Foo {}
+
+interface IRepository&lt;T&gt; {}
+
+class Repository&lt;T&gt; : IRepository&lt;T&gt; {}
+</code></pre>
+<h4 id="assert-that-a-service-is-added-just-once">Assert that a service is added just once</h4>
+<p>The order you add dependencies will matter if you register the same service type twice.</p>
+<p>To prevent problems with double-registration you can use the <code>TryAdd</code> overloads that tries to add a service, and returns a boolean value telling whether the service was added, or not.</p>
+<pre><code class="language-csharp">bool added = services.TryAddTransient&lt;Foo&gt;(); // True
+bool added2 = services.TryAddTransient&lt;Foo&gt;(); // False
+</code></pre>
+<h4 id="manipulating-the-service-collection">Manipulating the service collection</h4>
+<p>It happens sometimes that you need to remove, replace, or reorder dependencies, during the registration. For that you can query for the service descriptor, and then remove the descriptor.</p>
+<pre><code class="language-csharp">services.AddScoped&lt;Foo&gt;();
+
+var serviceDescriptor = services.FirstOrDefault(descriptor =&gt; descriptor.ServiceType == typeof(Foo));
+services.Remove(serviceDescriptor);
+</code></pre>
+<h3 id="service-lifetimes">Service lifetimes</h3>
+<p>There are 3 service lifetimes that each determine the creation and lifetime of a requested service:</p>
+<ul>
+<li><strong>Singleton</strong> - there will be one shared instance of a service</li>
+<li><strong>Transient</strong> - get a new service each time requested</li>
+<li><strong>Scoped</strong> - the instance is bound to a scope (explained later)</li>
+</ul>
+<p>These are the specific methods that can be used to register services with the lifetimes:</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddSingleton&lt;Foo&gt;();
+
+services.AddTransient&lt;Foo&gt;();
+
+services.AddScoped&lt;Foo&gt;();
+</code></pre>
+<p>The overloads mentioned above are available for all variants.</p>
+<p>In order to be able to resolve instances, the lifetimes must be compatible. You can't resolve scoped services from singletons, for obvious reasons.</p>
+<h2 id="serviceprovider">ServiceProvider</h2>
+<p>The actual instances are created and managed by the <code>ServiceProvider</code>. You have already seen that in action.</p>
+<p>But, here are the methods that can be used when resolving services:</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddTransient&lt;Foo&gt;();
+
+var serviceProvider = services.BuildProvider();
+
+// GetService (Non-generic)
+var foo = (Foo)serviceProvider.GetService(typeof(Foo));
+
+// GetService (Generic)
+var foo2 = serviceProvider.GetService&lt;Foo&gt;();
+
+// This will throw an exception if service type has not been registered
+var foo3 = serviceProvider.GetRequiredService&lt;Foo&gt;();
+</code></pre>
+<p>You can't add or register new services to an existing service provider.</p>
+<h3 id="disposing-services">Disposing services</h3>
+<p>The framework will handle the disposal of any services, by calling <code>Dispose</code> on services that implement <code>IDisposable</code>.</p>
+<p>There is one exception though:</p>
+<p>When you provide an already instantiated object (Instance) that implements <code>IDisposable</code>, the container will not call the <code>Dispose</code> method. You just have to deal with it yourself, or register it as a factory.</p>
+<h3 id="service-scopes">Service scopes</h3>
+<p>You can limit a service's lifetime to scopes that you open in your app.</p>
+<p>In ASP.NET Core, each request has its own scope, to which certain services are bound. Meaning they get created when the request starts, and disposed when the request has finished. <code>HttpContext</code> is an example of such a service.</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddScoped&lt;Foo&gt;();
+
+var serviceProvider = services.BuildProvider();
+
+// Create a scope
+
+using(var scope = serviceProvider.CreateScope()) 
+{
+    var foo = scope.ServiceProvider.GetService&lt;Foo&gt;();
+}
+
+// New scope
+
+using(var scope = serviceProvider.CreateScope()) 
+{
+    // New instance
+    var foo2 = scope.ServiceProvider.GetService&lt;Foo&gt;();
+}
+</code></pre>
+<p>As mentioned, you can't resolve scoped services from singletons.</p>
+<h4 id="keyed-services">Keyed services</h4>
+<p>From .NET 8 and on, you can register services with keys. Meaning that you can register multiple instances with the same service type, but different keys.</p>
+<p>The keys themselves can be of any type of object, or value, not just strings.</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddKeyedTransient&lt;IFoo, Foo&gt;("foo1");
+
+services.AddKeyedTransient&lt;IFoo, Foo&gt;("foo2");
+
+var serviceProvider = services.BuildProvider();
+
+var foo1 = serviceProvider.GetKeyedService&lt;IFoo&gt;("foo1");
+
+var foo2 = serviceProvider.GetKeyedService&lt;IFoo&gt;("foo2");
+
+Console.WriteLine($"Equal: {foo1 == foo2}"); // False
+</code></pre>
+<h2 id="dependency-injection-in-asp.net-core">Dependency injection in ASP.NET Core</h2>
+<p>ASP.NET Core has dependency injection and IoC built in. The <code>WebApplicationBuilder</code> has its own <code>ServiceCollection</code>, and the built app will have its own <code>ServiceProvider</code>.</p>
+<p>The framework will try to resolve endpoint parameters with the service provider.</p>
+<pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped&lt;Foo&gt;();
+
+var app = builder.Build();
+
+// Retrieve the ServiceProvider.
+// var services = app.Services;
+
+app.MapGet("/foo", (Foo foo) =&gt; foo.Name);
+
+app.Run();
+</code></pre>
+<p>There is also a generic app builder, without ASP.NET Core. It has a similar interface, but for console apps, and services.</p>
+<h2 id="using-autofac-as-service-container">Using AutoFac as service container</h2>
+<p>With the introduction of keyed services, there is not as much of need to choose another service container - except for preferences. But the option to use, for instance, AutoFac is there:</p>
+<pre><code class="language-c#">var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+// Register services directly with Autofac here. Don't
+// call builder.Populate(), that happens in AutofacServiceProviderFactory.
+builder.Host.ConfigureContainer&lt;ContainerBuilder&gt;(builder =&gt; builder.RegisterModule(new MyApplicationModule()));
+
+var app = builder.Build();
+
+public class MyApplicationModule : Module
+{
+  public bool ObeySpeedLimit { get; set; }
+
+  protected override void Load(ContainerBuilder builder)
+  {
+    builder.Register(c =&gt; new Car(c.Resolve&lt;IDriver&gt;())).As&lt;IVehicle&gt;();
+  }
+}
+</code></pre>
+<p>This will allow you to use the <code>IServiceProvider</code>abstraction with AutoFac.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This was an introduction of dependency injection in .NET.</p>
+<p>Do you have any thoughts, or questions? Please, leave them below. :)</p>
+<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></div></main>
+
+<footer class="footer py-4 bg-body-tertiary"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
+                <ul class="list-unstyled small text-muted"><li class="mb-2">
+                        A personal website and blog about life and software development
+                    </li>
+                    <li class="mb-2">
+                        Code is provided with no warranty.
+                    </li></ul></div>
+            <div class="col-6 col-lg-2 offset-lg-1 mb-3"><h5>This site</h5>
+                <ul class="list-unstyled menu"><li class="mb-2"><a href="/about-me">About me</a></li>
+                    <li class="mb-2"><a href="/articles">Articles</a></li>
+                    <li class="mb-2"><a href="/resume">Resume</a></li>
+                    <li class="mb-2"><a href="/portfolio">Portfolio</a></li></ul></div>
+            <div class="col-6 mb-3"><h5>Social</h5>
+                <ul class="list-unstyled"><li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank"><i class="fab fa-2x fa-github"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank"><i class="fab fa-2x fa-youtube"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="X" target="_blank"><i class="fab fa-2x fa-x-twitter"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li></ul></div></div>
+        <div class="mt-4"><p class="float-end mb-1"><a id="scrollToTop" href="#" __internal_preventDefault_onclick>Back to top</a></p>
+            <p class="muted small mb-1">© 2023 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
+        
+
+
+
+</div>
+<!-- %%-PRERENDERING-END-%% -->
+</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap/color-modes.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/app.js"></script>
+    <script src="_content/Blazor-Analytics/blazor-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
+
+
+</body></html>

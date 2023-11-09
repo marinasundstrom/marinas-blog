@@ -4,24 +4,40 @@
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  */
 
+const getStoredTheme = () => localStorage.getItem('theme')
+const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+const getPreferredTheme = () => {
+  const storedTheme = getStoredTheme()
+  if (storedTheme) {
+    return storedTheme
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 function initColorModes() {
-    const getStoredTheme = () => localStorage.getItem('theme')
-    const setStoredTheme = theme => localStorage.setItem('theme', theme)
-  
-    const getPreferredTheme = () => {
-      const storedTheme = getStoredTheme()
-      if (storedTheme) {
-        return storedTheme
-      }
-  
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    }
-  
     const setTheme = theme => {
+      let colorScheme;
       if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute('data-bs-theme', 'dark')
+        colorScheme = "dark";
       } else {
         document.documentElement.setAttribute('data-bs-theme', theme)
+        colorScheme = theme;
+      }
+      
+      var linkElem = document.head.querySelector('link[href^="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles"]');
+    
+      if(linkElem == null) return;
+    
+      if(colorScheme === "dark")
+      {
+        linkElem.href = linkElem.href.replace("vs.min.css", "vs2015.min.css");
+      }
+      else 
+      {
+        linkElem.href = linkElem.href.replace("vs2015.min.css", "vs.min.css");
       }
     }
   

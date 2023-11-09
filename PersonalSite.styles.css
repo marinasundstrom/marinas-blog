@@ -68,7 +68,7 @@ ol.timeline[b-gzzl0v4m7v]:before {
     background: #d4d9df;
     display: inline-block;
     position: absolute;
-    left: 29px;
+    left: 25px;
     width: 2px;
     height: 100%;
     z-index: 400;
@@ -90,7 +90,7 @@ ol.timeline > li[b-gzzl0v4m7v]:before {
     position: absolute;
     border-radius: 50%;
     border: 3px solid #22c0e8;
-    left: 20px;
+    left: 16.1px;
     width: 20px;
     height: 20px;
     z-index: 400;

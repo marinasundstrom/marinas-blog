@@ -200,3 +200,7 @@ article p+img:not(.cover), p+a img:not(.cover) {
 .post-subtitle {
     margin-top: 0;
 }
+
+li > ol {
+    margin-top: 0.5rem;
+}

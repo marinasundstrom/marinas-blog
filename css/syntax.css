@@ -10,14 +10,9 @@ code, pre {
 
 code.hljs {
     padding: 0rem;
-    border: 1px solid rgb(199 199 199 / 70%);
     border-radius: 10px;
     overflow: auto;
-
-    /* background-color: #f9f9f9;
-    line-height: 1.4;
-    color: black;
-    */
+    background-color: #f3f3f3;
     margin: 0 0 1rem;
 
     box-shadow: 0 .125rem .25rem rgba(17, 17, 17, 0.075) !important;

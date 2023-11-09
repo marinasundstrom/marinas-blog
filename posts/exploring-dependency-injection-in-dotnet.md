@@ -4,7 +4,7 @@ published: 2023-11-09
 tags: [C#, .NET]
 ---
 
-Microsoft provides a nifty set of dependency injection framework abstractions, as well as a default service container (IoC) implementation. Because of this architecture, it does however allow you to plug in your favorite dependency framework, like AutoFac.
+Microsoft provides a nifty set of dependency injection framework abstractions, as well as a default service container (IoC) implementation. Because of this architecture, it does however allow you to plug in your favorite dependency framework, like Autofac.
 
 We will cover the ``ServiceCollection``, ``ServiceProvider``, service lifetimes, and scopes.
 
@@ -287,7 +287,7 @@ As mentioned, you can't resolve scoped services from singletons.
 
 #### Keyed services
 
-From .NET 8 and on, you can register services with keys. Meaning that you can register multiple instances with the same service type, but different keys. 
+From .NET 8 and on, you can register services with keys. Meaning that you can register multiple instances of the same service type with different keys. 
 
 The keys themselves can be of any type of object, or value, not just strings.
 
@@ -344,9 +344,9 @@ app.Run();
 
 There is also a generic app builder, without ASP.NET Core. It has a similar interface, but for console apps, and services.
 
-## Using AutoFac as service container
+## Using Autofac as service container
 
-With the introduction of keyed services, there is not as much of need to choose another service container - except for preferences. But the option to use, for instance, AutoFac is there:
+With the introduction of keyed services, there is not as much of need to choose another service container - except for preferences. But the option to use, for instance, Autofac is there:
 
 ```c#
 var builder = WebApplication.CreateBuilder(args);
@@ -370,7 +370,7 @@ public class MyApplicationModule : Module
 }
 ```
 
-This will allow you to use the ``IServiceProvider``abstraction with AutoFac.
+This will allow you to use the ``IServiceProvider``abstraction with Autofac.
 
 ## Conclusion
 

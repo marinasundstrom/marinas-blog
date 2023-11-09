@@ -11,8 +11,8 @@
             "current": true,
             "startDate": "2023-03-27",
             "endDate": null,
-            "description": "Working on system used by support engineers in supporting retailers.",
-            "skills": [ "Java", "Web", "Docker", "Kubernetes" ]
+            "description": "Working on system used by support engineers in assisting retailers and customers.",
+            "skills": [ "Java", "MySQL", "Docker", "GitHub" ]
         },
         {
             "title": "Senior Developer",
@@ -25,7 +25,7 @@
             "current": false,
             "startDate": "2022-11-14",
             "endDate": "2023-01-15",
-            "description": "Working on product page experience. Frontend and backend.",
+            "description": "Working on product page experience for e-commerce site. Frontend and backend.\n\nLayoffs December 2022.",
             "skills": [ ".NET", "C#", "Web", "ASP.NET Core", "Microsoft Azure" ]
         },
         {
@@ -355,7 +355,7 @@
                 "European Rural Youth Forum",
                 "JB Abroad"
             ],
-            "description": "Studied IT with focus on programming.\n\nJB Ystad provided upper-secondary education in the areas of IT, digital media, and entrepreneurship.\n\nParticipated in European Rural Youth Forum (ERYF) in Serbia (2007), Poland (2009), Hungary (2010), and Sweden (2012).\n\nAs a participant in JB Abroad, studied in Jerez de la Frontera, Spain, fall 2008.",
+            "description": "Studied IT with focus on computer programming.\n\nJB Ystad provided upper-secondary education in the areas of IT, digital media, and entrepreneurship.\n\nParticipated in European Rural Youth Forum (ERYF) in Serbia (2007), Poland (2009), Hungary (2010), and Sweden (2012).\n\nAs a participant in JB Abroad, studied in Jerez de la Frontera, Spain, fall 2008.",
             "courses": [
                 "Computer Management",
                 "Computer Networking",

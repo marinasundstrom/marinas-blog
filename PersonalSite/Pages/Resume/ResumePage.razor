@@ -97,8 +97,7 @@
 
                 @foreach (var education in resume.Education)
                 {
-                    <div class="card shadow-sm mb-4">
-                        <div class="card-body">
+                    <div class="mb-4">
                             <div class="d-flex">
                                 <div class="col-logo">
                                     <Logo Src="@education.Logo" Alt="@($"{education.School} logo")" Class="ms-md-3 me-md-4" Href="@education.Link" />
@@ -107,7 +106,6 @@
                                     <EducationView Model="education" />
                                 </div>
                             </div>
-                        </div>
                     </div>
                 }
             }
@@ -136,8 +134,7 @@
                     <small class="text-muted">Click on a skill to learn more.</small>
                 </div>
 
-                <div class="card shadow-sm mb-4" style="page-break-inside: avoid;">
-            <div class="card-body p-md-4">
+                <div class="mb-4" style="page-break-inside: avoid;">
 
                 <dl class="skills grid-dl">
 
@@ -166,7 +163,6 @@
 
                 </dl>
 
-                </div>
                 </div>
             }
 

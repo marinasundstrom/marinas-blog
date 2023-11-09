@@ -35,40 +35,16 @@ else
             {
                 <spa> with @experience.For</spa>
             }
-        } 
+        }
     
     </p>
 }
 
 <p class="mt-4 text-muted">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
 
-@if(ShowMore) 
-{
     <div class="mb-4 pt-2">
         <MarkdownView Content="@experience.Description" />
     </div>
-    
-    <div class="mt-2 mb-4">
-        <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-up me-1"></i> Show less</a></small>
-    </div>
-}
-else 
-{
-   var breakIndex = experience.Description.IndexOf(".");
-   if(breakIndex == -1)
-   {
-       breakIndex = experience.Description.IndexOf("\n");
-   }
-   var content = breakIndex == -1 ? experience.Description : experience.Description.Substring(0, breakIndex + 1);
-
-    <div class="mb-4 pt-2">
-        <MarkdownView Content="@content" />
-   </div>
-
-    <div class="mt-2 mb-4">
-        <small><a href="#" @onclick="ToggleShowMore" @onclick:preventDefault><i class="fa fa-chevron-down me-1"></i> Show more</a></small>
-    </div>
-}
 
     @if(experience.Skills?.Any() ?? false)
     {

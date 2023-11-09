@@ -8,8 +8,8 @@ code, pre {
     font-size: 14px !important;
 }
 
-code.hljs {
-    padding: 0rem;
+pre code.hljs {
+    padding: 1.5rem !important;
     border-radius: 10px;
     overflow: auto;
     background-color: #f3f3f3;

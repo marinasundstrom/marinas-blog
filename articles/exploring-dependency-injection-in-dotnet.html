@@ -319,9 +319,9 @@ using(var scope = serviceProvider.CreateScope())
 
 ServiceCollection services = new ();
 
-services.AddKeyedTransient&lt;IFoo, Foo&gt;("foo1");
+services.AddKeyedSingleton&lt;IFoo, Foo1&gt;("foo1");
 
-services.AddKeyedTransient&lt;IFoo, Foo&gt;("foo2");
+services.AddKeyedSingleton&lt;IFoo, Foo2&gt;("foo2");
 
 var serviceProvider = services.BuildProvider();
 

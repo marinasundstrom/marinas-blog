@@ -296,9 +296,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new ();
 
-services.AddKeyedTransient<IFoo, Foo>("foo1");
+services.AddKeyedSingleton<IFoo, Foo1>("foo1");
 
-services.AddKeyedTransient<IFoo, Foo>("foo2");
+services.AddKeyedSingleton<IFoo, Foo2>("foo2");
 
 var serviceProvider = services.BuildProvider();
 

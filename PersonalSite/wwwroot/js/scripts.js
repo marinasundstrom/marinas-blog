@@ -113,10 +113,6 @@ window.isDarkMode = () => {
     return false;
 };
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', async event => {
-    await DotNet.invokeMethodAsync("PersonalSite", "OnDarkModeChanged", event.matches);
-});
-
 window.setColorScheme= (colorScheme) => {
     //<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css">
 

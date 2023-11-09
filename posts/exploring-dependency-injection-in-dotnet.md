@@ -296,6 +296,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new ();
 
+services.AddTransient<Consumer>();
+
 services.AddKeyedSingleton<IFoo, Foo1>("foo1");
 
 services.AddKeyedSingleton<IFoo, Foo2>("foo2");
@@ -307,6 +309,16 @@ var foo1 = serviceProvider.GetKeyedService<IFoo>("foo1");
 var foo2 = serviceProvider.GetKeyedService<IFoo>("foo2");
 
 Console.WriteLine($"Equal: {foo1 == foo2}"); // False
+```
+
+You can use the ``FromKeyedServices`` attribute to specify what instance to inject as parameter in constructors.
+
+```csharp
+// Uses the key "foo1" to select the IFoo specifically
+public class Consumer([FromKeyedServices("foo1")] IFoo foo)
+{
+    
+}
 ```
 
 ## Dependency injection in ASP.NET Core

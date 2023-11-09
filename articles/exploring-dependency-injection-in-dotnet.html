@@ -319,6 +319,8 @@ using(var scope = serviceProvider.CreateScope())
 
 ServiceCollection services = new ();
 
+services.AddTransient&lt;Consumer&gt;();
+
 services.AddKeyedSingleton&lt;IFoo, Foo1&gt;("foo1");
 
 services.AddKeyedSingleton&lt;IFoo, Foo2&gt;("foo2");
@@ -330,6 +332,13 @@ var foo1 = serviceProvider.GetKeyedService&lt;IFoo&gt;("foo1");
 var foo2 = serviceProvider.GetKeyedService&lt;IFoo&gt;("foo2");
 
 Console.WriteLine($"Equal: {foo1 == foo2}"); // False
+</code></pre>
+<p>You can use the <code>FromKeyedServices</code> attribute to specify what instance to inject as parameter in constructors.</p>
+<pre><code class="language-csharp">// Uses the key "foo1" to select the IFoo specifically
+public class Consumer([FromKeyedServices("foo1")] IFoo foo)
+{
+    
+}
 </code></pre>
 <h2 id="dependency-injection-in-asp.net-core">Dependency injection in ASP.NET Core</h2>
 <p>ASP.NET Core has dependency injection and IoC built in. The <code>WebApplicationBuilder</code> has its own <code>ServiceCollection</code>, and the built app will have its own <code>ServiceProvider</code>.</p>

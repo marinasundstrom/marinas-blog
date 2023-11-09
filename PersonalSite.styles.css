@@ -65,7 +65,7 @@ ol.timeline[b-gzzl0v4m7v] {
 
 ol.timeline[b-gzzl0v4m7v]:before {
     content: ' ';
-    background: #6069e6;
+    background: #8188e6;
     display: inline-block;
     position: absolute;
     left: 25px;
@@ -85,11 +85,11 @@ ol.timeline > li h3[b-gzzl0v4m7v] {
 
 ol.timeline > li[b-gzzl0v4m7v]:before {
     content: ' ';
-    background: #6069e6;
+    background: #8188e6;
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #6069e6;
+    border: 3px solid #8188e6;
     top: -3px;
     left: 16.1px;
     width: 20px;

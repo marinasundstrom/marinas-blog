@@ -376,6 +376,11 @@ public class MyApplicationModule : Module
   protected override void Load(ContainerBuilder builder)
   {
     builder.Register(c =&gt; new Car(c.Resolve&lt;IDriver&gt;())).As&lt;IVehicle&gt;();
+
+    if (ObeySpeedLimit)
+      builder.RegisterType&lt;SaneDriver&gt;().As&lt;IDriver&gt;();
+    else
+      builder.RegisterType&lt;CrazyDriver&gt;().As&lt;IDriver&gt;();
   }
 }
 </code></pre>

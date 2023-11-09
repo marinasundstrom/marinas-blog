@@ -19,7 +19,7 @@
         {
             @if(experience.For is not null) 
             {
-                <spa> with @experience.For</spa>
+                <span> with @experience.For</span>
             }
         } 
     </p>
@@ -33,27 +33,27 @@ else
         {
             @if(experience.For is not null) 
             {
-                <spa> with @experience.For</spa>
+                <span> with @experience.For</span>
             }
         }
     
     </p>
 }
 
-<p class="mt-4 text-muted">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
+<p class="mt-2 mb-3 text-muted">@startDate.Humanize(endDate) • @startDate.Humanize2(endDate)<br />@experience.Location</p>
 
-    <div class="mb-4 pt-2">
+    <div class="mb-4">
         <MarkdownView Content="@experience.Description" />
     </div>
 
     @if(experience.Skills?.Any() ?? false)
     {
-        <dl class="mt-4">
+        <dl>
             <dt>Key skills</dt>
             <dd>
                 @foreach (var skillName in experience.Skills)
                 {
-                    <div class="badge mini rounded-pill tag me-1 mb-1 text-decoration-none">
+                    <div class="badge mini rounded-pill tag me-2 mb-2 text-decoration-none">
                         @skillName
                     </div>
                 }

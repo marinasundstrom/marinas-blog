@@ -38,7 +38,7 @@
         </div>
 
         <div class="flex-grow-1 me-md-4 pb-md-1">
-            <h3 style="margin-top: 32px !important;">@firstExperience.Company</h3>
+            <h4 style="margin-top: 32px !important;">@firstExperience.Company</h4>
 
             <p class="text-muted mb-5">
                 @firstExperience.GetStartDate().Humanize2(lastExperience.GetEndDate())</p>
@@ -50,12 +50,7 @@
                         {
                             <li>
                                 <div class="mb-5 pt-1">
-                                    <h4 style="margin-top: -6px !important;">@experience.Title
-                                        @if (experience.Consultant)
-                                        {
-                                            <span> Consultant</span>
-                                        }
-                                    </h4>
+                                    <h5 style="margin-top: -6px !important;">@experience.Title</h5>
 
                                     <ExperienceView Model="@Foo(experience, true)" />
                                 </div>

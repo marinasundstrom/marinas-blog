@@ -46,10 +46,6 @@ ol.timeline > li:before {
     z-index: 400;
 }
 
-ol li:not(:first-child) {
-    padding-top: 25px;
-}
-
 @media(max-width: 602px) 
 {
     ol.timeline {

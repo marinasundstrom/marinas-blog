@@ -47,7 +47,6 @@ article h2,
 article h3,
 article h4,
 article h5 {
-
 }
 
 article h2+h3 {
@@ -67,7 +66,6 @@ article *+h3,
 article *+h4, 
 article *+h5 {
     margin-top: 1.4em;
-    margin-bottom: 0;
 }
 
 article pre+h2,
@@ -77,7 +75,7 @@ article pre+h5 {
     margin-top: 1.2em;
 }
 
-article p,
+/* article p, */
 article dl dt,
 article dl dd,
 article ul,
@@ -118,10 +116,6 @@ ol+p {
 article *+pre {
     margin-top: 1.6em;
     margin-bottom: 1em;
-}
-
-article p+ul {
-    margin-top: 35px;
 }
 
 article ol>li,

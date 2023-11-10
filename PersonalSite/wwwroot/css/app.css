@@ -181,17 +181,17 @@ h1:focus {
   font-size: 15px;
 }
 
-/*
 p {
-  line-height: 1.75 !important;
-  font-size: 1.125rem;
+  line-height: 1.5em;
+  font-size: 1rem;
+  letter-spacing: .00938em;
 }
 
+/*
 ul li, ol li {
   font-size: 1.125rem !important;
 }
 */
-
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;

@@ -97,10 +97,6 @@ ol.timeline > li[b-gzzl0v4m7v]:before {
     z-index: 400;
 }
 
-ol li:not(:first-child)[b-gzzl0v4m7v] {
-    padding-top: 25px;
-}
-
 @media(max-width: 602px) 
 {
     ol.timeline[b-gzzl0v4m7v] {

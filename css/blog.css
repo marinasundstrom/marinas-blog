@@ -120,10 +120,6 @@ article *+pre {
     margin-bottom: 1em;
 }
 
-article p+ul {
-    margin-top: 35px;
-}
-
 article ol>li,
 article ul>li {
     margin-bottom: 6px;

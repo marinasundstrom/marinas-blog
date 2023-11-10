@@ -50,29 +50,29 @@ article h5 {
 }
 
 article h2+h3 {
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
 }
 
 article h3+h4 {
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
 }
 
 article h4+h5 {
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
 }
 
 article *+h2,
 article *+h3,
 article *+h4, 
 article *+h5 {
-    margin-top: 1.4em;
+    margin-top: 1.3em;
 }
 
 article pre+h2,
 article pre+h3,
 article pre+h4, 
 article pre+h5 {
-    margin-top: 1.2em;
+    margin-top: 1em;
 }
 
 /* article p, */

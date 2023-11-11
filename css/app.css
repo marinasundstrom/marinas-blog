@@ -1,6 +1,5 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('app.dark.css');
-@import url('blog.css');
 @import url('syntax.css');
 @import url('syntax.dark.css');
 
@@ -24,16 +23,108 @@ main {
     padding-top: 95px;
 }
 
+/* p, */
+dl dt,
+dl dd,
+ul,
+ol {
+    margin-top: 1em;
+}
+
+.navbar ul {
+  margin-top: 0;
+}
+
+dl dt {
+    margin-top: 5px;
+    font-weight: 600 !important;
+}
+
+p+p {
+    margin-top: 1.4em; /* .2 */
+}
+
+ul+p,
+ol+p {
+    margin-top: 1.6rem;
+}
+
+*+pre {
+    margin-top: 1.6em;
+    margin-bottom: 1em;
+}
+
+ol>li,
+ul>li {
+  argin-top: 0.5rem;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
+  font-weight: normal;
   margin-bottom: 1rem;
+}
+
+h2+h3 {
+  margin-top: 1.2rem;
+}
+
+h3+h4 {
+  margin-top: 1.2rem;
+}
+
+h4+h5 {
+  margin-top: 1.2rem;
+}
+
+*+h2,
+*+h3,
+*+h4, 
+*+h5 {
+  margin-top: 1.3em;
+}
+
+pre+h2,
+pre+h3,
+pre+h4, 
+pre+h5 {
+  margin-top: 1em;
 }
 
 h1:focus {
     outline: none;
+}
+
+
+img:not(.cover).left, img:not(.cover).right {
+  max-height: 100%;
+  max-width: 300px;
+  padding: 4px;
+}
+
+img:not(.cover).right {
+  margin: 0px 0 20px 20px;
+  float: right;
+}
+
+img:not(.cover).left {
+  margin: 0px 20px 20px 0;
+  float: left;
+}
+
+p+img:not(.cover), p+a img:not(.cover) {
+  padding-top: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover:not(.btn) {
+  text-decoration: underline;
 }
 
 .btn:focus,
@@ -42,6 +133,11 @@ h1:focus {
 .form-control:focus,
 .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+hr {
+  margin-top: 45px;
+  margin-bottom: 40px;
 }
 
 .content {
@@ -245,11 +341,40 @@ ul li, ol li {
   font-weight: 400;
 }
 
-h1 {
-  font-weight: normal;
-}
 
 .my-special {
   margin-top: .134rem!important;
   margin-bottom: .25rem!important;
+}
+
+.post-subtitle {
+  margin-top: 0;
+}
+
+header h2.post-subtitle {
+  font-size: 1.6rem;
+  color: #797a7a !important;
+}
+
+.outer {
+  max-width: 1030px;
+  margin-right: auto;
+  margin-left: auto;
+  /*
+  border-right: 1px solid #dee2e6;
+  border-left: 1px solid #dee2e6;
+  */
+  height: 100%;
+  padding: 0 !important;
+}
+
+.inner,
+.inner {
+  max-width: 48rem !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+
 }

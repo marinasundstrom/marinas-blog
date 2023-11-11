@@ -113,6 +113,15 @@
 <p>Java erases generic type arguments when compiling your Java code into bytecode, while .NET has implemented generics in the runtime, so it retains type arguments. This has a huge impact on the code you write - how flexible you can be.</p>
 <p>This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code samples.</p>
 <p>And I will provide my thoughts and opinions as a .NET developer.</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a></li>
+</ol>
 <h2 id="terminology">Terminology</h2>
 <p>Here is a list of some of the terms that will pop up during the course of this article:</p>
 <ul>
@@ -389,7 +398,7 @@ Foo&lt;int&gt;();
 <p>This has been hinted at in previous samples.</p>
 <p>But the way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
 <h3 id="java-6">Java</h3>
-<p>In Java, in order to pass type information regarding a generic type parameter into a method, you have to pass its <code>Class&lt;T&gt;</code>. This is due to type erasure, since the method can’t resolve that type. There</p>
+<p>In Java, in order to pass type information of generic type argument into a method, you have to pass its <code>Class&lt;T&gt;</code> as a method parameter. This is due to type erasure, since the method can’t resolve that type.</p>
 <pre><code class="language-java">&lt;T&gt; void foo(Class&lt;T&gt; typeParam) {
     var name = typeParam.getSimpleName();
 }
@@ -419,7 +428,7 @@ Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
 
 var typeArg = (Class&lt;Object&gt;)type;
 </code></pre>
-<p>You could also get the type statically using ```Class.fromClass("java.util.ArrayList")``;</p>
+<p>You could also get the <code>Class</code> of a type using <code>Class.fromClass("java.util.ArrayList")</code> or <code>Class.fromClass("java.util.ArrayList&lt;Integer&gt;")</code>;</p>
 <h4 id="c-7">C#</h4>
 <p>The approach is similar in C#, but the API a bit cleaner:</p>
 <pre><code class="language-csharp">List&lt;int&gt; list = new ();

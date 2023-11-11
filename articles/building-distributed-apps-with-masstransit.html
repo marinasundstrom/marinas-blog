@@ -242,7 +242,7 @@ services:
 }
 </code></pre>
 <p>It is worth noting that messages, by convention, are identified by the full name of the type (namespace + type). That is unless you configure the binding manually. Coincidentally, you can redefine a message in another assembly as long as all instances have the same name, and are in the same namespace.</p>
-<p>Message contracts are usually shared via common class libraries. But you may declare them if you prefer. Just make sure that they follow the rules mentioned above,</p>
+<p>Message contracts are usually shared via common class libraries. But you may re-declare them if you prefer. Just make sure that they follow the rules mentioned above,</p>
 <h3 id="consumer">Consumer</h3>
 <p>The consumer that consumes the message looks like this:</p>
 <pre><code class="language-csharp">namespace WebApp;
@@ -281,7 +281,7 @@ Accept: application/json
 <p>This is article is not about RabbitMQ, but you should know about this.</p>
 <p>RabbitMQ has a Management plugin that provides a useful Web UI. In it you can view your exchanges and queues in real-time.</p>
 <p>In your browser, navigate to: <a href="http://localhost:15672/">http://localhost:15672/</a></p>
-<p>Provided that you are running the app, the UI will display at least one connection, an exchange, and a queues. Available to you are statistics and the current state of the queues. You can also publish messages manually from here.</p>
+<p>Provided that you are running the app, the UI will display at least one connection, an exchange, and a queue. Available to you is the current state of each queue. You can publish messages manually from here. You can also view statistics showing how many messages are being processed to predict throughput.</p>
 <p>On a side note: MassTransit will clean-up resources in RabbitMQ when an app stops.</p>
 <h2 id="where-are-the-other-services">Where are the other services?</h2>
 <p>But... wait! Isn't this supposed to show how to build a distributed app? We need another service.</p>

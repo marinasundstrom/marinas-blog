@@ -187,7 +187,7 @@ public record SendMessage
 
 It is worth noting that messages, by convention, are identified by the full name of the type (namespace + type). That is unless you configure the binding manually. Coincidentally, you can redefine a message in another assembly as long as all instances have the same name, and are in the same namespace.
 
-Message contracts are usually shared via common class libraries. But you may declare them if you prefer. Just make sure that they follow the rules mentioned above,
+Message contracts are usually shared via common class libraries. But you may re-declare them if you prefer. Just make sure that they follow the rules mentioned above,
 
 ### Consumer
 
@@ -248,7 +248,7 @@ RabbitMQ has a Management plugin that provides a useful Web UI. In it you can vi
 
 In your browser, navigate to: [http://localhost:15672/](http://localhost:15672/)
 
-Provided that you are running the app, the UI will display at least one connection, an exchange, and a queues. Available to you are statistics and the current state of the queues. You can also publish messages manually from here.
+Provided that you are running the app, the UI will display at least one connection, an exchange, and a queue. Available to you is the current state of each queue. You can publish messages manually from here. You can also view statistics showing how many messages are being processed to predict throughput.
 
 On a side note: MassTransit will clean-up resources in RabbitMQ when an app stops.
 

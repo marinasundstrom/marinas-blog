@@ -768,4 +768,6 @@ builder.Services.AddMassTransit(x =>
 
 ## Conclusion
 
-test
+We have seen how to use MassTransit to build distributed apps based on asynchronous messaging. You have been introduced to the basic concepts, as well as as how to handle errors. We also covered sagas that are implemented using MassTransits own library for building state machines.
+
+If you liked this article, please leave a like. And comment below if you have any questions. 

@@ -437,11 +437,11 @@ Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 <h3 id="java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</h3>
 <p>As I wanted to serialize JSON in Java, I ran into some challenges.</p>
 <p>What if the desired class that you want to deserialize to has a generic type parameter. How do you pass that statically to the serialization method so that it knows what typ to deserialize to?</p>
-<p>The code below comes from <a href="https://www.baeldung.com/java-deserialize-generic-type-with-jackson">Baeldung</a>.</p>
 <p>I was using Jackson. And the API looks like this:</p>
 <pre><code class="language-java">ObjectMapper objectMapper = new ObjectMapper(); 
 Foo myFoo = objectMapper.readValue(json, Foo.class);
 </code></pre>
+<p>The code below comes from <a href="https://www.baeldung.com/java-deserialize-generic-type-with-jackson">Baeldung</a>.</p>
 <p>You pass the <code>Class&lt;T&gt;</code> to the method. But what if you can't? Like for this generic type.</p>
 <pre><code class="language-java">public class JsonResponse&lt;T&gt; {
     private T result;
@@ -489,7 +489,7 @@ JsonResponse&lt;User&gt; jsonResponse = objectMapper.readValue(json, javaType);
 <p>Having explored Java as a .NET develope, I do still prefer the way .NET runtime, the CLR, treats generic types, and types in general, at runtime. I have no problems with the syntax in Java, but it seems much harder to do advanced things without this extra type information at runtime. I simply can express it better in C# and .NET.</p>
 <p>Is type erasure and the subsequent lack of runtime support for generics really an issue?</p>
 <p>Not unless you write a framework that relies heavily on reflection - like a serializer - and you have to take generics into account. And of course for me as someone who is used to the runtime generics of .NET. Overall, it might be hard to get into it as a beginner, but you might advance in it, and learn stuff that few others master.</p>
-<p>I hope you like this walkthrough.</p>
+<p>I hope you liked this walkthrough.</p>
 <div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></div></main>
 
 <footer class="footer py-4 bg-body-tertiary"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>

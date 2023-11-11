@@ -443,14 +443,14 @@ As I wanted to serialize JSON in Java, I ran into some challenges.
 
 What if the desired class that you want to deserialize to has a generic type parameter. How do you pass that statically to the serialization method so that it knows what typ to deserialize to? 
 
-The code below comes from [Baeldung](https://www.baeldung.com/java-deserialize-generic-type-with-jackson).
-
 I was using Jackson. And the API looks like this:
 
 ```java
 ObjectMapper objectMapper = new ObjectMapper(); 
 Foo myFoo = objectMapper.readValue(json, Foo.class);
 ```
+
+The code below comes from [Baeldung](https://www.baeldung.com/java-deserialize-generic-type-with-jackson).
 
 You pass the ```Class<T>``` to the method. But what if you can't? Like for this generic type.
 
@@ -523,4 +523,4 @@ Is type erasure and the subsequent lack of runtime support for generics really a
 
 Not unless you write a framework that relies heavily on reflection - like a serializer - and you have to take generics into account. And of course for me as someone who is used to the runtime generics of .NET. Overall, it might be hard to get into it as a beginner, but you might advance in it, and learn stuff that few others master.
 
-I hope you like this walkthrough.
+I hope you liked this walkthrough.

@@ -348,16 +348,13 @@ List&lt;Building&gt; buildings = houses;
 <h2 id="net-runtime-generics">.NET Runtime generics</h2>
 <p>.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the current CPU. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.</p>
 <h2 id="reflection">Reflection</h2>
+<p>Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.</p>
 <h3 id="the-apis">The APIs</h3>
-<h4 id="java-5">Java</h4>
-<p>With Java the APIs are different.</p>
-<p>The Class</p>
-<h4 id="c-5">C#</h4>
-<p>The .NET Reflection API is very well designed.</p>
-<p>A Type in .NET can represent any type, even open and closed generics classes. List&lt;&gt; and List</p>
+<h2 id="note-on-the-apis">Note on the APIs</h2>
+<p>I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.</p>
 <h3 id="retrieving-information-about-a-type">Retrieving information about a type</h3>
 <p>This section covers how to obtain information about a type from code, whether statically from its name, or via an object instance.</p>
-<h4 id="java-6">Java</h4>
+<h4 id="java-5">Java</h4>
 <p>Java primarily uses the <code>Class&lt;T&gt;</code> object which represents type information about a class. The <code>T</code> is the actual class. Det You obtain this object either through final <code>Foo.class</code> field on a class, or by doing <code>obj.getClass()</code> on an object.</p>
 <p>You can do <code>Foo.class</code> and <code>Bag&lt;&gt;.class</code> - but not <code>Bag&lt;Coffee&gt;.class</code> or <code>T.class</code>. Since generics is erased when code is compiled.</p>
 <pre><code class="language-java">Class&lt;Integer&gt; integerType = Integer.class
@@ -371,8 +368,9 @@ Class t = Class.forName("java.util.ArrayList");
 foo(Integer.class);
 </code></pre>
 <p>There is also a low level <code>Type</code> class, from which the <code>Class&lt;T&gt;</code> is derived.</p>
-<p>Just note, that since type params are erased, the generic args <code>&lt;Integer&gt;</code> of variable types may be optional - depending on your settings. Hence its absence in the sample above. For all intents and purposed the type is <code>Object</code>.</p>
-<h4 id="c-6">C#</h4>
+<p>Just note, that since type params are erased, the generic args <code>&lt;Integer&gt;</code> of variable types may be optional - depending on your settings. Hence its absence in the sample above. For all intents and purposed the type is<code>Object</code>.</p>
+<p><code>List&lt;T&gt;</code> in Java is an interface, while in C# <code>List&lt;T&gt;</code> is a class, implement <code>IList&lt;T&gt;</code>. In Java, the most common class implementing <code>List&lt;T&gt;</code> is <code>ArrayList&lt;T&gt;</code>.</p>
+<h4 id="c-5">C#</h4>
 <p>In .NET have the <code>Type</code> class from which you can obtain information of a type at runtime, including generic type parameters, whether the class is open or closed. You have the <code>typeof(Foo)</code> operator which does work on generic types, both closed <code>typeof(Bag&lt;Coffee&gt;)</code>, and open <code>typeof(Bag&lt;&gt;)</code>. Even on the parameters <code>typeof(T)</code>. From an instance you get its <code>Type</code> by invoking <code>obj.GetType()</code>.</p>
 <pre><code class="language-csharp">var intType = typeof(int);
 var intListType = typeof(List&lt;int&gt;);
@@ -391,7 +389,7 @@ Foo&lt;int&gt;();
 <h3 id="passing-info-about-type-params-into-methods">Passing info about type params into methods</h3>
 <p>This has been hinted at in previous samples.</p>
 <p>But the way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
-<h3 id="java-7">Java</h3>
+<h3 id="java-6">Java</h3>
 <p>In Java, in order to pass type information regarding a generic type parameter into a method, you have to pass its <code>Class&lt;T&gt;</code>. This is due to type erasure, since the method can’t resolve that type. There</p>
 <pre><code class="language-java">&lt;T&gt; void foo(Class&lt;T&gt; typeParam) {
     var name = typeParam.getSimpleName();
@@ -399,7 +397,7 @@ Foo&lt;int&gt;();
 
 Foo(Bar.class)
 </code></pre>
-<h4 id="c-7">C#</h4>
+<h4 id="c-6">C#</h4>
 <p>In C#, you can simply request the info about a parameter since it has been provided by the metadata and runtime. The CLR even knows about the constraints of respective parameter.</p>
 <pre><code class="language-csharp">void Foo&lt;T&gt;() 
 {
@@ -410,17 +408,21 @@ Foo(Bar.class)
 Foo&lt;Bar&gt;()
 </code></pre>
 <h3 id="retrieving-the-actual-type-argument-of-a-generic-type">Retrieving the actual type argument of a generic type</h3>
-<h4 id="java-8">Java</h4>
-<pre><code class="language-java">List&lt;Integer&gt; list = new List&lt;&gt;();
+<p>So how would you retrieve the actual type argument of a generic type in respective language?</p>
+<h4 id="java-7">Java</h4>
+<p>This is how you retrieve the actual generic argument in Java:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
 
-Class&lt;List&gt; listClass = list.getClass();
+Class&lt;ArrayList&gt; listClass = list.getClass();
 
 Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
     .getActualTypeArguments()[0];
 
 var typeArg = (Class&lt;Object&gt;)type;
 </code></pre>
-<h4 id="c-8">C#</h4>
+<p>You could also get the type statically using ```Class.fromClass("java.util.ArrayList")``;</p>
+<h4 id="c-7">C#</h4>
+<p>The approach is similar in C#, but the API a bit cleaner:</p>
 <pre><code class="language-csharp">List&lt;int&gt; list = new ();
 
 Type listType = list.GetType(); // Type for List&lt;Int32&gt;

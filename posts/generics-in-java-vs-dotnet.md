@@ -306,20 +306,13 @@ The JVM has no runtime concept of an instantiated generic class. The discovery o
 
 ## Reflection
 
+Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.
+
 ### The APIs
 
-#### Java
+## Note on the APIs
 
-With Java the APIs are different.
-
-The Class<T> can give you the open type parameters of a class, but not the closed one. To do that you need to use quirky approach:
-
-
-#### C#
-
-The .NET Reflection API is very well designed. 
-
-A Type in .NET can represent any type, even open and closed generics classes. List<> and List<Foo>.
+I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.
 
 ### Retrieving information about a type
 
@@ -345,7 +338,9 @@ foo(Integer.class);
 
 There is also a low level ``Type`` class, from which the ``Class<T>`` is derived.
 
-Just note, that since type params are erased, the generic args ``<Integer>`` of variable types may be optional - depending on your settings. Hence its absence in the sample above. For all intents and purposed the type is ``Object``.
+Just note, that since type params are erased, the generic args ``<Integer>`` of variable types may be optional - depending on your settings. Hence its absence in the sample above. For all intents and purposed the type is``Object``.
+
+``List<T>`` in Java is an interface, while in C# ``List<T>`` is a class, implement ``IList<T>``. In Java, the most common class implementing ``List<T>`` is ``ArrayList<T>``.
 
 #### C#
 
@@ -403,12 +398,16 @@ Foo<Bar>()
 
 ### Retrieving the actual type argument of a generic type
 
+So how would you retrieve the actual type argument of a generic type in respective language?
+
 #### Java
 
-```java
-List<Integer> list = new List<>();
+This is how you retrieve the actual generic argument in Java:
 
-Class<List> listClass = list.getClass();
+```java
+ArrayList<Integer> list = new ArrayList<>();
+
+Class<ArrayList> listClass = list.getClass();
 
 Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
     .getActualTypeArguments()[0];
@@ -416,7 +415,11 @@ Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
 var typeArg = (Class<Object>)type;
 ```
 
+You could also get the type statically using ```Class.fromClass("java.util.ArrayList")``;
+
 #### C# 
+
+The approach is similar in C#, but the API a bit cleaner:
 
 ```csharp
 List<int> list = new ();

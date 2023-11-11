@@ -349,8 +349,7 @@ List&lt;Building&gt; buildings = houses;
 <p>.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the current CPU. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.</p>
 <h2 id="reflection">Reflection</h2>
 <p>Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.</p>
-<h3 id="the-apis">The APIs</h3>
-<h2 id="note-on-the-apis">Note on the APIs</h2>
+<h3 id="note-on-the-apis">Note on the APIs</h3>
 <p>I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.</p>
 <h3 id="retrieving-information-about-a-type">Retrieving information about a type</h3>
 <p>This section covers how to obtain information about a type from code, whether statically from its name, or via an object instance.</p>

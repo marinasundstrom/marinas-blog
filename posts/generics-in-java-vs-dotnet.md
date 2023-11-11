@@ -308,9 +308,7 @@ The JVM has no runtime concept of an instantiated generic class. The discovery o
 
 Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.
 
-### The APIs
-
-## Note on the APIs
+### Note on the APIs
 
 I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.
 

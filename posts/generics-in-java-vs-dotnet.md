@@ -1,8 +1,8 @@
 ---
 title: Generics in Java vs .NET
-subtitle: A .NET developers perspective
+subtitle: A .NET developer's perspective
 published: 2023-11-11
-tags: [C#, .NET, Generics, Programming languages]
+tags: [C#, .NET, Java, Generics, Programming languages]
 ---
 
 ## Background

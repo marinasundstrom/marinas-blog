@@ -141,7 +141,7 @@
                     @foreach (var (skillArea, skills) in skillAreas)
                     {
                         <dt>@skillArea</dt>
-                        <dd>
+                        <dd class="pt-2">
                             @foreach (var (skillName, skillInfo) in skills)
                             {
                                 var comment = (skillInfo.Comment is not null ? $"<div class=\"mt-2\"><b>Comment:</b><p> {skillInfo.Comment}</p></div>" : string.Empty);
@@ -158,7 +158,7 @@
                                     @skillName
                                 </a>
                             }
-                </dd>
+                        </dd>
                     }
 
                 </dl>

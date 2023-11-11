@@ -140,6 +140,10 @@ a.nav-link:hover {
   text-decoration: none;
 }
 
+a.navbar-brand:hover {
+  text-decoration: none;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,

@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <title>Marina Sundström</title>
+    
+    <meta name="description" content="Personal blog of Marina Sundström."/>
+    <meta name="keywords" content="Blog, Personal, Software Development"/>
+
+    <base href="/"/>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="PersonalSite.styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/highlightjs-cshtml-razor/dist/cshtml-razor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap/color-modes.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+
+    <script src="/js/scripts.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+    
+
+<!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
+<title>Building distributed apps in .NET with MassTransit - Marina Sundström</title>
+<!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
+<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+
+<body class="bg-body-tertiary">
+    <div id="app" class="h-100">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%"></circle>
+            <circle r="40%" cx="50%" cy="50%"></circle>
+        </svg>
+        <div class="loading-progress-text"></div>
+    
+<!-- %%-PRERENDERING-BEGIN-%% -->
+<div style="opacity: 0; position: fixed; z-index: -1; top: 0; left: 0; bottom: 0; right: 0;">
+    <header class="navbar navbar-expand-lg fixed-top navbar-dark bg-brand" b-kujckncdpz><nav class="container px-4 px-md-3 flex-wrap flex-md-nowrap" aria-label="Main navigation" b-kujckncdpz><a href="" class="navbar-brand mr-auto mr-lg-0"><img src="/images/profile.jpeg" alt="Profile Image" class="rounded-circle profile" style="margin-right: 10px; height: 32px; font-weight: 700" b-kujckncdpz>
+            Marina Sundström
+        </a>
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation" b-kujckncdpz><span class="navbar-toggler-icon" b-kujckncdpz></span></button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" b-kujckncdpz><ul class="navbar-nav me-auto mb-2 mb-lg-0" b-kujckncdpz><li class="nav-item active" b-kujckncdpz><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item active" b-kujckncdpz><a href="/#who-am-i" class="nav-link">About me</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="articles" class="nav-link active" aria-current="page">Articles</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="resume" class="nav-link">Resumé</a></li>
+                <li class="nav-item" b-kujckncdpz><a href="portfolio" class="nav-link">Portfolio</a></li></ul>
+            <hr class="d-md-none text-white-50" b-kujckncdpz>
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto" b-kujckncdpz><svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><symbol id="check2" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg>
+
+<li class="nav-item dropdown bd-mode-toggle theme-selector me-4 me-md-0"><a class="nav-link btn-bd-primary py-2 dropdown-toggle d-flex align-items-center opacity-50" id="bd-theme" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)"><svg class="bi my-special theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></a>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text"><li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li>
+      <li><button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"><svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li>
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank" b-kujckncdpz><i class="fab fa-github" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank" b-kujckncdpz><i class="fab fa-youtube" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-item me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="X" target="_blank" b-kujckncdpz><i class="fab fa-x-twitter" b-kujckncdpz></i></a></li>
+
+                <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
+
+<main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Building distributed apps in .NET with MassTransit</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-10" b-76by154q0w>10 Nov 2023</time> • 
+                        13 minutes read
+
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Distributed%20apps" b-76by154q0w>Distributed apps</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Microservices" b-76by154q0w>Microservices</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/MassTransit" b-76by154q0w>MassTransit</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/RabbitMQ" b-76by154q0w>RabbitMQ</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/building-distributed-apps-with-masstransit">#</span></h4></div></div></div></header></div>
+
+            <div class="inner container"><h2 id="introduction">Introduction</h2>
+<p>So many apps that are being built today are part of distributed systems made up of two or more services that communicate with each other. They do so by sending messages, or publishing events. They are so called "Event-driven architectures".</p>
+<p>Learning everything that enables this, the technologies and the patterns, might be cumbersome, in particular if you don't know where to start.</p>
+<p>The goal of this article is to give you a starting point from which you can continue exploring building distributed applications in C#/.NET.</p>
+<p>In this article will be talking about MassTransit, what it is about, and viewing some examples of how to use it.</p>
+<p>We will be using RabbitMQ as our transport. It is easy to get started with using Docker. The contents of the Docker Compose files will be provided.</p>
+<h2 id="contents">Contents</h2>
+<p>Here is what is covered in this article:</p>
+<ol>
+<li><a href="/articles/building-distributed-apps-with-masstransit#what-is-a-distributed-app">What is a distributed app?</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#what-is-a-distributed-app">What is asynchronous messaging?</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#what-is-masstransit">What is MassTransit?</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#getting-started">Getting started</a>
+<ol>
+<li><a href="/articles/building-distributed-apps-with-masstransit#the-app">The app</a></li>
+</ol>
+</li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#basic-concepts">Basic concepts</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#publishing-and-consuming-a-message">Publishing and consuming a message</a>
+<ol>
+<li><a href="/articles/building-distributed-apps-with-masstransit#message">Message</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#consumer">Consumer</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#publisher">Publisher</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#running-the-app">Running the app</a></li>
+</ol>
+</li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#publishing-message-from-consumer">Publishing message from consumer</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#remote-procedure-call-rpc">Remote procedure call (RPC)</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#configuring-endpoints-manually">Configuring endpoints manually</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#error-handling-and-retry">Error handling and retry</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#consuming-faults">Consuming faults</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#state-machines-and-sagas">State machines and Sagas</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#transactional-outbox-pattern">Transactional Outbox pattern</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#scaling-vertically">Scaling vertically</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#testing-in-masstransit">Testing in MassTransit</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#distributed-tracing">Distributed tracing</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#using-another-transport">Using another transport</a></li>
+<li><a href="/articles/building-distributed-apps-with-masstransit#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="what-is-a-distributed-app">What is a distributed app?</h2>
+<p>A distributed app is an application that consists of multiple services that work together. Hence the app is distributed across those multiple services.</p>
+<p>Does it sound familiar? Yep, Microservices.</p>
+<p>We need ways for these services to communicate - should we use HTTP or gRPC? But those create coupling between services? There is another option: Asynchronous messaging with brokers and queues. But there are so many types of brokers and APIs to learn to master. It takes time to learn the specifics of each.</p>
+<p>That is where MassTransit comes in.</p>
+<h2 id="what-is-asynchronous-messaging">What is asynchronous messaging?</h2>
+<p>First we should explain what asynchronous communication is about.</p>
+<p>Asynchronous messaging is a communication method where participants on both sides are allowed to pause and resume conversations on their own terms. The party that is sending a message does not have to wait for a connection and a response.</p>
+<p>This is something entirely different from asynchronous code execution in <code>await</code> in C#.</p>
+<p>Asynchronous messaging enables us the implement event-driven patterns, including event sourcing, within a system of multiple services that depend on each other.</p>
+<p>There are multiple technologies that each allow for asynchronous messaging. Each with its own concepts. MassTransit supports many of the popular ones, both those that can run on-premise and those that are exclusively hosted in the cloud.</p>
+<p>We will use RabbitMQ, which is a queue-based system. It can be explained as we are sending messages to exchanges in a post office, that then distribute the messages (copies) across dedicated postboxes, or queues, that receivers consume.</p>
+<p>MassTransit will abstract all these details related to a "transport" away, but you should know about them.</p>
+<h2 id="what-is-masstransit">What is MassTransit?</h2>
+<p><a href="https://masstransit.io/">MassTransit</a> is a modern open-source framework that facilitates asynchronous messaging between services. Some would call it a service bus. It certainly can be used that way, but is not limited to that. The main selling point is that you can build <a href="https://en.wikipedia.org/wiki/Loose_coupling">loosely coupled</a> systems with little effort.</p>
+<p>The framework provides a solid unified abstraction of producers and consumers, on top of transports such as RabbitMQ, Azure ServiceBus, Amazon SQS etc. In addition to that, it also come with functionality for error handling, retries, and scaling. There even is an experimental mode for using SQL Server for sending messages, instead of a message bus.</p>
+<p>MassTransit is easy to get started with, since it requires just a few lines of code. And it is based on dependency injection.</p>
+<p>I recommend you to look into their excellent <a href="https://masstransit.io/documentation/concepts">documentation</a>, as well as awesome videos produced by its creator and maintainer, <a href="https://www.youtube.com/c/phatboyg">Chris Patterson</a> (@PhatBoyG).</p>
+<p>Some of the samples have been put together specifically for this article, while some have been taken from MassTransit's own docs.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Run this, to add the latest version of MassTransit to your application: (or an empty ASP.NET Core Web app: <code>dotnet new web</code>)</p>
+<pre><code class="language-sh">dotnet add package MassTransit.RabbitMQ
+</code></pre>
+<p>This will add MassTransit with RabbitMQ support to your project.</p>
+<h3 id="the-app">The app</h3>
+<pre><code class="language-csharp">using MassTransit;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMassTransit(x =&gt;
+{
+    x.SetKebabCaseEndpointNameFormatter();
+
+    x.AddConsumers(typeof(Program).Assembly);
+
+    x.UsingRabbitMq((context, cfg) =&gt;
+    {
+        cfg.Host("localhost", "/", h =&gt;
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+
+        cfg.ConfigureEndpoints(context);
+    });
+});
+
+var app = builder.Build();
+
+app.MapGet("/hello", () =&gt; "Hello, World!");
+
+app.Run();
+</code></pre>
+<p>Now we need a RabbitMQ instance to run against.</p>
+<p>Here is a Docker Compose file that runs a container in Docker:</p>
+<pre><code class="language-yaml">version: '3.4'
+name: masstransit-test
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=SomeRandomStringHere
+    volumes:
+      - "./data/rabbitmq:/var/lib/rabbitmq"
+</code></pre>
+<p>Provided that you have Docker Desktop installed, run this to start RabbitMQ:</p>
+<pre><code>docker compose up -d
+</code></pre>
+<p>But if you run the app, it doesn't do anything yet. We need to add some producers and consumers.</p>
+<h2 id="basic-concepts">Basic concepts</h2>
+<p>There are three central concepts to know about:</p>
+<ul>
+<li><strong>Message</strong> - The message (or data) being sent. We also talk about a <em>contract</em>.</li>
+<li><strong>Producer</strong> - Produces messages, i.e. publishes, or sends them.</li>
+<li><strong>Consumer</strong> - Consumes messages by performing some logic. It's a message handler.</li>
+</ul>
+<p>Then there is the concept of a <strong>Transport</strong>, which is the means by which messages are being sent. In our case it is RabbitMQ, but there are others as mentioned, including Azure Service Bus.</p>
+<p>A message do often take on the meaning of an <em>event</em> that is signifying that something has happened - as reflected in the name of the message, for example, <code>OrderPlaced</code>.</p>
+<p>An event can either be "thin" - meaning it just contains details regarding what the event was concerned, or it might also contain state. The latter is referred to as <em>Event-carried state</em> transfer. There are many opinions on what road to go when designing events.</p>
+<h2 id="publishing-and-consuming-a-message">Publishing and consuming a message</h2>
+<p>The most basic thing you can do is to publish a message which can be consumed by one or more consumers. So let's add some things to our app that enable us to do just that.</p>
+<h3 id="message">Message</h3>
+<p>We first need to define a contract (message type) for our message.</p>
+<p>The message contract is a record with properties that have explicit <code>init</code> setters. This enables for the properties to be deserialized. (Records don't have public setters by default)</p>
+<pre><code class="language-csharp">public record SendMessage
+{
+    public required string Text { get; init; }
+}
+</code></pre>
+<p>It is worth noting that messages, by convention, are identified by the full name of the type (namespace + type). That is unless you configure the binding manually. Coincidentally, you can redefine a message in another assembly as long as all instances have the same name, and are in the same namespace.</p>
+<p>Message contracts are usually shared via common class libraries. But you may declare them if you prefer. Just make sure that they follow the rules mentioned above,</p>
+<h3 id="consumer">Consumer</h3>
+<p>The consumer that consumes the message looks like this:</p>
+<pre><code class="language-csharp">namespace WebApp;
+
+public sealed class SendMessageConsumer : IConsumer&lt;SendMessage&gt;
+{
+    public async Task Consume(ConsumeContext&lt;SendMessage&gt; context)
+    {
+        Console.WriteLine($"The message is: {context.Message.Text}");
+    }
+}
+</code></pre>
+<p>So how does MassTransit know about this consumer, and the message?</p>
+<p>If we look at the code for our Web app, <code>x.AddConsumers(typeof(Program).Assembly);</code> will discover and register the consumers in the executing assembly - looking for classes that implement <code>IConsumer&lt;T&gt;</code>. And <code>cfg.ConfigureEndpoints(context);</code> will configure the RabbitMQ endpoints for us.</p>
+<h3 id="publisher">Publisher</h3>
+<p>What is now needed is somewhere to publish the message from, so we do it from an API endpoint. We inject and use the <code>IPublishEndpoint</code> to publish messages:</p>
+<pre><code class="language-csharp">app.MapPost("/test", static async (string text, IPublishEndpoint publishEndpoint) =&gt; await publishEndpoint.Publish(new SendMessage { Text = text }))
+    .WithName("WebApp_Test")
+    .WithTags("WebApp");
+</code></pre>
+<p>The <code>IPublishEndpoint</code> is a scoped service.</p>
+<h3 id="running-the-app">Running the app</h3>
+<p>Here is a <code>.http</code> file that can be used to test the endpoint in Visual Studio, and VS Code:</p>
+<pre><code>@WebApp_HostAddress = http://localhost:&lt;YOUR-PORT&gt;
+
+POST {{WebApp_HostAddress}}/test
+Accept: application/json
+
+"Hello, World!"
+
+###
+</code></pre>
+<p>You can use this unless you want to setup Open API and test it in Swagger UI.</p>
+<p>When you send that POST request to the endpoint, the message will be published to a queue in RabbitMQ. The consumer in the same app will receive the message, and write <code>"The message is: Hello, World!"</code> to the console.</p>
+<h3 id="rabbitmq-management-plugin">RabbitMQ Management plugin</h3>
+<p>This is article is not about RabbitMQ, but you should know about this.</p>
+<p>RabbitMQ has a Management plugin that provides a useful Web UI. In it you can view your exchanges and queues in real-time.</p>
+<p>In your browser, navigate to: <a href="http://localhost:15672/">http://localhost:15672/</a></p>
+<p>Provided that you are running the app, the UI will display at least one connection, an exchange, and a queues. Available to you are statistics and the current state of the queues. You can also publish messages manually from here.</p>
+<p>On a side note: MassTransit will clean-up resources in RabbitMQ when an app stops.</p>
+<h2 id="where-are-the-other-services">Where are the other services?</h2>
+<p>But... wait! Isn't this supposed to show how to build a distributed app? We need another service.</p>
+<p>That's easy to fix! Just copy the project! 😊</p>
+<h2 id="publishing-message-from-consumer">Publishing message from consumer</h2>
+<p>When publishing a message from a consumer, you don't need to inject any extra service. The <code>ConsumeContext</code> itself provides the functionality for communicating with the bus.</p>
+<p>This is what a modified version of our consumer would look like:</p>
+<pre><code class="language-csharp">using MassTransit;
+
+namespace WebApp;
+
+public sealed class SendMessageConsumer : IConsumer&lt;SendMessage&gt;
+{
+    public async Task Consume(ConsumeContext&lt;SendMessage&gt; context)
+    {
+        Console.WriteLine($"The message is: {context.Message.Text}");
+
+        await context.Publish(new MessageSent {
+            Date = DateTimeOffset.UtcNow
+        });
+    }
+}
+</code></pre>
+<p>In the other project you will define this consumer for the <code>MessageSent</code> message:</p>
+<pre><code class="language-csharp">using MassTransit;
+
+namespace WebApp;
+
+public sealed class MessageSentConsumer : IConsumer&lt;MessageSent&gt;
+{
+    public async Task Consume(ConsumeContext&lt;MessageSent&gt; context)
+    {
+        Console.WriteLine($"The time was: {context.Message.Date}");
+    }
+}
+</code></pre>
+<p>Btw, here is the contract:</p>
+<pre><code class="language-csharp">public record MessageSent
+{
+    public required DateTimeOffset Date { get; init; }
+}
+</code></pre>
+<h2 id="remote-procedure-call-rpc">Remote procedure call (RPC)</h2>
+<p>You can do remote procedure calls (RPC), meaning that you send a request, and await a response back. Not unlike HTTP requests and responses, but still loosely coupled because of the inherent asynchrony of RabbitMQ as a transport.</p>
+<p>You can obtain a client by injecting the <code>IRequestClient&lt;T&gt;</code> interface, where <code>T</code> is the message type. Then use the async <code>GetResponse&lt;TResponse&gt;</code> method to send a request and await the response.</p>
+<pre><code class="language-csharp">using MassTransit;
+
+namespace WebApp;
+
+public sealed class GetTodosConsumer(ITodoService todoService) : IConsumer&lt;GetTodos&gt;
+{
+    public async Task Consume(ConsumeContext&lt;GetTodos&gt; context)
+    {
+        var todos = await todoService.GetTodosAsync(context.CancellationToken);
+
+        consumeContext.RespondAsync&lt;GetTodosResponse&gt;(new GetTodosResponse {
+            Todos = todos
+        });
+    }
+}
+</code></pre>
+<p>This sample is not complete. The <code>ITodoService</code> class has been omitted as it is not relevant for this example.</p>
+<p>The contracts:</p>
+<pre><code class="language-csharp">public record Todo
+{
+    public required string Text { get; init; }
+
+    public required bool Done { get; init; }
+}
+
+public record GetTodos();
+
+public record GetTodosResponse
+{
+    public required IEnumerable&lt;Todo&gt; Todos { get; init; }
+}
+</code></pre>
+<p>Here is the how you use the request client:</p>
+<pre><code class="language-csharp">app.MapGet("/todos", static async (IRequestClient&lt;GetTodos&gt; requestClient) =&gt; {
+    var response = await requestClient.GetResponse&lt;GetTodosResponse&gt;(new GetTodos());
+    return response.Todos;
+}
+.WithName("WebApp_GetTodos")
+.WithTags("WebApp");
+</code></pre>
+<h3 id="handling-multiple-response-types">Handling multiple response types</h3>
+<p>A RPC request might have multiple responds with different response types. This is how you would handle these responses from the client:</p>
+<pre><code class="language-csharp">var response = await client.GetResponse&lt;OrderStatusResult, OrderNotFound&gt;(new { OrderId = id});
+
+if (response.Is(out Response&lt;OrderStatusResult&gt; responseA))
+{
+    // do something with the order
+}
+else if (response.Is(out Response&lt;OrderNotFound&gt; responseB))
+{
+    // the order was not found
+}
+</code></pre>
+<p>This is not a complete sample though.</p>
+<h2 id="configuring-endpoints-manually">Configuring endpoints manually</h2>
+<p>In the samples so far, endpoints have been configured automatically. But you can do it manually for the chosen transport.</p>
+<p>Here we have declare a <code>ReceiveEndpoint</code> which maps to the queue "submit-order". (Spoilers) It has retries configured. The endpoint is handled by the consumer <code>SubmitOrderConsumer</code>.</p>
+<pre><code class="language-csharp">services.AddMassTransit(x =&gt;
+{
+    x.AddConsumer&lt;SubmitOrderConsumer&gt;();
+
+    x.UsingRabbitMq((context, cfg) =&gt;
+    {
+        cfg.ReceiveEndpoint("submit-order", e =&gt;
+        {
+            e.UseMessageRetry(r =&gt; r.Immediate(5));
+
+            e.ConfigureConsumer&lt;SubmitOrderConsumer&gt;(context);
+        });
+    });
+</code></pre>
+<h2 id="error-handling-and-retry">Error handling and Retry</h2>
+<p>It sometimes happens that a consumer fails for some reason, an exception is being thrown. For instance, because of the database failing. In that case you would want to retry running the consumer.</p>
+<pre><code class="language-csharp">public class SubmitOrderConsumer :
+    IConsumer&lt;SubmitOrder&gt;
+{
+    ISessionFactory _sessionFactory;
+
+    public async Task Consume(ConsumeContext&lt;SubmitOrder&gt; context)
+    {
+        using(var session = _sessionFactory.OpenSession())
+        using(var transaction = session.BeginTransaction())
+        {
+            var customer = session.Get&lt;Customer&gt;(context.Message.CustomerId);
+
+            // continue with order processing
+
+            transaction.Commit();
+        }
+    }
+}
+</code></pre>
+<p>Retries can be configured like so:</p>
+<pre><code class="language-csharp">services.AddMassTransit(x =&gt;
+{
+    x.AddConsumer&lt;SubmitOrderConsumer&gt;();
+
+    x.UsingRabbitMq((context,cfg) =&gt;
+    {
+        cfg.UseMessageRetry(r =&gt; r.Immediate(5));
+
+        cfg.ConfigureEndpoints(context);
+    });
+});
+</code></pre>
+<p>This will apply to all consumers. But you can apply them to specific ones as well.</p>
+<p>You can even use exception filters to make MassTransit just handle certain exception types.</p>
+<pre><code class="language-csharp">e.UseMessageRetry(r =&gt; 
+{
+    r.Handle&lt;ArgumentNullException&gt;();
+    r.Ignore(typeof(InvalidOperationException), typeof(InvalidCastException));
+    r.Ignore&lt;ArgumentException&gt;(t =&gt; t.ParamName == "orderTotal");
+});
+</code></pre>
+<h2 id="consuming-faults">Consuming faults</h2>
+<p>When a consumer has truly failed, you perhaps want to handle that fault. You do that by creating a consumer that consumes a message of <code>Fault&lt;T&gt;</code> where <code>T</code> is the message type.</p>
+<pre><code class="language-csharp">public class DashboardFaultConsumer :
+    IConsumer&lt;Fault&lt;SubmitOrder&gt;&gt;
+{
+    public async Task Consume(ConsumeContext&lt;Fault&lt;SubmitOrder&gt;&gt; context)
+    {
+        // update the dashboard
+    }
+}
+</code></pre>
+<p>For RabbitMQ, MassTransit publishes faulted messages to consumer specific error queues. In the process, a message gets wrapped by the fault information as represented by <code>Fault&lt;T&gt;</code>. Imagine something similar happening when using another transport.</p>
+<h2 id="state-machines-and-sagas">State machines and Sagas</h2>
+<p>MassTransit has its own state machine API, called <em>Automatonymous</em>, which allows you to define the state machines, with states and transitions in between, driven by the messages. The library can even be used standalone outside of MassTransit.</p>
+<p>Automatonymous makes it easier to implement the <em>Saga design pattern</em>. A <em>saga</em> is a way to ensure data consistency across multiple services within a transaction.</p>
+<p>There are two approaches to implementing sagas: <em>choreography</em> and <em>orchestration</em>. Both patterns are used to coordinate messages. Choreography is about each service knowing how to handle those states from the messages it receives. On the other hand, the orchestration pattern has a centralized point which orchestrates all messages sent between services. This could imply that a separate orchestrator service is running the state machine. Which approach to choose depends on the case.</p>
+<p>This is an incomplete example (<a href="https://masstransit.io/documentation/patterns/saga/state-machine">source</a>) of what a state machine for an orchestrator looks like in MassTransit. It demonstrates the concepts of events and states within that state machine.</p>
+<pre><code class="language-csharp">public interface SubmitOrder
+{
+    Guid OrderId { get; }
+
+    DateTime OrderDate { get; }
+}
+
+public interface OrderAccepted
+{
+    Guid OrderId { get; }    
+}
+
+public class OrderState :
+    SagaStateMachineInstance
+{
+    public Guid CorrelationId { get; set; }
+    public string CurrentState { get; set; }
+
+    public DateTime? OrderDate { get; set; }
+}
+
+public interface OrderSubmitted
+{
+    Guid OrderId { get; }    
+}
+
+public class OrderSubmittedEvent :
+    OrderSubmitted
+{
+    public OrderSubmittedEvent(Guid orderId)
+    {
+        OrderId = orderId;
+    }
+
+    public Guid OrderId { get; }    
+}
+
+public class OrderStateMachine :
+    MassTransitStateMachine&lt;OrderState&gt;
+{
+    public OrderStateMachine()
+    {
+        Event(() =&gt; SubmitOrder, x =&gt; x.CorrelateById(context =&gt; context.Message.OrderId));
+
+        Event(() =&gt; OrderAccepted, x =&gt; x.CorrelateById(context =&gt; context.Message.OrderId));
+
+        Initially(
+            When(SubmitOrder)
+                .Then(x =&gt; x.Saga.OrderDate = x.Message.OrderDate)
+                .Publish(context =&gt; (OrderSubmitted)new OrderSubmittedEvent(context.Saga.CorrelationId))
+                .TransitionTo(Submitted),
+            When(OrderAccepted)
+                .TransitionTo(Accepted));
+
+        During(Submitted,
+            When(OrderAccepted)
+                .TransitionTo(Accepted));
+
+        During(Accepted,
+            When(SubmitOrder)
+                .Then(x =&gt; x.Saga.OrderDate = x.Message.OrderDate));
+    }
+
+    public State Submitted { get; private set; }
+    
+    public State Accepted { get; private set; }
+
+    public Event&lt;SubmitOrder&gt; SubmitOrder { get; private set; }
+
+    public Event&lt;OrderAccepted&gt; OrderAccepted { get; private set; }
+}
+</code></pre>
+<p>Each service could have its own state machine, if your decide to do choreography. In the end, it is about where the state machine logic exists. Whether, or not, you desire to centralize the logic in an orchestrator.</p>
+<h2 id="transactional-outbox-pattern">Transactional Outbox pattern</h2>
+<p>The transactional outbox pattern solves the issue of consistency when both saving data and emitting events. You might want data to be saved to the database before publishing the events.</p>
+<p>It stores the messages in an outbox (in a database) in the same transaction as the data. If the save succeeds, the messages will be published by a periodic process that is checking the outbox in a specific interval.</p>
+<p>If you have domain events then this patterns is pretty much a requirement.</p>
+<h2 id="scaling-vertically">Scaling vertically</h2>
+<p>Using MassTransit you can easily scale services vertically.</p>
+<p>Using a queue-based transport, having multiple instances (or replicas) of the same app, consuming the same queues, will cause the instances to compete for messages. This is how you get both scaling, and load balancing for free.</p>
+<p>This will work for other transports, even if they are not necessarily using message queues.</p>
+<h2 id="testing-in-masstransit">Testing in MassTransit</h2>
+<p>MassTransit provides a <code>TestHarness</code> that is an in-memory implementation of a transport specifically built for testing. Using that you can verify that messages have been published and consumed.</p>
+<p>Consider this unit test case (NUnit):</p>
+<pre><code class="language-csharp">[Test] 
+public async Task An_example_unit_test() 
+{
+    await using var provider = new ServiceCollection()
+        .AddYourBusinessServices() // register all of your normal business services
+        .AddMassTransitTestHarness(x =&gt;
+        {
+            x.AddConsumer&lt;SubmitOrderConsumer&gt;();
+        })
+        .BuildServiceProvider(true);
+
+    var harness = provider.GetRequiredService&lt;ITestHarness&gt;();
+
+    await harness.Start();
+
+    var client = harness.GetRequestClient&lt;SubmitOrder&gt;();
+
+    var response = await client.GetResponse&lt;OrderSubmitted&gt;(new
+    {
+        OrderId = InVar.Id,
+        OrderNumber = "123"
+    });
+
+    Assert.IsTrue(await harness.Sent.Any&lt;OrderSubmitted&gt;());
+
+    Assert.IsTrue(await harness.Consumed.Any&lt;SubmitOrder&gt;());
+
+    var consumerHarness = harness.GetConsumerHarness&lt;SubmitOrderConsumer&gt;();
+
+    Assert.That(await consumerHarness.Consumed.Any&lt;SubmitOrder&gt;());
+
+    // test side effects of the SubmitOrderConsumer here
+}
+</code></pre>
+<h2 id="distributed-tracing">Distributed tracing</h2>
+<p>Building distributed apps involves challenges when doing tracing and debugging communication between services - what services are being hit during the course of a request.</p>
+<p>Distributed tracing alleviates that headache by collecting and putting this information together, so that it can be easily visualized in a tool like Jaeger, or Zipkin. You can easily see latencies, and get information about specific errors.</p>
+<p>MassTransit has built in support for tracing with the OpenTelemetry standard.</p>
+<p>To add tracing to your project, add these packages:</p>
+<pre><code class="language-xml">&lt;PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.3.2" /&gt;
+&lt;PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.0.0-rc9.6" /&gt;
+&lt;PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9.6" /&gt;
+&lt;PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.0.0-rc9.6" /&gt;
+&lt;PackageReference Include="OpenTelemetry.Exporter.Zipkin" Version="1.4.0-alpha.2" /&gt;
+&lt;PackageReference Include="OpenTelemetry.Instrumentation.MassTransit" Version="1.0.0-beta.3" /
+</code></pre>
+<p>Add tracing to the service container:</p>
+<pre><code class="language-csharp">app.Services.AddOpenTelemetry()
+    .WithTracing(tracing =&gt;
+    {
+        tracing.SetResourceBuilder(resource)
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddMassTransitInstrumentation()
+                .AddSource("MassTransit")
+                .AddZipkinExporter(zipkin =&gt;
+                {
+                    var zipkinUrl = "http://localhost:9411";
+                    zipkin.Endpoint = new Uri($"{zipkinUrl}/api/v2/spans");
+                });
+        //.AddConsoleExporter();
+    });
+</code></pre>
+<p>Here is the Docker Compose:</p>
+<pre><code class="language-yaml">version: '3.4'
+name: masstransit-test
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=SomeRandomStringHere
+    volumes:
+      - "./data/rabbitmq:/var/lib/rabbitmq"
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
+</code></pre>
+<p>Run it:</p>
+<pre><code>docker compose up -d
+</code></pre>
+<p>You can now open your browser, and navigate to: <a href="http://localhost:9411/zipkin/">http://localhost:9411/zipkin/</a></p>
+<p>There you can query the requests and follow the flow of operations, including where messages are being passed.</p>
+<p>Beyond this, you can add additional packages that provide metrics for your applications, which can be viewed in tools like Grafana. But that is not in scope for this article.</p>
+<h2 id="using-another-transport">Using another transport</h2>
+<p>So what if you want to use another transport? You might want to run your app in the cloud using Azure Service Bus.</p>
+<p>It is easy to just switch out RabbitMQ for something else, as it is just a matter of installing the provider and declaring what provider to use. Then MassTransit will configure the rest for you.</p>
+<p>For Azure Service Bus you add this to your project file</p>
+<pre><code class="language-xml">&lt;PackageReference Include="MassTransit.Azure.ServiceBus.Core" Version="8.1.1" /&gt;
+</code></pre>
+<p>Then configure like so:</p>
+<pre><code class="language-csharp">builder.Services.AddMassTransit(x =&gt;
+{
+    x.SetKebabCaseEndpointNameFormatter();
+
+    x.AddConsumers(typeof(Program).Assembly);
+
+    x.UsingAzureServiceBus((context, cfg) =&gt;
+    {
+        cfg.Host($"sb://{builder.Configuration["Azure:ServiceBus:Namespace"]}.servicebus.windows.net");
+
+        cfg.ConfigureEndpoints(context);
+    });
+});
+</code></pre>
+<p>This article is not about how you configure Azure Service Bus.</p>
+<h3 id="using-different-transports-depending-on-environment">Using different transports depending on environment</h3>
+<p>This piece of code shows you how to configure MassTransit to use RabbitMQ locally, but Azure Service Bus when in production:</p>
+<pre><code class="language-csharp">builder.Services.AddMassTransit(x =&gt;
+{
+    x.SetKebabCaseEndpointNameFormatter();
+
+    x.AddConsumers(typeof(Program).Assembly);
+
+    if (builder.Environment.IsProduction())
+    {
+        x.UsingAzureServiceBus((context, cfg) =&gt;
+        {
+            cfg.Host($"sb://{builder.Configuration["Azure:ServiceBus:Namespace"]}.servicebus.windows.net");
+
+            cfg.ConfigureEndpoints(context);
+        });
+    }
+    else
+    {
+        x.UsingRabbitMq((context, cfg) =&gt;
+        {
+            var rabbitmqHost = builder.Configuration["RABBITMQ_HOST"] ?? "localhost";
+
+            cfg.Host(rabbitmqHost, "/", h =&gt;
+            {
+                h.Username("guest");
+                h.Password("guest");
+            });
+
+            cfg.ConfigureEndpoints(context);
+        });
+    }
+});
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>test</p>
+<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></div></main>
+
+<footer class="footer py-4 bg-body-tertiary"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
+                <ul class="list-unstyled small text-muted"><li class="mb-2">
+                        A personal website and blog about life and software development
+                    </li>
+                    <li class="mb-2">
+                        Code is provided with no warranty.
+                    </li></ul></div>
+            <div class="col-6 col-lg-2 offset-lg-1 mb-3"><h5>This site</h5>
+                <ul class="list-unstyled menu"><li class="mb-2"><a href="/about-me">About me</a></li>
+                    <li class="mb-2"><a href="/articles">Articles</a></li>
+                    <li class="mb-2"><a href="/resume">Resume</a></li>
+                    <li class="mb-2"><a href="/portfolio">Portfolio</a></li></ul></div>
+            <div class="col-6 mb-3"><h5>Social</h5>
+                <ul class="list-unstyled"><li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://github.com/marinasundstrom" title="GitHub" target="_blank"><i class="fab fa-2x fa-github"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.youtube.com/channel/UCVdav9wE4kmtiEuk1_vG2_g" target="_blank"><i class="fab fa-2x fa-youtube"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://twitter.com/marna_li" title="X" target="_blank"><i class="fab fa-2x fa-x-twitter"></i></a></li>
+
+                    <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li></ul></div></div>
+        <div class="mt-4"><p class="float-end mb-1"><a id="scrollToTop" href="#" __internal_preventDefault_onclick>Back to top</a></p>
+            <p class="muted small mb-1">© 2023 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
+        
+
+
+
+</div>
+<!-- %%-PRERENDERING-END-%% -->
+</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap/color-modes.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/app.js"></script>
+    <script src="_content/Blazor-Analytics/blazor-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
+
+
+</body></html>

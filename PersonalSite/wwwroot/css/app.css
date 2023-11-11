@@ -132,8 +132,12 @@ a {
   text-decoration: none;
 }
 
-a:hover:not(.btn) {
+a:hover:not(.btn) {  
   text-decoration: underline;
+}
+
+a.nav-link:hover {
+  text-decoration: none;
 }
 
 .btn:focus,

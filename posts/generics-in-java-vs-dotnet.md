@@ -521,4 +521,6 @@ Having explored Java as a .NET develope, I do still prefer the way .NET runtime,
 
 Is type erasure and the subsequent lack of runtime support for generics really an issue? 
 
-Not unless you write a framework that relies heavily on reflection - like a serializer - and you have to take generics into account. It is hard to get into it as a beginner, but you might advance in it, and learn stuff that few others master.
+Not unless you write a framework that relies heavily on reflection - like a serializer - and you have to take generics into account. And of course for me as someone who is used to the runtime generics of .NET. Overall, it might be hard to get into it as a beginner, but you might advance in it, and learn stuff that few others master.
+
+I hope you like this walkthrough.

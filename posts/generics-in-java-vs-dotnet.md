@@ -7,15 +7,15 @@ tags: [C#, .NET, Java, Generics, Programming languages]
 
 ## Background
 
-I'm a .NET developer, writing C# code. But 9 months ago, I joined company whose tech stack is almost exclusively Java. As I have gotten more into writing Java code, I have become more aware of the differences between Java and my beloved C#.
+I'm a .NET developer, writing C# code. But 9 months ago, I joined a company whose code is almost exclusively Java. As I have gotten more into writing Java code, I have become more aware of the differences between Java and my beloved C#.
 
-Both Java and C# are at their core object-oriented general-purpose programming languages, with similar syntaxes, but there are some fundamental differences that ar not apparent until you dig deeper. In particular, when coming to how generics has been implemented. It is not just about the language but their respective platforms and runtime environment.
+Both Java and C# are at their core general-purpose object-oriented programming languages, with similar syntaxes, but there are some fundamental differences that are not apparent until you dig deeper. In particular, when coming to how generics has been implemented. It is not just about the language but their respective platforms and runtime environment.
 
-Java erases generic type parameters when compiling your code, while .NET has implemented generics in the runtime. This has a huge impact on the code you write - how flexible you can be.
+Java erases generic type arguments when compiling your Java code into bytecode, while .NET has implemented generics in the runtime, so it retains type arguments. This has a huge impact on the code you write - how flexible you can be.
 
-This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code.
+This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code samples.
 
-I will provide my thoughts and opinions as a .NET developer.
+And I will provide my thoughts and opinions as a .NET developer.
 
 ## Terminology
 
@@ -54,7 +54,7 @@ When it comes to defining generic types, both Java and C# fundamentally have a p
 This is what a generic class definition looks like in Java.
 
 ```java
-class List<T> {
+class MyList<T> {
     public void add(T item) {
 
     }
@@ -68,7 +68,7 @@ class List<T> {
 With multiple parameters:
 
 ```java
-class List<T1, T2> { }
+class MyList<T1, T2> { }
 ```
 
 #### C#
@@ -76,7 +76,7 @@ class List<T1, T2> { }
 Here is the basic C# generic class definition:
 
 ```csharp
-class List<T>
+class MyList<T>
 {
     public void Add(T item) {
 
@@ -91,7 +91,7 @@ class List<T>
 With multiple parameters:
 
 ```csharp
-class List<T1, T2> { }
+class MyList<T1, T2> { }
 ```
 
 ### Instantiating generic types
@@ -103,13 +103,13 @@ This section is about how you instantiate (create) objects of generic types.
 In Java, the type param of the expression assigned is optional as it is inferred from the target.
 
 ```java
-List<Foo> list = new List<>();
+MyList<Foo> list = new MyList<>();
 ```
 
 But it is, of course, mandatory if you assign to ``var``. (Java 17)
 
 ```java
-var list = new List<Foo>();
+var list = new MyList<Foo>();
 ```
 
 #### C#
@@ -117,15 +117,15 @@ var list = new List<Foo>();
 In C#, you have to provide the type param in the expression being assigned:
 
 ```csharp
-List<Foo> list = new List<Foo>();
+MyList<Foo> list = new MyList<Foo>();
 
-var list = new List<Foo>();
+var list = new MyList<Foo>();
 ```
 
 Unless you use this shorthand target-type initializer:
 
 ```csharp
-List<Foo> list = new ();
+MyList<Foo> list = new ();
 ```
 
 
@@ -136,9 +136,9 @@ The term _subclassing_ refers to a class deriving from another class. Taking on 
 #### Java
 
 ```csharp
-class SuperList<T> extends List<T> { }
+class SuperList<T> extends MyList<T> { }
 
-class SuperListOfFoo extends List<Foo> { }
+class SuperListOfFoo extends MyList<Foo> { }
 ```
 
 Of course, the same applies to implementing interfaces.
@@ -148,9 +148,9 @@ Of course, the same applies to implementing interfaces.
 In C#, you can subclass from both open and closed generics types, and interfaces:
 
 ```csharp
-class SuperList<T> : List<T> { }
+class SuperList<T> : MyList<T> { }
 
-class SuperListOfFoo : List<Foo> { }
+class SuperListOfFoo : MyList<Foo> { }
 ```
 
 ### Generic methods
@@ -226,18 +226,18 @@ public static void paintAllBuildings(List<? extends Building> buildings) {
     ...
 }
 ```
-Assume that we have class ``House`` class derives from class ``Building``. A generic type of ``List<Building>`` is not assignable from ``List<House>`` due to the invariance in Java's type system. 
+Assume that we have class ``House`` class derives from class ``Building``. A generic type of ``ArrayList<Building>`` is not assignable from ``ArrayList<House>`` due to the invariance in Java's type system. 
 
 In essence, using a constrained wildcard like in the code above does make it possible to do this:
 
 ```Java
-List<House> houses = new List<>();
+ArrayList<House> houses = new ArrayList<>();
 houses.add(new House());
 
-List<Building> buildings = houses;
+ArrayList<Building> buildings = houses;
 ```
 
-.NET doesn't have wildcards, but they have covariance and contra-variance for interfaces.
+.NET doesn't have wildcards, but there is covariance and contra-variance for interfaces using the ``in`` and ``out`` keywords prefixing the type parameter.
 
 #### C#
 

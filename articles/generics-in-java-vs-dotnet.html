@@ -108,11 +108,11 @@
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
             <div class="inner container"><h2 id="background">Background</h2>
-<p>I'm a .NET developer, writing C# code. But 9 months ago, I joined company whose tech stack is almost exclusively Java. As I have gotten more into writing Java code, I have become more aware of the differences between Java and my beloved C#.</p>
-<p>Both Java and C# are at their core object-oriented general-purpose programming languages, with similar syntaxes, but there are some fundamental differences that ar not apparent until you dig deeper. In particular, when coming to how generics has been implemented. It is not just about the language but their respective platforms and runtime environment.</p>
-<p>Java erases generic type parameters when compiling your code, while .NET has implemented generics in the runtime. This has a huge impact on the code you write - how flexible you can be.</p>
-<p>This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code.</p>
-<p>I will provide my thoughts and opinions as a .NET developer.</p>
+<p>I'm a .NET developer, writing C# code. But 9 months ago, I joined a company whose code is almost exclusively Java. As I have gotten more into writing Java code, I have become more aware of the differences between Java and my beloved C#.</p>
+<p>Both Java and C# are at their core general-purpose object-oriented programming languages, with similar syntaxes, but there are some fundamental differences that are not apparent until you dig deeper. In particular, when coming to how generics has been implemented. It is not just about the language but their respective platforms and runtime environment.</p>
+<p>Java erases generic type arguments when compiling your Java code into bytecode, while .NET has implemented generics in the runtime, so it retains type arguments. This has a huge impact on the code you write - how flexible you can be.</p>
+<p>This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code samples.</p>
+<p>And I will provide my thoughts and opinions as a .NET developer.</p>
 <h2 id="terminology">Terminology</h2>
 <p>Here is a list of some of the terms that will pop up during the course of this article:</p>
 <ul>
@@ -140,7 +140,7 @@
 <p>When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# was initially inspired a lot by Java, so of course they borrowed.</p>
 <h4 id="java">Java</h4>
 <p>This is what a generic class definition looks like in Java.</p>
-<pre><code class="language-java">class List&lt;T&gt; {
+<pre><code class="language-java">class MyList&lt;T&gt; {
     public void add(T item) {
 
     }
@@ -151,11 +151,11 @@
 }
 </code></pre>
 <p>With multiple parameters:</p>
-<pre><code class="language-java">class List&lt;T1, T2&gt; { }
+<pre><code class="language-java">class MyList&lt;T1, T2&gt; { }
 </code></pre>
 <h4 id="c">C#</h4>
 <p>Here is the basic C# generic class definition:</p>
-<pre><code class="language-csharp">class List&lt;T&gt;
+<pre><code class="language-csharp">class MyList&lt;T&gt;
 {
     public void Add(T item) {
 
@@ -167,39 +167,39 @@
 }
 </code></pre>
 <p>With multiple parameters:</p>
-<pre><code class="language-csharp">class List&lt;T1, T2&gt; { }
+<pre><code class="language-csharp">class MyList&lt;T1, T2&gt; { }
 </code></pre>
 <h3 id="instantiating-generic-types">Instantiating generic types</h3>
 <p>This section is about how you instantiate (create) objects of generic types.</p>
 <h4 id="java-1">Java</h4>
 <p>In Java, the type param of the expression assigned is optional as it is inferred from the target.</p>
-<pre><code class="language-java">List&lt;Foo&gt; list = new List&lt;&gt;();
+<pre><code class="language-java">MyList&lt;Foo&gt; list = new MyList&lt;&gt;();
 </code></pre>
 <p>But it is, of course, mandatory if you assign to <code>var</code>. (Java 17)</p>
-<pre><code class="language-java">var list = new List&lt;Foo&gt;();
+<pre><code class="language-java">var list = new MyList&lt;Foo&gt;();
 </code></pre>
 <h4 id="c-1">C#</h4>
 <p>In C#, you have to provide the type param in the expression being assigned:</p>
-<pre><code class="language-csharp">List&lt;Foo&gt; list = new List&lt;Foo&gt;();
+<pre><code class="language-csharp">MyList&lt;Foo&gt; list = new MyList&lt;Foo&gt;();
 
-var list = new List&lt;Foo&gt;();
+var list = new MyList&lt;Foo&gt;();
 </code></pre>
 <p>Unless you use this shorthand target-type initializer:</p>
-<pre><code class="language-csharp">List&lt;Foo&gt; list = new ();
+<pre><code class="language-csharp">MyList&lt;Foo&gt; list = new ();
 </code></pre>
 <h3 id="subclassing-inheritance">Subclassing (Inheritance)</h3>
 <p>The term <em>subclassing</em> refers to a class deriving from another class. Taking on its characteristics, while still being unique. In this case, from a generic class.</p>
 <h4 id="java-2">Java</h4>
-<pre><code class="language-csharp">class SuperList&lt;T&gt; extends List&lt;T&gt; { }
+<pre><code class="language-csharp">class SuperList&lt;T&gt; extends MyList&lt;T&gt; { }
 
-class SuperListOfFoo extends List&lt;Foo&gt; { }
+class SuperListOfFoo extends MyList&lt;Foo&gt; { }
 </code></pre>
 <p>Of course, the same applies to implementing interfaces.</p>
 <h4 id="c-2">C#</h4>
 <p>In C#, you can subclass from both open and closed generics types, and interfaces:</p>
-<pre><code class="language-csharp">class SuperList&lt;T&gt; : List&lt;T&gt; { }
+<pre><code class="language-csharp">class SuperList&lt;T&gt; : MyList&lt;T&gt; { }
 
-class SuperListOfFoo : List&lt;Foo&gt; { }
+class SuperListOfFoo : MyList&lt;Foo&gt; { }
 </code></pre>
 <h3 id="generic-methods">Generic methods</h3>
 <p>The main syntactical difference for generic method declarations is where the generic type parameter is placed.</p>
@@ -248,14 +248,14 @@ class SuperListOfFoo : List&lt;Foo&gt; { }
     ...
 }
 </code></pre>
-<p>Assume that we have class <code>House</code> class derives from class <code>Building</code>. A generic type of <code>List&lt;Building&gt;</code> is not assignable from <code>List&lt;House&gt;</code> due to the invariance in Java's type system.</p>
+<p>Assume that we have class <code>House</code> class derives from class <code>Building</code>. A generic type of <code>ArrayList&lt;Building&gt;</code> is not assignable from <code>ArrayList&lt;House&gt;</code> due to the invariance in Java's type system.</p>
 <p>In essence, using a constrained wildcard like in the code above does make it possible to do this:</p>
-<pre><code class="language-Java">List&lt;House&gt; houses = new List&lt;&gt;();
+<pre><code class="language-Java">ArrayList&lt;House&gt; houses = new ArrayList&lt;&gt;();
 houses.add(new House());
 
-List&lt;Building&gt; buildings = houses;
+ArrayList&lt;Building&gt; buildings = houses;
 </code></pre>
-<p>.NET doesn't have wildcards, but they have covariance and contra-variance for interfaces.</p>
+<p>.NET doesn't have wildcards, but there is covariance and contra-variance for interfaces using the <code>in</code> and <code>out</code> keywords prefixing the type parameter.</p>
 <h4 id="c-4">C#</h4>
 <p>In C#, the type parameter constraints are placed after either the method name, or the parameter list of a method.There are also many more constraints available than in Java. (List below)</p>
 <pre><code class="language-csharp">class MyBag&lt;T&gt;

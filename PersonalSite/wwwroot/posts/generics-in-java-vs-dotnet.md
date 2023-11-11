@@ -17,6 +17,15 @@ This article will walk you through generics in both languages - highlight the si
 
 And I will provide my thoughts and opinions as a .NET developer.
 
+## Contents
+
+1. <a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a>
+2. <a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
+3. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
+4. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
+5. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
+6. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
+
 ## Terminology
 
 Here is a list of some of the terms that will pop up during the course of this article:
@@ -370,7 +379,7 @@ But the way you pass info about type information into a method is different in J
 
 ### Java
 
-In Java, in order to pass type information regarding a generic type parameter into a method, you have to pass its ``Class<T>``. This is due to type erasure, since the method can’t resolve that type. There
+In Java, in order to pass type information of generic type argument into a method, you have to pass its ``Class<T>`` as a method parameter. This is due to type erasure, since the method can’t resolve that type.
 
 ```java
 <T> void foo(Class<T> typeParam) {
@@ -413,7 +422,7 @@ Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
 var typeArg = (Class<Object>)type;
 ```
 
-You could also get the type statically using ```Class.fromClass("java.util.ArrayList")``;
+You could also get the ``Class`` of a type using ``Class.fromClass("java.util.ArrayList")`` or ``Class.fromClass("java.util.ArrayList<Integer>")``;
 
 #### C# 
 

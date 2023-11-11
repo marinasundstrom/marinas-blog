@@ -47,7 +47,8 @@ p+p {
 }
 
 ul+p,
-ol+p {
+ol+p,
+table+p {
   margin-top: 1.6rem;
 }
 

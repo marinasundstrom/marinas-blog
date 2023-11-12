@@ -571,7 +571,7 @@ We will look into how to retrieve generic static methods and invoking them throu
 
 #### Java
 
-Consider this Java class:
+Consider this generic static method in Java:
 
 ```java
 class MyClass {
@@ -591,7 +591,7 @@ Due to the parameter being of type ``Object``, you can pass objects of any type 
 
 #### C#
 
-C# retains type information for methods. You can retrieve information about open generic methods, and then instantiate closed version from them. The runtime will also validate arguments when invoking that method.
+C# retains type information for methods. You can retrieve information about an open generic methods, and then instantiate a closed version from it. The runtime will also validate arguments when invoking that method.
 
 ```csharp
 class MyClass
@@ -600,7 +600,7 @@ class MyClass
 }
 ```
 
-We retrieve the ``MethodInfo`` of the generic static  method, and we make a version using the provided type arguments. Then we invoke the method.
+Here we retrieve the ``MethodInfo`` of the generic static  method, and we make a version using the provided type arguments. Then we invoke the method.
 
 ```csharp
 MethodInfo myMethod = typeof(MyClass).GetMethod("MyMethod");
@@ -610,7 +610,7 @@ var myMethodString = myMethod.MakeGenericMethod(new [] { typeof(string) });
 myMethodString.Invoke(null, new [] { "Hello" });
 ```
 
-If you provide an incompatible type as argument when invoking the method, the runtime will throw an exception.
+If you provide an incompatible type as an argument when invoking the method, the runtime will throw an exception.
 
 ### Java: An issue with serializers and generic classes
 
@@ -685,8 +685,10 @@ JsonResponse<User> jsonResponse = objectMapper.readValue(json, javaType);
 **On a sidenote:** Constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
 
 ```csharp
-Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([typeof(User)]);
+Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([ typeof(User) ]);
 ```
+
+The ``[ typeof(User) ]`` is a collection expression (Example: ``[1, 2, 3]``) that will take on the collection type of the target parameter, which is ``Object[]``. This syntax was introduced in C# 12, as a way to unify all the ways of initializing arrays and collections.
 
 ## Conclusion
 

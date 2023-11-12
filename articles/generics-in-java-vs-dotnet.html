@@ -103,7 +103,7 @@
                 <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
 
 <main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Generics in Java vs .NET</h1><h3 class="post-subtitle mb-3" b-76by154q0w>A .NET developer&#x27;s perspective</h3><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-11" b-76by154q0w>11 Nov 2023</time> • 
-                        10 minutes read
+                        12 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
@@ -116,6 +116,7 @@
 <h2 id="contents">Contents</h2>
 <ol>
 <li><a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#what-is-generics">What is generics?</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a></li>
@@ -143,10 +144,44 @@
 </ul>
 <p>Some terms are more common in one language than the other.</p>
 <p>The terms <strong>extending</strong>, <strong>subclassing</strong>, <strong>inheriting from</strong> and <strong>deriving from</strong> all refer to a class taking on characteristics from another class, its <em>base class</em>, or <em>super class</em>.</p>
+<h2 id="what-is-generics">What is generics?</h2>
+<p>Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to <em>generalize</em> algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.</p>
+<p>This means that a generic class or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.</p>
+<p>The first language that introduced generics was Ada in 1977. Later C++ came, and introduced <em>templates</em> as its version of generics. Both Java and C# are considered part of the C language family, together with C++.</p>
+<p>Here is what a template looks like in C++:</p>
+<pre><code class="language-c++">template&lt;typename T&gt;
+class List {
+  // Class contents.
+};
+
+List&lt;Animal&gt; list_of_animals;
+List&lt;Car&gt; list_of_cars;
+
+template&lt;typename T&gt;
+void Swap(T&amp; a, T&amp; b) { // A similar, but safer and potentially faster function 
+                        // is defined in the standard library header &lt;utility&gt;
+  T temp = b;
+  b = a;
+  a = temp;
+}
+
+std::string world = "World!";
+std::string hello = "Hello, ";
+Swap(world, hello);
+std::cout &lt;&lt; world &lt;&lt; hello &lt;&lt; ‘\n’;  // Output is "Hello, World!".
+</code></pre>
+<p>First Java, and then C#, would iterate on the syntax.</p>
+<h3 id="generics-in-java">Generics in Java</h3>
+<p>In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was implemented in the compiler by means of <em>type erasures</em>. All type parameters get removed as part of code compilation. Meaning that the JVM runtime doesn't know about type parameters. Type arguments are essentially replaced by type <code>Object</code>. This was to not introduce big changes that broke existing code. Collections, like <code>java.util.ArrayList</code> without specifying type parameters continued to work.</p>
+<h3 id="generics-in.net">Generics in .NET</h3>
+<p>.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic classes, methods, and type arguments in the code that it executes.</p>
+<p>Because Microsoft was (and still is) prioritizing backwards-compatibility, the introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from from <code>System.Collections.ArrayList</code> to <code>System.Collections.Generic.List&lt;T&gt;</code>.</p>
+<p>The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist <a href="https://en.wikipedia.org/wiki/Don_Syme">Don Syme</a>. He later came to create F#, an functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has then continually borrowed from the functional programming space.</p>
+<p>The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Let's go through the syntax of Java and C#, respectively, when it concerns generics</p>
 <h3 id="generic-class">Generic class</h3>
-<p>When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# was initially inspired a lot by Java, so of course they borrowed.</p>
+<p>When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# were initially inspired a lot by Java, which preceded C#, so of course they borrowed.</p>
 <h4 id="java">Java</h4>
 <p>This is what a generic class definition looks like in Java.</p>
 <pre><code class="language-java">class MyList&lt;T&gt; {
@@ -220,6 +255,16 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     }
 }
 </code></pre>
+<p>Overloading on parameter of same generic type, but with different arguments, is not valid due to type erasure. It is ambiguous to the compiler:</p>
+<pre><code class="language-java">class Utils {
+    public &lt;T&gt; void add(List&lt;int&gt; item) { }
+
+    public &lt;T&gt; void add(List&lt;string&gt; item){ }
+}
+</code></pre>
+<p>The compiler sees both as:</p>
+<pre><code class="language-java">public &lt;T&gt; void add(List&lt;Objecy&gt; item){ }
+</code></pre>
 <h4 id="c-3">C#</h4>
 <p>In C#, the generic parameter list comes after the name of the method. I guess so that the name of the method is in focus.</p>
 <pre><code class="language-csharp">class Utils
@@ -228,6 +273,14 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     {
         
     }
+}
+</code></pre>
+<p>Since .NET retains information about generic type parameters, you can overload like this:</p>
+<pre><code class="language-csharp">class Utils
+{
+    public void Add&lt;T&gt;(List&lt;int&gt; item) { }
+
+    public void Add&lt;T&gt;(List&lt;string&gt; item){ }
 }
 </code></pre>
 <h3 id="constraints">Constraints</h3>

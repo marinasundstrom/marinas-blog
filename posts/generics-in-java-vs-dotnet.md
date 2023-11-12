@@ -28,7 +28,7 @@ And I will provide my thoughts and opinions as a .NET developer.
     1. <a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a>
     2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a>
     3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
-    4. <a href="/articles/generics-in-java-vs-dotnet#invoke-generic-static-method">Invoke generic static method</a>
+    4. <a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a>
     5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
 7. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
 
@@ -537,7 +537,7 @@ Type listType = typeof(List<int>);
 Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 ```
 
-### Invoke generic static method
+### Invoke a generic static method
 
 We will look into how to retrieve generic static methods and invoking them through reflection.
 

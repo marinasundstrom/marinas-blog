@@ -262,6 +262,7 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
 </code></pre>
 <h3 id="generic-methods">Generic methods</h3>
 <p>The main syntactical difference for generic method declarations is where the generic type parameter is placed.</p>
+<p>Later, you will also see examples of generic static methods in the context of reflection.</p>
 <h4 id="java-3">Java</h4>
 <p>Java places the generic parameter list before the return type. The designers probably wanted it to make it clear when it is a generic definition.</p>
 <pre><code class="language-java">class Utils {
@@ -270,16 +271,26 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     }
 }
 </code></pre>
-<p>Overloading on parameter of same generic type, but with different arguments, is not valid due to type erasure. It is ambiguous to the compiler:</p>
+<p>The syntax is similar for static methods, just that you add the <code>static</code> keyword.</p>
+<pre><code class="language-java">class MyStaticClass {
+    public static &lt;T&gt; void doSomething(T item) {
+
+    }
+}
+</code></pre>
+<h5 id="issue-with-method-overloading">Issue with method overloading</h5>
+<p>The overloading of methods with parameters of the same generic type, but with different arguments, is not valid due to type erasure.</p>
+<p>The following is ambiguous to the compiler:</p>
 <pre><code class="language-java">class Utils {
     public &lt;T&gt; void add(List&lt;int&gt; item) { }
 
-    public &lt;T&gt; void add(List&lt;string&gt; item){ }
+    public &lt;T&gt; void add(List&lt;string&gt; item) { }
 }
 </code></pre>
-<p>The compiler sees both as:</p>
+<p>The compiler essentially sees both variants as the following - which causes a conflict:</p>
 <pre><code class="language-java">public &lt;T&gt; void add(List&lt;Object&gt; item){ }
 </code></pre>
+<p>The way to solve this in Java is to not do overloading, and to instead give each method a unique names.</p>
 <h4 id="c-3">C#</h4>
 <p>In C#, the generic parameter list comes after the name of the method. I guess so that the name of the method is in focus.</p>
 <pre><code class="language-csharp">class Utils
@@ -290,7 +301,9 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     }
 }
 </code></pre>
-<p>Since .NET retains information about generic type parameters, you can overload like this:</p>
+<h5 id="method-overloading">Method overloading</h5>
+<p>As .NET retains information about generic type parameters, each method or type is unique by their arguments.</p>
+<p>So you can, unlike in Java, overload a method like this:</p>
 <pre><code class="language-csharp">class Utils
 {
     public void Add&lt;T&gt;(List&lt;int&gt; item) { }

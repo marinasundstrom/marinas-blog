@@ -69,7 +69,7 @@ The first language that introduced generics was Ada in 1977. Later C++ came, and
 
 Here is what a template looks like in C++:
 
-```c++
+```c++ of same generic type, 
 template<typename T>
 class List {
   // Class contents.
@@ -228,6 +228,8 @@ class SuperListOfFoo : MyList<Foo> { }
 
 The main syntactical difference for generic method declarations is where the generic type parameter is placed.
 
+Later, you will also see examples of generic static methods in the context of reflection.
+
 #### Java
 
 Java places the generic parameter list before the return type. The designers probably wanted it to make it clear when it is a generic definition.
@@ -240,21 +242,37 @@ class Utils {
 }
 ```
 
-Overloading on parameter of same generic type, but with different arguments, is not valid due to type erasure. It is ambiguous to the compiler: 
+The syntax is similar for static methods, just that you add the ``static`` keyword.
+
+```java
+class MyStaticClass {
+    public static <T> void doSomething(T item) {
+
+    }
+}
+```
+
+##### Issue with method overloading
+
+The overloading of methods with parameters of the same generic type, but with different arguments, is not valid due to type erasure. 
+
+The following is ambiguous to the compiler: 
 
 ```java
 class Utils {
     public <T> void add(List<int> item) { }
 
-    public <T> void add(List<string> item){ }
+    public <T> void add(List<string> item) { }
 }
 ```
 
-The compiler sees both as:
+The compiler essentially sees both variants as the following - which causes a conflict:
 
 ```java
 public <T> void add(List<Object> item){ }
 ```
+
+The way to solve this in Java is to not do overloading, and to instead give each method a unique names.
 
 #### C#
 
@@ -270,7 +288,11 @@ class Utils
 }
 ```
 
-Since .NET retains information about generic type parameters, you can overload like this:
+##### Method overloading
+
+As .NET retains information about generic type parameters, each method or type is unique by their arguments. 
+
+So you can, unlike in Java, overload a method like this:
 
 ```csharp
 class Utils

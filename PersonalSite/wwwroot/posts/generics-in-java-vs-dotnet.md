@@ -242,7 +242,7 @@ class Utils {
 The compiler sees both as:
 
 ```java
-public <T> void add(List<Objecy> item){ }
+public <T> void add(List<Object> item){ }
 ```
 
 #### C#
@@ -383,7 +383,9 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 ## Java Type erasure
 
-Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files), that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
+Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
+
+When generics was introduced in Java, type parameters were added to existing collection types. Since type erasure was used, the generic parameters could be omitted, and existing code still compile. Nowadays, the compiler has become more strict in enforcing this.
 
 The JVM has no runtime concept of an instantiated generic class. The discovery of type arguments is reliant on code trickery in order to persist that info. We will dig into it soon.
 
@@ -391,15 +393,23 @@ The JVM has no runtime concept of an instantiated generic class. The discovery o
 
 .NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the current CPU. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.
 
+As mentioned before, due to generics being runtime feature, new generic versions of collections (``List<T>``) were added when it was introduced. That way it was opt-in and no existing code was broken.
+
 ## Reflection
 
 Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.
 
-### Note on the APIs
+Reflection is a powerful feature that allows for meta programming. But it should be used carefully. Not knowing how the APIs work, where the allocation are, might lead to a performance hit. A general advice is that anything retrieved from the APIs should be cached and reused.
+
+### Note on the design of APIs
 
 I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.
 
-### Retrieving information about a type
+In .NET ``Type`` represents a specific type in the type system, whether it is a class, value type, or generic type. It can represent both open generic classes (``List<>``) and closed generic classes (``List<int>``).
+
+The API in Java, as we will see, is not that unified due to the design of it's implementation of generics. You have to go through some extra hoops, make method calls and cast types, to retrieve the info about type parameters.
+
+### Retrieve information about a type
 
 This section covers how to obtain information about a type from code, whether statically from its name, or via an object instance.
 
@@ -423,7 +433,7 @@ foo(Integer.class);
 
 There is also a low level ``Type`` class, from which the ``Class<T>`` is derived.
 
-Just note, that since type params are erased, the generic args ``<Integer>`` of variable types may be optional - depending on your settings. Hence its absence in the sample above. For all intents and purposed the type is``Object``.
+Just note, that since type parameters are erased, the generic args ``<Integer>`` of variable types may be optional - depending on your settings. Type parameters are seen as of type ``Object`` by the runtime.
 
 ``List<T>`` in Java is an interface, while in C# ``List<T>`` is a class, implement ``IList<T>``. In Java, the most common class implementing ``List<T>`` is ``ArrayList<T>``.
 
@@ -449,7 +459,7 @@ The ``int`` keyword is an alias for ``Int32`` which is a value type. In the type
 
 In Java, ``int`` belongs to the primitive types, and has to be wrapped by the ``Integer`` class in order to be passed as an argument to a generic type parameter.
 
-### Passing info about type params into methods
+### Pass info about type params into methods
 
 This has been hinted at in previous samples. 
 
@@ -481,7 +491,7 @@ void Foo<T>()
 Foo<Bar>()
 ```
 
-### Retrieving the actual type argument of a generic type
+### Retrieve the actual type argument of a generic type
 
 So how would you retrieve the actual type argument of a generic type in respective language?
 
@@ -497,7 +507,7 @@ Class<ArrayList> listClass = list.getClass();
 Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
     .getActualTypeArguments()[0];
 
-var typeArg = (Class<Object>)type;
+var typeArgClass = (Class<Object>)typeArg;
 ```
 
 You could also get the ``Class`` of a type using ``Class.fromClass("java.util.ArrayList")`` or ``Class.fromClass("java.util.ArrayList<Integer>")``;
@@ -521,6 +531,53 @@ Type listType = typeof(List<int>);
 
 Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 ```
+
+### Invoke generic static method
+
+We will look into how to retrieve generic static methods and invoking them through reflection.
+
+#### Java
+
+Consider this Java class:
+
+```java
+class MyClass {
+    public static <T> void myMethod(T value) {}
+}
+```
+
+Since types are erased, you retrieve any method with a generic parameter as the parameter is of ``Object``:
+
+```java
+Method myMethod = MyClass.class.getMethod("myMethod", Object.class);
+
+method.invoke(null, "Hello");
+```
+
+Due to the parameter being of type ``Object``, you can pass objects of any type as argument.
+
+#### C#
+
+C# retains type information for methods. You can retrieve information about open generic methods, and then instantiate closed version from them. The runtime will also validate arguments when invoking that method.
+
+```csharp
+class MyClass
+{
+    public static void MyMethod<T>(T value) {}
+}
+```
+
+We retrieve the ``MethodInfo`` of the generic static  method, and we make a version using the provided type arguments. Then we invoke the method.
+
+```csharp
+MethodInfo myMethod = typeof(MyClass).GetMethod("MyMethod");
+
+var myMethodString = myMethod.MakeGenericMethod(new [] { typeof(string) });
+
+myMethodString.Invoke(null, new [] { "Hello" });
+```
+
+If you provide an incompatible type as argument when invoking the method, the runtime will throw an exception.
 
 ### Java: An issue with serializers and generic classes
 
@@ -592,7 +649,7 @@ JavaType javaType = objectMapper.getTypeFactory().constructParametricType(JsonRe
 JsonResponse<User> jsonResponse = objectMapper.readValue(json, javaType);
 ```
 
-On a sidenote, constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
+**On a sidenote:** Constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
 
 ```csharp
 Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([typeof(User)]);

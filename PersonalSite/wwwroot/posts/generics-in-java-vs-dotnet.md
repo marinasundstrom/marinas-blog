@@ -29,11 +29,12 @@ And I will provide my thoughts and opinions as a .NET developer.
 5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
 6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
     1. <a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a>
-    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a>
+    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</a>
     3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
     4. <a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a>
     5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
-7. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
+7. <a href="/articles/generics-in-java-vs-dotnet#my-thoughts-on-type-erasure">My thoughts on type erasure</a>
+8. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
 
 ## Terminology
 
@@ -110,7 +111,6 @@ The introduction of generics in .NET back in 2005 meant that developers would ha
 The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, a functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has since then continually borrowed from F# and the functional programming space.
 
 The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.
-
 
 ## Syntax
 
@@ -418,15 +418,13 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
 
-When generics was introduced in Java, type parameters were added to existing collection types. As type erasure was used, the generic parameters could be omitted, and existing code would still compile. Nowadays, the compiler has become more strict in enforcing the use of generic parameters.
-
-The JVM has no runtime concept of an instantiated generic class (close type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
+The JVM has no runtime concept of an instantiated generic class (closed type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
 
 ## .NET Runtime generics
 
-.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.
+.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on. 
 
-As mentioned before, due to generics being a runtime feature, new generic versions of the collection types - among them ``List<T>`` - were added when it was introduced. That way it was opt-in, and no existing code was broken.
+The runtime is aware of generics, and make smart choices on how to allocate memory based on the type being passed as a type parameter.
 
 ## Reflection
 
@@ -492,7 +490,7 @@ The ``int`` keyword is an alias for ``Int32`` which is a value type. In the type
 
 In Java, ``int`` belongs to the primitive types, and has to be wrapped by the ``Integer`` class in order to be passed as an argument to a generic type parameter.
 
-### Pass information about type parameter into methods
+### Pass information about a type parameter into a method
 
 This has been hinted at in previous samples. 
 
@@ -521,7 +519,7 @@ void Foo<T>()
     var name = typeParam.Name;
 }
 
-Foo<Bar>()
+Foo<Bar>();
 ```
 
 ### Retrieve the type argument of a generic type
@@ -571,7 +569,7 @@ We will look into how to retrieve generic static methods and invoking them throu
 
 #### Java
 
-Consider this Java class:
+Consider this generic static method in Java:
 
 ```java
 class MyClass {
@@ -591,7 +589,7 @@ Due to the parameter being of type ``Object``, you can pass objects of any type 
 
 #### C#
 
-C# retains type information for methods. You can retrieve information about open generic methods, and then instantiate closed version from them. The runtime will also validate arguments when invoking that method.
+C# retains type information for methods. You can retrieve information about an open generic methods, and then instantiate a closed version from it. The runtime will also validate arguments when invoking that method.
 
 ```csharp
 class MyClass
@@ -600,7 +598,7 @@ class MyClass
 }
 ```
 
-We retrieve the ``MethodInfo`` of the generic static  method, and we make a version using the provided type arguments. Then we invoke the method.
+Here we retrieve the ``MethodInfo`` of the generic static  method, and we make a version using the provided type arguments. Then we invoke the method.
 
 ```csharp
 MethodInfo myMethod = typeof(MyClass).GetMethod("MyMethod");
@@ -610,7 +608,7 @@ var myMethodString = myMethod.MakeGenericMethod(new [] { typeof(string) });
 myMethodString.Invoke(null, new [] { "Hello" });
 ```
 
-If you provide an incompatible type as argument when invoking the method, the runtime will throw an exception.
+If you provide an incompatible type as an argument when invoking the method, the runtime will throw an exception.
 
 ### Java: An issue with serializers and generic classes
 
@@ -685,8 +683,24 @@ JsonResponse<User> jsonResponse = objectMapper.readValue(json, javaType);
 **On a sidenote:** Constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
 
 ```csharp
-Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([typeof(User)]);
+Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([ typeof(User) ]);
 ```
+
+The ``[ typeof(User) ]`` is a collection expression (Example: ``[1, 2, 3]``) that will take on the collection type of the target parameter, which is ``Object[]``. This syntax was introduced in C# 12, as a way to unify all the ways of initializing arrays and collections.
+
+## My thoughts on type erasure
+
+Coming from .NET, I'm used to the runtime providing me all the type information when I need it. As .NET has a unified type system, I can retrieve the actual type of a parameter without any hassle. 
+
+When I first encountered Java, back at college in 2010, I immediately found the concept of type erasure in Java limiting. I was a bit disappointed that I could not get the type arguments through reflection.
+
+Fast-forwarding to today, as I was getting more into generics and reflection when working on something that would be trivial to me in .NET, I became more aware of the differences.
+
+There is one popular programming language that succeeded in using type erasure in a smart way - namely, TypeScript.
+
+TypeScript is an extension of JavaScript that provides a structural type system which sits on top of the JavaScript type system. Neither the JavaScript language, or the runtimes, are aware of static types, and thus do not support for generics. So type annotations and generic type parameters get erased when the TypeScript code is compiled into pure JavaScript.
+
+Information about generic type arguments are not available in TypeScript. Though there have been proposals to introduce metadata and a mechanism to supply that information.
 
 ## Conclusion
 

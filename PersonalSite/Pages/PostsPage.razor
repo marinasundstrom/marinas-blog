@@ -43,7 +43,7 @@
 
     [Parameter]
     [SupplyParameterFromQuery]
-    public int? Page { get; set; }
+    public int? Page { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
     {

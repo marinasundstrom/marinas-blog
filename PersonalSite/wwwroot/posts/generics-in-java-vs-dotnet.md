@@ -272,7 +272,7 @@ The compiler essentially sees both variants as the following - which causes a co
 public <T> void add(List<Object> item){ }
 ```
 
-The way to solve this in Java is to not do overloading, and to instead give each method a unique names.
+The way to solve this in Java is to not do overloading, and to instead give each method a unique name. For example: ``addIntList``  ``addStringList``.
 
 #### C#
 

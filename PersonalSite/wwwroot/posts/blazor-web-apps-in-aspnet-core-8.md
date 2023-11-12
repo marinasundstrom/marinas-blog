@@ -6,6 +6,8 @@ tags: [Blazor, .NET, ASP.NET Core, Web development]
 
 Some big exciting stuff is coming to Blazor on the server in ASP.NET Core 8.
 
+_The article was updated on November 12, 2023 - Reflecting the changes to render modes_
+
 ## Background
 
 In the beginning of time, Web development used to be about the web server receiving a request from a client browser, generating some HTML, and returning it with the response. The result was a static non-interactive page that the browser rendered on screen. 
@@ -58,8 +60,8 @@ And then map them to endpoints - with ``App`` being the root component:
 
 ```csharp
 app.MapRazorComponents<App>()
-    .AddWebAssemblyRenderMode()
-    .AddServerRenderMode();
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddInteractiveServerRenderMode();
 ```
 
 Given that you have set the router up, you then add the ``@page`` as you normally do.
@@ -86,18 +88,18 @@ A Blazor Web App is fundamentally rendered on the server. But as mentioned, you 
 
 ```razor
 @* For being rendered on the server *@
-<Counter @rendermode="RenderMode.Server" />
+<Counter @rendermode="RenderMode.InteractiveServer" />
 
 @* For running in WebAssembly *@
-<Counter @rendermode="RenderMode.WebAssembly" />
+<Counter @rendermode="RenderMode.InteractiveWebAssembly" />
 ```
 
 You can also specify the default render mode for a component using these attributes.
 
 ```razor
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 
-@attribute [RenderModeWebAssembly]
+@rendermode RenderMode.InteractiveWebAssembly
 ```
 
 The render mode is then inherited by sub-components. You can apply these attributes to the router, and that would make the entire site interactive. But by default, a project created from a template has no interactivity at root-level.
@@ -109,7 +111,7 @@ The WebAssembly render mode does require you to set up a separate project that w
 The Auto render mode will prefer WebAssembly, but fall back on Server for interactivity when the WebAssembly files have not yet been downloaded. Once the WebAssembly files have downloaded, the next time you load those components, the component will be running in WebAssembly.
 
 ```razor
-<Counter @rendermode="RenderMode.Auto" />
+<Counter @rendermode="RenderMode.InteractiveAuto" />
 ```
 
 ## Enhanced navigation

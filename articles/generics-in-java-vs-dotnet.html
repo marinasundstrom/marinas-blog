@@ -172,8 +172,7 @@ List&lt;Animal&gt; list_of_animals;
 List&lt;Car&gt; list_of_cars;
 
 template&lt;typename T&gt;
-void Swap(T&amp; a, T&amp; b) { // A similar, but safer and potentially faster function 
-                        // is defined in the standard library header &lt;utility&gt;
+void Swap(T&amp; a, T&amp; b) {
   T temp = b;
   b = a;
   a = temp;

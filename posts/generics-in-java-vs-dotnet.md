@@ -390,7 +390,7 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
 
-When generics was introduced in Java, type parameters were added to existing collection types. Since type erasure was used, the generic parameters could be omitted, and existing code still compile. Nowadays, the compiler has become more strict in enforcing this.
+When generics was introduced in Java, type parameters were added to existing collection types. As type erasure was used, the generic parameters could be omitted, and existing code would still compile. Nowadays, the compiler has become more strict in enforcing using generic parameters.
 
 The JVM has no runtime concept of an instantiated generic class. The discovery of type arguments is reliant on code trickery in order to persist that info. We will dig into it soon.
 

@@ -29,7 +29,7 @@ And I will provide my thoughts and opinions as a .NET developer.
 5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
 6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
     1. <a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a>
-    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a>
+    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</a>
     3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
     4. <a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a>
     5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
@@ -110,7 +110,6 @@ The introduction of generics in .NET back in 2005 meant that developers would ha
 The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, a functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has since then continually borrowed from F# and the functional programming space.
 
 The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.
-
 
 ## Syntax
 
@@ -492,7 +491,7 @@ The ``int`` keyword is an alias for ``Int32`` which is a value type. In the type
 
 In Java, ``int`` belongs to the primitive types, and has to be wrapped by the ``Integer`` class in order to be passed as an argument to a generic type parameter.
 
-### Pass information about type parameter into methods
+### Pass information about a type parameter into a method
 
 This has been hinted at in previous samples. 
 
@@ -521,7 +520,7 @@ void Foo<T>()
     var name = typeParam.Name;
 }
 
-Foo<Bar>()
+Foo<Bar>();
 ```
 
 ### Retrieve the type argument of a generic type

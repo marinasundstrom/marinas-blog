@@ -129,7 +129,7 @@
 <li><a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
 <ol>
 <li><a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a></li>
@@ -480,7 +480,7 @@ Foo&lt;int&gt;();
 </code></pre>
 <p>The <code>int</code> keyword is an alias for <code>Int32</code> which is a value type. In the type system of .NET, everything is an object, even values.</p>
 <p>In Java, <code>int</code> belongs to the primitive types, and has to be wrapped by the <code>Integer</code> class in order to be passed as an argument to a generic type parameter.</p>
-<h3 id="pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</h3>
+<h3 id="pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</h3>
 <p>This has been hinted at in previous samples.</p>
 <p>The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
 <h3 id="java-6">Java</h3>
@@ -499,7 +499,7 @@ Foo(Bar.class)
     var name = typeParam.Name;
 }
 
-Foo&lt;Bar&gt;()
+Foo&lt;Bar&gt;();
 </code></pre>
 <h3 id="retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</h3>
 <p>So how would you retrieve the type argument of a generic type in respective language?</p>

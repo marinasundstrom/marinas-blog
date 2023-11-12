@@ -108,7 +108,7 @@ The types that can have generic type parameters are classes, structs, interfaces
 
 The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from ``System.Collections.ArrayList`` to ``System.Collections.Generic.List<T>``.
 
-The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, an functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has then continually borrowed from the functional programming space.
+The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, a functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has since then continually borrowed from F# and the functional programming space.
 
 The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.
 

@@ -94,7 +94,7 @@ In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was imp
 
 .NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic classes, methods, and type arguments in the code that it executes. 
 
-Because Microsoft was (and still is) prioritizing backwards-compatibility, the introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from from ``System.Collections.ArrayList`` to ``System.Collections.Generic.List<T>``.
+The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from ``System.Collections.ArrayList`` to ``System.Collections.Generic.List<T>``.
 
 The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, an functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has then continually borrowed from the functional programming space.
 

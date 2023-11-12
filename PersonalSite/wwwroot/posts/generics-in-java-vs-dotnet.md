@@ -20,11 +20,12 @@ And I will provide my thoughts and opinions as a .NET developer.
 ## Contents
 
 1. <a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a>
-2. <a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
-3. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
-4. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
-5. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
-6. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
+2. <a href="/articles/generics-in-java-vs-dotnet#what-is-generics">What is generics?</a>
+3. <a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
+4. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
+5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
+6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
+7. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
 
 ## Terminology
 
@@ -50,13 +51,63 @@ Some terms are more common in one language than the other.
 
 The terms **extending**, **subclassing**, **inheriting from** and **deriving from** all refer to a class taking on characteristics from another class, its _base class_, or _super class_.
 
+## What is generics?
+
+Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to _generalize_ algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.
+
+This means that a generic class or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.
+
+The first language that introduced generics was Ada in 1977. Later C++ came, and introduced _templates_ as its version of generics. Both Java and C# are considered part of the C language family, together with C++.
+
+Here is what a template looks like in C++:
+
+```c++
+template<typename T>
+class List {
+  // Class contents.
+};
+
+List<Animal> list_of_animals;
+List<Car> list_of_cars;
+
+template<typename T>
+void Swap(T& a, T& b) { // A similar, but safer and potentially faster function 
+                        // is defined in the standard library header <utility>
+  T temp = b;
+  b = a;
+  a = temp;
+}
+
+std::string world = "World!";
+std::string hello = "Hello, ";
+Swap(world, hello);
+std::cout << world << hello << ‘\n’;  // Output is "Hello, World!".
+```
+
+First Java, and then C#, would iterate on the syntax.
+
+### Generics in Java
+
+In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was implemented in the compiler by means of _type erasures_. All type parameters get removed as part of code compilation. Meaning that the JVM runtime doesn't know about type parameters. Type arguments are essentially replaced by type ``Object``. This was to not introduce big changes that broke existing code. Collections, like ``java.util.ArrayList`` without specifying type parameters continued to work.
+
+### Generics in .NET
+
+.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic classes, methods, and type arguments in the code that it executes. 
+
+The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from ``System.Collections.ArrayList`` to ``System.Collections.Generic.List<T>``.
+
+The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist [Don Syme](https://en.wikipedia.org/wiki/Don_Syme). He later came to create F#, an functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has then continually borrowed from the functional programming space.
+
+The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.
+
+
 ## Syntax
 
 Let's go through the syntax of Java and C#, respectively, when it concerns generics
 
 ### Generic class
 
-When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# was initially inspired a lot by Java, so of course they borrowed.
+When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# were initially inspired a lot by Java, which preceded C#, so of course they borrowed.
 
 #### Java
 
@@ -178,6 +229,22 @@ class Utils {
 }
 ```
 
+Overloading on parameter of same generic type, but with different arguments, is not valid due to type erasure. It is ambiguous to the compiler: 
+
+```java
+class Utils {
+    public <T> void add(List<int> item) { }
+
+    public <T> void add(List<string> item){ }
+}
+```
+
+The compiler sees both as:
+
+```java
+public <T> void add(List<Objecy> item){ }
+```
+
 #### C#
 
 In C#, the generic parameter list comes after the name of the method. I guess so that the name of the method is in focus.
@@ -189,6 +256,17 @@ class Utils
     {
         
     }
+}
+```
+
+Since .NET retains information about generic type parameters, you can overload like this:
+
+```csharp
+class Utils
+{
+    public void Add<T>(List<int> item) { }
+
+    public void Add<T>(List<string> item){ }
 }
 ```
 

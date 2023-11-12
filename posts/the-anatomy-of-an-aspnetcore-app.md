@@ -17,6 +17,7 @@ I have included some links at the end, if you want to go deeper into the topics.
 
 _Parts of the article, specifically that about _Razor components_, is about the upcoming .NET 8. (To be released in November 2023)_
 
+_The article was updated on November 12, 2023 - Reflecting the changes to render modes_
 
 ## Contents
 
@@ -499,7 +500,7 @@ Here is the ``Counter.razor`` page component:
 ```razor
 @using Microsoft.AspNetCore.Components.Web
 @page "/"
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 
 <PageTitle>Counter</PageTitle>
 
@@ -534,7 +535,7 @@ var app = builder.Build();
 app.UseStaticFiles();
 
 app.MapRazorComponents<App>()
-    .AddServerRenderMode();
+    .AddInteractiveServerRenderMode();
 
 app.Run();
 ```
@@ -545,7 +546,7 @@ The component will show up in your browser. Set up a WebSocket connection to the
 
 When you click the button, the ``IncrementCount``method will be invoked on the server, and increase the value of the ``currentCount`` field by 1. The UI will then be updated to reflect that change of state.
 
-What makes a difference is the ``@attribute [RenderModeServer]``, and the little piece of JS script that activates interactivity in the browser.
+What makes a difference is the ``@rendermode RenderMode.InteractiveServer``, and the little piece of JS script that activates interactivity in the browser.
 
 <h2 id="section-5">Native AOT compilation</h2>
 

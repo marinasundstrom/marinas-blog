@@ -291,7 +291,7 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
 <p>The compiler essentially sees both variants as the following - which causes a conflict:</p>
 <pre><code class="language-java">public &lt;T&gt; void add(List&lt;Object&gt; item){ }
 </code></pre>
-<p>The way to solve this in Java is to not do overloading, and to instead give each method a unique names.</p>
+<p>The way to solve this in Java is to not do overloading, and to instead give each method a unique name. For example: <code>addIntList</code>  <code>addStringList</code>.</p>
 <h4 id="c-3">C#</h4>
 <p>In C#, the generic parameter list comes after the name of the method. I guess so that the name of the method is in focus.</p>
 <pre><code class="language-csharp">class Utils

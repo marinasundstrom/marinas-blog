@@ -113,6 +113,7 @@
 <p>Hopefully, you will find the examples useful in understanding what ASP.NET Core is about, and what you might be able to do with it.</p>
 <p>I have included some links at the end, if you want to go deeper into the topics.</p>
 <p><em>Parts of the article, specifically that about <em>Razor components</em>, is about the upcoming .NET 8. (To be released in November 2023)</em></p>
+<p><em>The article was updated on November 12, 2023 - Reflecting the changes to render modes</em></p>
 <h2 id="contents">Contents</h2>
 <ol>
 <li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-1">What is ASP.NET Core?</a></li>
@@ -474,7 +475,7 @@ app.Run();
 <p>Here is the <code>Counter.razor</code> page component:</p>
 <pre><code class="language-razor">@using Microsoft.AspNetCore.Components.Web
 @page "/"
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 
 &lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
 
@@ -505,14 +506,14 @@ var app = builder.Build();
 app.UseStaticFiles();
 
 app.MapRazorComponents&lt;App&gt;()
-    .AddServerRenderMode();
+    .AddInteractiveServerRenderMode();
 
 app.Run();
 </code></pre>
 <p>When navigating to <code>/</code> in your browser, this will happen:</p>
 <p>The component will show up in your browser. Set up a WebSocket connection to the server where the component will run - the reason for the script.</p>
 <p>When you click the button, the <code>IncrementCount</code>method will be invoked on the server, and increase the value of the <code>currentCount</code> field by 1. The UI will then be updated to reflect that change of state.</p>
-<p>What makes a difference is the <code>@attribute [RenderModeServer]</code>, and the little piece of JS script that activates interactivity in the browser.</p>
+<p>What makes a difference is the <code>@rendermode RenderMode.InteractiveServer</code>, and the little piece of JS script that activates interactivity in the browser.</p>
 <h2 id="section-5">Native AOT compilation</h2>
 <p>ASP.NET Core 8 does support Ahead-of-Time (AOT) compilation scenarios when those are needed. Meaning that you can compile an app to native machine code - but it is not for everyone.</p>
 <p>The framework is giving you ways to do stuff that is not reliant on Reflection. And by only including what is only necessary to run the app, you get a small app. The drawback is that you as a developer have to add stuff back manually - which might be fine if you have the concerns that AOT is supposed to solve.</p>

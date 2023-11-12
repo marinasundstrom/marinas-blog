@@ -33,7 +33,8 @@ And I will provide my thoughts and opinions as a .NET developer.
     3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
     4. <a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a>
     5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
-7. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
+7. <a href="/articles/generics-in-java-vs-dotnet#my-thoughts-on-type-erasure">My thoughts on type erasure</a>
+8. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
 
 ## Terminology
 
@@ -417,7 +418,7 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
 
-The JVM has no runtime concept of an instantiated generic class (close type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
+The JVM has no runtime concept of an instantiated generic class (closed type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
 
 ## .NET Runtime generics
 
@@ -686,6 +687,20 @@ Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([ typeof(User) ]);
 ```
 
 The ``[ typeof(User) ]`` is a collection expression (Example: ``[1, 2, 3]``) that will take on the collection type of the target parameter, which is ``Object[]``. This syntax was introduced in C# 12, as a way to unify all the ways of initializing arrays and collections.
+
+## My thoughts on type erasure
+
+Coming from .NET, I'm used to the runtime providing me all the type information when I need it. As .NET has a unified type system, I can retrieve the actual type of a parameter without any hassle. 
+
+When I first encountered Java, back at college in 2010, I immediately found the concept of type erasure in Java limiting. I was a bit disappointed that I could not get the type arguments through reflection.
+
+Fast-forwarding to today, as I was getting more into generics and reflection when working on something that would be trivial to me in .NET, I became more aware of the differences.
+
+There is one popular programming language that succeeded in using type erasure in a smart way - namely, TypeScript.
+
+TypeScript is an extension of JavaScript that provides a structural type system which sits on top of the JavaScript type system. Neither the JavaScript language, or the runtimes, are aware of static types, and thus do not support for generics. So type annotations and generic type parameters get erased when the TypeScript code is compiled into pure JavaScript.
+
+Information about generic type arguments are not available in TypeScript. Though there have been proposals to introduce metadata and a mechanism to supply that information.
 
 ## Conclusion
 

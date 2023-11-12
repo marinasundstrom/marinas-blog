@@ -25,6 +25,11 @@ And I will provide my thoughts and opinions as a .NET developer.
 4. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
 5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
 6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
+    1. <a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a>
+    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a>
+    3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
+    4. <a href="/articles/generics-in-java-vs-dotnet#invoke-generic-static-method">Invoke generic static method</a>
+    5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
 7. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
 
 ## Terminology
@@ -36,7 +41,7 @@ Here is a list of some of the terms that will pop up during the course of this a
 * **Open generic type** - Type that has not yet been instantiated with a type argument.
 * **Closed generic type** - Type that has been instantiated with a type argument.
 * **Constraint** - Restricts the possibilities of types that can be passed as argument to a type param.
-* **Bounded generic parameter** - A type parameter that has gotten constrained to set of types. _(Java)_
+* **Bounded generic parameter** - A type parameter that has gotten constrained to a set of types. _(Java)_
 * **Super class** - Class from which a certain class derive (or inherit) from. _(Java)_
 * **Base class** - Synonymous with **Super class** _(.NET)_
 * **Sub class** - A class that has been derived from another type. _(Java)_
@@ -459,11 +464,11 @@ The ``int`` keyword is an alias for ``Int32`` which is a value type. In the type
 
 In Java, ``int`` belongs to the primitive types, and has to be wrapped by the ``Integer`` class in order to be passed as an argument to a generic type parameter.
 
-### Pass info about type params into methods
+### Pass information about type parameter into methods
 
 This has been hinted at in previous samples. 
 
-But the way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.
+The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.
 
 ### Java
 
@@ -491,9 +496,9 @@ void Foo<T>()
 Foo<Bar>()
 ```
 
-### Retrieve the actual type argument of a generic type
+### Retrieve the type argument of a generic type
 
-So how would you retrieve the actual type argument of a generic type in respective language?
+So how would you retrieve the type argument of a generic type in respective language?
 
 #### Java
 

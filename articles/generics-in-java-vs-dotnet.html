@@ -120,7 +120,15 @@
 <li><a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a></li>
 <li><a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
+<ol>
+<li><a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#invoke-generic-static-method">Invoke generic static method</a></li>
+<li><a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a></li>
+</ol>
+</li>
 <li><a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a></li>
 </ol>
 <h2 id="terminology">Terminology</h2>
@@ -131,7 +139,7 @@
 <li><strong>Open generic type</strong> - Type that has not yet been instantiated with a type argument.</li>
 <li><strong>Closed generic type</strong> - Type that has been instantiated with a type argument.</li>
 <li><strong>Constraint</strong> - Restricts the possibilities of types that can be passed as argument to a type param.</li>
-<li><strong>Bounded generic parameter</strong> - A type parameter that has gotten constrained to set of types. <em>(Java)</em></li>
+<li><strong>Bounded generic parameter</strong> - A type parameter that has gotten constrained to a set of types. <em>(Java)</em></li>
 <li><strong>Super class</strong> - Class from which a certain class derive (or inherit) from. <em>(Java)</em></li>
 <li><strong>Base class</strong> - Synonymous with <strong>Super class</strong> <em>(.NET)</em></li>
 <li><strong>Sub class</strong> - A class that has been derived from another type. <em>(Java)</em></li>
@@ -452,9 +460,9 @@ Foo&lt;int&gt;();
 </code></pre>
 <p>The <code>int</code> keyword is an alias for <code>Int32</code> which is a value type. In the type system of .NET, everything is an object, even values.</p>
 <p>In Java, <code>int</code> belongs to the primitive types, and has to be wrapped by the <code>Integer</code> class in order to be passed as an argument to a generic type parameter.</p>
-<h3 id="pass-info-about-type-params-into-methods">Pass info about type params into methods</h3>
+<h3 id="pass-information-about-type-parameter-into-methods">Pass information about type parameter into methods</h3>
 <p>This has been hinted at in previous samples.</p>
-<p>But the way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
+<p>The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
 <h3 id="java-6">Java</h3>
 <p>In Java, in order to pass type information of generic type argument into a method, you have to pass its <code>Class&lt;T&gt;</code> as a method parameter. This is due to type erasure, since the method can’t resolve that type.</p>
 <pre><code class="language-java">&lt;T&gt; void foo(Class&lt;T&gt; typeParam) {
@@ -473,8 +481,8 @@ Foo(Bar.class)
 
 Foo&lt;Bar&gt;()
 </code></pre>
-<h3 id="retrieve-the-actual-type-argument-of-a-generic-type">Retrieve the actual type argument of a generic type</h3>
-<p>So how would you retrieve the actual type argument of a generic type in respective language?</p>
+<h3 id="retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</h3>
+<p>So how would you retrieve the type argument of a generic type in respective language?</p>
 <h4 id="java-7">Java</h4>
 <p>This is how you retrieve the actual generic argument in Java:</p>
 <pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();

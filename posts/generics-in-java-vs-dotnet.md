@@ -418,21 +418,21 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
 
-When generics was introduced in Java, type parameters were added to existing collection types. As type erasure was used, the generic parameters could be omitted, and existing code would still compile. Nowadays, the compiler has become more strict in enforcing using generic parameters.
+When generics was introduced in Java, type parameters were added to existing collection types. As type erasure was used, the generic parameters could be omitted, and existing code would still compile. Nowadays, the compiler has become more strict in enforcing the use of generic parameters.
 
-The JVM has no runtime concept of an instantiated generic class. The discovery of type arguments is reliant on code trickery in order to persist that info. We will dig into it soon.
+The JVM has no runtime concept of an instantiated generic class (close type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
 
 ## .NET Runtime generics
 
-.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the current CPU. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.
+.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on. It is aware of generics and make smart choices on how to allocate memory based on the type being passed as a type parameter.
 
-As mentioned before, due to generics being runtime feature, new generic versions of collections (``List<T>``) were added when it was introduced. That way it was opt-in and no existing code was broken.
+As mentioned before, due to generics being a runtime feature, new generic versions of the collection types - among them ``List<T>`` - were added when it was introduced. That way it was opt-in, and no existing code was broken.
 
 ## Reflection
 
-Reflection is the ability to reflect on your program and its types and their members. In a managed runtime environment like .NET CLR or JVM, this is a service provided by respective runtime.
+Reflection is the ability to reflect on your program and it's types and their members. In a managed runtime environment like .NET CLR, or the JVM, this is a service provided by the runtime in the form of an API.
 
-Reflection is a powerful feature that allows for meta programming. But it should be used carefully. Not knowing how the APIs work, where the allocation are, might lead to a performance hit. A general advice is that anything retrieved from the APIs should be cached and reused.
+Reflection is a powerful feature that allows for meta programming. But it should be used carefully. Not knowing how the APIs work - where the allocation are - might lead to a performance hit. A general advice is that anything retrieved from the APIs should be cached and reused, so to not affect the performance of your application.
 
 ### Note on the design of APIs
 
@@ -440,7 +440,7 @@ I do think that the built in reflection API in .NET is very well designed. It is
 
 In .NET ``Type`` represents a specific type in the type system, whether it is a class, value type, or generic type. It can represent both open generic classes (``List<>``) and closed generic classes (``List<int>``).
 
-The API in Java, as we will see, is not that unified due to the design of it's implementation of generics. You have to go through some extra hoops, make method calls and cast types, to retrieve the info about type parameters.
+The API in Java, as we will see, is not that unified due to it's implementation of generics. You have to go through some extra hoops, make method calls and cast types, to retrieve the info about type parameters.
 
 ### Retrieve information about a type
 

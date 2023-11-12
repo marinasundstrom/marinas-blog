@@ -22,6 +22,9 @@ And I will provide my thoughts and opinions as a .NET developer.
 1. <a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a>
 2. <a href="/articles/generics-in-java-vs-dotnet#what-is-generics">What is generics?</a>
 3. <a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
+    1. <a href="/articles/generics-in-java-vs-dotnet#generic-classes">Generic classes</a>
+    2. <a href="/articles/generics-in-java-vs-dotnet#generic-methods">Generic methods</a>
+    3. <a href="/articles/generics-in-java-vs-dotnet#constraints">Constraints</a>
 4. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
 5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
 6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
@@ -60,7 +63,7 @@ The terms **extending**, **subclassing**, **inheriting from** and **deriving fro
 
 Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to _generalize_ algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.
 
-This means that a generic class or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.
+This means that a generic type or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.
 
 The first language that introduced generics was Ada in 1977. Later C++ came, and introduced _templates_ as its version of generics. Both Java and C# are considered part of the C language family, together with C++.
 
@@ -93,11 +96,15 @@ First Java, and then C#, would iterate on the syntax.
 
 ### Generics in Java
 
-In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was implemented in the compiler by means of _type erasures_. All type parameters get removed as part of code compilation. Meaning that the JVM runtime doesn't know about type parameters. Type arguments are essentially replaced by type ``Object``. This was to not introduce big changes that broke existing code. Collections, like ``java.util.ArrayList`` without specifying type parameters continued to work.
+In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was implemented in the compiler by means of _type erasures_. All type parameters get removed as part of code compilation. Meaning that the JVM runtime doesn't know about type parameters. Type parameters are essentially replaced by type ``Object``. This was to not introduce big changes that would break existing code. Collections, like ``java.util.ArrayList`` without specifying type parameters continued to work.
+
+In Java, only classes and interfaces may have type parameters.
 
 ### Generics in .NET
 
-.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic classes, methods, and type arguments in the code that it executes. 
+.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic types, methods, and type arguments in the code that it executes.
+
+The types that can have generic type parameters are classes, structs, interfaces, and delegates.
 
 The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from ``System.Collections.ArrayList`` to ``System.Collections.Generic.List<T>``.
 
@@ -110,7 +117,7 @@ The current lead architect for the C# programming language at Microsoft, Mads To
 
 Let's go through the syntax of Java and C#, respectively, when it concerns generics
 
-### Generic class
+### Generic classes
 
 When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# were initially inspired a lot by Java, which preceded C#, so of course they borrowed.
 
@@ -283,9 +290,9 @@ In Java, this feature is referred to as "Bounded type parameters".
 
 #### Java
 
-In Java, the constraint are inlined with the type parameter.
+In Java, the constraint is inlined with the type parameter.
 
-Here is ``T`` constrained to ``Foo`` (or derived class):
+Here ``T`` is constrained to ``Foo`` (or derived classes):
 
 ```java
 class Utils {

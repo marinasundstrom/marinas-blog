@@ -40,21 +40,22 @@ And I will provide my thoughts and opinions as a .NET developer.
 
 Here is a list of some of the terms that will pop up during the course of this article:
 
-* **Type parameter** - A parameter that represents a type that will be passed into a generic class or method definition.
-* **Type argument** - A type passed as a type parameter into a generic construct.
-* **Parameterized type** - Generic type that has been instantiated with type arguments.
+* **Generic type** - Type that takes type parameters.
+* **Generic method** - Method that takes type parameters .
+* **Type parameter** - Parameter that represents a type that will be passed into a generic class or method definition.
+* **Type argument** - Type that is passed as a type parameter into a generic construct.
+* **Generic parameter** - Synonymous with **Type parameter**.
+* **Parameterized type** - Type that has been instantiated with type arguments.
 * **Open generic type** - Type that has not yet been instantiated with a type argument. _(.NET)_
 * **Closed generic type** - See **Parameterized type**. _(.NET)_
 * **Constraint** - Restricts the possibilities of types that can be passed as argument to a type param.
-* **Bounded generic parameter** - A type parameter that has gotten constrained to a set of types. _(Java)_
-* **Generic type** - A type that takes type parameters.
-* **Generic method** - A method that takes type parameters .
+* **Bounded generic parameter** - Type parameter that has gotten constrained to a set of types. _(Java)_
 * **Super class** - Class from which a certain class derive (or inherit) from. _(Java)_
 * **Base class** - Synonymous with **Super class** _(.NET)_
-* **Sub class** - A class that has been derived from another type. _(Java)_
+* **Sub class** - Class that has been derived from another type. _(Java)_
 * **Common Language Runtime (CLR)** - The .NET runtime environment (virtual machine), which C# is targeting.
 * **Java Virtual Machine (JVM)** - Javas runtime environment. Where Java bytecode is running.
-* **Bytecode** - A specialized instruction set used by virtual machines, such as JVM and the CLR. Compilation target for programming languages.
+* **Bytecode** - Specialized instruction set used by virtual machines, such as JVM and the CLR. Compilation target for programming languages.
 * **Common Intermediate Language (CIL)** - .NET's bytecode. Also called **MSIL**.
 * **Java bytecode** - Java's bytecode
 * **Metadata** - Data describing data. In our case, the structure of a program, it's types and their members.

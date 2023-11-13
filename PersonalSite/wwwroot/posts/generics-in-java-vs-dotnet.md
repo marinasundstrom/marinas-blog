@@ -447,25 +447,25 @@ With the method ``add(T item)`` becoming ``add(Object item)``. Technically, it a
 Consider this generic method definition:
 
 ```java
-<T> T Foo(T arg) {}
+<T> T foo(T arg) {}
 ```
 
 It would be turned into this: 
 
 ```java
-Object Foo(Object arg) {}
+Object foo(Object arg) {}
 ```
 
 If you have a method parameter of a class that takes a generic parameter:
 
 ```java
-void PrintList(List<T> arg) {}
+void printList(List<T> arg) {}
 ```
 
 It will be turned into this:
 
 ```java
-void Foo(List arg) {}
+void printList(List arg) {}
 ```
 
 This also has implications for overloading on method parameters of types that take generic parameters, since type params are de-facto ``Object``. That has already been explained in the Syntax section.
@@ -475,6 +475,34 @@ This also has implications for overloading on method parameters of types that ta
 .NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on. 
 
 The runtime is aware of generics, and make smart choices on how to allocate memory based on the type being passed as a type parameter.
+
+## Generics in the type system
+
+Generics is built into the .NET unified type system, where a generic construct will have an ``open`` form, and potentially several ``closed`` (or instantiated) forms. Instantiations of a generic type are considered proper types in the .NET type system.
+
+This is an _open generic type_ that has not taken on any type arguments yet:
+
+```csharp
+List<T>
+```
+
+While this is a _closed generic type_ with the type argument ``string``. We read it as "List of string".
+
+```csharp
+List<string>
+```
+
+Since an instantiated generic type is its own type, you can overload on parameters of generic types taking different type arguments:
+
+```csharp
+void PrintList(List<int> arg) {}
+
+void PrintList(List<string> arg) {}
+```
+
+This is not the case in Java, due to type erasure, as pointed out earlier in this article.
+
+**Side note:** The mangled name of type in the metadata is ``System.Collections.Generic.List`1``. This indicates that it is a generic type that has one type parameter - hence the `` `1``. The name of the instantiated type is ``System.Collections.Generic.List`1[System.String]``. It can be used to retrieve the ``Type`` using ``Type.GetType(string name)``.
 
 ## Reflection
 
@@ -730,7 +758,7 @@ JavaType javaType = objectMapper.getTypeFactory().constructParametricType(JsonRe
 JsonResponse<User> jsonResponse = objectMapper.readValue(json, javaType);
 ```
 
-**On a sidenote:** Constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
+**Side note:** Constructing a ``Type`` object for closed generic type, from an open one, has an equivalent in C#/.NET:
 
 ```csharp
 Type responseOfUser = typeof(JsonResponse<>).MakeGenericType([ typeof(User) ]);

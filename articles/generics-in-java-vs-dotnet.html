@@ -103,7 +103,7 @@
                 <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
 
 <main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Generics in Java vs .NET</h1><h3 class="post-subtitle mb-3" b-76by154q0w>A .NET developer&#x27;s perspective</h3><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-11" b-76by154q0w>11 Nov 2023</time> • 
-                        16 minutes read
+                        17 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
@@ -450,21 +450,36 @@ list.Add(4);
 <p>With the method <code>add(T item)</code> becoming <code>add(Object item)</code>. Technically, it already is to the runtime.</p>
 <h4 id="generic-methods-1">Generic methods</h4>
 <p>Consider this generic method definition:</p>
-<pre><code class="language-java">&lt;T&gt; T Foo(T arg) {}
+<pre><code class="language-java">&lt;T&gt; T foo(T arg) {}
 </code></pre>
 <p>It would be turned into this:</p>
-<pre><code class="language-java">Object Foo(Object arg) {}
+<pre><code class="language-java">Object foo(Object arg) {}
 </code></pre>
 <p>If you have a method parameter of a class that takes a generic parameter:</p>
-<pre><code class="language-java">void PrintList(List&lt;T&gt; arg) {}
+<pre><code class="language-java">void printList(List&lt;T&gt; arg) {}
 </code></pre>
 <p>It will be turned into this:</p>
-<pre><code class="language-java">void Foo(List arg) {}
+<pre><code class="language-java">void printList(List arg) {}
 </code></pre>
 <p>This also has implications for overloading on method parameters of types that take generic parameters, since type params are de-facto <code>Object</code>. That has already been explained in the Syntax section.</p>
 <h2 id="net-runtime-generics">.NET Runtime generics</h2>
 <p>.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on.</p>
 <p>The runtime is aware of generics, and make smart choices on how to allocate memory based on the type being passed as a type parameter.</p>
+<h2 id="generics-in-the-type-system">Generics in the type system</h2>
+<p>Generics is built into the .NET unified type system, where a generic construct will have an <code>open</code> form, and potentially several <code>closed</code> (or instantiated) forms. Instantiations of a generic type are considered proper types in the .NET type system.</p>
+<p>This is an <em>open generic type</em> that has not taken on any type arguments yet:</p>
+<pre><code class="language-csharp">List&lt;T&gt;
+</code></pre>
+<p>While this is a <em>closed generic type</em> with the type argument <code>string</code>. We read it as "List of string".</p>
+<pre><code class="language-csharp">List&lt;string&gt;
+</code></pre>
+<p>Since an instantiated generic type is its own type, you can overload on parameters of generic types taking different type arguments:</p>
+<pre><code class="language-csharp">void PrintList(List&lt;int&gt; arg) {}
+
+void PrintList(List&lt;string&gt; arg) {}
+</code></pre>
+<p>This is not the case in Java, due to type erasure, as pointed out earlier in this article.</p>
+<p><strong>Side note:</strong> The mangled name of type in the metadata is <code>System.Collections.Generic.List`1</code>. This indicates that it is a generic type that has one type parameter - hence the <code> `1</code>. The name of the instantiated type is <code>System.Collections.Generic.List`1[System.String]</code>. It can be used to retrieve the <code>Type</code> using <code>Type.GetType(string name)</code>.</p>
 <h2 id="reflection">Reflection</h2>
 <p>Reflection is the ability to reflect on your program and it's types and their members. In a managed runtime environment like .NET CLR, or the JVM, this is a service provided by the runtime in the form of an API.</p>
 <p>Reflection is a powerful feature that allows for meta programming. But it should be used carefully. Not knowing how the APIs work - where the allocation are - might lead to a performance hit. A general advice is that anything retrieved from the APIs should be cached and reused, so to not affect the performance of your application.</p>
@@ -630,7 +645,7 @@ User user = jsonResponse.getResult();
 <pre><code class="language-java">JavaType javaType = objectMapper.getTypeFactory().constructParametricType(JsonResponse.class, User.class);
 JsonResponse&lt;User&gt; jsonResponse = objectMapper.readValue(json, javaType);
 </code></pre>
-<p><strong>On a sidenote:</strong> Constructing a <code>Type</code> object for closed generic type, from an open one, has an equivalent in C#/.NET:</p>
+<p><strong>Side note:</strong> Constructing a <code>Type</code> object for closed generic type, from an open one, has an equivalent in C#/.NET:</p>
 <pre><code class="language-csharp">Type responseOfUser = typeof(JsonResponse&lt;&gt;).MakeGenericType([ typeof(User) ]);
 </code></pre>
 <p>The <code>[ typeof(User) ]</code> is a collection expression (Example: <code>[1, 2, 3]</code>) that will take on the collection type of the target parameter, which is <code>Object[]</code>. This syntax was introduced in C# 12, as a way to unify all the ways of initializing arrays and collections.</p>

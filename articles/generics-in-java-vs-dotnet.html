@@ -141,12 +141,15 @@
 <h2 id="terminology">Terminology</h2>
 <p>Here is a list of some of the terms that will pop up during the course of this article:</p>
 <ul>
-<li><strong>Type parameter</strong> - The generic type parameter that takes a type as an argument.</li>
-<li><strong>Type argument</strong> - The type passed into a type parameter.</li>
-<li><strong>Open generic type</strong> - Type that has not yet been instantiated with a type argument.</li>
-<li><strong>Closed generic type</strong> - Type that has been instantiated with a type argument.</li>
+<li><strong>Type parameter</strong> - A parameter that represents a type that will be passed into a generic class or method definition.</li>
+<li><strong>Type argument</strong> - A type passed as a type parameter into a generic construct.</li>
+<li><strong>Parameterized type</strong> - Generic type that has been instantiated with type arguments.</li>
+<li><strong>Open generic type</strong> - Type that has not yet been instantiated with a type argument. <em>(.NET)</em></li>
+<li><strong>Closed generic type</strong> - See <strong>Parameterized type</strong>. <em>(.NET)</em></li>
 <li><strong>Constraint</strong> - Restricts the possibilities of types that can be passed as argument to a type param.</li>
 <li><strong>Bounded generic parameter</strong> - A type parameter that has gotten constrained to a set of types. <em>(Java)</em></li>
+<li><strong>Generic type</strong> - A type that takes type parameters.</li>
+<li><strong>Generic method</strong> - A method that takes type parameters .</li>
 <li><strong>Super class</strong> - Class from which a certain class derive (or inherit) from. <em>(Java)</em></li>
 <li><strong>Base class</strong> - Synonymous with <strong>Super class</strong> <em>(.NET)</em></li>
 <li><strong>Sub class</strong> - A class that has been derived from another type. <em>(Java)</em></li>
@@ -160,7 +163,7 @@
 <p>Some terms are more common in one language than the other.</p>
 <p>The terms <strong>extending</strong>, <strong>subclassing</strong>, <strong>inheriting from</strong> and <strong>deriving from</strong> all refer to a class taking on characteristics from another class, its <em>base class</em>, or <em>super class</em>.</p>
 <h2 id="what-is-generics">What is generics?</h2>
-<p>Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to <em>generalize</em> algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.</p>
+<p>Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified when instantiated, or called - they get parameterized. This allow us to <em>generalize</em> algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.</p>
 <p>This means that a generic type or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.</p>
 <p>The first language that introduced generics was Ada in 1977. Later C++ came, and introduced <em>templates</em> as its version of generics. Both Java and C# are considered part of the C language family, together with C++.</p>
 <p>Here is what a template looks like in C++:</p>
@@ -530,7 +533,7 @@ Foo&lt;int&gt;();
     var name = typeParam.getSimpleName();
 }
 
-Foo(Bar.class)
+Foo(Bar.class);
 </code></pre>
 <h4 id="c-6">C#</h4>
 <p>In C#, you can simply request the info about a parameter since it has been provided by the metadata and runtime. The CLR even knows about the constraints of respective parameter.</p>

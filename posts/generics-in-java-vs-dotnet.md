@@ -40,12 +40,15 @@ And I will provide my thoughts and opinions as a .NET developer.
 
 Here is a list of some of the terms that will pop up during the course of this article:
 
-* **Type parameter** - The generic type parameter that takes a type as an argument.
-* **Type argument** - The type passed into a type parameter.
-* **Open generic type** - Type that has not yet been instantiated with a type argument.
-* **Closed generic type** - Type that has been instantiated with a type argument.
+* **Type parameter** - A parameter that represents a type that will be passed into a generic class or method definition.
+* **Type argument** - A type passed as a type parameter into a generic construct.
+* **Parameterized type** - Generic type that has been instantiated with type arguments.
+* **Open generic type** - Type that has not yet been instantiated with a type argument. _(.NET)_
+* **Closed generic type** - See **Parameterized type**. _(.NET)_
 * **Constraint** - Restricts the possibilities of types that can be passed as argument to a type param.
 * **Bounded generic parameter** - A type parameter that has gotten constrained to a set of types. _(Java)_
+* **Generic type** - A type that takes type parameters.
+* **Generic method** - A method that takes type parameters .
 * **Super class** - Class from which a certain class derive (or inherit) from. _(Java)_
 * **Base class** - Synonymous with **Super class** _(.NET)_
 * **Sub class** - A class that has been derived from another type. _(Java)_
@@ -62,7 +65,7 @@ The terms **extending**, **subclassing**, **inheriting from** and **deriving fro
 
 ## What is generics?
 
-Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to _generalize_ algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.
+Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified when instantiated, or called - they get parameterized. This allow us to _generalize_ algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.
 
 This means that a generic type or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.
 
@@ -583,7 +586,7 @@ In Java, in order to pass type information of generic type argument into a metho
     var name = typeParam.getSimpleName();
 }
 
-Foo(Bar.class)
+Foo(Bar.class);
 ```
 
 #### C#

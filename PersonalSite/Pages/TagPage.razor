@@ -28,7 +28,7 @@
                 </article>        
             }
 
-        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="@($"/articles/tags/{Tag}")" />
+        <Pagination Page="@Page.GetValueOrDefault()" PageCount="@totalPages" PageChanged="OnPageChanged" Href="@($"/articles/tags/{Uri.EscapeDataString(Tag).Replace(".", "%2E").Replace("#", "%23")}")" />
     }
 </div>
 

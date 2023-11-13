@@ -418,7 +418,57 @@ The _Nullable context_ is a fancy way of saying that the feature called _"nullab
 
 Java works on _type erasure_. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with ``Object``. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.
 
+Type safety on generic type parameters is only enforced at compile-time.
+
 The JVM has no runtime concept of an instantiated generic class (closed type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.
+
+### Examples of type erasure
+
+Here are some examples showing how type erasure works in Java.
+
+As said, type argument get erased, and places where type parameters are used they get replaced by type ``Object``:
+
+```java
+List<Integer> list = new ArrayList<Integer>();
+list.add(4);
+```
+
+Will simply become:
+
+```java
+List list = new ArrayList();
+list.Add(4);
+```
+
+With the method ``add(T item)`` becoming ``add(Object item)``. Technically, it already is to the runtime.
+
+#### Generic methods
+
+Consider this generic method definition:
+
+```java
+<T> T Foo(T arg) {}
+```
+
+It would be turned into this: 
+
+```java
+Object Foo(Object arg) {}
+```
+
+If you have a method parameter of a class that takes a generic parameter:
+
+```java
+void PrintList(List<T> arg) {}
+```
+
+It will be turned into this:
+
+```java
+void Foo(List arg) {}
+```
+
+This also has implications for overloading on method parameters of types that take generic parameters, since type params are de-facto ``Object``. That has already been explained in the Syntax section.
 
 ## .NET Runtime generics
 
@@ -577,7 +627,7 @@ class MyClass {
 }
 ```
 
-Since types are erased, you retrieve any method with a generic parameter as the parameter is of ``Object``:
+Since types are erased, you can retrieve the method by getting the overload with method parameter of type ``Object``:
 
 ```java
 Method myMethod = MyClass.class.getMethod("myMethod", Object.class);
@@ -585,7 +635,7 @@ Method myMethod = MyClass.class.getMethod("myMethod", Object.class);
 method.invoke(null, "Hello");
 ```
 
-Due to the parameter being of type ``Object``, you can pass objects of any type as argument.
+Due to the parameter being of type ``Object``, you can pass objects of any type as argument without the runtime complaining.
 
 #### C#
 

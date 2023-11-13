@@ -52,9 +52,9 @@
     
 
 <!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
-<title>Introduction to .NET - Marina Sundström</title>
+<title>What is new in C# 12 - Marina Sundström</title>
 <!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
-<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+</head>
 
 <body class="bg-body-tertiary">
     <div id="app" class="h-100">
@@ -102,57 +102,149 @@
 
                 <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
 
-<main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Introduction to .NET</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w>Marina Sundstr&#xF6;m • <time datetime="2021-04-25" b-76by154q0w>25 Apr 2021</time> • 
+<main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>What is new in C# 12</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-13" b-76by154q0w>13 Nov 2023</time> • 
                         4 minutes read
 
-</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/introduction-to-dotnet">#</span></h4></div></div></div></header></div>
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/what-is-new-in-csharp-12">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>.NET is an open-source platform for building applications for the Web, Mobile, Desktop, and Cloud. Currently, it is at version 5, which was released in November 2020.</p>
-<p>.NET provides a runtime environment, the Common Language Runtime (CLR), an extensive base Base Class Library (BCL), programming languages like C#, VB.NET, and F#. On top of the platform you find many application frameworks, such as ASP.NET Core and WPF. It also integrates well with Microsoft Azure.</p>
-<p>The platform officially runs on Windows, macOS, and Linux, and targets CPU architectures. You can even run .NET on a Raspberry Pi.</p>
-<p>First released in 2002, the platform has kept evolving during the past 20 years. Adding more and more features and APIs.</p>
-<p>And the ecosystem is being developed in the open on GitHub. In fact, the .NET ecosystem was the first that Microsoft really started open-sourcing. Since then it has just increased in scope, and Microsoft has become a leading open-source company.</p>
-<h2 id="the-old.net-framework">The "Old" .NET Framework</h2>
-<p>The versions up to .NET Framework 4.8 run exclusively on Windows and is closed-source, in contrast to .NET 5 which is  open-source, and run on Windows, macOS, and Linux.</p>
-<p>Not all of the frameworks from the older Windows-exclusive versions are available in .NET 5 or later. Although, they did port WPF and Windows Forms ("WinForms") in order to let developers migrate their existing apps to the newer versions of .NET. Taking benefit of the improved performance, and continued supported by component vendors. WPF and WinForms remain exclusive to Windows.</p>
-<p>The newer .NET platform (.NET Core 3.0 and later) will be able to reference libraries targeting 4.8. However, there is no guarantee that all the APIs are present, or that the behavior will be the same.</p>
-<h2 id="the-clr">The CLR</h2>
-<p>.NET consists of a Common Language Runtime (CLR) that consists of an Virtual Execution Engine (VES), and a Base Class Library (BCL). It supports various operating systems and CPU architectures: Windows, macOS, and Linux. The supported architecture are x86, x65 and ARM64. This means that your .NET apps can run on a Raspberry Pi.</p>
-<p>Code is written in a high-level language, such as C#, and compiled into portable bytecode (CIL) that, when executed, is being verified, and compiled by the runtime into the type of machine code that is compatible with the CPU that it is currently running on. The process is called Just-in-Time (JIT) compilation.</p>
-<p>.NET also lets you bundle a specific version of the runtime with your app - a so called "Self-contained app". This allows you to run apps using different runtime versions without having to install shared runtimes on your system. It thus removes the risk of a runtime install affecting another. This is ideal for cloud apps that are being hosted on servers.</p>
-<p>The other option, Ahead-of-Time (AOT) compilation lets you compile and bundle your app and runtime ahead of time for a specific target Operating System platform. It come with the possibility of publishing you app and runtime as a single-file.</p>
-<h2 id="c-programming-language">C# programming language</h2>
-<p>C# (C Sharp) is the preferred programming language. It is a multiparadigm programming language which is imperative and object-oriented at its core. It is a member of the C language family, and draws a lot of influences from Java in both syntax and semantics. The language also borrows from C++, especially for its low-level interop features.</p>
-<p>Over the years, the language has evolved to integrate elements from other programming paradigms, like functional programming, with features such as pattern matching.</p>
-<h2 id="tools">Tools</h2>
-<p>Development starts with the .NET Command-Line Interface (CLI). The CLI lets you create a new project from a project template, then building your project, and finally publish it. It integrates with the MSBuild engine.</p>
-<pre><code class="language-sh">dotnet new console -o MyApp
-cd MyApp
+            <div class="inner container"><p>With the advent of .NET 8 (on November 14, 2023), and .NET Conf soon to take place, let's us see what the next version of C# (12) will bring to developers.</p>
+<p>C# 12 is a fairly minor update to the programming language. And I have picked out the features that I think are worth mentioning.</p>
+<p>One of the features have been previewed many years ago, and been long-awaited.</p>
+<p>A full list of all new language features can be found <a href="https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12">here</a>.</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="/articles/what-is-new-in-csharp-12#primary-constructors">Primary constructors</a></li>
+<li><a href="/articles/what-is-new-in-csharp-12#collection-expressions">Collection expressions</a></li>
+<li><a href="/articles/what-is-new-in-csharp-12#alias-any-type">Alias any type</a></li>
+<li><a href="/articles/what-is-new-in-csharp-12#default-parameters-for-lambdas">Default parameters for lambdas</a></li>
+</ol>
+<h2 id="primary-constructors">Primary constructors</h2>
+<p>This was a feature that was previewed many years ago - before Roslyn (Compiler-as-a-service). I adopted it in my code, then the design team decided not to proceed with it at that time. So I had to revert back.</p>
+<p>So let's start from the basics.</p>
+<p>You are used to write you instance class constructors like so:</p>
+<pre><code class="language-csharp">public class Foo 
+{
+    public Foo(int value) 
+    {
+        Value = value;
+    }
 
-dotnet run
+    public int Value { get; }
+}
 </code></pre>
-<p>There are many Integrated Development Environments (IDE) to choose from: Visual Studio, Visual Studio for Mac, Visual Studio Code, and JetBrains Rider.</p>
-<h2 id="app-models">App Models</h2>
-<p>The .NET stack supports these main scenarios: Web, Mobile Desktop, and Cloud.</p>
-<p>You write your code using a language like C#, VB.NET, or F#. These languages are all evolving in the open.</p>
-<p>Using those languages you can develop apps for a number of app platforms that come out-of-box with .NET 5 and later:</p>
-<p>Web apps with the ASP.NET Core Web Framework (including MVC and Web API). You can build Mobile apps for Windows UWP, iOS, and Android. Cloud apps that integrate with Microsoft Azure services. You can also write Desktop apps for Windows in WinForm or WPF.</p>
-<p>The preferred way of defining UIs in UWP and WPF is declaratively using an XML language called XAML - which is to these frameworks what HTML is to the Web. All of the dialects have an evolved templating and styling system.</p>
-<p>You can also write modern web apps for client-side app using Blazor, running in the browser, targeting WebAssembly. You build UIs in a templating language called Razor, that mixes HTML and C#.</p>
-<p>You can write apps that run in Azure, and you can write apps that run on a Raspberry Pi.</p>
-<p>Uno is an open-source project that aims att bringing Microsoft UWP app model to platforms other than Windows, like Android, iOS and macOS. They even support targeting the Web via WebAssembly. Allowing you to write C# and XAML for the Web.</p>
-<p>.NET has an ecosystem of libraries and frameworks developed by third-parties, the majority of them are also open-source. They are distributed as NuGet packages through a package manager.</p>
-<h2 id="net-core">.NET “Core”</h2>
-<p>There were some versions of the cross-platform .NET runtime branded “.NET Core “, but they have now been superseded by .NET 5. Using the .NET branding instead.</p>
-<p>The initial goal for .NET Core was to build a runtime that was optimized for hosted cloud-scenarios. That later expanded to support more scenarios and app models.</p>
-<p>This might be a simplification, but for all intents and purposes, pre-Core versions are considered exclusive to Windows.</p>
-<h2 id="so-whats-up-next">So what's up next?</h2>
-<p>The upcoming release, .NET 6, will integrate support for developing apps for Android, iOS, and macOS - and bring a new framework for building cross-platform apps: .NET Maui (Multi-platform App UI). This is the successor to the Xamarin.Forms mobile app framework.</p>
-<p>A theme that was planned for .NET 5 was the unification of .NET, which was  delayed due of COVID. The .NET 6 release will finally make the tooling uniform across the stacks and existing app models.</p>
-<p>The Mobile stack (previously Xamarin), and the WebAssembly stack, that use the Mono runtime, will be fully integrated in .NET 6.</p>
-<p>Microsoft is committed to release a new major version of .NET every year. Every other release will be an LTS release. (Long-Term Support) The next LTS release is .NET 6 that will be released in November 2021.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>As you can see, .NET is an evolving ecosystem. And it is open-source, meaning that you as a developer can contribute to the projects that make up the framework.</p>
+<p>Most constructors are usually fairly simple. You assign fields or properties from the constructor parameters. Why should you have to you have to add a couple of lines and some vertical space for this?</p>
+<p>Well, in C# 12, you can do this:</p>
+<pre><code class="language-csharp">public class Foo(int value) 
+{
+    public Value =&gt; value;
+}
+</code></pre>
+<p>As the example shows, that means that we can capture constructor parameters inside the members in our class - like in methods and properties. But if you want to be on the safe-side you should assign the values to readonly fields.</p>
+<pre><code class="language-csharp">public class Foo(int value) 
+{
+    readonly int value = value;
+
+    public Value =&gt; value;
+}
+</code></pre>
+<p>When it comes to having multiple constructors besides the primary constructor. All the other constructors will have to call back to the primary constructor. That is so to initialize the parameters of the primary constructor, which are exposed to the class members by default.</p>
+<pre><code class="language-csharp">public class Person(string name, int age) 
+{
+    readonly string favoritePet;
+
+    public Person(string name, int age, string favoritePet) : base(name, age) 
+    {
+        this.favoritePet = favoritePet;
+    }
+
+    public Name =&gt; age;
+
+    public Age =&gt; age;
+}
+</code></pre>
+<p>But why did this feature take so long to implement?</p>
+<p>Simply because of priority, and that the rules as well as the way to implement it was unclear. The designers probably wanted to solve pattern matching and other stuff leading up to record types before this.</p>
+<h3 id="difference-from-record-types">Difference from Record types</h3>
+<p>Although the syntax is similar, a significant difference between record types and classes with primary constructors is that the constructor parameters of record types are properties, while for classes they are not. For the latter, you have to declare and assign the properties yourself, as shown below:</p>
+<pre><code class="language-csharp">record FooRecord(string Name);
+
+class FooClass(string name) 
+{
+
+}
+
+var rcrd = new FooRecord("Foo bar");
+var name = rcrd.Name
+
+var cls = new FooClass("Foo bar");
+// No "name" property
+</code></pre>
+<p>The criticism towards this feature would be that it is confusing developers because the syntax is so similar but the behavior so different. We just have to learn and get used to the difference.</p>
+<h2 id="collection-expressions">Collection expressions</h2>
+<p>In C#, there are so many ways to initialize collections:</p>
+<pre><code class="language-csharp">int[] arr1 = new int [] { 1, 2, 3 };
+
+int[] arr2 = new [] { 1, 2, 3 };
+
+var arr3 = new int [] { 1, 2, 3 };
+
+var list1 = new List&lt;int&gt; { 1, 2, 3 };
+
+List&lt;int&gt; list2 = new () { 1, 2, 3 };
+</code></pre>
+<p>In C# 12, you can instead use the brand new collection expression:</p>
+<pre><code class="language-csharp">List&lt;int&gt; arr = [ 1, 2, 3 ];
+</code></pre>
+<p>This new syntax will hopefully make code clearer, as well as provide some symmetry with list patterns that were introduced in C# 11.</p>
+<pre><code class="language-csharp">List&lt;int&gt; numbers = [ 1, 2, 3 ];
+
+if (numbers is [var first, _, _])
+{
+    Console.WriteLine($"The first element of a three-item list is {first}.");
+}
+</code></pre>
+<p>So how do collection expressions work?</p>
+<p>In simple terms, the target collection take the type of the target. If it is an <code>int[]</code> then the expression is expected to be of either number literals or variables compatible with <code>int</code>. The rule is the least common type.</p>
+<p>Collection expressions work for <code>List&lt;T&gt;</code>, <code>Span&lt;T&gt;</code>, and <code>ReadOnlySpan&lt;T&gt;</code>. Even inline arrays are supported.</p>
+<pre><code class="language-csharp">List&lt;string&gt; superHeroes = [ "Tony Stark", "Steve Rogers" ];
+
+Span&lt;double&gt; importantNumbers = [ 42, 3.14 ];
+
+ReadOnlySpan&lt;Foo&gt; objs = [ new Foo("Foo"), new Foo("Bar") ];
+</code></pre>
+<p>The feature supports any type with a collection initializer, or when the target type is providing a collection builder - via <code>CollectionBuilderAttribute</code>.</p>
+<p>There is also a code analyzer that suggest to you that you use collection expressions instead of the "old" initializers wherever applicable.</p>
+<h3 id="spreading">Spreading</h3>
+<p>Of course, you can spread one or more collections in a collection expressions:</p>
+<pre><code class="language-csharp">string[] vowels = ["a", "e", "i", "o", "u"];
+string[] consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+                       "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"];
+string[] alphabet = [.. vowels, .. consonants, "y"];
+</code></pre>
+<h3 id="alias-any-type">Alias any type</h3>
+<p>Previously you hav been able to create aliases for simple type names and generic types.</p>
+<pre><code class="language-csharp">using Weight = double;
+using IntList = System.Collections.Generic.List&lt;int&gt;;
+</code></pre>
+<p>Now you can alias any type, including tuples, arrays, pointer types, and other unsafe types.</p>
+<pre><code class="language-csharp">using Point = (double X, double Y);
+using Matrix = double[,];
+
+Point point = new Point(3, 1);
+
+Matrix matrix = new double[,];
+matrix[1, 4] = 2.5;
+</code></pre>
+<p>I personally don't think that I will use this feature that much, but it is nice to have if I will ever need it.</p>
+<h3 id="default-parameters-for-lambdas">Default parameters for lambdas</h3>
+<p>Something that you haven't been able to do, but now can, is defining default parameters (aka optional parameters) for lambda expressions and delegates.</p>
+<pre><code class="language-csharp">var adder =&gt; (int a, int b = 1) =&gt; a + b;
+
+Console.WriteLine(adder(2, 3)); //5
+Console.WriteLine(adder(1)); // 2
+</code></pre>
+<p>This is partly possible because, in C# 10, they added support for type inference with lambda expressions and <code>var</code>. Meaning that a delegate type will be created with the matching method signature of the lambda. That one will have the default argument.</p>
+<p>This is a another feature that is nice to have, but I don't use default parameters that often.</p>
 <div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></div></main>
 
 <footer class="footer py-4 bg-body-tertiary"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>

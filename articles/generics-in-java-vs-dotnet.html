@@ -54,7 +54,7 @@
 <!-- %%-PRERENDERING-HEADOUTLET-BEGIN-%% -->
 <title>Generics in Java vs .NET - Marina Sundström</title>
 <!-- %%-PRERENDERING-HEADOUTLET-END-%% -->
-<script src="data:text/javascript;base64,KGZ1bmN0aW9uKG4sdCxpKXtmb3IodmFyIGY9bi5jcmVhdGVOb2RlSXRlcmF0b3IobiwxMjgpLHIsZSx1O2YubmV4dE5vZGUoKTspaWYocj1mLnJlZmVyZW5jZU5vZGUsdC50ZXN0KHIudGV4dENvbnRlbnQudHJpbSgpKSl7d2hpbGUoaT1yLm5leHRTaWJsaW5nKWlmKGU9aS50ZXh0Q29udGVudC50cmltKCksaS5yZW1vdmUoKSx0LnRlc3QoZSkpYnJlYWs7ci5yZW1vdmUoKTticmVha311PUFycmF5LmZyb20obi5xdWVyeVNlbGVjdG9yQWxsKCJzY3JpcHQiKSkucG9wKCk7dSYmdS5yZW1vdmUoKX0pKGRvY3VtZW50LC9eJSUtUFJFUkVOREVSSU5HLUhFQURPVVRMRVQtKEJFR0lOfEVORCktJSUkLyk7"></script></head>
+</head>
 
 <body class="bg-body-tertiary">
     <div id="app" class="h-100">
@@ -103,7 +103,7 @@
                 <li class="nav-item list-inline-ite me-4 me-md-0" b-kujckncdpz><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank" b-kujckncdpz><i class="fab fa-linkedin" b-kujckncdpz></i></a></li></ul></div></nav></header>
 
 <main class="bg-body pb-5" b-1vlcskuc8v><div class="container" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Generics in Java vs .NET</h1><h3 class="post-subtitle mb-3" b-76by154q0w>A .NET developer&#x27;s perspective</h3><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-11" b-76by154q0w>11 Nov 2023</time> • 
-                        15 minutes read
+                        16 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
@@ -435,7 +435,33 @@ ArrayList&lt;Building&gt; buildings = houses;
 <p>The <em>Nullable context</em> is a fancy way of saying that the feature called <em>"nullable reference types"</em> has been enabled (Nullable <code>Foo?</code> vs non-nullable <code>Foo</code>), and that the compiler will either warn or report an error if you pass a possible null value into a non-nullable variable.</p>
 <h2 id="java-type-erasure">Java Type erasure</h2>
 <p>Java works on <em>type erasure</em>. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with <code>Object</code>. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.</p>
+<p>Type safety on generic type parameters is only enforced at compile-time.</p>
 <p>The JVM has no runtime concept of an instantiated generic class (closed type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.</p>
+<h3 id="examples-of-type-erasure">Examples of type erasure</h3>
+<p>Here are some examples showing how type erasure works in Java.</p>
+<p>As said, type argument get erased, and places where type parameters are used they get replaced by type <code>Object</code>:</p>
+<pre><code class="language-java">List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+list.add(4);
+</code></pre>
+<p>Will simply become:</p>
+<pre><code class="language-java">List list = new ArrayList();
+list.Add(4);
+</code></pre>
+<p>With the method <code>add(T item)</code> becoming <code>add(Object item)</code>. Technically, it already is to the runtime.</p>
+<h4 id="generic-methods-1">Generic methods</h4>
+<p>Consider this generic method definition:</p>
+<pre><code class="language-java">&lt;T&gt; T Foo(T arg) {}
+</code></pre>
+<p>It would be turned into this:</p>
+<pre><code class="language-java">Object Foo(Object arg) {}
+</code></pre>
+<p>If you have a method parameter of a class that takes a generic parameter:</p>
+<pre><code class="language-java">void PrintList(List&lt;T&gt; arg) {}
+</code></pre>
+<p>It will be turned into this:</p>
+<pre><code class="language-java">void Foo(List arg) {}
+</code></pre>
+<p>This also has implications for overloading on method parameters of types that take generic parameters, since type params are de-facto <code>Object</code>. That has already been explained in the Syntax section.</p>
 <h2 id="net-runtime-generics">.NET Runtime generics</h2>
 <p>.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on.</p>
 <p>The runtime is aware of generics, and make smart choices on how to allocate memory based on the type being passed as a type parameter.</p>
@@ -536,12 +562,12 @@ Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
     public static &lt;T&gt; void myMethod(T value) {}
 }
 </code></pre>
-<p>Since types are erased, you retrieve any method with a generic parameter as the parameter is of <code>Object</code>:</p>
+<p>Since types are erased, you can retrieve the method by getting the overload with method parameter of type <code>Object</code>:</p>
 <pre><code class="language-java">Method myMethod = MyClass.class.getMethod("myMethod", Object.class);
 
 method.invoke(null, "Hello");
 </code></pre>
-<p>Due to the parameter being of type <code>Object</code>, you can pass objects of any type as argument.</p>
+<p>Due to the parameter being of type <code>Object</code>, you can pass objects of any type as argument without the runtime complaining.</p>
 <h4 id="c-8">C#</h4>
 <p>C# retains type information for methods. You can retrieve information about an open generic methods, and then instantiate a closed version from it. The runtime will also validate arguments when invoking that method.</p>
 <pre><code class="language-csharp">class MyClass

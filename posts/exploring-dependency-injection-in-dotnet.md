@@ -27,8 +27,9 @@ Though, ASP.NET Core already references that packages.
     4. <a href="/articles/exploring-dependency-injection-in-dotnet#manipulating-the-service-collection">Manipulating the service collection</a>
     5. <a href="/articles/exploring-dependency-injection-in-dotnet#service-lifetimes">Service lifetimes</a>
 4. <a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
-    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
-    2. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
+    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-an-instance-of-a-service">Resolving an instance of a service</a>
+    2. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
+    3. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
     4. <a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a>
     5. <a href="/articles/exploring-dependency-injection-in-dotnet#keyed-services">Keyed services</a>
 5. <a href="/articles/
@@ -241,9 +242,11 @@ In order to be able to resolve instances, the lifetimes must be compatible. You 
 
 ## ServiceProvider
 
-The actual instances are created and managed by the ``ServiceProvider``. You have already seen that in action.
+The actual instances are created and managed by the ``ServiceProvider``. You have already seen this is previous examples, but let's dive deeper into this.
 
-But, here are the methods that can be used when resolving services:
+### Resolving an instance of a service
+
+Here are the methods that can be used when resolving services:
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;

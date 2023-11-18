@@ -128,6 +128,7 @@
 </li>
 <li><a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
 <ol>
+<li><a href="/articles/exploring-dependency-injection-in-dotnet#resolving-an-instance-of-a-service">Resolving an instance of a service</a></li>
 <li><a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a></li>
 <li><a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a></li>
 <li><a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a></li>
@@ -288,8 +289,9 @@ services.AddScoped&lt;Foo&gt;();
 <p>The overloads mentioned above are available for all variants.</p>
 <p>In order to be able to resolve instances, the lifetimes must be compatible. You can't resolve scoped services from singletons, for obvious reasons.</p>
 <h2 id="serviceprovider">ServiceProvider</h2>
-<p>The actual instances are created and managed by the <code>ServiceProvider</code>. You have already seen that in action.</p>
-<p>But, here are the methods that can be used when resolving services:</p>
+<p>The actual instances are created and managed by the <code>ServiceProvider</code>. You have already seen this is previous examples, but let's dive deeper into this.</p>
+<h3 id="resolving-an-instance-of-a-service">Resolving an instance of a service</h3>
+<p>Here are the methods that can be used when resolving services:</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new ();

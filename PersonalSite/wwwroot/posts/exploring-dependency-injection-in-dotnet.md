@@ -27,8 +27,9 @@ Though, ASP.NET Core already references that packages.
     4. <a href="/articles/exploring-dependency-injection-in-dotnet#manipulating-the-service-collection">Manipulating the service collection</a>
     5. <a href="/articles/exploring-dependency-injection-in-dotnet#service-lifetimes">Service lifetimes</a>
 4. <a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
-    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
-    2. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
+    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-an-instance-of-a-service">Resolving an instance of a service</a>
+    2. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
+    3. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
     4. <a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a>
     5. <a href="/articles/exploring-dependency-injection-in-dotnet#keyed-services">Keyed services</a>
 5. <a href="/articles/
@@ -241,9 +242,11 @@ In order to be able to resolve instances, the lifetimes must be compatible. You 
 
 ## ServiceProvider
 
-The actual instances are created and managed by the ``ServiceProvider``. You have already seen that in action.
+The actual instances are created and managed by the ``ServiceProvider``. You have already seen this is previous examples, but let's dive deeper into this.
 
-But, here are the methods that can be used when resolving services:
+### Resolving an instance of a service
+
+Here are the methods that can be used when resolving services:
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -268,7 +271,7 @@ You can't add or register new services to an existing service provider.
 
 ### Resolving all instances of a service type
 
-Sometimes you might have multiple providers deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:
+Sometimes you might have multiple services that are deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -287,7 +290,9 @@ In order for you to obtain all the instances you can resolve them in a collectio
 var endpoints = serviceProvider.GetService<IEnumerable<IEndpoint>>();
 ```
 
-This is a common pattern in many frameworks.
+This is a common pattern in many frameworks. You might multiple handler classes or provider classes that participate in dependency injection.
+
+We can distinguish multiple instances with keyed services.
 
 ### Disposing services
 

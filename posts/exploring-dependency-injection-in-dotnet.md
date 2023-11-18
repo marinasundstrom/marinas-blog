@@ -16,6 +16,26 @@ For the code to run in a Console application, you need to add a package referenc
 
 Though, ASP.NET Core already references that packages.
 
+## Contents
+
+1. <a href="/articles/exploring-dependency-injection-in-dotnet#what-is-dependency-injection">What is dependency injection?</a>
+2. <a href="/articles/exploring-dependency-injection-in-dotnet#what-is-inversion-of-control">What is inversion of control?</a>
+3. <a href="/articles/exploring-dependency-injection-in-dotnet#servicecollection">ServiceCollection</a>
+    1. <a href="/articles/exploring-dependency-injection-in-dotnet#adding-services">Adding services</a>
+    2. <a href="/articles/exploring-dependency-injection-in-dotnet#registering-unbound-generic-types">Registering unbound generic types</a>
+    3. <a href="/articles/exploring-dependency-injection-in-dotnet#assert-that-a-service-is-added-just-once">Assert that a service is added just once</a>
+    4. <a href="/articles/exploring-dependency-injection-in-dotnet#manipulating-the-service-collection">Manipulating the service collection</a>
+    5. <a href="/articles/exploring-dependency-injection-in-dotnet#service-lifetimes">Service lifetimes</a>
+4. <a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
+    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
+    2. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
+    4. <a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a>
+    5. <a href="/articles/exploring-dependency-injection-in-dotnet#keyed-services">Keyed services</a>
+5. <a href="/articles/
+exploring-dependency-injection-in-dotnet#depdency-injection-in-aspnet-code">Dependency injection in ASP.NET Core</a>
+5. <a href="/articles/exploring-dependency-injection-in-dotnet#using-autofac-as-service-container">Using Autofac as service container</a>
+6. <a href="/articles/exploring-dependency-injection-in-dotnet#conclusion">Conclusion</a>
+
 ## What is Dependency injection?
 
 Dependency injection simply means that we inject a service (or dependency) into another class, like via constructors, or parameters.
@@ -75,7 +95,7 @@ ServiceCollection services = new ();
 services.AddTransient<Foo>();
 services.AddSingleton<Bar>();
 
-var serviceProvider = services.BuildProvider();
+var serviceProvider = services.BuildServiceProvider();
 
 var foo = serviceProvider.GetService<Foo>();
 
@@ -142,11 +162,11 @@ services.AddTransient(new Foo());
 services.Insert(0, new ServiceDescriptor(typeof(Foo), typeof(Foo), ServiceLifetime.Scoped));
 ```
 
-The factory overload makes it possible to control some of the service creation. It receives the actual ``IServiceProvider`` as an argument so you can resolve services.
+The factory overload makes it possible to control service creation. It is a delegate that receives the actual ``IServiceProvider`` as an argument so you can resolve services, and return the created service.
 
-#### Registering open generic types
+### Registering unbound generic types
 
-You can register open generic types, and resolve a instance with type parameter.
+You can register unbound (or open) generic types, and resolve a instance with type parameter.
 
 This is ideal for repositories, and factory types. The standard ```ILogger<T>``` interface has been registered this way.
 
@@ -157,7 +177,7 @@ ServiceCollection services = new ();
 
 services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-var serviceProvider = services.BuildProvider();
+var serviceProvider = services.BuildServiceProvider();
 
 var fooRepository = serviceProvider.GetService<IRepository<Foo>>();
 
@@ -169,7 +189,7 @@ interface IRepository<T> {}
 class Repository<T> : IRepository<T> {}
 ```
 
-#### Assert that a service is added just once
+### Assert that a service is added just once
 
 The order you add dependencies will matter if you register the same service type twice.
 
@@ -180,7 +200,9 @@ bool added = services.TryAddTransient<Foo>(); // True
 bool added2 = services.TryAddTransient<Foo>(); // False
 ```
 
-#### Manipulating the service collection
+If you want to register and resolve multiple instances of the same service type, you can. We will talk about that down below.
+
+### Manipulating the service collection
 
 It happens sometimes that you need to remove, replace, or reorder dependencies, during the registration. For that you can query for the service descriptor, and then remove the descriptor.
 
@@ -230,7 +252,7 @@ ServiceCollection services = new ();
 
 services.AddTransient<Foo>();
 
-var serviceProvider = services.BuildProvider();
+var serviceProvider = services.BuildServiceProvider();
 
 // GetService (Non-generic)
 var foo = (Foo)serviceProvider.GetService(typeof(Foo));
@@ -243,6 +265,29 @@ var foo3 = serviceProvider.GetRequiredService<Foo>();
 ```
 
 You can't add or register new services to an existing service provider.
+
+### Resolving all instances of a service type
+
+Sometimes you might have multiple providers deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:
+
+```csharp
+using Microsoft.Extensions.DependencyInjection;
+
+ServiceCollection services = new ();
+
+services.AddTransient<IEndpoint, FooEndpoint>();
+services.AddTransient<IEndpoint, BarEndpoint>();
+
+var serviceProvider = services.BuildServiceProvider();
+```
+
+In order for you to obtain all the instances you can resolve them in a collection, like so:
+
+```csharp
+var endpoints = serviceProvider.GetService<IEnumerable<IEndpoint>>();
+```
+
+This is a common pattern in many frameworks.
 
 ### Disposing services
 
@@ -265,7 +310,7 @@ ServiceCollection services = new ();
 
 services.AddScoped<Foo>();
 
-var serviceProvider = services.BuildProvider();
+var serviceProvider = services.BuildServiceProvider();
 
 // Create a scope
 
@@ -285,7 +330,7 @@ using(var scope = serviceProvider.CreateScope())
 
 As mentioned, you can't resolve scoped services from singletons.
 
-#### Keyed services
+### Keyed services
 
 From .NET 8 and on, you can register services with keys. Meaning that you can register multiple instances of the same service type with different keys. 
 
@@ -302,7 +347,7 @@ services.AddKeyedSingleton<IFoo, Foo1>("foo1");
 
 services.AddKeyedSingleton<IFoo, Foo2>("foo2");
 
-var serviceProvider = services.BuildProvider();
+var serviceProvider = services.BuildServiceProvider();
 
 var foo1 = serviceProvider.GetKeyedService<IFoo>("foo1");
 

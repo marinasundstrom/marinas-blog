@@ -42,8 +42,11 @@ Here is a list of some of the terms that will pop up during the course of this a
 
 * **Type parameter** - The generic type parameter that takes a type as an argument.
 * **Type argument** - The type passed into a type parameter.
+* **Parameterized type** - An instantiated generic type that has taken on type arguments. See also **Closed generic type**.
 * **Open generic type** - Type that has not yet been instantiated with a type argument.
 * **Closed generic type** - Type that has been instantiated with a type argument.
+* **Unbound generic type name** - The name of a generic type that has not been bound with any type argument.
+* **Bound generic type name** - The name of a generic type that has been bound with one of more type arguments.
 * **Constraint** - Restricts the possibilities of types that can be passed as argument to a type param.
 * **Bounded generic parameter** - A type parameter that has gotten constrained to a set of types. _(Java)_
 * **Super class** - Class from which a certain class derive (or inherit) from. _(Java)_

@@ -271,7 +271,7 @@ You can't add or register new services to an existing service provider.
 
 ### Resolving all instances of a service type
 
-Sometimes you might have multiple providers deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:
+Sometimes you might have multiple services that are deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -290,7 +290,9 @@ In order for you to obtain all the instances you can resolve them in a collectio
 var endpoints = serviceProvider.GetService<IEnumerable<IEndpoint>>();
 ```
 
-This is a common pattern in many frameworks.
+This is a common pattern in many frameworks. You might multiple handler classes or provider classes that participate in dependency injection.
+
+We can distinguish multiple instances with keyed services.
 
 ### Disposing services
 

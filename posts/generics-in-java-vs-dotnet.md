@@ -42,6 +42,7 @@ Here is a list of some of the terms that will pop up during the course of this a
 
 * **Type parameter** - The generic type parameter that takes a type as an argument.
 * **Type argument** - The type passed into a type parameter.
+* **Parameterized type** - An instantiated generic type that has taken on type arguments. See also **Closed generic type**.
 * **Open generic type** - Type that has not yet been instantiated with a type argument.
 * **Closed generic type** - Type that has been instantiated with a type argument.
 * **Unbound generic type name** - The name of a generic type that has not been bound with any type argument.

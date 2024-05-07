@@ -75,7 +75,7 @@ This has its downsides. The object is created inside the class, and you have no 
 
 What if we instead could hand over that control of creating the object to an external service, that is inverting the control.
 
-The "How" gets clear when you combine it with dependency injection.
+The "How" gets clear when you combine it with dependency injection:
 
 ```csharp
 class Foo(Bar bar)
@@ -83,6 +83,15 @@ class Foo(Bar bar)
     Bar bar = bar;
 }
 ```
+
+And you will be injecting the service ``Bar`` like this:
+
+```csharp
+var bar = new Bar();
+var foo = new Foo(bar);
+```
+
+Of course, you might inject types by interface.
 
 We may get a service instance from a service provider - a so called IoC container.
 

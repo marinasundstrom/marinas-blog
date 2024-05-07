@@ -105,6 +105,18 @@ var cls = new FooClass("Foo bar");
 
 The criticism towards this feature would be that it is confusing developers because the syntax is so similar but the behavior so different. We just have to learn and get used to the difference.
 
+For classes with primary constructors you will have to define and assign to properties manually:
+
+```csharp
+class FooClass(string name) 
+{
+    public string Name { get; } = name;
+}
+
+var cls = new FooClass("Foo bar");
+var name = cls.Name
+```
+
 ## Collection expressions
 
 In C#, there are so many ways to initialize collections:
@@ -202,6 +214,20 @@ Console.WriteLine(adder(2, 3)); //5
 Console.WriteLine(adder(1)); // 2
 ```
 
-This is partly possible because, in C# 10, they added support for type inference with lambda expressions and ``var``. Meaning that a delegate type will be created with the matching method signature of the lambda. That one will have the default argument.
+This is partly possible because, in C# 10, they added support for type inference with lambda expressions and ``var``. Meaning that a "anonymous" delegate type will be generated with the matching method signature of the lambda. That one will have the default argument.
 
 This is a another feature that is nice to have, but I don't use default parameters that often.
+
+**Note:** Type inference for lambdas is used for Minimal API endpoints in ASP.NET Core, when assigning lambdas to type ``Delegate`` for route handlers.
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+// MapPost(string path, Delegate handler)
+
+app.MapPost("/greet", (string name) => $"Hello, {name}!");
+
+app.Run();
+```

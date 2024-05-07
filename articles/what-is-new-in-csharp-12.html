@@ -180,6 +180,15 @@ var cls = new FooClass("Foo bar");
 // No "name" property
 </code></pre>
 <p>The criticism towards this feature would be that it is confusing developers because the syntax is so similar but the behavior so different. We just have to learn and get used to the difference.</p>
+<p>For classes with primary constructors you will have to define and assign to properties manually:</p>
+<pre><code class="language-csharp">class FooClass(string name) 
+{
+    public string Name { get; } = name;
+}
+
+var cls = new FooClass("Foo bar");
+var name = cls.Name
+</code></pre>
 <h2 id="collection-expressions">Collection expressions</h2>
 <p>In C#, there are so many ways to initialize collections:</p>
 <pre><code class="language-csharp">int[] arr1 = new int [] { 1, 2, 3 };
@@ -243,8 +252,19 @@ matrix[1, 4] = 2.5;
 Console.WriteLine(adder(2, 3)); //5
 Console.WriteLine(adder(1)); // 2
 </code></pre>
-<p>This is partly possible because, in C# 10, they added support for type inference with lambda expressions and <code>var</code>. Meaning that a delegate type will be created with the matching method signature of the lambda. That one will have the default argument.</p>
+<p>This is partly possible because, in C# 10, they added support for type inference with lambda expressions and <code>var</code>. Meaning that a "anonymous" delegate type will be generated with the matching method signature of the lambda. That one will have the default argument.</p>
 <p>This is a another feature that is nice to have, but I don't use default parameters that often.</p>
+<p><strong>Note:</strong> Type inference for lambdas is used for Minimal API endpoints in ASP.NET Core, when assigning lambdas to type <code>Delegate</code> for route handlers.</p>
+<pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+// MapPost(string path, Delegate handler)
+
+app.MapPost("/greet", (string name) =&gt; $"Hello, {name}!");
+
+app.Run();
+</code></pre>
 <div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></div></main>
 
 <footer class="footer py-4 bg-body-tertiary"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
@@ -268,7 +288,7 @@ Console.WriteLine(adder(1)); // 2
 
                     <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li></ul></div></div>
         <div class="mt-4"><p class="float-end mb-1"><a id="scrollToTop" href="#" __internal_preventDefault_onclick>Back to top</a></p>
-            <p class="muted small mb-1">© 2023 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
+            <p class="muted small mb-1">© 2024 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
         
 
 

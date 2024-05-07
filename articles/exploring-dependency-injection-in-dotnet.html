@@ -164,12 +164,17 @@ var todoController = new TodoController(todoService);
 </code></pre>
 <p>This has its downsides. The object is created inside the class, and you have no easy way of controlling what type you are instantiating. What if you need to switch that type and its implementation out for another type when doing testing, or perhaps when running on another platform?</p>
 <p>What if we instead could hand over that control of creating the object to an external service, that is inverting the control.</p>
-<p>The "How" gets clear when you combine it with dependency injection.</p>
+<p>The "How" gets clear when you combine it with dependency injection:</p>
 <pre><code class="language-csharp">class Foo(Bar bar)
 {
     Bar bar = bar;
 }
 </code></pre>
+<p>And you will be injecting the service <code>Bar</code> like this:</p>
+<pre><code class="language-csharp">var bar = new Bar();
+var foo = new Foo(bar);
+</code></pre>
+<p>Of course, you might inject types by interface.</p>
 <p>We may get a service instance from a service provider - a so called IoC container.</p>
 <p>As demonstrated below, you request an instance of a service from the service container, and it creates the object, resolves the service dependencies that are to be passed into it as parameters.</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -456,7 +461,7 @@ public class MyApplicationModule : Module
 
                     <li class="nav-item list-inline-item"><a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase" href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank"><i class="fab fa-2x fa-linkedin"></i></a></li></ul></div></div>
         <div class="mt-4"><p class="float-end mb-1"><a id="scrollToTop" href="#" __internal_preventDefault_onclick>Back to top</a></p>
-            <p class="muted small mb-1">© 2023 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
+            <p class="muted small mb-1">© 2024 Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p></div></div></footer>
         
 
 

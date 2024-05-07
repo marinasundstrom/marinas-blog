@@ -10,9 +10,14 @@
             "location": "Malmö, Sweden",
             "current": true,
             "startDate": "2023-03-27",
-            "endDate": null,
+            "endDate": "2023-12-27",
             "description": "Working on system used by support engineers in assisting retailers and customers.",
-            "skills": [ "Java", "MySQL", "Docker", "GitHub" ]
+            "skills": [
+                "Java",
+                "MySQL",
+                "Docker",
+                "GitHub"
+            ]
         },
         {
             "title": "Senior Developer",
@@ -26,7 +31,13 @@
             "startDate": "2022-11-14",
             "endDate": "2023-01-15",
             "description": "Working on product page experience for e-commerce site. Frontend and backend.\n\nLayoffs December 2022.",
-            "skills": [ ".NET", "C#", "Web", "ASP.NET Core", "Microsoft Azure" ]
+            "skills": [
+                ".NET",
+                "C#",
+                "Web",
+                "ASP.NET Core",
+                "Microsoft Azure"
+            ]
         },
         {
             "title": "Software Developer",
@@ -41,7 +52,13 @@
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
             "description": "Backend developer in a team developing a service for handling the process of transferring apartments to new occupants.",
-            "skills": [ ".NET", "C#", "ASP.NET Core", "Microsoft Azure" , "Microservices" ]
+            "skills": [
+                ".NET",
+                "C#",
+                "ASP.NET Core",
+                "Microsoft Azure",
+                "Microservices"
+            ]
         },
         {
             "title": "Software Developer",
@@ -54,7 +71,11 @@
             "startDate": "2022-04-04",
             "endDate": "2022-09-30",
             "description": "Consulting as part of Nexer Group (previously Sigma IT Consulting) in the Malmö area.",
-            "skills": ["Software development", ".NET", "C#"]
+            "skills": [
+                "Software development",
+                ".NET",
+                "C#"
+            ]
         },
         {
             "title": ".NET Developer",
@@ -70,7 +91,10 @@
             "endDate": "2022-03-20",
             "description": "Working on system for handling insurance claim requests.\n\nFocus on integrating Pet insurance.",
             "skills": [
-                ".NET", "C#", "Windows Presentation Foundation (WPF)", "Back-End Development"
+                ".NET",
+                "C#",
+                "Windows Presentation Foundation (WPF)",
+                "Back-End Development"
             ]
         },
         {
@@ -84,7 +108,11 @@
             "startDate": "2021-12-16",
             "endDate": "2022-04-04",
             "description": "Consulting as part of Skymill",
-            "skills": ["Software development", ".NET", "C#"]
+            "skills": [
+                "Software development",
+                ".NET",
+                "C#"
+            ]
         },
         {
             "title": "Senior Software Developer",
@@ -98,7 +126,11 @@
             "endDate": "2021-09-20",
             "description": "Building an E-commerce solution from ground up.\n\nSome of my many responsibilities were the features for handling orders and generating invoices.\n\nOur primary customer was a company that provided cleaning services.\n\nBuilt proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
             "skills": [
-                ".NET", "C#", "ASP.NET Core", "Blazor", "Software design"
+                ".NET",
+                "C#",
+                "ASP.NET Core",
+                "Blazor",
+                "Software design"
             ]
         },
         {
@@ -115,7 +147,10 @@
             "endDate": "2020-05-01",
             "description": "Developing E-commerce site for small insurance firm.\n\nIntegrating with BankId.",
             "skills": [
-                ".NET", "C#", "ASP.NET Core", "Blazor"
+                ".NET",
+                "C#",
+                "ASP.NET Core",
+                "Blazor"
             ]
         },
         {
@@ -129,7 +164,11 @@
             "startDate": "2018-04-01",
             "endDate": "2020-05-01",
             "description": "Consulting work as part of ESSIQ Syd",
-            "skills": ["Software development", ".NET", "C#"]
+            "skills": [
+                "Software development",
+                ".NET",
+                "C#"
+            ]
         },
         {
             "title": ".NET Senior Expert",
@@ -145,7 +184,14 @@
             "endDate": "2019-12-30",
             "description": "Developing the software engine for running processing and packaging at customer's facilities.\n\nLed initiative to make refactoring in project structure in order to facilitate cross-team development.",
             "skills": [
-                ".NET", "C#", "ASP.NET", "Windows Presentation Foundation (WPF)", "JavaScript", "TypeScript",  "React", "Scaled Agile Framework (SAFe)"
+                ".NET",
+                "C#",
+                "ASP.NET",
+                "Windows Presentation Foundation (WPF)",
+                "JavaScript",
+                "TypeScript",
+                "React",
+                "Scaled Agile Framework (SAFe)"
             ]
         },
         {
@@ -162,7 +208,9 @@
             "endDate": "2018-11-30",
             "description": "Developing application for managing video feeds from security cameras targeting small and medium business customers.",
             "skills": [
-                ".NET", "C#", "Windows Presentation Foundation (WPF)"
+                ".NET",
+                "C#",
+                "Windows Presentation Foundation (WPF)"
             ]
         },
         {
@@ -179,7 +227,10 @@
             "endDate": "2018-04-01",
             "description": "Developing the on-device web-based interface aimed at installers.\n\nLearning to build applications with React.",
             "skills": [
-                "JavaScript", "TypeScript", "Web Development", "React"
+                "JavaScript",
+                "TypeScript",
+                "Web Development",
+                "React"
             ]
         },
         {
@@ -193,7 +244,12 @@
             "startDate": "2016-05-01",
             "endDate": "2018-04-01",
             "description": "Consulting for various companies. Primarily in .NET and JavaScript.\n\nTedsys AB is part of the Tedkomp Group, providing consulting services in the areas of IT, industrial services, and business administration.",
-            "skills": ["Software development", "Web development", ".NET", "C#"]
+            "skills": [
+                "Software development",
+                "Web development",
+                ".NET",
+                "C#"
+            ]
         },
         {
             "title": "Software Developer",
@@ -209,7 +265,11 @@
             "endDate": "2017-05-01",
             "description": "Developing the visual part of the search integration for the global enterprise intranet",
             "skills": [
-                ".NET", "C#", "JavaScript", "Web Development", "ASP.NET"
+                ".NET",
+                "C#",
+                "JavaScript",
+                "Web Development",
+                "ASP.NET"
             ]
         },
         {
@@ -226,7 +286,12 @@
             "endDate": "2017-02-01",
             "description": "Developing medical system for microscopic analysis in the field of haematology.\n\nWorking on client software used when performing blood analysis,\n\nWeb app for training haematologists.",
             "skills": [
-                ".NET", "C#", "Windows Presentation Foundation (WPF)", "TypeScript", "C++", "Silverlight"
+                ".NET",
+                "C#",
+                "Windows Presentation Foundation (WPF)",
+                "TypeScript",
+                "C++",
+                "Silverlight"
             ]
         },
         {
@@ -243,7 +308,9 @@
             "endDate": "2016-07-01",
             "description": "Working on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.",
             "skills": [
-                ".NET", "C#", "ASP.NET"
+                ".NET",
+                "C#",
+                "ASP.NET"
             ]
         },
         {
@@ -258,7 +325,16 @@
             "endDate": "2016-03-01",
             "description": "As part of the development team, I supported the company's business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.",
             "skills": [
-                ".NET", "C#", "Windows Presentation Foundation (WPF)", "PHP",  "JavaScript", "Node.js", "MySQL", "ASP.NET MVC", "ASP.NET", "System integrations"
+                ".NET",
+                "C#",
+                "Windows Presentation Foundation (WPF)",
+                "PHP",
+                "JavaScript",
+                "Node.js",
+                "MySQL",
+                "ASP.NET MVC",
+                "ASP.NET",
+                "System integrations"
             ]
         },
         {
@@ -273,7 +349,10 @@
             "endDate": "2014-08-01",
             "description": "Developing Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.",
             "skills": [
-                ".NET", "C#", "Windows Presentation Foundation (WPF)", "ASP.NET"
+                ".NET",
+                "C#",
+                "Windows Presentation Foundation (WPF)",
+                "ASP.NET"
             ]
         },
         {
@@ -288,7 +367,10 @@
             "endDate": "2012-08-01",
             "description": "Developing smartphone apps and working a bit on web portal. (Continuation of student internship)",
             "skills": [
-                "Software development", "Mobile development", "Cordova", "JavaScript"
+                "Software development",
+                "Mobile development",
+                "Cordova",
+                "JavaScript"
             ]
         },
         {
@@ -303,7 +385,12 @@
             "endDate": "2012-06-01",
             "description": "Student project - Developed smartphones app using HTML/JavaScript and Windows Phone.",
             "skills": [
-                "Software development", "Mobile Development", "JavaScript", ".NET", "C#", "Window Phone"
+                "Software development",
+                "Mobile Development",
+                "JavaScript",
+                ".NET",
+                "C#",
+                "Window Phone"
             ]
         },
         {
@@ -318,7 +405,9 @@
             "endDate": "2012-01-01",
             "description": "Developing proof-of-concept system for healthcare. Web development.",
             "skills": [
-                "Web Development", "JavaScript", "HTML"
+                "Web Development",
+                "JavaScript",
+                "HTML"
             ]
         }
     ],
@@ -360,7 +449,7 @@
                 "Computer Management",
                 "Computer Networking",
                 "Programming",
-                "Project and Entrepreneurship", 
+                "Project and Entrepreneurship",
                 "Web Design",
                 "Windows Server",
                 "Linux",

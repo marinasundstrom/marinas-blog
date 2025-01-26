@@ -121,6 +121,8 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 * Integrated the e-shop functionality into the original [YourBrand](https://github.com/marinasundstrom/YourBrand), upgraded the projects to .NET 9, and improved the consistency across modules. Moved to using .NET Aspire for service orchestration.
 
+* Was introduced to ChatGPT.
+
 * Built a C# code analyzer, [Checked Exceptions](https://github.com/marinasundstrom/CheckedExceptions), introducing Java-like [checked exceptions](https://www.geeksforgeeks.org/checked-vs-unchecked-exceptions-in-java/) in C# using code analysis, and the ``ThrowsAttribute``. Iterating using ChatGPT.
 
 * Started designing my own programming language, called [Raven](https://github.com/marinasundstrom/raven-compiler). Constructing a compiler with an architecture based on the Roslyn compiler framework, which the C# compiler is part of. The ability to consume the compiler as a service.

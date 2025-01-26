@@ -109,6 +109,22 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 **2022** - Dove into Domain-driven design (DDD) practices. Further exploring Software Design and Architecture patterns. Refined the projects that I had built previously, and integrated them into one business case and domain. Ending up with "[eShop](https://github.com/marinasundstrom/eShop)".
 
-**2023** - Learned about GitHub Actions, and deployed Container Apps to Microsoft Azure.
+**2023**
 
-_Last updated on August 29, 2023. Before that on March 16, 2023, and February 27, 2023_.
+* Rewriting "eShop" for .NET 8, using the new Blazor app model, and deployed the clean-written services to Microsoft Azure. ([Source code](https://github.com/marinasundstrom/yourbrand_new_old))
+
+  * Set up development environment using Docker Compose, and services running locally.
+
+  * Learned about GitHub Actions, and deployed Container Apps to Microsoft Azure.
+
+**2024**
+
+* Integrated the e-shop functionality into the original [YourBrand](https://github.com/marinasundstrom/YourBrand), upgraded the projects to .NET 9, and improved the consistency across modules. Moved to using .NET Aspire for service orchestration.
+
+* Built a C# code analyzer, [Checked Exceptions](https://github.com/marinasundstrom/CheckedExceptions), introducing Java-like [checked exceptions](https://www.geeksforgeeks.org/checked-vs-unchecked-exceptions-in-java/) in C# using code analysis, and the ``ThrowsAttribute``. Iterating using ChatGPT.
+
+* Started designing my own programming language, called [Raven](https://github.com/marinasundstrom/raven-compiler). Constructing a compiler with an architecture based on the Roslyn compiler framework, which the C# compiler is part of. The ability yo consume the compiler as a service.
+
+---
+
+_Last updated on January 26, 2024. Before that on August 29, 2023, March 16, 2023, and February 27, 2023_.

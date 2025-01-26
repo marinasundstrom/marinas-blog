@@ -123,9 +123,9 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 * Was introduced to ChatGPT.
 
-* Built a C# code analyzer, [Checked Exceptions](https://github.com/marinasundstrom/CheckedExceptions), introducing Java-like [checked exceptions](https://www.geeksforgeeks.org/checked-vs-unchecked-exceptions-in-java/) in C# using code analysis, and the ``ThrowsAttribute``. Iterating using ChatGPT.
+* Built a C# code analyzer, [Checked Exceptions](https://github.com/marinasundstrom/CheckedExceptions), introducing Java-like [checked exceptions](https://www.geeksforgeeks.org/checked-vs-unchecked-exceptions-in-java/) in C# using code analysis, and the ``ThrowsAttribute``. Developed using an iterative process with the help from ChatGPT.
 
-* Started designing my own programming language, called [Raven](https://github.com/marinasundstrom/raven-compiler). Constructing a compiler with an architecture based on the Roslyn compiler framework, which the C# compiler is part of. The ability to consume the compiler as a service.
+* Started designing my own programming language, called [Raven](https://github.com/marinasundstrom/raven-compiler). Constructing a compiler with an architecture based on the Roslyn compiler framework, which the C# compiler is part of. The ability to consume the compiler as a service. Also got help from ChatGPT in understanding what to build.
 
 ---
 

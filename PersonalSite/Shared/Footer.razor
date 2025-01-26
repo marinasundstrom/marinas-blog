@@ -40,12 +40,12 @@
                         </a>
                     </li>
 
-                    <li class="nav-item list-inline-item">
+                    @* <li class="nav-item list-inline-item">
                         <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
                             href="https://twitter.com/marna_li" title="X" target="_blank">
                             <i class="fab fa-2x fa-x-twitter"></i>
                         </a>
-                    </li>
+                    </li> *@
 
                     <li class="nav-item list-inline-item">
                         <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
@@ -60,13 +60,14 @@
             <p class="float-end mb-1">
                 <a id="scrollToTop" href="#" @onclick="ScrollToTop" @onclick:preventDefault>Back to top</a>
             </p>
-            <p class="muted small mb-1">© @DateTime.Now.Year Marina Sundström &bullet; Built with .NET & Blazor - Hosted by GitHub Pages</p>
+            <p class="muted small mb-1">© @DateTime.Now.Year Marina Sundström &bullet; Built with .NET & Blazor - Hosted
+                by GitHub Pages</p>
         </div>
     </div>
 </footer>
 
 @code {
-    async Task ScrollToTop() 
+    async Task ScrollToTop()
     {
         await JS.InvokeVoidAsync("scrollToTop");
     }

@@ -11,7 +11,7 @@
   background-color: var(--brand-color) !important;
 }
 
-.bg-body-tertiary {
+[data-bs-theme='light'] .bg-body-tertiary {
   background-color: rgb(247 247 247) !important;
 }
 

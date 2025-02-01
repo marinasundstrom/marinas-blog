@@ -4,11 +4,15 @@
 @import url('syntax.dark.css');
 
 :root {
-  --brand-color: rgb(96 105 230);
+  --brand-color: #1170c6;
 }
 
 .bg-brand {
   background-color: var(--brand-color) !important;
+}
+
+.bg-body-tertiary {
+  background-color: rgb(247 247 247) !important;
 }
 
 html,
@@ -133,7 +137,7 @@ a {
   text-decoration: none;
 }
 
-a:hover:not(.btn) {  
+a:hover:not(.btn) {
   text-decoration: underline;
 }
 
@@ -318,7 +322,6 @@ ul li, ol li {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 950px;
   background-position-y: -200px;
 }
 

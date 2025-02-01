@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData> 
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     <BlazorWasmPrerenderingOutputStyle>AppendHtmlExtension</BlazorWasmPrerenderingOutputStyle>
   </PropertyGroup>
 
@@ -12,14 +12,15 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(PRERENDER)' != ''"> 
-    <PackageReference Include="BlazorWasmPreRendering.Build" Version="3.1.0-preview.4" />
+  <ItemGroup Condition="'$(PRERENDER)' != ''">
+    <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Humanizer" Version="2.14.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version=" 8.0.0-rc.2*" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0-rc.2*" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version=" 9.0.1-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer"
+      Version="9.0.1-*" PrivateAssets="all" />
     <PackageReference Include="HtmlSanitizer" Version="8.0.601" />
     <PackageReference Include="Markdig" Version="0.18.3" />
     <PackageReference Include="ReadTimeEstimator" Version="1.0.0" />
@@ -33,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\posts\drafts\**\*" CopyToPublishDirectory="Never" />     
-</ItemGroup>   
+    <Content Update="wwwroot\posts\drafts\**\*" CopyToPublishDirectory="Never" />
+  </ItemGroup>
 
 </Project>

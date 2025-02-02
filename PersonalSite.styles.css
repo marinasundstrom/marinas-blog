@@ -131,6 +131,15 @@ ol.timeline > li[b-gzzl0v4m7v]:before {
 }
 /* /Pages/Resume/ExperienceView.razor.rz.scp.css */
 /* /Pages/Resume/ResumePage.razor.rz.scp.css */
+.card[b-duje4fbsg8] {
+    border: 0;
+}
+
+.card-footer[b-duje4fbsg8] {
+    border: 0;
+    background: none;
+}
+
 .grid-dl dt[b-duje4fbsg8] {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5em 0 0.5em 0;

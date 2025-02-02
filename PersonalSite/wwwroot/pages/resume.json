@@ -23,8 +23,8 @@
         {
             "title": "Software Developer",
             "employmentType": "Full-time",
-            "highlight": true,
-            "company": "false",
+            "highlight": false,
+            "company": "Telavox",
             "companyLogo": "/assets/logos/telavox.jpg",
             "link": "https://www.telavox.com/",
             "location": "Malmö, Sweden",

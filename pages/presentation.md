@@ -9,7 +9,7 @@ I've been programming since 2007, continuously learning and expanding my experti
 
 My primary expertise lies in C#/.NET, but I also have experience in web development using JavaScript and frameworks like React.
 
-### About Me
+### This is me
 I'm a positive, curious, and thoughtful individual who enjoys experiencing life and meeting new people. I'm easy-going yet reflective, always eager to dive deep into topics that intrigue me. You could say I'm a geek at heart—I love understanding the finer details and how things work.
 
 I thrive in environments where commitment, motivation, and openness to new ideas are valued. I strongly believe in fostering inclusivity and ensuring that every voice is heard.
@@ -23,8 +23,6 @@ My expertise is primarily in .NET development, from creating desktop application
 I love working on [personal projects](/portfolio) that allow me to refine my skills and experiment with different technologies. Whether focusing on technical implementation or enhancing user experience (UX), I find the creative process both stimulating and rewarding.
 
 I'm also an active participant in the online software development community, engaging in discussions and sharing knowledge with others.
-
-## More About Me
 
 ### Coffee & Nature
 I'm a picky coffee lover who grinds my own beans. When I’m not coding, I enjoy long walks in beautiful nature—either alone for reflection or with good company.

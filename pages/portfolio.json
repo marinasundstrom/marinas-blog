@@ -1,23 +1,92 @@
 {
     "projects": [
         {
-            "name": "e-Shop",
+            "name": "Raven",
+            "type": "Personal",
+            "for": null,
+            "startDate": "2024-11-01",
+            "ongoing": true,
+            "description": "Building my own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service.",
+            "image": "/assets/raven.png",
+            "links": [
+                {
+                    "name": "Source Code",
+                    "type": "GitHub",
+                    "url": "https://github.com/marinasundstrom/raven"
+                }
+            ],
+            "skills": {
+                "platforms": [
+                    ".NET 9"
+                ],
+                "programmingLanguages": [
+                    "C#"
+                ],
+                "frameworks": [],
+                "applications": [],
+                "technologies": [
+                    "Compiler construction"
+                ]
+            }
+        },
+        {
+            "name": "YourBrand EP",
             "type": "Personal",
             "for": null,
             "startDate": "2021-11-01",
             "ongoing": true,
-            "description": "E-shop site with product catalog and checkout experience. Learning microservice patterns. Based on previous projects in \"YourBrand\".",
-            "image": "/assets/eshop.png",
+            "description": "Building an enterprise system and learning software architecture patterns. Various modules. Project \"E-shop\" being a frontend for sales.",
+            "image": "/assets/yourbrand.png",
             "links": [
                 {
                     "name": "Video",
                     "type": "YouTube",
-                    "url": "https://youtu.be/eHalPncX5W0"
+                    "url": "https://www.youtube.com/watch?v=k6SftNnsILo"
                 },
                 {
                     "name": "Source Code",
                     "type": "GitHub",
-                    "url": "https://github.com/marinasundstrom/eShop"
+                    "url": "https://github.com/marinasundstrom/yourbrand"
+                }
+            ],
+            "skills": {
+                "platforms": [
+                    ".NET 7",
+                    "Web",
+                    "Azure"
+                ],
+                "programmingLanguages": [
+                    "C#",
+                    "JavaScript"
+                ],
+                "frameworks": [
+                    "ASP.NET Core",
+                    "Blazor"
+                ],
+                "applications": [
+                    "RabbitMQ",
+                    "Docker"
+                ],
+                "technologies": [
+                    "Microservices",
+                    "Asynchronous messaging",
+                    "Web API"
+                ]
+            }
+        },
+        {
+            "name": "E-shop site (YourBrand)",
+            "type": "Personal",
+            "for": null,
+            "startDate": "2021-11-01",
+            "ongoing": true,
+            "description": "E-shop site with product catalog and checkout experience. Been through multiple iterations. Part of the \"YourBrand\" project.",
+            "image": "/assets/eshop.png",
+            "links": [
+                {
+                    "name": "Source Code",
+                    "type": "GitHub",
+                    "url": "https://github.com/marinasundstrom/yourbrand"
                 }
             ],
             "skills": {
@@ -26,7 +95,8 @@
                     "Web"
                 ],
                 "programmingLanguages": [
-                    "C#"
+                    "C#",
+                    "JavaScript"
                 ],
                 "frameworks": [
                     "ASP.NET Core",

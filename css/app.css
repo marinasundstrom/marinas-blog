@@ -316,13 +316,11 @@ ul li, ol li {
 .bgimg-1,
 .bgimg-2,
 .bgimg-3 {
+  height: 100vh;
   position: relative;
-  /* opacity: 0.65; */
-  background-attachment: fixed;
-  background-position: top;
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -200px;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .bgimg-1 {

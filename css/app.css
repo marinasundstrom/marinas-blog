@@ -19,6 +19,11 @@
   background-color: rgb(247 247 247) !important;
 }
 
+[data-bs-theme='dark'] .btn.btn-primary {
+  background-color: #1d5990 !important;
+  border-color: #165086 !important;
+}
+
 html,
 body {
   font-family: 'Roboto', sans-serif;

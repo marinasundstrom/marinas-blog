@@ -1,3 +1,12 @@
+.card {
+    border: 0;
+}
+
+.card-footer {
+    border: 0;
+    background: none;
+}
+
 .grid-dl dt {
     padding: 0.5em 0 0.5em 0;
     font-weight: 600;

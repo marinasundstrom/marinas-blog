@@ -1,6 +1,6 @@
 @inject IJSRuntime JS
 
-<footer class="footer py-4 bg-body-tertiary">
+<footer class="footer py-4 bg-body-tertiary shadow-sm">
     <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
         <div class="row">
             <div class="col-lg-3 mb-3">
@@ -58,7 +58,8 @@
         </div>
         <div class="mt-4">
             <p class="float-end mb-1">
-                <a id="scrollToTop" href="#" @onclick="ScrollToTop" @onclick:preventDefault>Back to top</a>
+                <a id="scrollToTop" href="#" @onclick="ScrollToTop" @onclick:preventDefault><i
+                        class="fa-solid fa-arrow-up"></i> Back to top</a>
             </p>
             <p class="muted small mb-1">© @DateTime.Now.Year Marina Sundström &bullet; Built with .NET & Blazor - Hosted
                 by GitHub Pages</p>

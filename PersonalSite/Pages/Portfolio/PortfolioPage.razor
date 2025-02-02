@@ -11,16 +11,16 @@
 else
 {
     <section>
-    <h1>Portfolio</h1>
+        <h1>Portfolio</h1>
 
-    <div class="mt-4">
-        <p>Here are some of my projects - most of them are open source. You can find more of my projects on my <a
-                href="https://github.com/marinasundstrom">GitHub page</a>, and more videos in this <a
-                href="https://youtube.com/playlist?list=PLLBU--06ftFqPiAwkg3VKa2fIEhNu7J4L">playlist</a> on YouTube.</p>
-    </div>
+        <div class="mt-4">
+            <p>Here are some of my projects - most of them are open source. You can find more of my projects on my <a
+                    href="https://github.com/marinasundstrom">GitHub page</a>, and more videos in this <a
+                    href="https://youtube.com/playlist?list=PLLBU--06ftFqPiAwkg3VKa2fIEhNu7J4L">playlist</a> on YouTube.</p>
+        </div>
 
-    <div class="mt-1 row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-5">
-        @foreach (var project in projects.ToList())
+        <div class="mt-1 row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-5">
+            @foreach (var project in projects.ToList())
             {
                 <ProjectView Project="project" />
             }

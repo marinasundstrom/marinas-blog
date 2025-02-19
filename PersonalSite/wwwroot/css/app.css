@@ -32,8 +32,9 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  padding-top: 95px;
+html,
+body {
+  overflow-y: auto;
 }
 
 /* p, */

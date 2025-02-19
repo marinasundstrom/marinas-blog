@@ -1,11 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-<NavMenu />
+<div class="app-container bg-body">
+    <NavMenu />
 
-<main class="bg-body pb-5">
-    <div class="container">
-        @Body
-    </div>
-</main>
+    <main class="container flex-grow">
+        <article class="content">
+            @Body
+        </article>
+    </main>
 
-<Footer />
+    <Footer />
+</div>

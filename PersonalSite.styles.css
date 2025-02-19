@@ -252,6 +252,20 @@ img[b-4svz09hi87] {
     }
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
+    .app-container[b-1vlcskuc8v] {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .flex-grow[b-1vlcskuc8v] {
+        flex-grow: 1;
+    }
+
+    main[b-1vlcskuc8v] {
+        padding-top: 95px;
+        padding-bottom: 55px;
+    }
 /* /Shared/NavMenu.razor.rz.scp.css */
 .navbar-nav-svg[b-kujckncdpz] {
     width: 1rem;

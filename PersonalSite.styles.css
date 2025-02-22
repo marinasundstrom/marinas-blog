@@ -271,6 +271,15 @@ img[b-4svz09hi87] {
     width: 1rem;
     height: 1rem;
 }
+
+@media (max-width: 576px) {
+
+    /* Bootstrap 'sm' breakpoint */
+    .icon-responsive[b-kujckncdpz] {
+        font-size: 2rem;
+        /* Adjust size as needed */
+    }
+}
 /* /Shared/PostHeader.razor.rz.scp.css */
 h2[b-76by154q0w] {
     margin: 0;

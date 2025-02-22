@@ -13,6 +13,8 @@
         </button>
 
         <div class="navbar-collapse offcanvas-collapse bg-brand" id="navbarsExampleDefault">
+            <hr class="d-lg-none text-white-50 pt-0 mt-0 mb-3" />
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item active">
                     <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</NavLink>
@@ -30,42 +32,54 @@
                     <NavLink class="nav-link" href="portfolio">Portfolio</NavLink>
                 </li>
             </ul>
-            <hr class="d-md-none text-white-50">
-            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <ul class="navbar-nav">
+                <NavMenuDivider OnlyOnSmall="true" />
+
                 <ThemeSelector />
-                <li class="nav-item list-inline-item me-4 me-md-0">
-                    <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
-                        href="https://github.com/marinasundstrom" title="GitHub" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
+
+                <NavMenuDivider OnlyOnSmall="true" />
+
+                <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto d-lg-none">
+                    <b><a class="nav-link">Social</a></b>
                 </li>
 
-                <li class="nav-item list-inline-item me-4 me-md-0">
-                    <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
-                        href="https://www.youtube.com/@@marna_li" title="YouTube" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </li>
+                <li>
+                    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                        <li class="nav-item me-4 me-md-0">
+                            <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                                href="https://github.com/marinasundstrom" title="GitHub" target="_blank">
+                                <i class="fab fa-github icon-responsive"></i>
+                            </a>
+                        </li>
 
-                <li class="nav-item list-inline-item me-4 me-md-0">
-                    <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
-                        href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
+                        <li class="nav-item me-4 me-md-0">
+                            <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                                href="https://www.youtube.com/@@marna_li" title="YouTube" target="_blank">
+                                <i class="fab fa-youtube icon-responsive"></i>
+                            </a>
+                        </li>
 
-                <li class="nav-item list-inline-item me-4 me-md-0">
-                    <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
-                        href="https://www.instagram.com/marna.li.s/" title="Instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
+                        <li class="nav-item me-4 me-md-0">
+                            <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                                href="https://www.linkedin.com/in/marinasundstrom" title="LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin icon-responsive"></i>
+                            </a>
+                        </li>
 
-                <li class="nav-item list-inline-item me-4 me-md-0">
-                    <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
-                        href="https://twitter.com/marna_li" title="X" target="_blank">
-                        <i class="fab fa-x-twitter"></i>
-                    </a>
+                        <li class="nav-item me-4 me-md-0">
+                            <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                                href="https://www.instagram.com/marna.li.s/" title="Instagram" target="_blank">
+                                <i class="fab fa-instagram icon-responsive"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item me-4 me-md-0">
+                            <a class="nav-link menu-link me-0 py-2 text-decoration-none text-uppercase"
+                                href="https://twitter.com/marna_li" title="X" target="_blank">
+                                <i class="fab fa-x-twitter icon-responsive"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

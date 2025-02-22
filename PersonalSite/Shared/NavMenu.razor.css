@@ -2,3 +2,12 @@
     width: 1rem;
     height: 1rem;
 }
+
+@media (max-width: 576px) {
+
+    /* Bootstrap 'sm' breakpoint */
+    .icon-responsive {
+        font-size: 2rem;
+        /* Adjust size as needed */
+    }
+}

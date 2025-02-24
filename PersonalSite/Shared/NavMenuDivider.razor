@@ -1,4 +1,4 @@
-<li class="nav-item py-2 py-lg-1 col-12 col-lg-auto @(OnlyOnSmall ? "d-lg-none" : "")">
+<li class="nav-item py-2 py-lg-1 col-12 col-lg-auto @Class @(OnlyOnSmall ? "d-lg-none" : "")">
     <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
     <hr class="d-lg-none my-2 text-white-50">
 </li>
@@ -7,4 +7,7 @@
 {
     [Parameter]
     public bool OnlyOnSmall { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
 }

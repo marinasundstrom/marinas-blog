@@ -84,6 +84,11 @@
             "image": "/assets/eshop.png",
             "links": [
                 {
+                    "name": "Video",
+                    "type": "YouTube",
+                    "url": "https://www.youtube.com/watch?v=rQgaeXCR9eY"
+                },
+                {
                     "name": "Source Code",
                     "type": "GitHub",
                     "url": "https://github.com/marinasundstrom/yourbrand"

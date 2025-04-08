@@ -421,3 +421,30 @@ header h2.post-subtitle {
 }
 
 @media only screen and (max-width: 768px) {}
+
+.btn {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+}
+
+.navbar-nav {
+  & .nav-link {
+    span {
+      position: relative;
+    }
+  }
+}
+
+.navbar-nav a.nav-link:hover span:before,
+.navbar-nav a.nav-link.active span:before {
+  background: #ffffff;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  top: 20px;
+}

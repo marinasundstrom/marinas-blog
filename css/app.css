@@ -4,8 +4,10 @@
 @import url('syntax.dark.css');
 
 :root {
-  --brand-color: #a8467b;
+  --brand-color: #9e4172;
   /*#1170c6;*/
+  --brand-color-dark: #58173a;
+  /* #194e7e */
 }
 
 .bg-brand {
@@ -13,7 +15,8 @@
 }
 
 [data-bs-theme='dark'] .bg-brand {
-  background-color: #194e7e !important;
+  background-color: var(--brand-color-dark) !important;
+  /* #194e7e !important;*/
 }
 
 [data-bs-theme='light'] .bg-body-tertiary {

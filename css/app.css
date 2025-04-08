@@ -480,6 +480,6 @@ header h2.post-subtitle {
 
 [data-bs-theme='dark'] {
   #scrollToTop {
-    color: white;
+    color: white !important;
   }
 }

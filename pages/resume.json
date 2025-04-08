@@ -2,6 +2,28 @@
     "experience": [
         {
             "title": "Software Developer",
+            "employmentType": "Contract",
+            "consultant": true,
+            "for": "Itm8",
+            "company": "Solid Försäkringar",
+            "companyLogo": "/assets/logos/solid-forsakringar.jpg",
+            "link": "https://www.solidab.se/",
+            "location": "Remote",
+            "current": false,
+            "startDate": "2025-01-20",
+            "endDate": null,
+            "description": "Working as consultant in team from Itm8. My initial role was as a Frontend developer. However, because of my experience with Blazor, I have been working on Backend as well. Helping influencing and designing the solution. Implementing BankID integration.",
+            "skills": [
+                ".NET",
+                "C#",
+                "ASP.NET Core",
+                "Blazor",
+                "Software architecture",
+                "Software design"
+            ]
+        },
+        {
+            "title": "Software Developer",
             "employmentType": "Full-time",
             "highlight": true,
             "company": "Itm8",
@@ -31,7 +53,7 @@
             "current": false,
             "startDate": "2023-03-27",
             "endDate": "2023-12-27",
-            "description": "Working on system used by support engineers in assisting retailers and customers.",
+            "description": "Working on system used by support engineers in assisting retailers and customers. Had side-projects figuring out distributed ways of handling personal data using RabbitMQ. Also attempted containerizing the LOB app, and succeeded in getting it running in Kubernetes.",
             "skills": [
                 "Java",
                 "MySQL",

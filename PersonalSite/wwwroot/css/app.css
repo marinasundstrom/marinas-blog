@@ -452,3 +452,34 @@ header h2.post-subtitle {
   width: 100%;
   top: 20px;
 }
+
+@media (max-width: 991.98px) {
+
+  .navbar:has(.open),
+  .offcanvas-collapse.open {
+    background-color: var(--brand-color) !important;
+  }
+
+  .navbar:has(.open) a.nav-link:hover span:before,
+  .navbar:has(.open) a.nav-link.active span:before {
+    background: white !important;
+  }
+
+  [data-bs-theme='dark'] {
+
+    .navbar:has(.open),
+    .offcanvas-collapse.open {
+      background-color: var(--brand-color-dark) !important;
+    }
+  }
+}
+
+#scrollToTop {
+  color: black !important;
+}
+
+[data-bs-theme='dark'] {
+  #scrollToTop {
+    color: white;
+  }
+}

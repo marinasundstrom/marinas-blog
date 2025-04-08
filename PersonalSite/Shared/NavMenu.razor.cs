@@ -11,4 +11,7 @@ public partial class NavMenu
 
     [JSImport("initCM", "NavMenu")]
     internal static partial string InitColorModes();
+
+    [JSImport("scrollableNavbar", "NavMenu")]
+    internal static partial string ScrollableNavbar();
 }

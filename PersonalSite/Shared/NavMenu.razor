@@ -91,6 +91,9 @@
 @code {
     private string? message;
 
+    [Parameter]
+    public bool IsCoverPage { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -101,6 +104,11 @@
             InitNavbar();
 
             InitColorModes();
+
+            if (IsCoverPage)
+            {
+                ScrollableNavbar();
+            }
         }
         catch (Exception exc)
         {

@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version=" 9.0.1-*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer"
       Version="9.0.1-*" PrivateAssets="all" />
-    <PackageReference Include="HtmlSanitizer" Version="8.0.601" />
+    <PackageReference Include="HtmlSanitizer" Version="9.0.876" />
     <PackageReference Include="Markdig" Version="0.18.3" />
     <PackageReference Include="ReadTimeEstimator" Version="1.0.0" />
     <PackageReference Include="YamlDotNet" Version="8.1.0" />

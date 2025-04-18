@@ -1,7 +1,11 @@
 ﻿using Ganss.Xss;
+
 using Markdig;
+using Markdig.Extensions.AutoIdentifiers;
 using Markdig.Renderers;
+using Markdig.Renderers.Html;
 using Markdig.Syntax;
+
 using Microsoft.AspNetCore.Components;
 
 namespace PersonalSite.Markdown
@@ -36,13 +40,14 @@ namespace PersonalSite.Markdown
                         .UseYamlFrontMatter()
                         .UseAdvancedExtensions()
                         .UseGenericAttributes()
+                        .UseAutoIdentifiers(AutoIdentifierOptions.GitHub)
                         .Build();
 
-                //var markdownDocument = Markdig.Markdown.Parse(value, pipeline);
+                var markdownDocument = Markdig.Markdown.Parse(value, pipeline);
 
-                var html = Markdig.Markdown.ToHtml(value, pipeline); //ToHtml(pipeline, markdownDocument);
+                var html = ToHtml(pipeline, markdownDocument);
 
-                if(!HtmlSanitizer.AllowedAttributes.Contains("id"))
+                if (!HtmlSanitizer.AllowedAttributes.Contains("id"))
                     HtmlSanitizer.AllowedAttributes.Add("id");
 
                 // Sanitize HTML before rendering
@@ -66,6 +71,13 @@ namespace PersonalSite.Markdown
 
             // Create a HTML Renderer and setup it with the pipeline
             var renderer = new HtmlRenderer(writer);
+
+            //renderer.ObjectRenderers.RemoveAll(x => x is HeadingRenderer);
+            renderer.ObjectRenderers.RemoveAll(x => x is HtmlRenderer); // Just in case
+            renderer.ObjectRenderers.RemoveAll(x => x is HeadingRenderer);
+            renderer.ObjectRenderers.Add(new NoIdHeadingRenderer());
+            renderer.ObjectRenderers.Add(new NestedSectionRenderer());
+
             pipeline.Setup(renderer);
 
             // Renders markdown to HTML (to the writer)

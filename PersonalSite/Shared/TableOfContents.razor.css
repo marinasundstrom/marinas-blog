@@ -1,0 +1,50 @@
+nav {
+    font-size: .875rem;
+}
+
+::deep a {
+    display: block;
+    padding: .125rem 0 .125rem .75rem;
+    text-decoration: none;
+    color: inherit;
+    font-size: .875rem;
+    border-left: .125rem solid transparent;
+}
+
+::deep a:active,
+::deep a.active {
+    font-weight: 500;
+}
+
+::deep a:focus,
+::deep a:hover,
+::deep a:active,
+::deep a.active {
+    text-decoration: none;
+    color: #6f42c1;
+    border-left-color: #6f42c1;
+}
+
+::deep ul {
+    padding-left: 0;
+    margin-top: .25rem;
+}
+
+::deep ul ul {
+    padding-left: 1rem;
+}
+
+::deep ul li {
+    padding-left: 0;
+    list-style: none;
+}
+
+::deep .on-sm {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    ::deep .on-sm {
+        display: block;
+    }
+}

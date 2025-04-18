@@ -2,15 +2,15 @@
 @inject NavigationManager NavigationManager
 
 <header>
-    <div class="mb-4">
-        @if(Smaller)
+    <div>
+        @if (Smaller)
         {
             <h2 class="post-title mb-2">
-                @if(Slug is not null) 
+                @if (Slug is not null)
                 {
                     <a href="/articles/@Slug">@Title</a>
                 }
-                else 
+                else
                 {
                     @Title
                 }
@@ -19,11 +19,11 @@
         else
         {
             <h1 class="post-title mb-2">
-                @if(Slug is not null) 
+                @if (Slug is not null)
                 {
                     <a href="/articles/@Slug">@Title</a>
                 }
-                else 
+                else
                 {
                     @Title
                 }
@@ -31,24 +31,26 @@
         }
 
 
-    @if (Subtitle is not null)
-    {
-        @if(Smaller)
+        @if (Subtitle is not null)
         {
-            <h4 class="post-subtitle mb-3">@Subtitle</h4>
+            @if (Smaller)
+            {
+                <h4 class="post-subtitle mb-3">@Subtitle</h4>
+            }
+            else
+            {
+                <h3 class="post-subtitle mb-3">@Subtitle</h3>
+            }
         }
-        else 
-        {
-            <h3 class="post-subtitle mb-3">@Subtitle</h3>
-        }
-    }
 
-        <div class="d-flex justify-content-between mb-4">
-             <span>
+        <div class="d-flex justify-content-between">
+            <span>
                 <small class="mb-2 text-muted">
                     @if (Author is not null)
                     {
-                        @Author <text> • </text>
+                        @Author
+                    
+                        <text> • </text>
                     }
                     @if (Published is not null)
                     {
@@ -60,7 +62,7 @@
                         <ReadTimeEstimateDiplay EstimatedTime="@EstimatedTime.GetValueOrDefault()" />
                     }
                 </small>
-           
+
                 @if (Tags is not null)
                 {
                     <small class="text-muted"> • </small>
@@ -73,7 +75,7 @@
                     }
                 }
             </span>
-            
+
             @if (ShowCommentCount)
             {
                 <div>
@@ -85,15 +87,15 @@
 </header>
 
 @code {
-    [Parameter] [EditorRequired] public string Title { get; set; } = null!;
+    [Parameter][EditorRequired] public string Title { get; set; } = null!;
 
     [Parameter] public string? Slug { get; set; }
 
     [Parameter] public string? Subtitle { get; set; } = null!;
 
-    [Parameter] [EditorRequired] public string Author { get; set; } = null!;
+    [Parameter][EditorRequired] public string Author { get; set; } = null!;
 
-    [Parameter] [EditorRequired] public DateTime? Published { get; set; }
+    [Parameter][EditorRequired] public DateTime? Published { get; set; }
 
     [Parameter] public string[] Tags { get; set; } = null!;
 

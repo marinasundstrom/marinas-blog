@@ -5,6 +5,7 @@
 @using Models
 @using PersonalSite.Disqus
 @using PersonalSite.Markdown
+@using PersonalSite.Shared
 @inject NavigationManager NavigationManager
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
@@ -24,45 +25,54 @@ else
         <p>@exception.Message</p>
 
         <code>
-            @exception.StackTrace
-        </code>
+                                                                                                                                             @exception.StackTrace
+                                                                                                                                        </code>
     }
 
     @if (post is not null)
     {
         <PageTitle>@post.Title - Marina Sundström</PageTitle>
 
-        <article class="post outer">
 
-            <div class="inner container">
 
+        <div class="main order-1 pb-5 container">
+            <div class="intro">
                 <PostHeader Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
                     Tags="@post.Tags" EstimatedTime="@EstimatedTime" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog" />
 
-                @if(post.Image is not null) 
+                @if (post.Image is not null)
                 {
-                    <img src="@post.Image" alt="@post.ImageAlt"  class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" />
-                    @if(post.ImageAlt is not null) 
+                    <img src="@post.Image" alt="@post.ImageAlt" class="cover my-2 mt-3"
+                        style="max-height: 280px;width: 100%;object-fit: cover;" />
+                    @if (post.ImageAlt is not null)
                     {
-                        <small class="text-muted">@post.ImageAlt@if(post.ImageCredit is not null) { <span> • By @post.ImageCredit</span> }</small>
-                    }
+                        <small class="text-muted">@post.ImageAlt@if(post.ImageCredit is not null) {
+                            <span> • By
+                                @post.ImageCredit</span>
+                        }
+                    </small>
                 }
+            }
 
-            </div>
+        </div>
 
-            <div class="inner container">
-                <MarkdownView Content="@post.Content" />
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+            <TableOfContents />
+        </div>
 
-                @if (isBlog)
-                {
-                    <div style="margin-top: 42px;">
-                        <DisqusThread />
-                    </div>
-                }
-            </div>
+        <article class="content">
+            <MarkdownView Content="@post.Content" />
+
+            @if (isBlog)
+            {
+                <div style="margin-top: 42px;">
+                    <DisqusThread />
+                </div>
+            }
         </article>
+    </div>
 
-        @*
+    @*
     <div class="col-md-2">
     <div class="social mx-4">
     <FacebookShareButton Url="@NavigationManager.Uri" />
@@ -73,7 +83,7 @@ else
     </div>
     </div>
 *@
-    }
+}
 }
 
 @code {
@@ -92,7 +102,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         var uri = new Uri(NavigationManager.Uri);
-        if(uri.PathAndQuery.Contains("/blog")) 
+        if (uri.PathAndQuery.Contains("/blog"))
         {
             var newUri = NavigationManager.Uri.Replace("/blog", "/articles");
             NavigationManager.NavigateTo(newUri, replace: true);

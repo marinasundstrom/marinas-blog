@@ -113,43 +113,26 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Generics in Java vs .NET</h1><h3 class="post-subtitle mb-3" b-76by154q0w>A .NET developer&#x27;s perspective</h3><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-11" b-76by154q0w>11 Nov 2023</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Generics in Java vs .NET</h1><h3 class="post-subtitle mb-3" b-76by154q0w>A .NET developer&#x27;s perspective</h3><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-11" b-76by154q0w>11 Nov 2023</time> • 
                         17 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><h2 id="background">Background</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="background">
+<h2>Background</h2>
 <p>I'm a .NET developer, writing C# code. But 9 months ago, I joined a company whose code is almost exclusively Java. As I have gotten more into writing Java code, I have become more aware of the differences between Java and my beloved C#.</p>
 <p>Both Java and C# are at their core general-purpose object-oriented programming languages, with similar syntaxes, but there are some fundamental differences that are not apparent until you dig deeper. In particular, when coming to how generics has been implemented. It is not just about the language but their respective platforms and runtime environment.</p>
 <p>Java erases generic type arguments when compiling your Java code into bytecode, while .NET has implemented generics in the runtime, so it retains type arguments. This has a huge impact on the code you write - how flexible you can be.</p>
 <p>This article will walk you through generics in both languages - highlight the similarities as well as showing you the differences. We will use a comparative approach. There will be a lot of code samples.</p>
 <p>And I will provide my thoughts and opinions as a .NET developer.</p>
-<h2 id="contents">Contents</h2>
-<ol>
-<li><a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#what-is-generics">What is generics?</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
-<ol>
-<li><a href="/articles/generics-in-java-vs-dotnet#generic-classes">Generic classes</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#generic-methods">Generic methods</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#constraints">Constraints</a></li>
-</ol>
-</li>
-<li><a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
-<ol>
-<li><a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a></li>
-</ol>
-</li>
-<li><a href="/articles/generics-in-java-vs-dotnet#my-thoughts-on-type-erasure">My thoughts on type erasure</a></li>
-<li><a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a></li>
-</ol>
-<h2 id="terminology">Terminology</h2>
+</section>
+<section id="terminology">
+<h2>Terminology</h2>
 <p>Here is a list of some of the terms that will pop up during the course of this article:</p>
 <ul>
 <li><strong>Type parameter</strong> - The generic type parameter that takes a type as an argument.</li>
@@ -173,7 +156,9 @@
 </ul>
 <p>Some terms are more common in one language than the other.</p>
 <p>The terms <strong>extending</strong>, <strong>subclassing</strong>, <strong>inheriting from</strong> and <strong>deriving from</strong> all refer to a class taking on characteristics from another class, its <em>base class</em>, or <em>super class</em>.</p>
-<h2 id="what-is-generics">What is generics?</h2>
+</section>
+<section id="what-is-generics">
+<h2>What is generics?</h2>
 <p>Generic programming, or "generics", is a style of programming in which types and functions take parameters of data types that get specified later. This allow us to <em>generalize</em> algorithms so that they work on different data types, as long as we can make sure they are compatible with the logic itself.</p>
 <p>This means that a generic type or a function get instantiated by taken a type argument, telling it what data type it either takes as input, output, or both.</p>
 <p>The first language that introduced generics was Ada in 1977. Later C++ came, and introduced <em>templates</em> as its version of generics. Both Java and C# are considered part of the C language family, together with C++.</p>
@@ -199,20 +184,28 @@ Swap(world, hello);
 std::cout &lt;&lt; world &lt;&lt; hello &lt;&lt; ‘\n’;  // Output is "Hello, World!".
 </code></pre>
 <p>First Java, and then C#, would iterate on the syntax.</p>
-<h3 id="generics-in-java">Generics in Java</h3>
+<section id="generics-in-java">
+<h3>Generics in Java</h3>
 <p>In 1995, Java was released. Generics was added in 2004 - in J2SE 5.0. It was implemented in the compiler by means of <em>type erasures</em>. All type parameters get removed as part of code compilation. Meaning that the JVM runtime doesn't know about type parameters. Type parameters are essentially replaced by type <code>Object</code>. This was to not introduce big changes that would break existing code. Collections, like <code>java.util.ArrayList</code> without specifying type parameters continued to work.</p>
 <p>In Java, only classes and interfaces may have type parameters.</p>
-<h3 id="generics-in.net">Generics in .NET</h3>
+</section>
+<section id="generics-in.net">
+<h3>Generics in .NET</h3>
 <p>.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic types, methods, and type arguments in the code that it executes.</p>
 <p>The types that can have generic type parameters are classes, structs, interfaces, and delegates.</p>
 <p>The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from <code>System.Collections.ArrayList</code> to <code>System.Collections.Generic.List&lt;T&gt;</code>.</p>
 <p>The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist <a href="https://en.wikipedia.org/wiki/Don_Syme">Don Syme</a>. He later came to create F#, a functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has since then continually borrowed from F# and the functional programming space.</p>
 <p>The current lead architect for the C# programming language at Microsoft, Mads Torgersen, was involved in developing Java, and in particular contributing to generics. So everything comes full circle. All languages are developed by borrowing features, skills, and talents. They are continuously improving to stay relevant.</p>
-<h2 id="syntax">Syntax</h2>
+</section>
+</section>
+<section id="syntax">
+<h2>Syntax</h2>
 <p>Let's go through the syntax of Java and C#, respectively, when it concerns generics</p>
-<h3 id="generic-classes">Generic classes</h3>
+<section id="generic-classes">
+<h3>Generic classes</h3>
 <p>When it comes to defining generic types, both Java and C# fundamentally have a pretty similar syntax. Not surprising because the designers of C# were initially inspired a lot by Java, which preceded C#, so of course they borrowed.</p>
-<h4 id="java">Java</h4>
+<section id="java">
+<h4>Java</h4>
 <p>This is what a generic class definition looks like in Java.</p>
 <pre><code class="language-java">class MyList&lt;T&gt; {
     public void add(T item) {
@@ -227,7 +220,9 @@ std::cout &lt;&lt; world &lt;&lt; hello &lt;&lt; ‘\n’;  // Output is "Hello,
 <p>With multiple parameters:</p>
 <pre><code class="language-java">class MyList&lt;T1, T2&gt; { }
 </code></pre>
-<h4 id="c">C#</h4>
+</section>
+<section id="c">
+<h4>C#</h4>
 <p>Here is the basic C# generic class definition:</p>
 <pre><code class="language-csharp">class MyList&lt;T&gt;
 {
@@ -243,16 +238,22 @@ std::cout &lt;&lt; world &lt;&lt; hello &lt;&lt; ‘\n’;  // Output is "Hello,
 <p>With multiple parameters:</p>
 <pre><code class="language-csharp">class MyList&lt;T1, T2&gt; { }
 </code></pre>
-<h3 id="instantiating-generic-types">Instantiating generic types</h3>
+</section>
+</section>
+<section id="instantiating-generic-types">
+<h3>Instantiating generic types</h3>
 <p>This section is about how you instantiate (create) objects of generic types.</p>
-<h4 id="java-1">Java</h4>
+<section id="java-1">
+<h4>Java</h4>
 <p>In Java, the type param of the expression assigned is optional as it is inferred from the target.</p>
 <pre><code class="language-java">MyList&lt;Foo&gt; list = new MyList&lt;&gt;();
 </code></pre>
 <p>But it is, of course, mandatory if you assign to <code>var</code>. (Java 17)</p>
 <pre><code class="language-java">var list = new MyList&lt;Foo&gt;();
 </code></pre>
-<h4 id="c-1">C#</h4>
+</section>
+<section id="c-1">
+<h4>C#</h4>
 <p>In C#, you have to provide the type param in the expression being assigned:</p>
 <pre><code class="language-csharp">MyList&lt;Foo&gt; list = new MyList&lt;Foo&gt;();
 
@@ -261,24 +262,34 @@ var list = new MyList&lt;Foo&gt;();
 <p>Unless you use this shorthand target-type initializer:</p>
 <pre><code class="language-csharp">MyList&lt;Foo&gt; list = new ();
 </code></pre>
-<h3 id="subclassing-inheritance">Subclassing (Inheritance)</h3>
+</section>
+</section>
+<section id="subclassing-inheritance">
+<h3>Subclassing (Inheritance)</h3>
 <p>The term <em>subclassing</em> refers to a class deriving from another class. Taking on its characteristics, while still being unique. In this case, from a generic class.</p>
-<h4 id="java-2">Java</h4>
+<section id="java-2">
+<h4>Java</h4>
 <pre><code class="language-csharp">class SuperList&lt;T&gt; extends MyList&lt;T&gt; { }
 
 class SuperListOfFoo extends MyList&lt;Foo&gt; { }
 </code></pre>
 <p>Of course, the same applies to implementing interfaces.</p>
-<h4 id="c-2">C#</h4>
+</section>
+<section id="c-2">
+<h4>C#</h4>
 <p>In C#, you can subclass from both open and closed generics types, and interfaces:</p>
 <pre><code class="language-csharp">class SuperList&lt;T&gt; : MyList&lt;T&gt; { }
 
 class SuperListOfFoo : MyList&lt;Foo&gt; { }
 </code></pre>
-<h3 id="generic-methods">Generic methods</h3>
+</section>
+</section>
+<section id="generic-methods">
+<h3>Generic methods</h3>
 <p>The main syntactical difference for generic method declarations is where the generic type parameter is placed.</p>
 <p>Later, you will also see examples of generic static methods in the context of reflection.</p>
-<h4 id="java-3">Java</h4>
+<section id="java-3">
+<h4>Java</h4>
 <p>Java places the generic parameter list before the return type. The designers probably wanted it to make it clear when it is a generic definition.</p>
 <pre><code class="language-java">class Utils {
     public &lt;T&gt; void add(T item) {
@@ -293,7 +304,8 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     }
 }
 </code></pre>
-<h5 id="issue-with-method-overloading">Issue with method overloading</h5>
+<section id="issue-with-method-overloading">
+<h5>Issue with method overloading</h5>
 <p>The overloading of methods with parameters of the same generic type, but with different arguments, is not valid due to type erasure.</p>
 <p>The following is ambiguous to the compiler:</p>
 <pre><code class="language-java">class Utils {
@@ -306,7 +318,10 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
 <pre><code class="language-java">public &lt;T&gt; void add(List&lt;Object&gt; item){ }
 </code></pre>
 <p>The way to solve this in Java is to not do overloading, and to instead give each method a unique name. For example: <code>addIntList</code>  <code>addStringList</code>.</p>
-<h4 id="c-3">C#</h4>
+</section>
+</section>
+<section id="c-3">
+<h4>C#</h4>
 <p>In C#, the generic parameter list comes after the name of the method. I guess so that the name of the method is in focus.</p>
 <pre><code class="language-csharp">class Utils
 {
@@ -316,7 +331,8 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     }
 }
 </code></pre>
-<h5 id="method-overloading">Method overloading</h5>
+<section id="method-overloading">
+<h5>Method overloading</h5>
 <p>As .NET retains information about generic type parameters, each method or type is unique by their arguments.</p>
 <p>So you can, unlike in Java, overload a method like this:</p>
 <pre><code class="language-csharp">class Utils
@@ -326,10 +342,15 @@ class SuperListOfFoo : MyList&lt;Foo&gt; { }
     public void Add&lt;T&gt;(List&lt;string&gt; item){ }
 }
 </code></pre>
-<h3 id="constraints">Constraints</h3>
+</section>
+</section>
+</section>
+<section id="constraints">
+<h3>Constraints</h3>
 <p>There are some significant difference when it comes to type parameter constraints, both in syntax and what the type systems of each platform support.</p>
 <p>In Java, this feature is referred to as "Bounded type parameters".</p>
-<h4 id="java-4">Java</h4>
+<section id="java-4">
+<h4>Java</h4>
 <p>In Java, the constraint is inlined with the type parameter.</p>
 <p>Here <code>T</code> is constrained to <code>Foo</code> (or derived classes):</p>
 <pre><code class="language-java">class Utils {
@@ -361,7 +382,9 @@ houses.add(new House());
 ArrayList&lt;Building&gt; buildings = houses;
 </code></pre>
 <p>.NET doesn't have wildcards, but there is covariance and contra-variance for interfaces using the <code>in</code> and <code>out</code> keywords prefixing the type parameter.</p>
-<h4 id="c-4">C#</h4>
+</section>
+<section id="c-4">
+<h4>C#</h4>
 <p>In C#, the type parameter constraints are placed after either the method name, or the parameter list of a method.There are also many more constraints available than in Java. (List below)</p>
 <pre><code class="language-csharp">class MyBag&lt;T&gt;
     where T : Foo, IComparable
@@ -447,11 +470,16 @@ ArrayList&lt;Building&gt; buildings = houses;
 </tbody>
 </table>
 <p>The <em>Nullable context</em> is a fancy way of saying that the feature called <em>"nullable reference types"</em> has been enabled (Nullable <code>Foo?</code> vs non-nullable <code>Foo</code>), and that the compiler will either warn or report an error if you pass a possible null value into a non-nullable variable.</p>
-<h2 id="java-type-erasure">Java Type erasure</h2>
+</section>
+</section>
+</section>
+<section id="java-type-erasure">
+<h2>Java Type erasure</h2>
 <p>Java works on <em>type erasure</em>. In places where types are being passed as type parameters, the compiler just throws away the information of what the type was - substitutes it with <code>Object</code>. Nothing will be emitted as part of compilation (the class files) that will tell you what type was used as an argument. But you will of course know if a class is a generic definition.</p>
 <p>Type safety on generic type parameters is only enforced at compile-time.</p>
 <p>The JVM has no runtime concept of an instantiated generic class (closed type). The discovery of type arguments is reliant on code trickery in order to persist that information for others to consume. We will dig into that soon.</p>
-<h3 id="examples-of-type-erasure">Examples of type erasure</h3>
+<section id="examples-of-type-erasure">
+<h3>Examples of type erasure</h3>
 <p>Here are some examples showing how type erasure works in Java.</p>
 <p>As said, type argument get erased, and places where type parameters are used they get replaced by type <code>Object</code>:</p>
 <pre><code class="language-java">List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
@@ -462,7 +490,8 @@ list.add(4);
 list.Add(4);
 </code></pre>
 <p>With the method <code>add(T item)</code> becoming <code>add(Object item)</code>. Technically, it already is to the runtime.</p>
-<h4 id="generic-methods-1">Generic methods</h4>
+<section id="generic-methods-1">
+<h4>Generic methods</h4>
 <p>Consider this generic method definition:</p>
 <pre><code class="language-java">&lt;T&gt; T foo(T arg) {}
 </code></pre>
@@ -476,10 +505,16 @@ list.Add(4);
 <pre><code class="language-java">void printList(List arg) {}
 </code></pre>
 <p>This also has implications for overloading on method parameters of types that take generic parameters, since type params are de-facto <code>Object</code>. That has already been explained in the Syntax section.</p>
-<h2 id="net-runtime-generics">.NET Runtime generics</h2>
+</section>
+</section>
+</section>
+<section id="net-runtime-generics">
+<h2>.NET Runtime generics</h2>
 <p>.NET has runtime support for generics. The generic type parameters are stored in the assembly - in the metadata together with the CIL bytecode. Upon executing a program, the CLR (.NET Runtime) loads all metadata, verifies it, and uses it to determine how to Just-in-time (JIT) compile the bytecode into machine code in a way that is optimized for the CPU of machine it is running on.</p>
 <p>The runtime is aware of generics, and make smart choices on how to allocate memory based on the type being passed as a type parameter.</p>
-<h2 id="generics-in-the-type-system">Generics in the type system</h2>
+</section>
+<section id="generics-in-the-type-system">
+<h2>Generics in the type system</h2>
 <p>Generics is built into the .NET unified type system, where a generic construct will have an <code>open</code> form, and potentially several <code>closed</code> (or instantiated) forms. Instantiations of a generic type are considered proper types in the .NET type system.</p>
 <p>This is an <em>open generic type</em> that has not taken on any type arguments yet:</p>
 <pre><code class="language-csharp">List&lt;T&gt;
@@ -494,16 +529,22 @@ void PrintList(List&lt;string&gt; arg) {}
 </code></pre>
 <p>This is not the case in Java, due to type erasure, as pointed out earlier in this article.</p>
 <p><strong>Side note:</strong> The mangled name of type in the metadata is <code>System.Collections.Generic.List`1</code>. This indicates that it is a generic type that has one type parameter - hence the <code> `1</code>. The name of the instantiated type is <code>System.Collections.Generic.List`1[System.String]</code>. It can be used to retrieve the <code>Type</code> using <code>Type.GetType(string name)</code>.</p>
-<h2 id="reflection">Reflection</h2>
+</section>
+<section id="reflection">
+<h2>Reflection</h2>
 <p>Reflection is the ability to reflect on your program and it's types and their members. In a managed runtime environment like .NET CLR, or the JVM, this is a service provided by the runtime in the form of an API.</p>
 <p>Reflection is a powerful feature that allows for meta programming. But it should be used carefully. Not knowing how the APIs work - where the allocation are - might lead to a performance hit. A general advice is that anything retrieved from the APIs should be cached and reused, so to not affect the performance of your application.</p>
-<h3 id="note-on-the-design-of-apis">Note on the design of APIs</h3>
+<section id="note-on-the-design-of-apis">
+<h3>Note on the design of APIs</h3>
 <p>I do think that the built in reflection API in .NET is very well designed. It is clean, an I prefer it before Java. Much is thanks to how consistent .NET is in treating types at runtime - of course, how it integrates generics.</p>
 <p>In .NET <code>Type</code> represents a specific type in the type system, whether it is a class, value type, or generic type. It can represent both open generic classes (<code>List&lt;&gt;</code>) and closed generic classes (<code>List&lt;int&gt;</code>).</p>
 <p>The API in Java, as we will see, is not that unified due to it's implementation of generics. You have to go through some extra hoops, make method calls and cast types, to retrieve the info about type parameters.</p>
-<h3 id="retrieve-information-about-a-type">Retrieve information about a type</h3>
+</section>
+<section id="retrieve-information-about-a-type">
+<h3>Retrieve information about a type</h3>
 <p>This section covers how to obtain information about a type from code, whether statically from its name, or via an object instance.</p>
-<h4 id="java-5">Java</h4>
+<section id="java-5">
+<h4>Java</h4>
 <p>Java primarily uses the <code>Class&lt;T&gt;</code> object which represents type information about a class. The <code>T</code> is the actual class. Det You obtain this object either through final <code>Foo.class</code> field on a class, or by doing <code>obj.getClass()</code> on an object.</p>
 <p>You can do <code>Foo.class</code> and <code>Bag&lt;&gt;.class</code> - but not <code>Bag&lt;Coffee&gt;.class</code> or <code>T.class</code>. Since generics is erased when code is compiled.</p>
 <pre><code class="language-java">Class&lt;Integer&gt; integerType = Integer.class
@@ -519,7 +560,9 @@ foo(Integer.class);
 <p>There is also a low level <code>Type</code> class, from which the <code>Class&lt;T&gt;</code> is derived.</p>
 <p>Just note, that since type parameters are erased, the generic args <code>&lt;Integer&gt;</code> of variable types may be optional - depending on your settings. Type parameters are seen as of type <code>Object</code> by the runtime.</p>
 <p><code>List&lt;T&gt;</code> in Java is an interface, while in C# <code>List&lt;T&gt;</code> is a class, implement <code>IList&lt;T&gt;</code>. In Java, the most common class implementing <code>List&lt;T&gt;</code> is <code>ArrayList&lt;T&gt;</code>.</p>
-<h4 id="c-5">C#</h4>
+</section>
+<section id="c-5">
+<h4>C#</h4>
 <p>In .NET have the <code>Type</code> class from which you can obtain information of a type at runtime, including generic type parameters, whether the class is open or closed. You have the <code>typeof(Foo)</code> operator which does work on generic types, both closed <code>typeof(Bag&lt;Coffee&gt;)</code>, and open <code>typeof(Bag&lt;&gt;)</code>. Even on the parameters <code>typeof(T)</code>. From an instance you get its <code>Type</code> by invoking <code>obj.GetType()</code>.</p>
 <pre><code class="language-csharp">var intType = typeof(int);
 var intListType = typeof(List&lt;int&gt;);
@@ -535,10 +578,15 @@ Foo&lt;int&gt;();
 </code></pre>
 <p>The <code>int</code> keyword is an alias for <code>Int32</code> which is a value type. In the type system of .NET, everything is an object, even values.</p>
 <p>In Java, <code>int</code> belongs to the primitive types, and has to be wrapped by the <code>Integer</code> class in order to be passed as an argument to a generic type parameter.</p>
-<h3 id="pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</h3>
+</section>
+</section>
+<section id="pass-information-about-a-type-parameter-into-a-method">
+<h3>Pass information about a type parameter into a method</h3>
 <p>This has been hinted at in previous samples.</p>
 <p>The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
-<h3 id="java-6">Java</h3>
+</section>
+<section id="java-6">
+<h3>Java</h3>
 <p>In Java, in order to pass type information of generic type argument into a method, you have to pass its <code>Class&lt;T&gt;</code> as a method parameter. This is due to type erasure, since the method can’t resolve that type.</p>
 <pre><code class="language-java">&lt;T&gt; void foo(Class&lt;T&gt; typeParam) {
     var name = typeParam.getSimpleName();
@@ -546,7 +594,8 @@ Foo&lt;int&gt;();
 
 Foo(Bar.class)
 </code></pre>
-<h4 id="c-6">C#</h4>
+<section id="c-6">
+<h4>C#</h4>
 <p>In C#, you can simply request the info about a parameter since it has been provided by the metadata and runtime. The CLR even knows about the constraints of respective parameter.</p>
 <pre><code class="language-csharp">void Foo&lt;T&gt;() 
 {
@@ -556,9 +605,13 @@ Foo(Bar.class)
 
 Foo&lt;Bar&gt;();
 </code></pre>
-<h3 id="retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</h3>
+</section>
+</section>
+<section id="retrieve-the-type-argument-of-a-generic-type">
+<h3>Retrieve the type argument of a generic type</h3>
 <p>So how would you retrieve the type argument of a generic type in respective language?</p>
-<h4 id="java-7">Java</h4>
+<section id="java-7">
+<h4>Java</h4>
 <p>This is how you retrieve the actual generic argument in Java:</p>
 <pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
 
@@ -570,7 +623,9 @@ Type typeArg = ((ParameterizedType) listClass.getGenericInterfaces()[0])
 var typeArgClass = (Class&lt;Object&gt;)typeArg;
 </code></pre>
 <p>You could also get the <code>Class</code> of a type using <code>Class.fromClass("java.util.ArrayList")</code> or <code>Class.fromClass("java.util.ArrayList&lt;Integer&gt;")</code>;</p>
-<h4 id="c-7">C#</h4>
+</section>
+<section id="c-7">
+<h4>C#</h4>
 <p>The approach is similar in C#, but the API a bit cleaner:</p>
 <pre><code class="language-csharp">List&lt;int&gt; list = new ();
 
@@ -583,9 +638,13 @@ Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 
 Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 </code></pre>
-<h3 id="invoke-a-generic-static-method">Invoke a generic static method</h3>
+</section>
+</section>
+<section id="invoke-a-generic-static-method">
+<h3>Invoke a generic static method</h3>
 <p>We will look into how to retrieve generic static methods and invoking them through reflection.</p>
-<h4 id="java-8">Java</h4>
+<section id="java-8">
+<h4>Java</h4>
 <p>Consider this generic static method in Java:</p>
 <pre><code class="language-java">class MyClass {
     public static &lt;T&gt; void myMethod(T value) {}
@@ -597,7 +656,9 @@ Type typeArg = listType.GetGenericArguments()[0]; // Type for Int32
 method.invoke(null, "Hello");
 </code></pre>
 <p>Due to the parameter being of type <code>Object</code>, you can pass objects of any type as argument without the runtime complaining.</p>
-<h4 id="c-8">C#</h4>
+</section>
+<section id="c-8">
+<h4>C#</h4>
 <p>C# retains type information for methods. You can retrieve information about an open generic methods, and then instantiate a closed version from it. The runtime will also validate arguments when invoking that method.</p>
 <pre><code class="language-csharp">class MyClass
 {
@@ -612,7 +673,10 @@ var myMethodString = myMethod.MakeGenericMethod(new [] { typeof(string) });
 myMethodString.Invoke(null, new [] { "Hello" });
 </code></pre>
 <p>If you provide an incompatible type as an argument when invoking the method, the runtime will throw an exception.</p>
-<h3 id="java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</h3>
+</section>
+</section>
+<section id="java-an-issue-with-serializers-and-generic-classes">
+<h3>Java: An issue with serializers and generic classes</h3>
 <p>As I wanted to serialize JSON in Java, I ran into some challenges.</p>
 <p>What if the desired class that you want to deserialize to has a generic type parameter. How do you pass that statically to the serialization method so that it knows what typ to deserialize to?</p>
 <p>I was using Jackson. And the API looks like this:</p>
@@ -663,20 +727,26 @@ JsonResponse&lt;User&gt; jsonResponse = objectMapper.readValue(json, javaType);
 <pre><code class="language-csharp">Type responseOfUser = typeof(JsonResponse&lt;&gt;).MakeGenericType([ typeof(User) ]);
 </code></pre>
 <p>The <code>[ typeof(User) ]</code> is a collection expression (Example: <code>[1, 2, 3]</code>) that will take on the collection type of the target parameter, which is <code>Object[]</code>. This syntax was introduced in C# 12, as a way to unify all the ways of initializing arrays and collections.</p>
-<h2 id="my-thoughts-on-type-erasure">My thoughts on type erasure</h2>
+</section>
+</section>
+<section id="my-thoughts-on-type-erasure">
+<h2>My thoughts on type erasure</h2>
 <p>Coming from .NET, I'm used to the runtime providing me all the type information when I need it. As .NET has a unified type system, I can retrieve the actual type of a parameter without any hassle.</p>
 <p>When I first encountered Java, back at college in 2010, I immediately found the concept of type erasure in Java limiting. I was a bit disappointed that I could not get the type arguments through reflection.</p>
 <p>Fast-forwarding to today, as I was getting more into generics and reflection when working on something that would be trivial to me in .NET, I became more aware of the differences.</p>
 <p>There is one popular programming language that succeeded in using type erasure in a smart way - namely, TypeScript.</p>
 <p>TypeScript is an extension of JavaScript that provides a structural type system which sits on top of the JavaScript type system. Neither the JavaScript language, or the runtimes, are aware of static types, and thus do not support for generics. So type annotations and generic type parameters get erased when the TypeScript code is compiled into pure JavaScript.</p>
 <p>Information about generic type arguments are not available in TypeScript. Though there have been proposals to introduce metadata and a mechanism to supply that information.</p>
-<h2 id="conclusion">Conclusion</h2>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>This concludes my exploration of generics in Java and C#.</p>
 <p>Having explored Java as a .NET develope, I do still prefer the way .NET runtime, the CLR, treats generic types, and types in general, at runtime. I have no problems with the syntax in Java, but it seems much harder to do advanced things without this extra type information at runtime. I simply can express it better in C# and .NET.</p>
 <p>Is type erasure and the subsequent lack of runtime support for generics really an issue?</p>
 <p>Not unless you write a framework that relies heavily on reflection - like a serializer - and you have to take generics into account. And of course for me as someone who is used to the runtime generics of .NET. Overall, it might be hard to get into it as a beginner, but you might advance in it, and learn stuff that few others master.</p>
 <p>I hope you liked this walkthrough.</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

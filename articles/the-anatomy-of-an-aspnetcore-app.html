@@ -113,35 +113,24 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>The anatomy of an ASP.NET Core app</h1><h3 class="post-subtitle mb-3" b-76by154q0w>Understanding the basic concepts</h3><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-09-07" b-76by154q0w>7 Sep 2023</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>The anatomy of an ASP.NET Core app</h1><h3 class="post-subtitle mb-3" b-76by154q0w>Understanding the basic concepts</h3><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-09-07" b-76by154q0w>7 Sep 2023</time> • 
                         11 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/ASP.NET%20Core" b-76by154q0w>ASP.NET Core</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web%20development" b-76by154q0w>Web development</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Razor" b-76by154q0w>Razor</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/the-anatomy-of-an-aspnetcore-app">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><h2 id="preface">Preface</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="preface">
+<h2>Preface</h2>
 <p>The goal of this article is to give someone who is new to ASP.NET Core an overview over the basic concepts of ASP.NET Core - by not going too much into technical details. Though, I will try to cover the essentials - Showing you the simplicity of the ASP.NET Core app model.</p>
 <p>If you come from NodeJS, and you have been using ExpressJS, then you might find many of the concepts familiar.</p>
 <p>Hopefully, you will find the examples useful in understanding what ASP.NET Core is about, and what you might be able to do with it.</p>
 <p>I have included some links at the end, if you want to go deeper into the topics.</p>
 <p><em>Parts of the article, specifically that about <em>Razor components</em>, is about the upcoming .NET 8. (To be released in November 2023)</em></p>
 <p><em>The article was updated on November 12, 2023 - Reflecting the changes to render modes</em></p>
-<h2 id="contents">Contents</h2>
-<ol>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-1">What is ASP.NET Core?</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-2">Hello World!</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3">Core concepts</a>
-<ol>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-1">Application</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-2">Request and Response</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-3">Route handlers</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-4">Middleware</a></li>
-</ol>
-</li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-4">Razor components</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-5">Native AOT compilation</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-6">Conclusion</a></li>
-<li><a href="/articles/the-anatomy-of-an-aspnetcore-app#section-7">Links</a></li>
-</ol>
 <h2 id="section-1">What is ASP.NET Core?</h2>
 <p>ASP.NET Core is a framework for building apps for the Web that run on the server, using .NET, and programming languages like C#. Running on the server means that it processes HTTP requests and produces HTTP responses.</p>
 <p>The framework gives you the tools and abstractions to facilities the generation server-side rendered HTML pages using Razor syntax, as well as the creation of Web APIs, serving data in formats such as JSON.</p>
@@ -192,7 +181,8 @@ app.Run();
 <p>The factory method <code>WebApplication.CreateBuilder</code> creates a builder that has default services added to it - such as the HTTP Server, and facilities for logging.</p>
 <p>Once the <code>WebApplication</code> object has been created in your code, you can start mapping routes to handlers, and add middleware to the pipeline - to add some behavior.</p>
 <p>And finally you can start the app, by calling <code>Run</code>.</p>
-<h4 id="dependency-injection">Dependency injection</h4>
+<section id="dependency-injection">
+<h4>Dependency injection</h4>
 <p>Dependency injection is built into ASP.NET Core. And it is with the builder that you register any dependencies that you want to go into the service container of the app.</p>
 <p>If you want to enable, for instance Open API, then you have to add services that allow for that. Usually you are provided with handy extension methods that do all that hard work for you. These often take delegates that can be used to configure those services.</p>
 <p>This is what dependency injection looks like when registering your own service:</p>
@@ -217,7 +207,9 @@ class Dog
 <p>The frameworks makes some object available through dependency injection, including <code>HttpContext</code>, and both <code>HttpRequest</code> and <code>HttpResponse</code> separately. The ones mentioned are scoped.</p>
 <h3 id="section-3-2">Request and Response</h3>
 <p>Since ASP.NET Core is used to build Web apps on the server, it deals with HTTP. That means processing HTTP Requests and producing HTTP Responses.</p>
-<h4 id="how-requests-are-processed">How requests are processed</h4>
+</section>
+<section id="how-requests-are-processed">
+<h4>How requests are processed</h4>
 <p>Requests are being processed in the following way by ASP.NET Core:</p>
 <ol>
 <li><em>Request</em> comes in</li>
@@ -226,7 +218,9 @@ class Dog
 <li><em>Response</em> is returned</li>
 </ol>
 <p>We will further explain the concepts later in this article.</p>
-<h4 id="httpcontext">HttpContext</h4>
+</section>
+<section id="httpcontext">
+<h4>HttpContext</h4>
 <p>Information about the current request and the response is encapsulated in the <code>HttpContext</code> object - which has properties representing both the <code>Request</code> and <code>Response</code>.</p>
 <p>You can read the request, and inspect its headers and content - to the determine what to do in either route handlers, or in middleware.</p>
 <p>You can then modify the response - setting the status code, writing to the body, and modifying the response headers</p>
@@ -271,12 +265,16 @@ public record FooResult(int Value);
 
 public record GreetingRequest(string Name);
 </code></pre>
-<h4 id="parameter-binding">Parameter binding</h4>
+</section>
+<section id="parameter-binding">
+<h4>Parameter binding</h4>
 <p>As demonstrated above, you can bind route parameters, query strings, and request bodies to parameters. You can also inject services as parameters, as seen earlier.</p>
 <p>And you can return both primitive values and complex objects, as well as results that modify the response and its status code.</p>
 <p>And worth noting that the default serialization format is JSON.</p>
 <p>Before the route handlers, middleware might be executed. We will have a look at Middlware later in this article.</p>
-<h4 id="results">Results</h4>
+</section>
+<section id="results">
+<h4>Results</h4>
 <p>A route handler might return a specific result object that modifies the response, its status code, and content. Examples of this is emitting a response with a status code like <code>400 BadRequest</code>, or <code>201 Created</code>, or for sending a file.</p>
 <p>The <code>TypedResults</code> factory class contains static methods for creating these result objects:</p>
 <pre><code class="language-csharp">using Microsoft.AspNetCore.Http.HttpResults;
@@ -301,7 +299,8 @@ app.Run();
 <p>Note that we can specify the return type for the lambda expression: <code>Results&lt;Ok&lt;int&gt;, BadRequest&gt;</code>.</p>
 <p>The type <code>Results&lt;TResult1,TResult2&gt;</code> acts as a discriminated union that makes it explicit what results the endpoint can and may return.</p>
 <p>Using result types will make your endpoints type-safe, and aid when generating Open API specifications (Swagger) - if that has been enabled.</p>
-<h5 id="bonus-improve-readability">Bonus: Improve readability</h5>
+<section id="bonus-improve-readability">
+<h5>Bonus: Improve readability</h5>
 <p>To simplify and improve readability of your code, you can import the static members of <code>TypedResult</code>, that is, the factory methods, into the current scope - like so:</p>
 <pre><code class="language-csharp">using static Microsoft.AspNetCore.Http.TypedResults;
 
@@ -314,7 +313,10 @@ app.MapGet("/helloworld", Results&lt;Ok&lt;string&gt;, BadRequest&gt; () =&gt;
     return Ok("Hello, World"!);
 });
 </code></pre>
-<h4 id="filters">Filters</h4>
+</section>
+</section>
+<section id="filters">
+<h4>Filters</h4>
 <p>A filter is a piece of code that runs after the route, or endpoint, has been resolved, but before the route handler has been invoked.</p>
 <p>Filters allow you to intercept, access parameters, and do some manipulation. The reasons for intercepting an endpoint might be logging, or validation of data.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
@@ -448,7 +450,9 @@ app.Run();
     &lt;li&gt;B&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-<h3 id="interactive-components">Interactive components</h3>
+</section>
+<section id="interactive-components">
+<h3>Interactive components</h3>
 <p>Although Razor components are server-side rendered by default, you can make them interactive. You can build an entire interactive SPA (Single-page application) with routable pages if you so want.</p>
 <p>Interactive apps are more commonly known as Blazor apps. Blazor is the product name. Though the name dates back to the early prototype.</p>
 <p>With Blazor, you basically get the choice of running the component on the server, or in the browser using WebAssembly. These are called <em>Render modes</em>.</p>
@@ -545,7 +549,9 @@ app.Run();
 <li><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-8.0">ASP.NET Core Razor components</a></li>
 <li><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/native-aot?view=aspnetcore-8.0">ASP.NET Core support for native AOT</a></li>
 </ul>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

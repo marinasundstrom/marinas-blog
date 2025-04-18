@@ -113,17 +113,18 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>JavaScript interop in .NET on WebAssembly</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2019-10-20" b-76by154q0w>20 Oct 2019</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>JavaScript interop in .NET on WebAssembly</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2019-10-20" b-76by154q0w>20 Oct 2019</time> • 
                         5 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/WebAssembly" b-76by154q0w>WebAssembly</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/WASM" b-76by154q0w>WASM</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/JavaScript" b-76by154q0w>JavaScript</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Blazor" b-76by154q0w>Blazor</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/js-interop-in-dotnet-wasm">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><blockquote>
-<p>This article was written back in 2019-06-15.</p>
-</blockquote>
-<p>This article is about JavaScript interop in .NET on WebAssembly in the context of Blazor.</p>
-<p>Since WASM development, at least, is about the web we will assume that we can do some interop with the browser, like DOM manipulation. But how?</p>
-<h2 id="javascript-interop-in-blazor">JavaScript interop in Blazor</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="javascript-interop-in-blazor">
+<h2>JavaScript interop in Blazor</h2>
 <p>If you want to interop with JavaScript today, you are most likely writing a Blazor app.</p>
 <p>In fact, Blazor on client-side (browser) is itself implemented with JavaScript interop, for rendering to the DOM, since WebAssembly does not not provide direct access to the DOM API:s.</p>
 <p>To do JS Interop you inject and instance of the <em>JSRuntime</em> object.</p>
@@ -159,7 +160,8 @@ var name = await JSRuntime.InvokeAsync&lt;string&gt;(
 <pre><code class="language-csharp">await JSRuntime.InvokeAsync&lt;object&gt;(
     "exampleJsFunctions.nullReturningAction");
 </code></pre>
-<h3 id="javascript-to.net">JavaScript to .NET</h3>
+<section id="javascript-to.net">
+<h3>JavaScript to .NET</h3>
 <p>Sometimes you want to call into .NET from JavaScript. This is also fully supported.</p>
 <p>On the JavaScript side you have the <em>DotNet</em>. It will give you the tools to interop with .NET.</p>
 <p>Like invoking a method:</p>
@@ -192,7 +194,9 @@ var name = await JSRuntime.InvokeAsync&lt;string&gt;(
 };
 </code></pre>
 <p>As you can see, it even marshalls the .NET Array as an JavaScript array.</p>
-<h3 id="passing.net-references-to-javascript">Passing .NET references to JavaScript</h3>
+</section>
+<section id="passing.net-references-to-javascript">
+<h3>Passing .NET references to JavaScript</h3>
 <p>You can also pass .NET object references to JavaScript, and invoke its members from there.</p>
 <p>Using this API, you wrap an object reference:</p>
 <pre><code class="language-csharp">DotNetObjectRef.Create(obj);
@@ -224,7 +228,10 @@ var name = await JSRuntime.InvokeAsync&lt;string&gt;(
   }
 };
 </code></pre>
-<h2 id="capture-dom-element-references">Capture DOM Element references</h2>
+</section>
+</section>
+<section id="capture-dom-element-references">
+<h2>Capture DOM Element references</h2>
 <p>In Blazor you can capture references to elements that you then can pass to JavaScript.</p>
 <pre><code class="language-csharp">&lt;input @ref="username" ... /&gt;
 
@@ -279,7 +286,9 @@ var name = await JSRuntime.InvokeAsync&lt;string&gt;(
     }
 }
 </code></pre>
-<h2 id="dom-interop-and-the-future">DOM interop and the Future</h2>
+</section>
+<section id="dom-interop-and-the-future">
+<h2>DOM interop and the Future</h2>
 <p>Right now, there is no clear way of interoping with the Browser API:s, such as the DOM. You have to write your own glue code, as there is not yet an officially supported binding.</p>
 <p>However, work is being done to enable to easily bind .NET objects to JavaScript objects. That will lead the way for better experience in interop with the DOM.</p>
 <p>Most of the innovation around WASM on .NET is happening in the <a href="https://github.com/mono/mono/blob/75741eb68d902f244db0769ec783211e35aa5cda/sdks/wasm/">repository</a> of the Mono project.</p>
@@ -452,15 +461,20 @@ geoLocation.GetCurrentPosition();
 geoLocation = null;
 </code></pre>
 <p>Then, imagine generating a class library for the whole Web browser API from existing TypeScript type definitions. The progress can be tracked in <a href="https://github.com/mono/mono/issues/10775">this issue</a> in the Mono repo.</p>
-<h2 id="conclusion">Conclusion</h2>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>As you can see, there are a number of ways to interop between .NET and JavaScript when targeting WebAssembly. It will be even better when there is a binding to the Browser API:s.</p>
 <p>The future looks promising.</p>
-<h2 id="references">References</h2>
+</section>
+<section id="references">
+<h2>References</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/javascript-interop">Blazor JavaScript interop</a> - ASP.NET Core Documentation</li>
 <li><a href="https://github.com/mono/mono/tree/75741eb68d902f244db0769ec783211e35aa5cda/sdks/wasm">Mono WASM SDK</a> - Mono on GitHub</li>
 </ul>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

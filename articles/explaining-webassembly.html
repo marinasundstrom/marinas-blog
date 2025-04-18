@@ -113,53 +113,71 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Explaining WebAssembly</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2019-05-25" b-76by154q0w>25 May 2019</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Explaining WebAssembly</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2019-05-25" b-76by154q0w>25 May 2019</time> • 
                         3 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/WebAssembly" b-76by154q0w>WebAssembly</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web" b-76by154q0w>Web</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/explaining-webassembly">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>There has been a lot of talk about WebAssembly lately. But what is it really?</p>
-<p>In this article we will have a look at the technology and the benefits it brings for developers.</p>
-<img src="https://github.com/marinasundstrom/articles/blob/master/assets/wasm_logo.png?raw=true" alt="WebAssembly Logo" width="150">
-<h2 id="background">Background</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="background">
+<h2>Background</h2>
 <p>Programming the Web has for a long time been limited to using <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>. It is true that in the early days we had proprietary browser plugins, like <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>, <a href="https://en.wikipedia.org/wiki/Adobe_Flash">Flash</a> or <a href="https://en.wikipedia.org/wiki/Microsoft_Silverlight">Silverlight</a>. There has been no standard for targeting the web using any other programming language than JavaScript.</p>
 <p>Due to its long-time status as the exclusive language of the Web, JavaScript has been widely used as a compilation target for other languages - <a href="https://en.wikipedia.org/wiki/CoffeeScript">CoffeScript</a>) might come to mind. That is why it has been nicknamed the <em>"Assembly language of the Web"</em>.</p>
 <p>Another early initiative was the <a href="https://en.wikipedia.org/wiki/Emscripten">Emscripten</a> toolchain project that enabled for C/C++ code to be compiled into JavaScript. Further attempts in trying to improve  performance gave birth to <a href="https://en.wikipedia.org/wiki/Asm.js">ASM.js</a>, a highly optimized version of JavaScript that layed the foundation for WebAssembly.</p>
-<h2 id="what-is-webassembly">What is WebAssembly?</h2>
+</section>
+<section id="what-is-webassembly">
+<h2>What is WebAssembly?</h2>
 <p><a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a> (or Wasm, for short) is set of open web standards that define a portable binary format for a stack-based execution environment (a <a href="https://en.wikipedia.org/wiki/Virtual_Machine">Virtual Machine</a>, or VM). It is analogous to the <a href="https://en.wikipedia.org/wiki/Java_Bytecode">Java Bytecode</a>, or <a href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">CIL/MSIL</a> of .NET.</p>
 <p>The motivation for creating the Wasm standard is to enable languages other than JavaScript to target the Web. It therefore serves as a low-level compilation target. Most developers will probably not write in Wasm, but rather compile their existing code to this new binary format.</p>
 <p>Wasm has been designed with JavaScript interop in mind. Currently (at the time of writing), there is no direct way of accessing the browser's Web API:s. So if you want to manipulate the <a href="https://en.wikipedia.org/wiki/Document_Object_Model">HTML DOM</a>, or use <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a>, then you have to write some "glue code" in JavaScript.</p>
 <p>Still being worked on, for another iteration of the standard, is support for <em>threading</em> and <em>garabage collection</em> (GC). That is expected to be finalized in the near future.</p>
 <p>There is a system interface, called <a href="https://wasi.dev/">WASI</a> that serves as a interface for the host platform.</p>
 <p>All modern web browsers support WebAssembly. When targeting older browsers, like for example Internet Explorer, it can be easily polyfilled using ASM.js.</p>
-<h2 id="targeting-webassembly">Targeting WebAssembly</h2>
+</section>
+<section id="targeting-webassembly">
+<h2>Targeting WebAssembly</h2>
 <p>The simplest and most clearest reason for targeting WebAssembly involves some existing C/C++ code that you want to leverage in your web app.</p>
 <p>To compile that code you would use <a href="https://emscripten.org/">Emscripten</a>. The project provides a LLVM backend for WebAssembly that also will generate the necessary glue code.</p>
 <p>There are many other languages and platforms targeting WebAssembly. Rust is one of them that directly <a href="https://rustwasm.github.io/">targets WebAssembly</a>.</p>
 <p>Then there is also <a href="https://www.mono-project.com/">Mono</a>, the portable .NET runtime, a virtual machine, that has been compiled to <a href="https://www.mono-project.com/news/2017/08/09/hello-webassembly/">WebAssembly</a>.</p>
 <p>Microsoft is developing a client-side web component framework, called <a href="http://www.blazor.net/">Blazor</a>, written in C#. It is running on Mono, on WebAssembly, in the browser.</p>
-<h2 id="use-cases">Use Cases</h2>
+</section>
+<section id="use-cases">
+<h2>Use Cases</h2>
 <p>WebAssembly lets developers leverage existing code on the Web, without having to rewrite any logic in JavaScript and suffer in performance.</p>
 <p>Using Wasm as a compilation target, many companies have now been able to port their apps to the web and earned performance gains, compared to when using JavaScript and ASM.js as a compilation target.</p>
 <p>Some notable examples are <a href="https://www.infoq.com/presentations/autocad-webassembly">AutoCAD</a> and SketchUp apps. Even eBay is <a href="https://www.ebayinc.com/stories/articless/tech/webassembly-at-ebay-a-real-world-use-case/">using WebAssembly</a>.</p>
 <p>You will find an extensive list of use cases <a href="https://webassembly.org/docs/use-cases/">here</a>.</p>
-<h2 id="will-webassembly-replace-javascript">Will WebAssembly replace JavaScript?</h2>
+</section>
+<section id="will-webassembly-replace-javascript">
+<h2>Will WebAssembly replace JavaScript?</h2>
 <p>WebAssembly is not a replacement for JavaScript. It enables for other languages to target the Web, and expands the capabilities of the Web as a platform.</p>
 <p>JavaScript could theoretically target WebAssembly. In fact, there are JavaScript engines running on WebAssembly.</p>
-<h2 id="not-only-for-the-web">Not only for the Web</h2>
+</section>
+<section id="not-only-for-the-web">
+<h2>Not only for the Web</h2>
 <p>Despite the name, WebAssembly is not tied to the Web, or JavaScript for that matter.</p>
 <p>There are a couple of projects in which they are developing standalone runtimes that run WebAssembly outside the browser, similar to what NodeJS does with JavaScript. Some with specialized goals, like running directly in kernel mode to be as performant as possible.</p>
 <p><a href="https://wasmer.io/">Wasmer</a>, by Mozilla, is one of these standalone runtimes. It comes with a package manager, the <a href="https://wapm.io/">Wapm</a>. Using it, you can download apps like <a href="https://en.wikipedia.org/wiki/Nginx">Nginx</a> and <a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore">JavaScriptCore</a> (MacOS's JS engine), and immediately run them on any platform using Wasmer.</p>
 <p>The WebAssembly ecosystem is being developed in the open. This shows how much effort and investment is going into it as a platform.</p>
-<h2 id="what-about-nodejs">What about NodeJS?</h2>
+</section>
+<section id="what-about-nodejs">
+<h2>What about NodeJS?</h2>
 <p>Users of <a href="https://nodejs.org/">NodeJS</a> should not worry. Full stack JavaScript will not die very soon. It will continue to flourish as there is already a lot of investment in the ecosystem.</p>
 <p>But we might see a shift in the tooling ecosystem, since JavaScript/NodeJS no longer will be the only platform for building full stack web apps.</p>
 <p>WebAssembly will greatly benefit those projects that have a dependency on native addons. Avoiding all of the hassle having to target each platform and architecture (Linux, MacOS, Windows etc), the C/C++ code will simply be compiled into WebAssembly instead.</p>
 <p>This is already being leveraged by psome opular NodeJS-based tools, including <a href="https://github.com/sass/node-sass">node-sass</a>, a tool for preprocessing CSS, that is dependant on the <a href="https://sass-lang.com/libsass">libsass</a> library which is written in C/C++.</p>
-<h2 id="conclusion">Conclusion</h2>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>WebAssembly is a new open and standardized way for other languages to target not just Web but many platforms.</p>
 <p>It will be interesting to see what the future will bring to this new platform.</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

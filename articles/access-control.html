@@ -113,36 +113,31 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Project Highlight: Access Control</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2021-11-16" b-76by154q0w>16 Nov 2021</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Project Highlight: Access Control</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2021-11-16" b-76by154q0w>16 Nov 2021</time> • 
                         2 minutes read
 
-</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Projects" b-76by154q0w>Projects</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web" b-76by154q0w>Web</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Distributed%20applications" b-76by154q0w>Distributed applications</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/access-control">#</span></h4></div></div></div></header><img src="/assets/accesscontrol.jpg" class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" /></div>
+</small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Projects" b-76by154q0w>Projects</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Web" b-76by154q0w>Web</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Distributed%20applications" b-76by154q0w>Distributed applications</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/access-control">#</span></h4></div></div></div></header><img src="/assets/accesscontrol.jpg" class="cover my-2 mt-3" style="max-height: 280px;width: 100%;object-fit: cover;" b-vvt2r16sun /></div>
 
-            <div class="inner container"><p>This is a short presentation about one of my dearest personal projects. The projects combines my passion for programming with my interest in software design - and my desire to learn.</p>
-<p>My main goal in this project was to learn more about building distributed applications - with some IoT. I also wanted to learn more about Microsoft Azure.</p>
-<hr>
-<p>Back in 2017, I was looking for some fun project to do in my spare time - but I needed a cool use case.</p>
-<p>Since I was working as a consultant at <a href="https://www.axis.com/">Axis</a> I had been exposed to the Internet of Things (IoT) while developing the on-device experiences. In particular, I had been working with their Access Control system. Its purpose is basically to guard physical access points, such as doors. Controlling the lock as well as a card reader. This was my inspiration for trying to build my own security system from scratch - using as Raspberry Pi and code written in .NET and C#.</p>
-<a href="/assets/accesscontrol.jpg">
-<img class="right" src="/assets/accesscontrol.jpg"></a>
-<p>At the time, there were already multiple open-source home security projects for Raspberry Pi, but I did not intend to compete with them. Remember, I was doing this for fun.</p>
-<p>My work started with getting some basic setup up and running. It started with wiring up sensors to Raspberry Pi to see if I could read some values. The first sensor was a magnet sensor. You align one part of the sensor on the door with another on the frame, and when he door opens the circuit is broken and current flows. Soon after, I introduced a RFID Card Reader.</p>
-<p>Based on my experience I had an idea of how to design my software. I had researched the domain and its terminology. Access Point is one such core concept. I enjoy learning about the domains that I work with. I think that domain knowledge it is important in order to build good software. You have to understand your software, what is expected from the users perspective - having a shared ubiquitous language.</p>
-<p>From there I started to implement the basic logic, and the communication flow between the AccessPoint (Raspberry Pi) and my AppService. In Blazor, I built a UI for controlling the system, and to follow the access events in real time (“Access Log”). From the UI you could lock/unlock and arm/disarm the Access Point. You could also configure the access time. Data such as authorized cards and past events was stored into a database owned by the AppService.</p>
-<p>The AccessPoint service, running on the Raspberry Pi, was connected to Azure IoT Hub, and communicated with AppService using Notification Hub and Event Hub.</p>
-<p>I also built a mobile app using Xamarin.Forms. The functionality mirrored that of the Web UI. You could sign in and do essentially the same things, even configuring the access point.</p>
-<p>Configuring the environment for running the Access Point was not easy at the time. You had to run the services locally. There were no scripts for setting it up.</p>
-<h2 id="open-sourcing">Open Sourcing</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="open-sourcing">
+<h2>Open Sourcing</h2>
 <p>Back in 2019, I dusted off the <a href="https://github.com/marinasundstrom/AccessControl">code</a> and made it public on Github. I documented everything. There are details on how to build the setup and how to configure the services to run on Azure.</p>
 <p>I published this <a href="https://www.youtube.com/watch?v=VlSKTeJASYc">video</a> that shows the system in action.</p>
 
-<h2 id="recent-changes">Recent changes</h2>
+</section>
+<section id="recent-changes">
+<h2>Recent changes</h2>
 <p>In early 2021, I upgraded AccessControl to .NET 5  and did some major re-architecting. That primarily meant that I restructured the code according to Clean Architecture guidelines. This was to make it easier to follow the flow and easier to make changes. I also introduced Tye, which is a development-time orchestrator that manages Docker containers, much like Docker Compose does. This makes it easier than before to get all parts of the app running, with no manual configuration.</p>
 <p>In its current state, Access Control could be considered having a microservice architecture. I sure have learned a lot from this project, and I have learned even more since.</p>
 <p>I like revisiting old projects and make them better. My next step for Access Control would be to decouple it from Azure by introducing an abstraction such as <a href="https://masstransit-project.com">MassTransit</a>. I love that framework so much since it makes asynchronous messaging between microservices so much easier.</p>
 <p>I'm also considering archiving this project soon.</p>
 <p>As mentioned, the code is open source at GitHub. <a href="https://github.com/marinasundstrom/AccessControl">Have a look</a>!</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

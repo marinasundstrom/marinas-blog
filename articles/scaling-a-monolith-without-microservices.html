@@ -113,18 +113,21 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Scaling a Monolith - without Microservices</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2021-09-06" b-76by154q0w>6 Sep 2021</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Scaling a Monolith - without Microservices</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2021-09-06" b-76by154q0w>6 Sep 2021</time> • 
                         3 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Software%20engineering" b-76by154q0w>Software engineering</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Distributed%20applications" b-76by154q0w>Distributed applications</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/scaling-a-monolith-without-microservices">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>One myth is that you need to "do" microservices in order to scale your service applications horizontally. This has prompted a lot of people to rewrite their existing monoliths into microservices.</p>
-<p>Don't get me wrong. There are benefits in microservices, but you need to understand the problems that the tools address before you start to use them - especially in an existing project. The cost of changing existing code might outrun the potential benefits in terms of the technical challenges and development time.</p>
-<p>A monolith implies that there is a single codebase.</p>
-<p>As a first step, when you want to scale an existing monolith, you should start by thinking about decoupling your functionality. It is totally possible to scale a monolith horizontally without dividing it into microservices.</p>
-<h2 id="the-scenario">The Scenario</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="the-scenario">
+<h2>The Scenario</h2>
 <p>Let us assume that you have an existing monolithic Service-oriented application (SOA) which handles a lot of stuff. It spans multiple domains in the field of a Mobile service provider: From device provisioning, subscriptions, and handing of payments. Allt the data is stored in a single database.</p>
-<h3 id="goals">Goals</h3>
+<section id="goals">
+<h3>Goals</h3>
 <p>The goals that you have are:</p>
 <ul>
 <li>You want to be able to change, version, and deploy individual parts of the software without interrupting the whole system.</li>
@@ -132,34 +135,52 @@
 <li>If one services is busy or goes down, you want a replica to step in.</li>
 </ul>
 <p>This puts some requirements in the way that we build software. But it does not automatically imply microservices.</p>
-<h3 id="bounded-contexts">Bounded Contexts</h3>
+</section>
+<section id="bounded-contexts">
+<h3>Bounded Contexts</h3>
 <p>The first thing you learn about microservices is that each "micro" service should have its own Bounded context, a fancy word for a determined boundary within a domain. For example, payments could be considered its own Bounded context. It is generally up to the Domain experts to identify these boundaries. Often in smaller projects, in which there are no designer or architect roles, developers are left to design and to organize code. Arguably, this is how we ended up with monoliths in the first place. Programmers get instructions and just write code - without a strategy.</p>
 <p>In the case of our example above, often you see that the Provisioning part of the service, might directly call into Subscription, which then calls Payments. This is introducing coupling and complexity.</p>
-<h2 id="the-remedy">The Remedy</h2>
-<h3 id="decoupling">Decoupling</h3>
+</section>
+</section>
+<section id="the-remedy">
+<h2>The Remedy</h2>
+<section id="decoupling">
+<h3>Decoupling</h3>
 <p>With the right mindset you can (re)write an application as a set of loosely-coupled functionality within one single codebase. That means that Subscriptions does not really have to know about, for instance, Payments. It knows that there is an interface for the Payment service but it does not have access the implementation.</p>
 <p>By building your project around sending Messages - like Commands and Events, you can make your single codebase more maintainable.</p>
 <p>Picture the the application like this: Subscription sends a CreateInvoice command/request. Provisioning listens for a SubscriptionChanged event. Who handles the commands or events is irrelevant to the producer - hence it is decoupled.</p>
-<h3 id="project-boundaries">Project boundaries</h3>
+</section>
+<section id="project-boundaries">
+<h3>Project boundaries</h3>
 <p>If you have not already, you can split the parts of the application (your services) into separate projects, while still referencing them from the main project. That will create a boundary between, for instance, Provision and Subscriptions, which can not directly access each ones implementations.</p>
 <p>How would you access functionality across these project boundaries?</p>
 <p>You put all your service contracts, interfaces, Data Transfer Objects (DTOs), Commands, etc in another project. That project is in its turn referenced by the consuming service. The contracts can then be used when wiring up Dependency Injection or using a Message Bus.</p>
-<h3 id="database">Database</h3>
+</section>
+<section id="database">
+<h3>Database</h3>
 <p>Another trait of microservices is that a service own its own data - meaning that only that service can directly insert into or update the database. In other words, the bounded context applies even here. In a monolith database it is totally possible to maintain boundaries using something like schemas. You can also enforce the boundaries at code level via a well defined Data Access layer.</p>
 <p>On top of this, you can scale the database itself using replication.</p>
-<h3 id="asynchronous-messaging">Asynchronous Messaging</h3>
+</section>
+<section id="asynchronous-messaging">
+<h3>Asynchronous Messaging</h3>
 <p>Regardless whether you have a microservice or a monolith, you can off-load internal communication between context by using out-off-process messaging, such as a message queue, like RabbitMQ. This way you can orchestrate messages across multiple consumers. This goes hand-in-hand with what was mentioned about "messaging" before.</p>
 <p>Example: Subscription will issue a CreateInvoice command/message to the queue, and Billing will consume (or handle) the message once available.</p>
 <p>Remember that a message is going to be handled by the first consumer that is available - be it a service, or an instance of a service.</p>
-<h3 id="scaling-horizontally">Scaling horizontally</h3>
+</section>
+<section id="scaling-horizontally">
+<h3>Scaling horizontally</h3>
 <p>To scale the functionality horizontally, you can run replicas of the service applications that are being fronted by a load balancers that redirects requests to any of the replicas that are available.</p>
 <p>To repeat, a microservice is based around a single bounded context. A monolith code base usually contains multiple contexts. If you logically separate them, you can isolate the functionality, to be able to turn it on and off. Then you can dedicate a certain instance to handling the bounded context for Subscription etc. You just disable the functionality of the other contexts in that particular instance,</p>
 <p>If you use asynchronous out-of-process messaging you can communicate with other instances. So you can invoke functionality that is enabled in other instances through messages. even if that is turned off in the current instance. If there are replicas, the message will be handled by the first instance available.</p>
 <p>This is how you achieve scaling in a monolithic application.</p>
-<h2 id="conclusion">Conclusion</h2>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>Keep in mind! Evolving an existing system towards microservices is a step by step process. And once you go from a monolith to having a set of microservices, you actually have a system. You have decoupled your application, increased maintainabilty of the components, but also increased complexity.</p>
 <p>Sometimes it is, in fact, easier to maintain a monolithic codebase. What makes a difference is how you design your application.</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

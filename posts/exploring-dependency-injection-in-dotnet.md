@@ -16,27 +16,6 @@ For the code to run in a Console application, you need to add a package referenc
 
 Though, ASP.NET Core already references that packages.
 
-## Contents
-
-1. <a href="/articles/exploring-dependency-injection-in-dotnet#what-is-dependency-injection">What is dependency injection?</a>
-2. <a href="/articles/exploring-dependency-injection-in-dotnet#what-is-inversion-of-control">What is inversion of control?</a>
-3. <a href="/articles/exploring-dependency-injection-in-dotnet#servicecollection">ServiceCollection</a>
-    1. <a href="/articles/exploring-dependency-injection-in-dotnet#adding-services">Adding services</a>
-    2. <a href="/articles/exploring-dependency-injection-in-dotnet#registering-unbound-generic-types">Registering unbound generic types</a>
-    3. <a href="/articles/exploring-dependency-injection-in-dotnet#assert-that-a-service-is-added-just-once">Assert that a service is added just once</a>
-    4. <a href="/articles/exploring-dependency-injection-in-dotnet#manipulating-the-service-collection">Manipulating the service collection</a>
-    5. <a href="/articles/exploring-dependency-injection-in-dotnet#service-lifetimes">Service lifetimes</a>
-4. <a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
-    1. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-an-instance-of-a-service">Resolving an instance of a service</a>
-    2. <a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a>
-    3. <a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a>
-    4. <a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a>
-    5. <a href="/articles/exploring-dependency-injection-in-dotnet#keyed-services">Keyed services</a>
-5. <a href="/articles/
-exploring-dependency-injection-in-dotnet#depdency-injection-in-aspnet-code">Dependency injection in ASP.NET Core</a>
-5. <a href="/articles/exploring-dependency-injection-in-dotnet#using-autofac-as-service-container">Using Autofac as service container</a>
-6. <a href="/articles/exploring-dependency-injection-in-dotnet#conclusion">Conclusion</a>
-
 ## What is Dependency injection?
 
 Dependency injection simply means that we inject a service (or dependency) into another class, like via constructors, or parameters.

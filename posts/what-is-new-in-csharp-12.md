@@ -12,14 +12,6 @@ One of the features have been previewed many years ago, and been long-awaited.
 
 A full list of all new language features can be found [here](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12).
 
-## Contents
-
-1. <a href="/articles/what-is-new-in-csharp-12#primary-constructors">Primary constructors</a>
-2. <a href="/articles/what-is-new-in-csharp-12#collection-expressions">Collection expressions</a>
-3. <a href="/articles/what-is-new-in-csharp-12#alias-any-type">Alias any type</a>
-4. <a href="/articles/what-is-new-in-csharp-12#default-parameters-for-lambdas">Default parameters for lambdas</a>
-
-
 ## Primary constructors
 
 This was a feature that was previewed many years ago - before Roslyn (Compiler-as-a-service). I adopted it in my code, then the design team decided not to proceed with it at that time. So I had to revert back.

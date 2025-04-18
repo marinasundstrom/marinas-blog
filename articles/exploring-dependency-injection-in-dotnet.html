@@ -113,45 +113,18 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Exploring dependency injection in .NET</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-09" b-76by154q0w>9 Nov 2023</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>Exploring dependency injection in .NET</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-09" b-76by154q0w>9 Nov 2023</time> • 
                         6 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/exploring-dependency-injection-in-dotnet">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>Microsoft provides a nifty set of dependency injection framework abstractions, as well as a default service container (IoC) implementation. Because of this architecture, it does however allow you to plug in your favorite dependency framework, like Autofac.</p>
-<p>We will cover the <code>ServiceCollection</code>, <code>ServiceProvider</code>, service lifetimes, and scopes.</p>
-<p>For the code to run in a Console application, you need to add a package reference:</p>
-<pre><code class="language-xml">&lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" /&gt;
-</code></pre>
-<p>Though, ASP.NET Core already references that packages.</p>
-<h2 id="contents">Contents</h2>
-<ol>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#what-is-dependency-injection">What is dependency injection?</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#what-is-inversion-of-control">What is inversion of control?</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#servicecollection">ServiceCollection</a>
-<ol>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#adding-services">Adding services</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#registering-unbound-generic-types">Registering unbound generic types</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#assert-that-a-service-is-added-just-once">Assert that a service is added just once</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#manipulating-the-service-collection">Manipulating the service collection</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#service-lifetimes">Service lifetimes</a></li>
-</ol>
-</li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#serviceprovider">ServiceProvider</a>
-<ol>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#resolving-an-instance-of-a-service">Resolving an instance of a service</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#resolving-all-instances-of-a-service-type">Resolving all instances of a service type</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#disposing-services">Disposing services</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#service-scopes">Service scopes</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#keyed-services">Keyed services</a></li>
-</ol>
-</li>
-<li><a href="/articles/
-exploring-dependency-injection-in-dotnet#depdency-injection-in-aspnet-code">Dependency injection in ASP.NET Core</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#using-autofac-as-service-container">Using Autofac as service container</a></li>
-<li><a href="/articles/exploring-dependency-injection-in-dotnet#conclusion">Conclusion</a></li>
-</ol>
-<h2 id="what-is-dependency-injection">What is Dependency injection?</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="what-is-dependency-injection">
+<h2>What is Dependency injection?</h2>
 <p>Dependency injection simply means that we inject a service (or dependency) into another class, like via constructors, or parameters.</p>
 <p>This is constructor injection, in which a dependency is injected as a parameter in the constructor:</p>
 <pre><code class="language-csharp">var todoService = new TodoService();
@@ -164,9 +137,13 @@ var todoController = new TodoController(todoService);
 <li><strong>Method parameter injection</strong> - as a parameter into a method</li>
 </ul>
 <p>The framework that is covered only supports constructor injection. But there are places like in Blazor, where services can be injected into properties. That is not ultimately handled by this framework, although it uses it.</p>
-<h3 id="unit-testing">Unit testing</h3>
+<section id="unit-testing">
+<h3>Unit testing</h3>
 <p>Dependency injection is especially useful when doing unit testing. Since you can pass mock instances into the class.</p>
-<h2 id="what-is-inversion-of-control">What is Inversion of control?</h2>
+</section>
+</section>
+<section id="what-is-inversion-of-control">
+<h2>What is Inversion of control?</h2>
 <p>The default way of creating ("newing up") an object in a class would be like this:</p>
 <pre><code class="language-csharp">class Foo 
 {
@@ -214,9 +191,12 @@ Console.WriteLine($"Same Boo: {bar == bar2}");
 <p>As you can see, <code>Bar</code> has a singleton lifetime, so there will only be one instance of it within the container.</p>
 <p>While <code>Foo</code> is transient, and a new instance is created each time when being requested.</p>
 <p>We will go through service lifetimes.</p>
-<h2 id="servicecollection">ServiceCollection</h2>
+</section>
+<section id="servicecollection">
+<h2>ServiceCollection</h2>
 <p>Let's dig into the service collection, what it is, and how to use it.</p>
-<h3 id="adding-services">Adding services</h3>
+<section id="adding-services">
+<h3>Adding services</h3>
 <p>In its simplest form you call a method:</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 
@@ -250,7 +230,9 @@ services.AddTransient(new Foo());
 services.Insert(0, new ServiceDescriptor(typeof(Foo), typeof(Foo), ServiceLifetime.Scoped));
 </code></pre>
 <p>The factory overload makes it possible to control service creation. It is a delegate that receives the actual <code>IServiceProvider</code> as an argument so you can resolve services, and return the created service.</p>
-<h3 id="registering-unbound-generic-types">Registering unbound generic types</h3>
+</section>
+<section id="registering-unbound-generic-types">
+<h3>Registering unbound generic types</h3>
 <p>You can register unbound (or open) generic types, and resolve a instance with type parameter.</p>
 <p>This is ideal for repositories, and factory types. The standard <code>ILogger&lt;T&gt;</code> interface has been registered this way.</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -270,21 +252,27 @@ interface IRepository&lt;T&gt; {}
 
 class Repository&lt;T&gt; : IRepository&lt;T&gt; {}
 </code></pre>
-<h3 id="assert-that-a-service-is-added-just-once">Assert that a service is added just once</h3>
+</section>
+<section id="assert-that-a-service-is-added-just-once">
+<h3>Assert that a service is added just once</h3>
 <p>The order you add dependencies will matter if you register the same service type twice.</p>
 <p>To prevent problems with double-registration you can use the <code>TryAdd</code> overloads that tries to add a service, and returns a boolean value telling whether the service was added, or not.</p>
 <pre><code class="language-csharp">bool added = services.TryAddTransient&lt;Foo&gt;(); // True
 bool added2 = services.TryAddTransient&lt;Foo&gt;(); // False
 </code></pre>
 <p>If you want to register and resolve multiple instances of the same service type, you can. We will talk about that down below.</p>
-<h3 id="manipulating-the-service-collection">Manipulating the service collection</h3>
+</section>
+<section id="manipulating-the-service-collection">
+<h3>Manipulating the service collection</h3>
 <p>It happens sometimes that you need to remove, replace, or reorder dependencies, during the registration. For that you can query for the service descriptor, and then remove the descriptor.</p>
 <pre><code class="language-csharp">services.AddScoped&lt;Foo&gt;();
 
 var serviceDescriptor = services.FirstOrDefault(descriptor =&gt; descriptor.ServiceType == typeof(Foo));
 services.Remove(serviceDescriptor);
 </code></pre>
-<h3 id="service-lifetimes">Service lifetimes</h3>
+</section>
+<section id="service-lifetimes">
+<h3>Service lifetimes</h3>
 <p>There are 3 service lifetimes that each determine the creation and lifetime of a requested service:</p>
 <ul>
 <li><strong>Singleton</strong> - there will be one shared instance of a service</li>
@@ -304,9 +292,13 @@ services.AddScoped&lt;Foo&gt;();
 </code></pre>
 <p>The overloads mentioned above are available for all variants.</p>
 <p>In order to be able to resolve instances, the lifetimes must be compatible. You can't resolve scoped services from singletons, for obvious reasons.</p>
-<h2 id="serviceprovider">ServiceProvider</h2>
+</section>
+</section>
+<section id="serviceprovider">
+<h2>ServiceProvider</h2>
 <p>The actual instances are created and managed by the <code>ServiceProvider</code>. You have already seen this is previous examples, but let's dive deeper into this.</p>
-<h3 id="resolving-an-instance-of-a-service">Resolving an instance of a service</h3>
+<section id="resolving-an-instance-of-a-service">
+<h3>Resolving an instance of a service</h3>
 <p>Here are the methods that can be used when resolving services:</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 
@@ -326,7 +318,9 @@ var foo2 = serviceProvider.GetService&lt;Foo&gt;();
 var foo3 = serviceProvider.GetRequiredService&lt;Foo&gt;();
 </code></pre>
 <p>You can't add or register new services to an existing service provider.</p>
-<h3 id="resolving-all-instances-of-a-service-type">Resolving all instances of a service type</h3>
+</section>
+<section id="resolving-all-instances-of-a-service-type">
+<h3>Resolving all instances of a service type</h3>
 <p>Sometimes you might have multiple services that are deriving from the same class, or implementing the same interface. So you register the implementing classes as having the same service type:</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 
@@ -342,11 +336,15 @@ var serviceProvider = services.BuildServiceProvider();
 </code></pre>
 <p>This is a common pattern in many frameworks. You might multiple handler classes or provider classes that participate in dependency injection.</p>
 <p>We can distinguish multiple instances with keyed services.</p>
-<h3 id="disposing-services">Disposing services</h3>
+</section>
+<section id="disposing-services">
+<h3>Disposing services</h3>
 <p>The framework will handle the disposal of any services, by calling <code>Dispose</code> on services that implement <code>IDisposable</code>.</p>
 <p>There is one exception though:</p>
 <p>When you provide an already instantiated object (Instance) that implements <code>IDisposable</code>, the container will not call the <code>Dispose</code> method. You just have to deal with it yourself, or register it as a factory.</p>
-<h3 id="service-scopes">Service scopes</h3>
+</section>
+<section id="service-scopes">
+<h3>Service scopes</h3>
 <p>You can limit a service's lifetime to scopes that you open in your app.</p>
 <p>In ASP.NET Core, each request has its own scope, to which certain services are bound. Meaning they get created when the request starts, and disposed when the request has finished. <code>HttpContext</code> is an example of such a service.</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -373,7 +371,9 @@ using(var scope = serviceProvider.CreateScope())
 }
 </code></pre>
 <p>As mentioned, you can't resolve scoped services from singletons.</p>
-<h3 id="keyed-services">Keyed services</h3>
+</section>
+<section id="keyed-services">
+<h3>Keyed services</h3>
 <p>From .NET 8 and on, you can register services with keys. Meaning that you can register multiple instances of the same service type with different keys.</p>
 <p>The keys themselves can be of any type of object, or value, not just strings.</p>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -401,7 +401,10 @@ public class Consumer([FromKeyedServices("foo1")] IFoo foo)
     
 }
 </code></pre>
-<h2 id="dependency-injection-in-asp.net-core">Dependency injection in ASP.NET Core</h2>
+</section>
+</section>
+<section id="dependency-injection-in-asp.net-core">
+<h2>Dependency injection in ASP.NET Core</h2>
 <p>ASP.NET Core has dependency injection and IoC built in. The <code>WebApplicationBuilder</code> has its own <code>ServiceCollection</code>, and the built app will have its own <code>ServiceProvider</code>.</p>
 <p>The framework will try to resolve endpoint parameters with the service provider.</p>
 <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
@@ -418,7 +421,9 @@ app.MapGet("/foo", (Foo foo) =&gt; foo.Name);
 app.Run();
 </code></pre>
 <p>There is also a generic app builder, without ASP.NET Core. It has a similar interface, but for console apps, and services.</p>
-<h2 id="using-autofac-as-service-container">Using Autofac as service container</h2>
+</section>
+<section id="using-autofac-as-service-container">
+<h2>Using Autofac as service container</h2>
 <p>With the introduction of keyed services, there is not as much of need to choose another service container - except for preferences. But the option to use, for instance, Autofac is there:</p>
 <pre><code class="language-c#">var builder = WebApplication.CreateBuilder(args);
 
@@ -446,10 +451,13 @@ public class MyApplicationModule : Module
 }
 </code></pre>
 <p>This will allow you to use the <code>IServiceProvider</code>abstraction with Autofac.</p>
-<h2 id="conclusion">Conclusion</h2>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>This was an introduction of dependency injection in .NET.</p>
 <p>Do you have any thoughts, or questions? Please, leave them below. :)</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

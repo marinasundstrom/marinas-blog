@@ -113,23 +113,18 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>What is new in C# 12</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-13" b-76by154q0w>13 Nov 2023</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>What is new in C# 12</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-11-13" b-76by154q0w>13 Nov 2023</time> • 
                         4 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/what-is-new-in-csharp-12">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>With the advent of .NET 8 (on November 14, 2023), and .NET Conf soon to take place, let's us see what the next version of C# (12) will bring to developers.</p>
-<p>C# 12 is a fairly minor update to the programming language. And I have picked out the features that I think are worth mentioning.</p>
-<p>One of the features have been previewed many years ago, and been long-awaited.</p>
-<p>A full list of all new language features can be found <a href="https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12">here</a>.</p>
-<h2 id="contents">Contents</h2>
-<ol>
-<li><a href="/articles/what-is-new-in-csharp-12#primary-constructors">Primary constructors</a></li>
-<li><a href="/articles/what-is-new-in-csharp-12#collection-expressions">Collection expressions</a></li>
-<li><a href="/articles/what-is-new-in-csharp-12#alias-any-type">Alias any type</a></li>
-<li><a href="/articles/what-is-new-in-csharp-12#default-parameters-for-lambdas">Default parameters for lambdas</a></li>
-</ol>
-<h2 id="primary-constructors">Primary constructors</h2>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="primary-constructors">
+<h2>Primary constructors</h2>
 <p>This was a feature that was previewed many years ago - before Roslyn (Compiler-as-a-service). I adopted it in my code, then the design team decided not to proceed with it at that time. So I had to revert back.</p>
 <p>So let's start from the basics.</p>
 <p>You are used to write you instance class constructors like so:</p>
@@ -175,7 +170,8 @@
 </code></pre>
 <p>But why did this feature take so long to implement?</p>
 <p>Simply because of priority, and that the rules as well as the way to implement it was unclear. The designers probably wanted to solve pattern matching and other stuff leading up to record types before this.</p>
-<h3 id="difference-from-record-types">Difference from Record types</h3>
+<section id="difference-from-record-types">
+<h3>Difference from Record types</h3>
 <p>Although the syntax is similar, a significant difference between record types and classes with primary constructors is that the constructor parameters of record types are properties, while for classes they are not. For the latter, you have to declare and assign the properties yourself, as shown below:</p>
 <pre><code class="language-csharp">record FooRecord(string Name);
 
@@ -200,7 +196,10 @@ var cls = new FooClass("Foo bar");
 var cls = new FooClass("Foo bar");
 var name = cls.Name
 </code></pre>
-<h2 id="collection-expressions">Collection expressions</h2>
+</section>
+</section>
+<section id="collection-expressions">
+<h2>Collection expressions</h2>
 <p>In C#, there are so many ways to initialize collections:</p>
 <pre><code class="language-csharp">int[] arr1 = new int [] { 1, 2, 3 };
 
@@ -234,14 +233,17 @@ ReadOnlySpan&lt;Foo&gt; objs = [ new Foo("Foo"), new Foo("Bar") ];
 </code></pre>
 <p>The feature supports any type with a collection initializer, or when the target type is providing a collection builder - via <code>CollectionBuilderAttribute</code>.</p>
 <p>There is also a code analyzer that suggest to you that you use collection expressions instead of the "old" initializers wherever applicable.</p>
-<h3 id="spreading">Spreading</h3>
+<section id="spreading">
+<h3>Spreading</h3>
 <p>Of course, you can spread one or more collections in a collection expressions:</p>
 <pre><code class="language-csharp">string[] vowels = ["a", "e", "i", "o", "u"];
 string[] consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
                        "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"];
 string[] alphabet = [.. vowels, .. consonants, "y"];
 </code></pre>
-<h3 id="alias-any-type">Alias any type</h3>
+</section>
+<section id="alias-any-type">
+<h3>Alias any type</h3>
 <p>Previously you hav been able to create aliases for simple type names and generic types.</p>
 <pre><code class="language-csharp">using Weight = double;
 using IntList = System.Collections.Generic.List&lt;int&gt;;
@@ -256,7 +258,9 @@ Matrix matrix = new double[,];
 matrix[1, 4] = 2.5;
 </code></pre>
 <p>I personally don't think that I will use this feature that much, but it is nice to have if I will ever need it.</p>
-<h3 id="default-parameters-for-lambdas">Default parameters for lambdas</h3>
+</section>
+<section id="default-parameters-for-lambdas">
+<h3>Default parameters for lambdas</h3>
 <p>Something that you haven't been able to do, but now can, is defining default parameters (aka optional parameters) for lambda expressions and delegates.</p>
 <pre><code class="language-csharp">var adder =&gt; (int a, int b = 1) =&gt; a + b;
 
@@ -276,7 +280,9 @@ app.MapPost("/greet", (string name) =&gt; $"Hello, {name}!");
 
 app.Run();
 </code></pre>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

@@ -113,52 +113,25 @@
         Auto
         <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg></button></li></ul></li></ul></li></ul></div></nav></header>
 
-    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><article class="post outer"><div class="inner container"><header b-76by154q0w><div class="mb-4" b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>C# features that Java doesn&#x27;t have</h1><div class="d-flex justify-content-between mb-4" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-04-14" b-76by154q0w>14 Apr 2023</time> • 
+    <main class="container flex-grow" b-1vlcskuc8v><article class="content" b-1vlcskuc8v><div class="main order-1 pb-5 container" b-vvt2r16sun><div class="intro" b-vvt2r16sun><header b-76by154q0w><div b-76by154q0w><h1 class="post-title mb-2" b-76by154q0w>C# features that Java doesn&#x27;t have</h1><div class="d-flex justify-content-between" b-76by154q0w><span b-76by154q0w><small class="mb-2 text-muted" b-76by154q0w><time datetime="2023-04-14" b-76by154q0w>14 Apr 2023</time> • 
                         23 minutes read
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/csharp-features-java-doesnt-have">#</span></h4></div></div></div></header></div>
 
-            <div class="inner container"><p>In this article I list some of the major features in C# and .NET that have no direct equivalent in Java. Some of the features are just mentioned because they are so essential and cool.</p>
-<p>I explain how stuff works and also demonstrate some in C# code.</p>
-<p>My goal has been to show some C# specific syntax without highlighting it, like expression-bodied methods and alternative syntax for initializing objects. You will also notice my alternating use of <code>var</code> for type inference.</p>
-<p>I'm aware that Kotlin, another Java platform language, has some of these features. So they are not entirely unavailable for Java developers. In fact, Kotlin is the recommended language for the Java Platform by Google.</p>
-<p>I hope that both C# and Java developers alike are enjoying this read. :)</p>
-<p><em>Don't get mad at me if there are any errors! Some of the code may not have been tested. ;)</em></p>
-<p><em>Updated on 8 Nov 2023, with details on equivalent to delegates in Java.</em></p>
-<h2 id="contents">Contents</h2>
-<ol start="0">
-<li><a href="/articles/csharp-features-java-doesnt-have#section-0">What is C# and .NET?</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-1">Entrypoint (Main method)</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-2">Global and Implicit usings</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-3">Reference types vs Value types</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-4">Properties</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-5">Operator overloading</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-6">Delegates</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-7">Extension methods</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-8">LINQ - Language Integrated Query</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-9">Async Await</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-10">Nullable types</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-11">Generics</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-12">Expression Trees</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-13">IQueryable</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-14">Unsafe code &amp; Pointers</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-15">Compiler as a Service</a></li>
-<li><a href="/articles/csharp-features-java-doesnt-have#section-16">Unified ecosystem</a></li>
-</ol>
-<h2 id="section-0">What is C# and .NET</h2>
-<p>C# (C Sharp) is a general-purpose imperative object-oriented programming language that debuted in 2001 when the .NET Framework was first released.</p>
-<p>Just like C++ is an increment of C, the name C# can be seen as an increment C++. There are four pluses forming a ligature in #. In musical language the # indicates that the written note should be a semitone higher in pitch.</p>
-<p>The language initially borrowed a lot of its syntax from Java, which was based on C++. The lead designer <a href="https://sv.wikipedia.org/wiki/Anders_Hejlsberg">Anders Hejlsberg</a> had previously worked on Microsoft's own implementation of Java: J++. But when that endeavour ended he started working on what would become C#. The language was supposed to be like Java for the new .NET Framework. There were influences from Visual Basic. Hejlsberg had earlier been building compilers for Pascal, Object Pascal and Delphi so he incorporated some influences from that.</p>
-<p>.NET itself is the software platform on which C# is based. It provides a managed execution environment, the Common Language Runtime (CLR), similar to Java Virtual Machine. Just like the JVM, the CLR executes  bytecode, and provide automatic memory management via a Garbage Collector. .NET has a Just-in-Time (JIT) compiler that compiles bytecode into machine code on the fly.</p>
-<p>.NET comes with a class library containing all the basic necessities, for string manipulation, file I/O, networking and threading etc. There is also a big ecosystem of open-source third-party packages on NuGet - the main distribution channel. And of course, there are the app frameworks for building Web, Mobile, and Desktop apps: ASP.NET Core and MAUI. You can also build games with Unity.</p>
-<p>Since its inception C# has shown to not be afraid of incorporating new features and ideas with roots in other programming paradigms. Adding extension methods and LINQ added a declarative element that made C# a functional programming language. And more and more features come from that space: recently record types and pattern matching.</p>
-<p>Since its open-sourcing back in 2016, .NET and C# has evolved even faster thanks to a vibrant community and ecosystem.</p>
-<h3 id="syntax">Syntax</h3>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+<hr class="my-2 ms-3" b-91g1tr0sf9>
+<nav id="TableOfContents" b-91g1tr0sf9></nav>
+<hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
+
+        <div class="content" b-vvt2r16sun><section id="syntax">
+<h3>Syntax</h3>
 <p>Core syntax was derived from Java or re-borrowed from C++ to appear and feel familiar to both audiences. From Object Pascal came Properties. Visual Basic influenced with Events used by app frameworks like WinForms.</p>
 <p>They added a host of stuff to C# and .NET that they previously added to Microsoft's defunct JVM for J++, such as support for delegates - type-safe method pointers.</p>
 <p>.NET APIs follow a CamelCase naming convention. Names in Java mostly start with lower case, except for class names.</p>
 <p>C# uses the Allman style indentation, curly braces are placed on separate lines, whereas Java uses ANSI indentation for their curly braces.</p>
-<h3 id="samples-style-comparison">Samples: Style comparison</h3>
+</section>
+<section id="samples-style-comparison">
+<h3>Samples: Style comparison</h3>
 <p>Here is a style comparison of equivalent code in C# and Java:</p>
 <p>C#:</p>
 <pre><code class="language-c#">namespace Starfleet;
@@ -195,7 +168,9 @@ Console.WriteLine(fileContent);
 <p>Compared to the traditional way (see below), this removes a lot of boilerplate code (classes, methods, braces) and frees horizontal space. Removing the object-oriented stuff that is not relevant to the entry point.</p>
 <p>The simplified syntax cleans up the code, makes it easier to read and understand, and easier for beginners to learn C#. Easier to prototype.</p>
 <p>Top-level statements makes a big difference in ASP.NET Core where all the setup code now is significantly reduced.</p>
-<h3 id="the-traditional-way">The traditional way</h3>
+</section>
+<section id="the-traditional-way">
+<h3>The traditional way</h3>
 <p>The traditional Main in a <code>Program.cs</code> would look like this:</p>
 <pre><code class="language-c#">using System;
 
@@ -219,7 +194,9 @@ class Program {
 }
 </code></pre>
 <p>The compiler basically looks for a static method named Main when determining what is to become the entrypoint.</p>
-<h3 id="did-you-know">Did you know?</h3>
+</section>
+<section id="did-you-know">
+<h3>Did you know?</h3>
 <p>That C# allows for .cs files to contain multiple type declarations and even namespaces. Java does only allow one class, interface or enum per .java file.</p>
 <h2 id="section-2">Global <code>using</code> and implicit "usings"</h2>
 <p>C# has a feature called <code>global using</code> which allows for using declaration (namespace imports) to be applied globally, to avoid having to add certain usings to every .cs file. Eliminating repetition.</p>
@@ -228,7 +205,9 @@ class Program {
 global using Foo.Bar;
 </code></pre>
 <p>The contents of the namespaces <code>SuperThingy</code>and <code>Foo.Bar</code> are now in scope in every file in the project.</p>
-<h3 id="implicit-usings">Implicit "usings"</h3>
+</section>
+<section id="implicit-usings">
+<h3>Implicit "usings"</h3>
 <p>Each SDK (ASP.NET Core etc) may choose to add their own implicit global usings to a project. For instance, a Console project implicitly uses <code>System</code> and a bunch of other commonly used namespaces that were previously being included in every source code file by default when created.</p>
 <p>These <code>using</code> are automatically added by the SDK.</p>
 <p>Implicit usings are now enabled by default in .csproj for new projects.</p>
@@ -238,7 +217,9 @@ global using Foo.Bar;
 <p>The stack is a block of memory that exists within the context of the executing method. It contains the data of the local variables: the value data and references to objects. Once the method has returned the stack will be “popped”. The heap is a space of memory that is managed by the garbage collector which also keeps track of the references. An object is a blob of structured data on the heap.</p>
 <p>For simplicity's sake, classes and interfaces are reference types, and types that are structs (incl. primitive types) or enums are value types.</p>
 <p>For a programer: the distinction between reference type and value type mainly affects how variables (and fields, and properties) behave for each class of type - how their value gets passed around. A variable holding a reference type will actually hold a reference to an object on the heap. As previously stated: Value types exist where they are allocated: on the stack or with an object.</p>
-<h3 id="reference-types">Reference types</h3>
+</section>
+<section id="reference-types">
+<h3>Reference types</h3>
 <p>Reference types are types that when instantiated result in an object being allocated on the managed heap. Objects are implicitly referred to by object reference, similar to the concept of a pointer but managed by the garbage collector.</p>
 <p>The value of the reference type variable is the reference. When assigning from one variable to another the reference to the object gets copied - not the object itself.</p>
 <p>A variable with a reference type is nullable - meaning that it can be set to <code>null</code> and thus not refer or point to any object instance. This is a potential source of error in many languages.</p>
@@ -255,7 +236,9 @@ Console.WriteLine(sb2); // Prints "Hello, World!"
 
 </code></pre>
 <p>Once an object is out of references it is marked for deletion and the heap memory is eventually reclaimed by the garbage collector (GC).</p>
-<h3 id="value-types">Value types</h3>
+</section>
+<section id="value-types">
+<h3>Value types</h3>
 <p>Value types are types that when instantiated IS the actual data. The variable holds the data as its value. This means that the value is copied when assigning a variable from another.</p>
 <p>When declared as a variable it only exists as long as its enclosing scope or method. Unless the value is declared as a field of an object on the managed heap.</p>
 <pre><code class="language-c#">int x = 42;
@@ -275,7 +258,9 @@ System.Int32 y = 42;
 <p>Since primitive types are recognized as Structs, you can use them as generic type parameters:</p>
 <pre><code class="language-c#">List&lt;int&gt; list = new (); // The same as List&lt;System.Int32&gt;
 </code></pre>
-<h3 id="structs-user-defined-value-types">Structs - User-defined value types</h3>
+</section>
+<section id="structs-user-defined-value-types">
+<h3>Structs - User-defined value types</h3>
 <p>User-defined value types can be defined as <code>struct</code> (keyword). They are similar to classes but with value semantics due to implicitly inheriting from <code>System.ValueType</code>. So structs are passed by value rather than by reference. And of course, they cannot inherit from other types due to its base class. Though structs can implement interfaces.</p>
 <pre><code class="language-c#">public struct Test 
 {
@@ -287,7 +272,9 @@ Test test = new Test();
 </code></pre>
 <p>A value is allocated once the variable has been declared. No need to explicitly call a constructor for that. It has a default constructor that is always being called. But you can define your own constructors.</p>
 <p>There is so much more to structs that doesn't fit into this article. But I thought they were worth mentioning.</p>
-<h3 id="history-fact-boxing">History fact: Boxing</h3>
+</section>
+<section id="history-fact-boxing">
+<h3>History fact: Boxing</h3>
 <p>Before generics, the type Object was heavily used by collection classes since there were no type parameters. Every collection type had to store and retrieve any item from an array of Object (<code>object[]</code>) - then the programmer had to cast the object into the appropriate type. And if an item was of a value type that implied boxing and unboxing them on the managed heap. This had big implications on how you wrote code when dealing with complex value types such as structs. You could not just change a property of a struct in a list since you had to unbox the value and thus copy it to the stack.</p>
 <p>However, this is not something that programmers have to deal with today. Writing this article just reminded me about this fact.</p>
 <h2 id="section-4">Properties</h2>
@@ -336,7 +323,9 @@ foo.Name = "Bob"; // You don't have access to the setter.
 <p>Java has no special syntax for properties. Properties in Java is a method naming convention using "Get" and "Set" as prefixes. Otherwise, they are normal methods to be called as such.</p>
 <p>Beware! There are places in the .NET frameworks where you see methods like <code>int GetFoo()</code> and <code>void SetFoo(int value)</code>. But .NET properties are preferred.</p>
 <p>Under the hood, .NET properties are methods, just that they are represented in a specific way.</p>
-<h3 id="auto-implemented-properties">Auto-implemented properties</h3>
+</section>
+<section id="auto-implemented-properties">
+<h3>Auto-implemented properties</h3>
 <p>Auto-implemented properties allows you to define data properties with implicit backing fields without having to implement the accessors yourself.</p>
 <pre><code class="language-c#">public class Foo 
 {
@@ -351,7 +340,9 @@ foo.Name = "Bob"; // You don't have access to the setter.
 <h2 id="section-5">Operator overloading</h2>
 <p>C# allows you to overload an entire host of operators on your classes and structs. Making your code much more expressive with custom equality semantics. This feature is also useful when implementing your own algebraic types.</p>
 <p>Operator overloads come in two variants implicit and explicit (eg. <code>(int)x</code>) cast operators and overloading binary arithmetic and comparison operators.</p>
-<h3 id="overloading-binary-operators">Overloading binary operators</h3>
+</section>
+<section id="overloading-binary-operators">
+<h3>Overloading binary operators</h3>
 <p>Binary operators require you to overload pairs (+ and -, == and != etc). When overloading equality and comparison operators it is recommended that you overload the <code>Equals</code> method inherited from <code>Object</code>.</p>
 <pre><code class="language-c#">public sealed class Foo
 {
@@ -378,9 +369,12 @@ Foo foo2 = new (3)
 
 var result = foo1 + foo2; // result.Value == 5
 </code></pre>
-<h3 id="casting-operators">Casting operators</h3>
+</section>
+<section id="casting-operators">
+<h3>Casting operators</h3>
 <p>Casting operators allow you to define static methods that cast objects either implicitly by assigning or explicitly with the cast operator syntax.</p>
-<h4 id="implicit-cast-by-assigning-to-variable-of-target-type">Implicit cast by assigning to variable of target type</h4>
+<section id="implicit-cast-by-assigning-to-variable-of-target-type">
+<h4>Implicit cast by assigning to variable of target type</h4>
 <pre><code class="language-c#">public class Foo1 
 {
     public static implicit operator Foo2(Foo1 foo) =&gt; new Foo2(foo.Value);
@@ -389,7 +383,9 @@ var result = foo1 + foo2; // result.Value == 5
 Foo1 foo1 = new ();
 Foo2 foo2 = foo1;
 </code></pre>
-<h4 id="explicit-cast-operator">Explicit cast operator</h4>
+</section>
+<section id="explicit-cast-operator">
+<h4>Explicit cast operator</h4>
 <pre><code class="language-c#">public class Foo2
 {
     public static explicit operator Foo1(Foo2 foo) =&gt; new Foo1(foo.Value);
@@ -461,7 +457,10 @@ public class Main {
 }
 </code></pre>
 <p>The end result is similar to .NET, but without delegates. It captures variables as fields in a hidden compiler-generated class containing the actual method.</p>
-<h3 id="events">Events</h3>
+</section>
+</section>
+<section id="events">
+<h3>Events</h3>
 <p>Delegates are used for Events in .NET - which are to delegates what properties are to fields. They restrict access to a delegate instance. Events are commonly used by UI frameworks like Windows Forms and WPF.</p>
 <p>This sample shows an auto-implemented event. Though you could implement the <code>add</code> and <code>remove</code> accessors yourself.</p>
 <pre><code class="language-c#">public class Car 
@@ -492,7 +491,9 @@ car.Start();
     }
 }
 </code></pre>
-<h3 id="did-you-know-1">Did you know?</h3>
+</section>
+<section id="did-you-know-1">
+<h3>Did you know?</h3>
 <p>Delegates have been part of .NET since version 1.0.</p>
 <p>Delegates can represent both static methods and instance methods. And you can retrieve information about both the method and the target object.</p>
 <pre><code class="language-c#">Action action = () =&gt; Console.WriteLine("Foo");
@@ -585,7 +586,9 @@ record Person(string FirstName, string LastName, int Age)
 <h2 id="section-9">Async Await</h2>
 <p>.NET has a Task-based model for asynchronous operations. It is similar to promises in JavaScript and Futures in other languages.</p>
 <p>An asynchronous method returns a Task which signals to the caller when the operation is completed or have failed, resulting in an exception. The API provides methods for specifying callbacks for continuations that handle the Task.</p>
-<h3 id="await-statement"><code>await</code> statement</h3>
+</section>
+<section id="await-statement">
+<h3><code>await</code> statement</h3>
 <p>C# provides provides syntax that simplifies the consumption of Tasks. The <code>await</code> statement lets you await tasks and in that way deal with asynchronous code as it were synchronous.</p>
 <p>Await statements can only occur within methods marked with the <code>async</code> modifier, unless it is at top-level.</p>
 <pre><code class="language-c#">async Task DownloadPage() 
@@ -620,7 +623,9 @@ var result = await DownloadPage();
 <p>Java doesn't have a native <code>await</code> feature similar to the one in C#. Though there is a <code>Future</code> type, analogous to a <code>Task</code> in .NET.</p>
 <p>Kotlin has coroutines, but no equivalent syntax.</p>
 <p>Java 21 is introducing lightweight <em>virtual threads</em>, which are threads that the JVM will create and manage - not the operating system. Eliminating the need for writing asynchronous code, since the JVM handles that for you.</p>
-<h3 id="did-you-know-2">Did you know?</h3>
+</section>
+<section id="did-you-know-2">
+<h3>Did you know?</h3>
 <p>Before the Task-based asynchronous model, there was a couple of other models for dealing with asynchronous code. One of them was based on .NET events that you had to handle. But that lacked the scheduling and thread synchronization part that the Task-based model now provides.</p>
 <p>You can turn event-based asynchronous APIs into Tasks using the TaskCompletionSource - which is the factory-part to a Task.</p>
 <p>The F# functional language (another .NET language) had tasks before they were standardized in .NET and introduced in C#</p>
@@ -630,7 +635,9 @@ var result = await DownloadPage();
 Foo? foo = null;
 </code></pre>
 <p>Although the syntax is universal, nullable types behave differently for value types and reference types respectively.</p>
-<h3 id="nullable-value-types">Nullable value types</h3>
+</section>
+<section id="nullable-value-types">
+<h3>Nullable value types</h3>
 <p>Value types that are declared as nullable get implicitly "wrapped" by a <code>Nullable&lt;T&gt;</code> value type. But they will not behave like reference types, of course.</p>
 <pre><code class="language-c#">int x = null; // Not allowed: int x = null;
 int? x = null; // System.Nullable&lt;int&gt; x = null;
@@ -643,7 +650,9 @@ bool? y = null;
 var v2 = y.GetValueOrDefault(); // Returns false
 </code></pre>
 <p>That is a pretty useful three-state switch. Some UI Dialog APIs return a value of type <code>bool?</code> with <code>null</code> indicating that the user did not explicitly press "Yes" or "No". Like for "Cancel".</p>
-<h3 id="nullable-reference-types">Nullable reference types</h3>
+</section>
+<section id="nullable-reference-types">
+<h3>Nullable reference types</h3>
 <p>Reference types have always been nullable by default. The added syntax and nullability checks are pure compile-time analysis so that it preserves compatibility with older versions of the runtime and code. It is also opt-in via csproj.</p>
 <pre><code class="language-c#">Foo foo = null; // Warns
 Foo? foo = null; // Allowed
@@ -653,7 +662,9 @@ Foo? foo = null; // Allowed
 </code></pre>
 <p>Java has no nullability syntax. Though they have an <code>Option</code> type. Kotlin has similar syntax to that of C# and other languages.</p>
 <p>Java has a <code>java.utils.Optional&lt;T&gt;</code> type, which is similar to what <code>Nullable&lt;T&gt;</code> is for C#. It wraps any Java class type. But there is not special syntax with it.</p>
-<h3 id="why-nullable-works-as-it-does">Why "nullable" works as it does</h3>
+</section>
+<section id="why-nullable-works-as-it-does">
+<h3>Why "nullable" works as it does</h3>
 <p>So why is nullability so different for reference types and for value types? Simply: Due to introducing the semantic distinction in the first place.</p>
 <p>Reference types have always been implicitly nullable (without the ? syntax). It is something that is built into the runtime. You just had to know whether something was a class and realize that it could be null and had to be handled. Value types have always had a default value and thus they did not require initialization with <code>new</code> either.</p>
 <p>Nullable value types were added in .NET Framework 2.0 and C# 2.0 (together with generics) for a specific reason. The purpose was to be able to map primitive types in C# to nullable columns in databases. In order to not break anything existing, they added this <code>Nullable&lt;T&gt;</code> wrapper type. C# also introduced the nullability marker <code>?</code> (<code>int?</code>). This of course, caused asymmetry in syntax indicating nullability.</p>
@@ -700,7 +711,9 @@ services.AddScoped&lt;ICar, Volvo&gt;();
 var serviceProvider = services.BuildServiceProvider();
 var car = serviceProvider.GetService&lt;ICar&gt;();
 </code></pre>
-<h3 id="did-you-know-3">Did you know?</h3>
+</section>
+<section id="did-you-know-3">
+<h3>Did you know?</h3>
 <p>Generics in .NET was designed by <a href="https://en.wikipedia.org/wiki/Don_Syme">Don Syme</a> at Microsoft Research in Cambridge, who later created the <a href="https://en.wikipedia.org/wiki/F_Sharp_(programming_language)">F#</a> functional programming language, which was based on OCaml. Generics in .NET was important to the development of F#.</p>
 <p>The current lead designer for C#, <a href="https://www.linkedin.com/in/madst/">Mads Torgersen</a> was involved in Java when they developed their version of generics.</p>
 <h2 id="section-12">Expression Trees</h2>
@@ -728,7 +741,9 @@ bool result = compiledExpression(3);
 </code></pre>
 <p>The code is dynamically compiled to bytecode at runtime using the <code>System.Reflection.Emit</code> API under the hood. Ready for the JIT to compile and execute, as demonstrated.</p>
 <p>IQueryable depends of expression trees for representing predicates that get translated into queries.</p>
-<h3 id="did-you-know-4">Did you know?</h3>
+</section>
+<section id="did-you-know-4">
+<h3>Did you know?</h3>
 <p>Before Expression Trees, or even Roslyn (see below), the only standardized way to analyze code was with the CodeDOM APIs. Similar to Expression Trees, it had an abstract syntax tree, the Code Document Object Model (DOM). A term familiar to those who know about the Web and HTML. The API acted on source code, both C# and Visual Basic.NET, and usually lagged behind the current language version in what features it supported.</p>
 <h2 id="section-13">IQueryable</h2>
 <p>IQueryable is an interface that enables querying for data against a specific data source. It is used in a way that is similar to IEnumerable but stores its query expressions as expression trees instead of delegates to methods.</p>
@@ -780,7 +795,9 @@ unsafe
 <p>Code Analyzers and Code Fixes are stuff that usually show up in your IDE as perhaps Warnings, Errors, or Suggestion. A fix is a solution to the analysis.</p>
 <p>Source Generators allow you enhance code by generating code-behind based on some logic. It is being used by many serializers and object mapping libraries to generate code and to avoid using Reflection. There are also other cases when they help generate boilerplate code for you, like with the MVVM patterns.</p>
 <p>The Roslyn C# compiler is open-source and itself built with C#. So fully bootstrapped.</p>
-<h2 id="unified-ecosystem">Unified ecosystem</h2>
+</section>
+<section id="unified-ecosystem">
+<h2>Unified ecosystem</h2>
 <p>.NET easily has the most complete Software Development Kit (SDK) with support for multiple platforms and operating systems.</p>
 <p>The SDK has its own CLI tools for creating, building and running apps.</p>
 <p>Simply write <code>dotnet new console</code> to create a console app.
@@ -790,12 +807,15 @@ And <code>dotnet run</code> to run it.</p>
 <p>There are multiple app frameworks, the popular ones by Microsoft and open-source. ASP.NET Core is the most popular web app framework. Many features in C# and .NET can be tied to what they are doing there.</p>
 <p>There is a vibrant .NET Community. People who love .NET and to code and share knowledge and help each other - both beginners and experienced programmers.</p>
 <p>Since there are so many frameworks, libraries, and applications of C# and .NET, you never stop learning new stuff. There are endless possibilities.</p>
-<h2 id="what-did-microsoft-do-right-with.net-as-a-platform">What did Microsoft do right with .NET as a platform?</h2>
+</section>
+<section id="what-did-microsoft-do-right-with.net-as-a-platform">
+<h2>What did Microsoft do right with .NET as a platform?</h2>
 <p>Compared to Java, .NET Framework was open-sourced quite late. That most likely contributed to its success. Microsoft had kept .NET under control while a community had been growing, with the Mono open-source community being one of them. They put much effort into building great APIs and frameworks that developers loved.</p>
 <p>When Microsoft fully open-sourced .NET in 2016, they had already earned experience in open-sourcing parts of the stack. The community had slowly been prepared for the change and Microsoft had in that way built up trust with its users and customers.</p>
 <p>And since they started quite fresh with .NET Core they had the opportunity to experiment and to find the best way forward according to feedback and with contributions from the community.</p>
 <p>Some would also point out that a lot of the success of .NET is due to third party technologies like the Unity game engine. So we should not forget that one :)</p>
-<div style="margin-top: 42px;"><div id="disqus_thread"></div></div></div></article></article></main>
+</section>
+<div style="margin-top: 42px;" b-vvt2r16sun><div id="disqus_thread"></div></div></div></div></article></main>
 
     <footer class="footer py-4 bg-body-tertiary shadow-sm"><div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"><div class="row"><div class="col-lg-3 mb-3"><h4>Marina Sundström</h4>
                 <ul class="list-unstyled small text-muted"><li class="mb-2">

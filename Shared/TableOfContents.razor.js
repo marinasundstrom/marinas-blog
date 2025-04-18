@@ -106,6 +106,7 @@ function sanitizeId(id) {
         .replace(/‘/g, "")
         .replace(/</g, "")
         .replace(/>/g, "")
+        .replace(/-&-/g, "-")
         .replace(/&/g, "")
         .replace(/!/g, "")
         .replace(/\?/g, "")

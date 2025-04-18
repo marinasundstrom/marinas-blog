@@ -96,6 +96,7 @@ public class NestedSectionRenderer : HtmlObjectRenderer<MarkdownDocument>
             .Replace("‘", "")
             .Replace("<", "")
             .Replace(">", "")
+            .Replace("-&-", "-")
             .Replace("&", "")
             .Replace("!", "")
             .Replace("?", "")

@@ -123,7 +123,22 @@
 <nav id="TableOfContents" b-91g1tr0sf9></nav>
 <hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
 
-        <div class="content" b-vvt2r16sun><section id="syntax">
+        <div class="content" b-vvt2r16sun><p>In this article I list some of the major features in C# and .NET that have no direct equivalent in Java. Some of the features are just mentioned because they are so essential and cool.</p>
+<p>I explain how stuff works and also demonstrate some in C# code.</p>
+<p>My goal has been to show some C# specific syntax without highlighting it, like expression-bodied methods and alternative syntax for initializing objects. You will also notice my alternating use of <code>var</code> for type inference.</p>
+<p>I'm aware that Kotlin, another Java platform language, has some of these features. So they are not entirely unavailable for Java developers. In fact, Kotlin is the recommended language for the Java Platform by Google.</p>
+<p>I hope that both C# and Java developers alike are enjoying this read. :)</p>
+<p><em>Don't get mad at me if there are any errors! Some of the code may not have been tested. ;)</em></p>
+<p><em>Updated on 8 Nov 2023, with details on equivalent to delegates in Java.</em></p>
+<h2 id="section-0">What is C# and .NET</h2>
+<p>C# (C Sharp) is a general-purpose imperative object-oriented programming language that debuted in 2001 when the .NET Framework was first released.</p>
+<p>Just like C++ is an increment of C, the name C# can be seen as an increment C++. There are four pluses forming a ligature in #. In musical language the # indicates that the written note should be a semitone higher in pitch.</p>
+<p>The language initially borrowed a lot of its syntax from Java, which was based on C++. The lead designer <a href="https://sv.wikipedia.org/wiki/Anders_Hejlsberg">Anders Hejlsberg</a> had previously worked on Microsoft's own implementation of Java: J++. But when that endeavour ended he started working on what would become C#. The language was supposed to be like Java for the new .NET Framework. There were influences from Visual Basic. Hejlsberg had earlier been building compilers for Pascal, Object Pascal and Delphi so he incorporated some influences from that.</p>
+<p>.NET itself is the software platform on which C# is based. It provides a managed execution environment, the Common Language Runtime (CLR), similar to Java Virtual Machine. Just like the JVM, the CLR executes  bytecode, and provide automatic memory management via a Garbage Collector. .NET has a Just-in-Time (JIT) compiler that compiles bytecode into machine code on the fly.</p>
+<p>.NET comes with a class library containing all the basic necessities, for string manipulation, file I/O, networking and threading etc. There is also a big ecosystem of open-source third-party packages on NuGet - the main distribution channel. And of course, there are the app frameworks for building Web, Mobile, and Desktop apps: ASP.NET Core and MAUI. You can also build games with Unity.</p>
+<p>Since its inception C# has shown to not be afraid of incorporating new features and ideas with roots in other programming paradigms. Adding extension methods and LINQ added a declarative element that made C# a functional programming language. And more and more features come from that space: recently record types and pattern matching.</p>
+<p>Since its open-sourcing back in 2016, .NET and C# has evolved even faster thanks to a vibrant community and ecosystem.</p>
+<section id="syntax">
 <h3>Syntax</h3>
 <p>Core syntax was derived from Java or re-borrowed from C++ to appear and feel familiar to both audiences. From Object Pascal came Properties. Visual Basic influenced with Events used by app frameworks like WinForms.</p>
 <p>They added a host of stuff to C# and .NET that they previously added to Microsoft's defunct JVM for J++, such as support for delegates - type-safe method pointers.</p>

@@ -123,7 +123,12 @@
 <nav id="TableOfContents" b-91g1tr0sf9></nav>
 <hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
 
-        <div class="content" b-vvt2r16sun><section id="javascript-interop-in-blazor">
+        <div class="content" b-vvt2r16sun><blockquote>
+<p>This article was written back in 2019-06-15.</p>
+</blockquote>
+<p>This article is about JavaScript interop in .NET on WebAssembly in the context of Blazor.</p>
+<p>Since WASM development, at least, is about the web we will assume that we can do some interop with the browser, like DOM manipulation. But how?</p>
+<section id="javascript-interop-in-blazor">
 <h2>JavaScript interop in Blazor</h2>
 <p>If you want to interop with JavaScript today, you are most likely writing a Blazor app.</p>
 <p>In fact, Blazor on client-side (browser) is itself implemented with JavaScript interop, for rendering to the DOM, since WebAssembly does not not provide direct access to the DOM API:s.</p>

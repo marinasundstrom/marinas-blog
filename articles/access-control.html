@@ -123,7 +123,21 @@
 <nav id="TableOfContents" b-91g1tr0sf9></nav>
 <hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
 
-        <div class="content" b-vvt2r16sun><section id="open-sourcing">
+        <div class="content" b-vvt2r16sun><p>This is a short presentation about one of my dearest personal projects. The projects combines my passion for programming with my interest in software design - and my desire to learn.</p>
+<p>My main goal in this project was to learn more about building distributed applications - with some IoT. I also wanted to learn more about Microsoft Azure.</p>
+<hr>
+<p>Back in 2017, I was looking for some fun project to do in my spare time - but I needed a cool use case.</p>
+<p>Since I was working as a consultant at <a href="https://www.axis.com/">Axis</a> I had been exposed to the Internet of Things (IoT) while developing the on-device experiences. In particular, I had been working with their Access Control system. Its purpose is basically to guard physical access points, such as doors. Controlling the lock as well as a card reader. This was my inspiration for trying to build my own security system from scratch - using as Raspberry Pi and code written in .NET and C#.</p>
+<a href="/assets/accesscontrol.jpg">
+<img class="right" src="/assets/accesscontrol.jpg"></a>
+<p>At the time, there were already multiple open-source home security projects for Raspberry Pi, but I did not intend to compete with them. Remember, I was doing this for fun.</p>
+<p>My work started with getting some basic setup up and running. It started with wiring up sensors to Raspberry Pi to see if I could read some values. The first sensor was a magnet sensor. You align one part of the sensor on the door with another on the frame, and when he door opens the circuit is broken and current flows. Soon after, I introduced a RFID Card Reader.</p>
+<p>Based on my experience I had an idea of how to design my software. I had researched the domain and its terminology. Access Point is one such core concept. I enjoy learning about the domains that I work with. I think that domain knowledge it is important in order to build good software. You have to understand your software, what is expected from the users perspective - having a shared ubiquitous language.</p>
+<p>From there I started to implement the basic logic, and the communication flow between the AccessPoint (Raspberry Pi) and my AppService. In Blazor, I built a UI for controlling the system, and to follow the access events in real time (“Access Log”). From the UI you could lock/unlock and arm/disarm the Access Point. You could also configure the access time. Data such as authorized cards and past events was stored into a database owned by the AppService.</p>
+<p>The AccessPoint service, running on the Raspberry Pi, was connected to Azure IoT Hub, and communicated with AppService using Notification Hub and Event Hub.</p>
+<p>I also built a mobile app using Xamarin.Forms. The functionality mirrored that of the Web UI. You could sign in and do essentially the same things, even configuring the access point.</p>
+<p>Configuring the environment for running the Access Point was not easy at the time. You had to run the services locally. There were no scripts for setting it up.</p>
+<section id="open-sourcing">
 <h2>Open Sourcing</h2>
 <p>Back in 2019, I dusted off the <a href="https://github.com/marinasundstrom/AccessControl">code</a> and made it public on Github. I documented everything. There are details on how to build the setup and how to configure the services to run on Azure.</p>
 <p>I published this <a href="https://www.youtube.com/watch?v=VlSKTeJASYc">video</a> that shows the system in action.</p>

@@ -123,7 +123,11 @@
 <nav id="TableOfContents" b-91g1tr0sf9></nav>
 <hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
 
-        <div class="content" b-vvt2r16sun><section id="the-scenario">
+        <div class="content" b-vvt2r16sun><p>One myth is that you need to "do" microservices in order to scale your service applications horizontally. This has prompted a lot of people to rewrite their existing monoliths into microservices.</p>
+<p>Don't get me wrong. There are benefits in microservices, but you need to understand the problems that the tools address before you start to use them - especially in an existing project. The cost of changing existing code might outrun the potential benefits in terms of the technical challenges and development time.</p>
+<p>A monolith implies that there is a single codebase.</p>
+<p>As a first step, when you want to scale an existing monolith, you should start by thinking about decoupling your functionality. It is totally possible to scale a monolith horizontally without dividing it into microservices.</p>
+<section id="the-scenario">
 <h2>The Scenario</h2>
 <p>Let us assume that you have an existing monolithic Service-oriented application (SOA) which handles a lot of stuff. It spans multiple domains in the field of a Mobile service provider: From device provisioning, subscriptions, and handing of payments. Allt the data is stored in a single database.</p>
 <section id="goals">

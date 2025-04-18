@@ -17,25 +17,6 @@ This article will walk you through generics in both languages - highlight the si
 
 And I will provide my thoughts and opinions as a .NET developer.
 
-## Contents
-
-1. <a href="/articles/generics-in-java-vs-dotnet#terminology">Terminology</a>
-2. <a href="/articles/generics-in-java-vs-dotnet#what-is-generics">What is generics?</a>
-3. <a href="/articles/generics-in-java-vs-dotnet#syntax">Syntax</a>
-    1. <a href="/articles/generics-in-java-vs-dotnet#generic-classes">Generic classes</a>
-    2. <a href="/articles/generics-in-java-vs-dotnet#generic-methods">Generic methods</a>
-    3. <a href="/articles/generics-in-java-vs-dotnet#constraints">Constraints</a>
-4. <a href="/articles/generics-in-java-vs-dotnet#java-type-erasure">Java Type erasure</a>
-5. <a href="/articles/generics-in-java-vs-dotnet#net-runtime-generics">.NET Runtime generics</a>
-6. <a href="/articles/generics-in-java-vs-dotnet#reflection">Reflection</a>
-    1. <a href="/articles/generics-in-java-vs-dotnet#retrieve-information-about-a-type">Retrieve information about a type</a>
-    2. <a href="/articles/generics-in-java-vs-dotnet#pass-information-about-a-type-parameter-into-a-method">Pass information about a type parameter into a method</a>
-    3. <a href="/articles/generics-in-java-vs-dotnet#retrieve-the-type-argument-of-a-generic-type">Retrieve the type argument of a generic type</a>
-    4. <a href="/articles/generics-in-java-vs-dotnet#invoke-a-generic-static-method">Invoke a generic static method</a>
-    5. <a href="/articles/generics-in-java-vs-dotnet#java-an-issue-with-serializers-and-generic-classes">Java: An issue with serializers and generic classes</a>
-7. <a href="/articles/generics-in-java-vs-dotnet#my-thoughts-on-type-erasure">My thoughts on type erasure</a>
-8. <a href="/articles/generics-in-java-vs-dotnet#conclusion">Conclusion</a>
-
 ## Terminology
 
 Here is a list of some of the terms that will pop up during the course of this article:

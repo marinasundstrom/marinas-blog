@@ -19,20 +19,6 @@ _Parts of the article, specifically that about _Razor components_, is about the 
 
 _The article was updated on November 12, 2023 - Reflecting the changes to render modes_
 
-## Contents
-
-1. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-1">What is ASP.NET Core?</a>
-2. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-2">Hello World!</a>
-3. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3">Core concepts</a>
-   1. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-1">Application</a>
-   2. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-2">Request and Response</a>
-   3. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-3">Route handlers</a>
-   4. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-3-4">Middleware</a>
-4. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-4">Razor components</a>
-5. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-5">Native AOT compilation</a>
-6. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-6">Conclusion</a>
-7. <a href="/articles/the-anatomy-of-an-aspnetcore-app#section-7">Links</a>
-
 <h2 id="section-1">What is ASP.NET Core?</h2>
 
 ASP.NET Core is a framework for building apps for the Web that run on the server, using .NET, and programming languages like C#. Running on the server means that it processes HTTP requests and produces HTTP responses.

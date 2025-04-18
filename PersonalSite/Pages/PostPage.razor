@@ -25,8 +25,8 @@ else
         <p>@exception.Message</p>
 
         <code>
-                                                                                                                                             @exception.StackTrace
-                                                                                                                                        </code>
+                                                                                                                                                             @exception.StackTrace
+                                                                                                                                                        </code>
     }
 
     @if (post is not null)
@@ -60,7 +60,7 @@ else
             <TableOfContents />
         </div>
 
-        <article class="content">
+        <div class="content">
             <MarkdownView Content="@post.Content" />
 
             @if (isBlog)
@@ -69,7 +69,7 @@ else
                     <DisqusThread />
                 </div>
             }
-        </article>
+        </div>
     </div>
 
     @*

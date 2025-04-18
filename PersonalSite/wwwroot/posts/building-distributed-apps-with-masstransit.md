@@ -16,34 +16,6 @@ In this article will be talking about MassTransit, what it is about, and viewing
 
 We will be using RabbitMQ as our transport. It is easy to get started with using Docker. The contents of the Docker Compose files will be provided.
 
-## Contents
-
-Here is what is covered in this article:
-
-1. <a href="/articles/building-distributed-apps-with-masstransit#what-is-a-distributed-app">What is a distributed app?</a>
-2. <a href="/articles/building-distributed-apps-with-masstransit#what-is-a-distributed-app">What is asynchronous messaging?</a>
-3. <a href="/articles/building-distributed-apps-with-masstransit#what-is-masstransit">What is MassTransit?</a>
-4. <a href="/articles/building-distributed-apps-with-masstransit#getting-started">Getting started</a>
-    1. <a href="/articles/building-distributed-apps-with-masstransit#the-app">The app</a>
-5. <a href="/articles/building-distributed-apps-with-masstransit#basic-concepts">Basic concepts</a>
-6. <a href="/articles/building-distributed-apps-with-masstransit#publishing-and-consuming-a-message">Publishing and consuming a message</a>
-    1. <a href="/articles/building-distributed-apps-with-masstransit#message">Message</a>
-    2. <a href="/articles/building-distributed-apps-with-masstransit#consumer">Consumer</a> 
-    3. <a href="/articles/building-distributed-apps-with-masstransit#publisher">Publisher</a>
-    4. <a href="/articles/building-distributed-apps-with-masstransit#running-the-app">Running the app</a>
-7. <a href="/articles/building-distributed-apps-with-masstransit#publishing-message-from-consumer">Publishing message from consumer</a>
-8. <a href="/articles/building-distributed-apps-with-masstransit#remote-procedure-call-rpc">Remote procedure call (RPC)</a>
-9. <a href="/articles/building-distributed-apps-with-masstransit#configuring-endpoints-manually">Configuring endpoints manually</a>
-10. <a href="/articles/building-distributed-apps-with-masstransit#error-handling-and-retry">Error handling and retry</a>
-11. <a href="/articles/building-distributed-apps-with-masstransit#consuming-faults">Consuming faults</a>
-12. <a href="/articles/building-distributed-apps-with-masstransit#state-machines-and-sagas">State machines and Sagas</a>
-13. <a href="/articles/building-distributed-apps-with-masstransit#transactional-outbox-pattern">Transactional Outbox pattern</a>
-14. <a href="/articles/building-distributed-apps-with-masstransit#scaling-vertically">Scaling vertically</a>
-15. <a href="/articles/building-distributed-apps-with-masstransit#testing-in-masstransit">Testing in MassTransit</a>
-16. <a href="/articles/building-distributed-apps-with-masstransit#distributed-tracing">Distributed tracing</a>
-17. <a href="/articles/building-distributed-apps-with-masstransit#using-another-transport">Using another transport</a>
-18. <a href="/articles/building-distributed-apps-with-masstransit#conclusion">Conclusion</a>
-
 ## What is a distributed app?
 
 A distributed app is an application that consists of multiple services that work together. Hence the app is distributed across those multiple services.

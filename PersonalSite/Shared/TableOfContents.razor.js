@@ -48,7 +48,7 @@ function createTable() {
 
     headings.forEach((heading, i) => {
 
-        if (i == 0) return;
+        //if (i == 0) return;
 
         if (!heading.id) {
             heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');

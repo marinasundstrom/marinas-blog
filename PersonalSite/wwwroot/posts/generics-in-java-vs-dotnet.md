@@ -558,7 +558,7 @@ This has been hinted at in previous samples.
 
 The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.
 
-### Java
+#### Java
 
 In Java, in order to pass type information of generic type argument into a method, you have to pass its ``Class<T>`` as a method parameter. This is due to type erasure, since the method can’t resolve that type.
 

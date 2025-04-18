@@ -42,7 +42,7 @@ function createTable() {
     const tocContainer = document.getElementById("TableOfContents");
     if (!tocContainer) return;
 
-    const headings = document.querySelectorAll(".content h2, .content h3"); //, .content h4, .content h5, .content h6");
+    const headings = document.querySelectorAll("div.content h2, div.content h3"); //, div.content h4, div.content h5, div.content h6");
     const tocList = document.createElement("ul");
     let lastLevels = [tocList];
 

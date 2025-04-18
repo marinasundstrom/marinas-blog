@@ -118,7 +118,7 @@
 
 </small><small class="text-muted" b-76by154q0w> • </small><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/C%23" b-76by154q0w>C#</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/.NET" b-76by154q0w>.NET</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Java" b-76by154q0w>Java</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Generics" b-76by154q0w>Generics</a><a class="badge rounded-pill tag me-1 mb-1 text-decoration-none" href="/articles/tags/Programming%20languages" b-76by154q0w>Programming languages</a></span><div b-76by154q0w><h4 class="badge bg-secondary comment-badge m-0"><span class="disqus-comment-count" data-disqus-url="http://127.0.0.1:5050/articles/generics-in-java-vs-dotnet">#</span></h4></div></div></div></header></div>
 
-        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
+        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted h-100" b-vvt2r16sun><strong class="h6 my-2 ms-3" b-91g1tr0sf9>On this page</strong>
 <hr class="my-2 ms-3" b-91g1tr0sf9>
 <nav id="TableOfContents" b-91g1tr0sf9></nav>
 <hr class="my-2 ms-3 on-sm" b-91g1tr0sf9></div>
@@ -584,9 +584,8 @@ Foo&lt;int&gt;();
 <h3>Pass information about a type parameter into a method</h3>
 <p>This has been hinted at in previous samples.</p>
 <p>The way you pass info about type information into a method is different in Java, that used type erasure, compared to in a language like C# that has runtime awareness of generics.</p>
-</section>
 <section id="java-6">
-<h3>Java</h3>
+<h4>Java</h4>
 <p>In Java, in order to pass type information of generic type argument into a method, you have to pass its <code>Class&lt;T&gt;</code> as a method parameter. This is due to type erasure, since the method can’t resolve that type.</p>
 <pre><code class="language-java">&lt;T&gt; void foo(Class&lt;T&gt; typeParam) {
     var name = typeParam.getSimpleName();
@@ -594,6 +593,7 @@ Foo&lt;int&gt;();
 
 Foo(Bar.class)
 </code></pre>
+</section>
 <section id="c-6">
 <h4>C#</h4>
 <p>In C#, you can simply request the info about a parameter since it has been provided by the metadata and runtime. The CLR even knows about the constraints of respective parameter.</p>

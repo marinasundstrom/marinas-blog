@@ -8,7 +8,25 @@ public class NestedSectionRenderer : HtmlObjectRenderer<MarkdownDocument>
 {
     protected override void Write(HtmlRenderer renderer, MarkdownDocument document)
     {
-        var sectionTree = ParseSections(document.ToArray());
+        var preamble = new List<Block>();
+        var rest = new List<Block>();
+        bool seenFirstHeading = false;
+
+        foreach (var block in document)
+        {
+            if (!seenFirstHeading && block is HeadingBlock h && h.Level >= 2)
+                seenFirstHeading = true;
+
+            if (seenFirstHeading)
+                rest.Add(block);
+            else
+                preamble.Add(block);
+        }
+
+        foreach (var block in preamble)
+            renderer.Render(block);
+
+        var sectionTree = ParseSections(rest.ToArray());
         foreach (var section in sectionTree)
             RenderSection(renderer, section);
     }

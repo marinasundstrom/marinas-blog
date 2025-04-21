@@ -191,7 +191,7 @@ std::cout &lt;&lt; world &lt;&lt; hello &lt;&lt; ‘\n’;  // Output is "Hello,
 </section>
 <section id="generics-in.net">
 <h3>Generics in .NET</h3>
-<p>.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic types, methods, and type arguments in the code that it executes.</p>
+<p>.NET and C# was released in 2001, and added <em>reified</em> generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. Reified means that the compiler preserves type information so it is available at runtime. To achieve this, support for generics was built into the type system and the Common Language Runtime (CLR) itself - with type parameters being stored in metadata. So the runtime knows about both generic types, methods, and type arguments in the code that it executes.</p>
 <p>The types that can have generic type parameters are classes, structs, interfaces, and delegates.</p>
 <p>The introduction of generics in .NET back in 2005 meant that developers would have to make a decision to opt into the new generic collections - going from <code>System.Collections.ArrayList</code> to <code>System.Collections.Generic.List&lt;T&gt;</code>.</p>
 <p>The .NET runtime generics came out of a Microsoft Research project that was headed by computer scientist <a href="https://en.wikipedia.org/wiki/Don_Syme">Don Syme</a>. He later came to create F#, a functional programming language for .NET, based on OCaml, that heavily utilized generics and type inference. C# has since then continually borrowed from F# and the functional programming space.</p>
@@ -411,63 +411,33 @@ ArrayList&lt;Building&gt; buildings = houses;
 }
 </code></pre>
 <p>C# has these constraints:</p>
-<table>
-<thead>
-<tr>
-<th>Constraint</th>
-<th>Descirption</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>where T : struct</code></td>
-<td>The type argument <code>T</code> must be a non-nullable value type</td>
-</tr>
-<tr>
-<td><code>where T : class</code></td>
-<td>The type argument <code>T</code> must be a reference type</td>
-</tr>
-<tr>
-<td><code>where T : class?</code></td>
-<td>The type argument <code>T</code> must be a nullable reference type. Valid in a nullable context.</td>
-</tr>
-<tr>
-<td><code>where T : notnull</code></td>
-<td>The type argument <code>T</code> must be a non-nullable type.</td>
-</tr>
-<tr>
-<td><code>where T : default</code></td>
-<td>This constraint resolves the ambiguity when you need to specify an unconstrained type parameter when you override a method or provide an explicit interface implementation</td>
-</tr>
-<tr>
-<td><code>where T : unmanaged</code></td>
-<td>The type argument <code>T</code> must be a non-nullable unmanaged type</td>
-</tr>
-<tr>
-<td><code>where T : new()</code></td>
-<td>The type argument <code>T</code> must have a public parameterless constructor</td>
-</tr>
-<tr>
-<td><code>where T : &lt;base class name&gt;</code></td>
-<td>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. In a nullable context</td>
-</tr>
-<tr>
-<td><code>where T : &lt;base class name&gt;?</code></td>
-<td>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. Allows for null values in a nullable context.</td>
-</tr>
-<tr>
-<td><code>where T : &lt;interface name&gt;</code></td>
-<td>The type argument <code>T</code> must derive from the specified interface.</td>
-</tr>
-<tr>
-<td><code>where T : &lt;interface name&gt;?</code></td>
-<td>The type argument <code>T</code> must derive from the specified interface. Allows for null values in a nullable context.</td>
-</tr>
-<tr>
-<td><code>where T : U</code></td>
-<td>The type argument <code>T</code> must derive from type argument <code>U</code></td>
-</tr>
-</tbody>
+&gt;
+<p>Constraint</p><p>Descirption</p><p><code>where T : struct</code></p><p>The type argument <code>T</code> must be a non-nullable value type</p><p><code>where T : class</code></p><p>The type argument <code>T</code> must be a reference type</p><p><code>where T : class?</code></p><p>The type argument <code>T</code> must be a nullable reference type. Valid in a nullable context.</p><p><code>where T : notnull</code></p><p>The type argument <code>T</code> must be a non-nullable type.</p><p><code>where T : default</code></p><p>This constraint resolves the ambiguity when you need to specify an unconstrained type parameter when you override a method or provide an explicit interface implementation</p><p><code>where T : unmanaged</code></p><p>The type argument <code>T</code> must be a non-nullable unmanaged type</p><p><code>where T : new()</code></p><p>The type argument <code>T</code> must have a public parameterless constructor</p><p><code>where T : &lt;base class name&gt;</code></p><p>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. In a nullable context</p><p><code>where T : &lt;base class name&gt;?</code></p><p>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. Allows for null values in a nullable context.</p><p><code>where T : &lt;interface name&gt;</code></p><p>The type argument <code>T</code> must derive from the specified interface.</p><p><code>where T : &lt;interface name&gt;?</code></p><p>The type argument <code>T</code> must derive from the specified interface. Allows for null values in a nullable context.</p><p><code>where T : U</code></p><p>The type argument <code>T</code> must derive from type argument <code>U</code></p><table class="table">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </table>
 <p>The <em>Nullable context</em> is a fancy way of saying that the feature called <em>"nullable reference types"</em> has been enabled (Nullable <code>Foo?</code> vs non-nullable <code>Foo</code>), and that the compiler will either warn or report an error if you pass a possible null value into a non-nullable variable.</p>
 </section>

@@ -486,3 +486,8 @@ header h2.post-subtitle {
     color: white !important;
   }
 }
+
+table.table td[colspan],
+table.table th[colspan] {
+  text-align: center;
+}

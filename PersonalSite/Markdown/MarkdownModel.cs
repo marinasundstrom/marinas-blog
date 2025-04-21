@@ -2,6 +2,7 @@
 
 using Markdig;
 using Markdig.Extensions.AutoIdentifiers;
+using Markdig.Extensions.Tables;
 using Markdig.Renderers;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
@@ -41,6 +42,7 @@ namespace PersonalSite.Markdown
                         .UseAdvancedExtensions()
                         .UseGenericAttributes()
                         .UseAutoIdentifiers(AutoIdentifierOptions.GitHub)
+                        .UseMediaLinks()
                         .Build();
 
                 var markdownDocument = Markdig.Markdown.Parse(value, pipeline);
@@ -49,6 +51,9 @@ namespace PersonalSite.Markdown
 
                 if (!HtmlSanitizer.AllowedAttributes.Contains("id"))
                     HtmlSanitizer.AllowedAttributes.Add("id");
+
+                if (!HtmlSanitizer.AllowedTags.Contains("iframe"))
+                    HtmlSanitizer.AllowedTags.Add("iframe");
 
                 // Sanitize HTML before rendering
                 var sanitizedHtml = HtmlSanitizer.Sanitize(html);
@@ -77,7 +82,8 @@ namespace PersonalSite.Markdown
             renderer.ObjectRenderers.RemoveAll(x => x is HeadingRenderer);
             renderer.ObjectRenderers.Add(new NoIdHeadingRenderer());
             renderer.ObjectRenderers.Add(new NestedSectionRenderer());
-
+            renderer.ObjectRenderers.RemoveAll(x => x is HtmlTableRenderer);
+            renderer.ObjectRenderers.Add(new CustomTableRenderer());
             pipeline.Setup(renderer);
 
             // Renders markdown to HTML (to the writer)

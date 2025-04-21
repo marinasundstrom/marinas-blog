@@ -32,7 +32,7 @@ export function init() {
     const observer = new IntersectionObserver(changeNav, options);
 
     // target the elements to be observed
-    const sections = document.querySelectorAll('.content section');
+    const sections = document.querySelectorAll('div.content section');
     sections.forEach((section) => {
         observer.observe(section);
     });
@@ -42,11 +42,12 @@ function createTable() {
     const tocContainer = document.getElementById("TableOfContents");
     if (!tocContainer) return;
 
-    const headings = document.querySelectorAll("div.content h2, div.content h3"); //, div.content h4, div.content h5, div.content h6");
+    const headings = document.querySelectorAll("section:has(h2), section:has(h3)"); //, div.content h4, div.content h5, div.content h6");
     const tocList = document.createElement("ul");
     let lastLevels = [tocList];
 
-    headings.forEach((heading, i) => {
+    headings.forEach((section, i) => {
+        let heading = section.children[0];
 
         if (!heading.id) {
             heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
@@ -55,7 +56,7 @@ function createTable() {
         const level = parseInt(heading.tagName.substring(1), 10);
         const text = heading.textContent;
 
-        const id = sanitizeId(heading.id);
+        const id = sanitizeId(section.id);
 
         const href = `#${id.replace('"', "")}`;
 
@@ -104,6 +105,8 @@ function sanitizeId(id) {
         .replace(/‘/g, "")
         .replace(/</g, "")
         .replace(/>/g, "")
+        .replace(/\(/g, "")
+        .replace(/\)/g, "")
         .replace(/-&-/g, "-")
         .replace(/&/g, "")
         .replace(/!/g, "")

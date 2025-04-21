@@ -86,7 +86,7 @@ In Java, only classes and interfaces may have type parameters.
 
 ### Generics in .NET
 
-.NET and C# was released in 2001, and added generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. The support for generics was built into the type system and the Common Language Runtime (CLR) itself. Meaning that the runtime knows about both generic types, methods, and type arguments in the code that it executes.
+.NET and C# was released in 2001, and added _reified_ generics to the runtime and languages in 2005 - as part of .NET Framework 2 and C# 2. Reified means that the compiler preserves type information so it is available at runtime. To achieve this, support for generics was built into the type system and the Common Language Runtime (CLR) itself - with type parameters being stored in metadata. So the runtime knows about both generic types, methods, and type arguments in the code that it executes.
 
 The types that can have generic type parameters are classes, structs, interfaces, and delegates.
 

@@ -105,6 +105,9 @@ public class NestedSectionRenderer : HtmlObjectRenderer<MarkdownDocument>
 
         // Remove quotes and any other problematic characters
         return id
+            .Replace("å", "a")
+            .Replace("ä", "a")
+            .Replace("ö", "o")
             .Replace("\"", "")
             .Replace("'", "")
             .Replace("`", "")
@@ -114,6 +117,8 @@ public class NestedSectionRenderer : HtmlObjectRenderer<MarkdownDocument>
             .Replace("‘", "")
             .Replace("<", "")
             .Replace(">", "")
+            .Replace("(", "")
+            .Replace(")", "")
             .Replace("-&-", "-")
             .Replace("&", "")
             .Replace("!", "")

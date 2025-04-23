@@ -8,7 +8,7 @@ tags: [Languages, Hebrew, på svenska, hebreiska]
 
 Hebreiskan är ett semitiskt språk med djupa band till det judiska folket – dess religion, kultur och historia. Under nästan två tusen år var språket i stort sett utdött som vardagligt tal; det användes främst i religiösa sammanhang och av lärda judiska tänkare, men inte som modersmål. Trots det har hebreiskan genomgått stora förändringar.
 
-Med sionismens framväxt och den moderna staten Israels grundande återfick hebreiskan sin roll som levande språk. Den utvecklades till ett modernt idiom, präglat av influenser från diasporans många språk – där väst möter öst – vilket har gjort hebreiskan till något unikt. Kanske märks detta allra tydligast i de många sätt man i dag kan uttrycka tillhörighet på.
+Med sionismens framväxt och den moderna staten Israels grundande återfick hebreiskan sin plats bland levande språk. Den utvecklades till ett modernt idiom, präglat av influenser från diasporans många språk – där väst möter öst – vilket har gjort hebreiskan till något unikt. Kanske märks detta allra tydligast i de många sätt man i dag kan uttrycka tillhörighet på.
 
 I den här artikeln går vi igenom några av de vanligaste sätten att uttrycka tillhörighet, innehav och även befintlighet i modern hebreiska. Förhoppningsvis ger det dig som läsare en inblick – även om du inte är särskilt insatt i språket.
 
@@ -209,7 +209,7 @@ Uttal och satsmelodi har förändrats så mycket från klassisk hebreiska till m
 
 I samband med återupplivningen och utvecklingen av modern hebreiska anpassades språket efter sina nya talare. Dessa förde med sig uttryckssätt från sina modersmål – ofta europeiska språk som tyska, ryska och jiddisch – vilket påverkade deras sätt att tala och bidrog till att göra språket levande igen.
 
-Till skillnad från den klassiska hebreiskan, som främst uttryckte tillhörighet genom personändelser, var man i dessa språk van vid att använda fristående ord – såsom prepositioner och pronomen. Detta influerade den hebreiska språkbildningen och ledde till att den naturliga formen för att uttrycka ägande i modern hebreiska blev en ’av’-konstruktion: prepositionen של (shel).
+Till skillnad från den klassiska hebreiskan, som främst var syntetisk och uttryckte tillhörighet genom personändelser, använde man i migranternas modersmål fristående ord – såsom prepositioner och pronomen. Detta påverkade hebreiskan och drev språket i en mer analytisk riktning, vilket gjorde att den naturliga formen för att uttrycka ägande i modern hebreiska blev en av-konstruktion: prepositionen של (shel).
 
 I dag är detta det vanligaste sättet att uttrycka tillhörighet eller ägande på hebreiska, och det upplevs som den mest naturliga formen i det vardagliga språket.
 
@@ -315,11 +315,11 @@ Men utan bestämd artikel när det gäller personer:
 
 Många vardagliga begrepp förekommer i konstruktform, utan bestämd artikel, och fungerar ibland nästan som adjektiv gör i andra språk:
 
-* **בית כנסת**  (béit kneset) – synagoga (bokstavligen: huset av samling - församlingshus)
+* **בית כנסת**  (bét kneset) – synagoga (bokstavligen: huset av samling - församlingshus)
 
 * **טלפון נייד** (téléfon nayad) - mobiltelefon (bokstavligen: telefon av det mobila slaget)
 
-* **בית ספר**  (béit séfer) – "skola" (bokstavligen: hus av bok - för lärande)
+* **בית ספר**  (bét séfer) – "skola" (bokstavligen: hus av bok - för lärande)
 
 * **מכונת כביסה**  (mekhonát kvisa) – "tvättmaskin" (bokstavligen: maskin av tvätt)
 

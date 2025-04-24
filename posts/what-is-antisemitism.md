@@ -93,7 +93,7 @@ Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have fo
 
 ## What is Anti-Zionism?
 
-### What is a "Zionist"?
+### What really is a "Zionist"?
 
 The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sought after Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
 
@@ -105,9 +105,9 @@ To make it short, Jews came together in groups to buy land in the then called "P
 
 ### "The Evil Zionists"
 
-The use of "Zionist" as a slur for Jew date back to the early 20th century.
+As alluded to before, use of "Zionist" as a slur for Jew date back to the early 20th century. 
 
-As alluded to before, the term "Zionist" as many anti-semites use it today was established in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political motives - when most just wanted to be treated as equals.
+The term "Zionist" as many anti-semites use it today was established in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political motives - when most just wanted to be treated as equals.
 
 In the Soviet Union, they tried to break down ethnic and class divisions, and yet antisemitism still existed there. Despite that, many Jews in the Soviet were socialists but had a different understanding of it that was a threat to the regime.  People were thinking that Jews sought power.
 
@@ -165,15 +165,17 @@ There is an political divide between the right and left in Israel. But after wha
 
 Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They mean that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the Zionists agreed on it, since they were happy to get some land at all.
 
-By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left.
+By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left too.
 
-### Leftist "anti-Zionism"
+### Leftist "Anti-Zionism"
 
 Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left are mistrustful of capitalism because of it being synonymous with greed. And the malicious portrait of a greedy Jew has sometimes been used as propaganda.
 
 The Socialist leftist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
 
-And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel. Leading to a lot of the antisemitic tropes that we have mentioned here being so apparent.
+Socialist tend to somehow believe that "Zionists" are responsible for keeping the greedy "oppressive" capitalist world order running. Often longing for a more "compassionate" world order, without "Zionists" (Jews), and therefore no capitalism. To them, what is hindering the emergence of Socialist world order are the "Zionists".
+
+And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel as a supposed occupier of "Palestinian" land. Leading to a lot of the antisemitic tropes that we have mentioned here becoming apparent.
 
 ## How do you spot antisemitism?
 
@@ -181,7 +183,7 @@ The most notable characteristic of antisemitism is that it targets Jews as a gro
 
 Antisemitism may express itself by someone targeting, accusing, or showing contempt for an individual because they are Jewish. This is far more common that accusing the entire group. But nowadays people might say they condemn antisemitism, but claiming they are against Zionism - i.ex. Israel. Not realizing how that affects Jewish people.
 
-In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the rights of the Jewish people.
+In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the consequences for Jews - nor do they consider their human rights.
 
 One knows how to recognize antisemitism by being aware of the history of antisemitism, all of the tropes, and by being able to read between the lines.
 

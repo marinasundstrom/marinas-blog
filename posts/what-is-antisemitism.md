@@ -145,7 +145,7 @@ Jews are humans, as different as any other group of humans.
 
 ### Blatant hate towards Jews
 
-There is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
+Especially in social media, there is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
 
 And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots, then they antisemitic.
 

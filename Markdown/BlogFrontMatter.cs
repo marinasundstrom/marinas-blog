@@ -31,4 +31,7 @@ public class BlogFrontMatter
 
     [YamlMember(Alias = "redirect_from")]
     public string[] RedirectFrom { get; set; }
+
+    [YamlMember(Alias = "draft")]
+    public bool? IsDraft { get; set; }
 }

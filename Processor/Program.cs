@@ -10,17 +10,17 @@ List<PostInfo> posts = new List<PostInfo>();
 
 var markdownEstimator = new MarkdownEstimator();
 
-try 
+try
 {
     Directory.CreateDirectory(postsDir);
 }
-catch(Exception) {}
+catch (Exception) { }
 
-try 
+try
 {
     Directory.CreateDirectory(tagsDir);
 }
-catch(Exception) {}
+catch (Exception) { }
 
 foreach (var file in Directory.GetFiles(postsDir, "*.json"))
 {
@@ -44,6 +44,9 @@ foreach (var file in Directory.GetFiles(postsDir, "*.md"))
     var frontMatter = MarkdownExtensions.GetFrontMatter<BlogFrontMatter>(text);
 
     if (frontMatter is null)
+        continue;
+
+    if (frontMatter.IsDraft.GetValueOrDefault())
         continue;
 
     var content = MarkdownExtensions
@@ -104,7 +107,7 @@ foreach (var tag in tags)
     }
 }
 
-foreach(var tag in tags) 
+foreach (var tag in tags)
 {
     var postsJson = JsonSerializer.Serialize(tags.ToDictionary(x => x.Key, x => x.Value.Count()));
 

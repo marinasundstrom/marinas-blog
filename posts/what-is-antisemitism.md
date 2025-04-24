@@ -81,11 +81,17 @@ Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have fo
 
 ### What is a "Zionist"?
 
-The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sough for Jewish self-determination. Leading to the Jewish nationalist movement, headed by the World Zionist Congress. The term "Zion" is from a name for Jerusalem. As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
+The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sought after Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
+
+"Zion" comes from an ancient name for Jerusalem. 
+
+As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
+
+To make it short, Jews came together in groups to buy land in the then called "Palestine", which they later developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
 
 ### "The Evil Zionists"
 
-The use use of "Zionist" as a slur for Jew date back to the early 20th century.
+The use of "Zionist" as a slur for Jew date back to the early 20th century.
 
 As alluded to before, the term "Zionist" as many anti-semites use it today was established in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political motives - when most just wanted to be treated as equals.
 
@@ -99,6 +105,20 @@ Anti-zionism is often used as an excuse to attack Jews for being Jewish. Especia
 
 Due to increasing immigration to Europe from Arab Muslim countries in the Middle-East, antisemitism is an ever increasing threat to the social order.
 
+### "Zionists are controlling the world"
+
+To this day, some people are still claiming that "Zionist" groups have influence and control over entire countries, often referring to supporting Israel. As if Jews have the power to pressure Non-Jewish majority to make decisions.
+
+Ask yourself: Why would "Zionists" want to control the world? 
+
+Some would say: Because other countries legitimize and support Israel.
+
+But why does the entire world have to submit to the "Zionists" for that?
+
+All this simply plays into the antisemitic tropes that Jews as a group have ulterior motives. - to rule the world And it is a repackaged version of the theme of the "Protocols of the Elders of Zion".
+
+After all the hesitation by USA, under the leadership of President Joe Biden, in supporting the defensive actions after October 7, Israel has proven to be  capable to defend themselves on all fronts.
+
 ### "Don't bring your conflict here"
 
 There is an increasing rhetoric that seem to blame Arabs and Jews alike for bringing the Israeli-Palestine conflict to whatever country. Mostly seeming to blame the Jews for it.
@@ -109,14 +129,17 @@ Assuming that a Jew is a Zionist, and them having part in the conflict is drawin
 
 Jews are humans, as different as any other group of humans.
 
-### When does Antisemitism and Anti-Zionism coincide?
-
-One knows that by being aware of the history of antisemitism, and by being able to read between the lines.
+### Obvious antisemitism
 
 When someone is calling a Jews a small, dirty, and nasty "Zionist" you are immediately evokes antisemitic tropes. And when they accuse a Jews of being without empathy. Or when they mean that Zionist control the world.
 
 If they only accept a Jew being a Zionist and gentiles being useful idiots.
 
 Read between the lines, and discover the historic antisemitic tropes till being spread, but re-packaged to not be as apparent.
+
+
+## How do you spot antisemitism?
+
+One knows that by being aware of the history of antisemitism, and by being able to read between the lines.
 
 In reality, all anti-Zionists are antisemitic.... because none of them consider the rights of the Jewish people.

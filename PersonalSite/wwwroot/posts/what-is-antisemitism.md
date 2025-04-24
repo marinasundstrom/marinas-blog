@@ -61,13 +61,29 @@ Whether the events happened, or not, we can discuss another time.
 
 Christian antisemitism is a thing. A leftover from when Christianity tried to replace Judaism. That requires to get deeper into history, but we leave that for now.
 
+### Arab antisemitism
+
+In the Arab world, antisemitism has its source in a mix of religious doctrine and foreign influence.
+
+Since most Palestinians, and indeed Arabs, are muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
+
+The hadith says:
+
+<blockquote>“Judgement Day will not come until the Muslims fight the Jews. The Jews will hide behind the stones and the trees, and the stones and the trees will say, oh Muslim, oh servant of Allah, there is a Jew hiding behind me — come and kill him.”</blockquote>
+
+To this day, islamist and jihadists, use this as a basis for creating Arab Muslim unity against Jews. In the belief that once the Jews have been defeated, then Islam will take over the world.
+
+Many people don't know that both Nazis and the Soviet influenced the Middle-East, spreading both Nazi and Marxist ideas. That is why the Palestinian movement to this day, think fondly about Hitler and his mission to eradicate the Jews. Thinking the Holocaust was a justified measure against the Jews. They Arabs don't say Zionist, but Jews.
+
+Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have found numerous of copies of Hitler's Mein Kampf spread around Gaza.
+
 ## What is Anti-Zionism?
 
 ### What is a "Zionist"?
 
 The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sough for Jewish self-determination. Leading to the Jewish nationalist movement, headed by the World Zionist Congress. The term "Zion" is from a name for Jerusalem. As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
 
-### "The Evil Zionuists"
+### "The Evil Zionists"
 
 The use use of "Zionist" as a slur for Jew date back to the early 20th century.
 

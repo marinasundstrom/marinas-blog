@@ -45,7 +45,7 @@ However, the "Chosen people" has been willfully misconstrued by opponents becaus
 
 ### "Jews are controlling the world"
 
-The allegation that Jews control the world seems to stem from a pamphlet that was spread in 1905, called the “Protocols of the Elders of Zion”, originating in Russia. It was written as some kind of acknowledgment by "Zionists" ("Jews") that they were controlling and taking over the world from behind the scenes - "World Zionism". Having supposedly infiltrated liberal, capitalist, communist, and free masonic elites. Since then this has been a common antisemitic conspiracy theory.
+The allegation that Jews control the world seems to stem from a pamphlet that was spread in 1905, called the “Protocols of the Elders of Zion”, originating in Russia. It was written as some kind of acknowledgment by "Zionists" ("Jews") that they were controlling and taking over the world from behind the scenes - "World Zionism". Having supposedly infiltrated and manipulated liberal, capitalist, communist, and free masonic elites. Since then this has been a common antisemitic conspiracy theory.
 
 It has been shown that the Tzarist Secret Services (of Russia) was behind the spreading of the pamphlet, and even claimed it to be an address delivered at the World Zionist Congress in Basel 1897, by Theodor Herzl himself, the leading person of the World Zionist movement that in fact was aiming for Jewish self-determination by establishing a Jewish homeland.
 

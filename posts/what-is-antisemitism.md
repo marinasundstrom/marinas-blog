@@ -71,7 +71,7 @@ The hadith says:
 
 <blockquote>“Judgement Day will not come until the Muslims fight the Jews. The Jews will hide behind the stones and the trees, and the stones and the trees will say, oh Muslim, oh servant of Allah, there is a Jew hiding behind me — come and kill him.”</blockquote>
 
-To this day, islamist and jihadists, use this as a basis for creating Arab Muslim unity against Jews.
+To this day, islamist and jihadists, use this as a basis for creating Arab Muslim unity against Jews. In the belief that once the Jews have been defeated, then Islam will take over the world.
 
 Many people don't know that both Nazis and the Soviet influenced the Middle-East, spreading both Nazi and Marxist ideas. That is why the Palestinian movement to this day, think fondly about Hitler and his mission to eradicate the Jews. Thinking the Holocaust was a justified measure against the Jews. They Arabs don't say Zionist, but Jews.
 

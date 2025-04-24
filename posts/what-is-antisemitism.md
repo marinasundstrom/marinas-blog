@@ -169,7 +169,7 @@ By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it 
 
 ### Leftist "anti-Zionism"
 
-Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left mistrustful of capitalism because of the being synonymous with greed.
+Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left are mistrustful of capitalism because of it being synonymous with greed.
 
 The Socialist leftist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
 

@@ -60,7 +60,9 @@ Christian antisemitism is a thing. A leftover from when Christianity tried to re
 
 ### What is a Zionist?
 
-As alluded to above, the term "Zionist" as many anti-semites use it today was coined in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political intentions. 
+As alluded to above, the term "Zionist" as many anti-semites use it today was coined in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political motives - when most just wanted to be treated as equals.
+
+This coincided with the "Emancipation" when, over the course of more than a century, Jews in Europe slowly were granted rights and citizenship in the new order of nation states, at the collapse of empires.
 
 This was in Soviet where they tried to break down ethnic and class divisions, and yet antisemitism still existed there. Despite that, many Jews in the Soviet were socialists but had a different understanding of it that was a threat to the regime.  People were thinking that Jews sought power.
 

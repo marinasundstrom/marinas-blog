@@ -5,6 +5,10 @@ tags: [Social issues, Jewish]
 draft: true
 ---
 
+## Preface
+
+In this article we are going to break down anti-semitism, by trope, and see how it
+
 ## What is Antisemitism?
 
 Antisemitism is any hate or prejudice directed at Jews for being Jewish. An ancient form of prejudice.
@@ -137,6 +141,21 @@ If they only accept a Jew being a Zionist and gentiles being useful idiots.
 
 Read between the lines, and discover the historic antisemitic tropes till being spread, but re-packaged to not be as apparent.
 
+### When is it legit criticism of Israel?
+
+A lot of people who say they are not against Jews, only Israel and the "Zionists", have something against Israelis for mostly being Jewish. Their apparent dislike for Zionism make them associate both. 
+
+You can criticize certain policies of Israel. But if you are not into Israeli politics you should rather not do that. 
+
+Some want to put all the blame of Prime Minister Benjamin Netanyahu and his right-wing coalition, with orthodox "extremist" politicians in his cabinet. Claiming they want to take control over Palestinian territory. 
+
+There is an political divide between the right and left in Israel. But after what happened October 7, the country has been united across the political spectrum and ethnic lines. But there are conspiracy theories about Netanyahu letting the tragedy happen for his own gain. This accusation has been made even by internationals. Essentially, powers are weaponizing internal politics to make Israel as a whole look weak, and as if it is on the brink of collapsing. Playing into the Palestinian and Islamist narrative.
+
+#### Delegitimizing Israel and its existence
+
+Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They mean that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the Zionists agreed on it, since they were happy to get some land at all.
+
+By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left.
 
 ## How do you spot antisemitism?
 

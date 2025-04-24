@@ -99,9 +99,9 @@ The term "Zionist" come from the World Zionism movement, at the end of the 19th 
 
 "Zion" comes from an ancient name for Jerusalem. 
 
-As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
+As mentioned, the goal was self-determination for the Jewish people, by establishing a home for Jews in their ancient homeland in the "Land of Israel", also known as "Palestine". A land, at that time, ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
 
-To make it short, Jews came together in groups to buy land in the then called "Palestine", which they later developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
+To make it short, Jews came together in groups to purchase land in the then called "Palestine", which they later developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
 
 ### "The Evil Zionists"
 

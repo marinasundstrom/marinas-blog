@@ -143,13 +143,13 @@ Assuming that a Jew is a Zionist, and them having part in the conflict is drawin
 
 Jews are humans, as different as any other group of humans.
 
-### Obvious antisemitism
+### Blatant hate towards Jews
 
-When someone is calling a Jews a small, dirty, and nasty "Zionist" you are immediately evokes antisemitic tropes. And when they accuse a Jews of being without empathy. Or when they mean that Zionist control the world.
+There is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
 
-If they only accept a Jew being a Zionist and gentiles being useful idiots.
+And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots, then they antisemitic.
 
-Read between the lines, and discover the historic antisemitic tropes till being spread, but re-packaged to not be as apparent.
+The point is that is's hate towards a "Zionist" for being a Jew - not for a Jew happening to be a Zionist - which most are.
 
 ### When is it legit criticism of Israel?
 
@@ -185,6 +185,8 @@ In practice, even the most well-intentioned "anti-Zionists" are antisemitic, bec
 
 One knows how to recognize antisemitism by being aware of the history of antisemitism, all of the tropes, and by being able to read between the lines.
 
-## Conclusions
+## Conclusion
+
+Read between the lines, and discover the historic antisemitic tropes still being spread, but re-packaged to not be as apparent.
 
 You should be aware that when there is mistrust and conflict between groups, they project it on Jews. Jews become the scapegoat that unites them. But it seldom ends with just the Jews.

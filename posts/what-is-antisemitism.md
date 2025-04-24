@@ -167,6 +167,10 @@ By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it 
 
 ## How do you spot antisemitism?
 
-One knows that by being aware of the history of antisemitism, and by being able to read between the lines.
+The most notable characteristic of antisemitism is that it targets Jews as a group. That makes it a kind of racism, although special because it is so persistent across time.
 
-In reality, all anti-Zionists are antisemitic.... because none of them consider the rights of the Jewish people.
+Antisemitism may express itself by someone targeting, accusing, or showing contempt for an individual because they are Jewish. This is far more common that accusing the entire group. But nowadays people might say they condemn antisemitism, but claiming they are against Zionism - i.ex. Israel. Not realizing how that affects Jewish people.
+
+In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the rights of the Jewish people.
+
+One knows how to recognize antisemitism by being aware of the history of antisemitism, all of the tropes, and by being able to read between the lines.

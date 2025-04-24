@@ -67,7 +67,7 @@ Christian antisemitism is a thing. A leftover from when Christianity tried to re
 
 ### Arab antisemitism
 
-In the Arab world, antisemitism has its source in a mix of religious doctrine and foreign influence.
+In the Arab world, antisemitism has its origin in a mix of religious doctrine and foreign influence.
 
 As the Muslim cry goes: 
 

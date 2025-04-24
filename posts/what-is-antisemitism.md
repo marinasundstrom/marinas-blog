@@ -139,9 +139,9 @@ There is an increasing rhetoric that seem to blame Arabs and Jews alike for brin
 
 Although many Jews have a connection to Israel, having family there, they don't have any part of the conflict.
 
-Assuming that a Jew is a Zionist, and them having part in the conflict is drawing on antisemitic tropes that Jews are this united collective with a shared agenda, or even a shared mind
+Assuming that a Jew is a Zionist, and them having part in the conflict is drawing on antisemitic tropes that Jews are this united collective with a shared agenda, or even a shared hive mind.
 
-Jews are humans, as different as any other group of humans.
+Jews are people, as different and diverse as any other group of people.
 
 ### Blatant hate towards Jews
 

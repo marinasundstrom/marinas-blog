@@ -103,4 +103,4 @@ If they only accept a Jew being a Zionist and gentiles being useful idiots.
 
 Read between the lines, and discover the historic antisemitic tropes till being spread, but re-packaged to not be as apparent.
 
-In reality, all anti-Zionists are antisemitic.... 
+In reality, all anti-Zionists are antisemitic.... because none of them consider the rights of the Jewish people.

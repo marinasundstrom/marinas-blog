@@ -5,6 +5,10 @@ tags: [Social issues, Jewish]
 draft: true
 ---
 
+## Preface
+
+In this article we are going to break down anti-semitism, by trope, and see how it
+
 ## What is Antisemitism?
 
 Antisemitism is any hate or prejudice directed at Jews for being Jewish. An ancient form of prejudice.
@@ -25,6 +29,8 @@ Even in the Middle-East this was a thing, although the Jewish presence, in for i
 
 Due to them historically being barred from owning property, being limited to being tradesmen and lending money, they got the reputation of being greedy. The fact is that no other people was allowed to handle money because of Christian doctrine about usury. And because of this it instilled in Jews, at least in Europe, a good sense of saving and investing money.
 
+To this day, being greedy is sadly still a stereotype for Jews.
+
 ### Misunderstandings about the "Chosen people"
 
 By Anti-semites, the claim that Jews are the "Chosen people" is often used as some kind of claim for Jewish supremacy. 
@@ -39,7 +45,7 @@ However, the "Chosen people" has been willfully misconstrued by opponents becaus
 
 ### "Jews are controlling the world"
 
-The allegation that Jews control the world seems to stem from a pamphlet that was spread in 1905, called the “Protocols of the Elders of Zion”, originating in Russia. It was written as some kind of acknowledgment by "Zionists" ("Jews") that they were controlling and taking over the world from behind the scenes - "World Zionism". Having supposedly infiltrated liberal, capitalist, communist, and free masonic elites. Since then this has been a common antisemitic conspiracy theory.
+The allegation that Jews control the world seems to stem from a pamphlet that was spread in 1905, called the “Protocols of the Elders of Zion”, originating in Russia. It was written as some kind of acknowledgment by "Zionists" ("Jews") that they were controlling and taking over the world from behind the scenes - "World Zionism". Having supposedly infiltrated and manipulated liberal, capitalist, communist, and free masonic elites. Since then this has been a common antisemitic conspiracy theory.
 
 It has been shown that the Tzarist Secret Services (of Russia) was behind the spreading of the pamphlet, and even claimed it to be an address delivered at the World Zionist Congress in Basel 1897, by Theodor Herzl himself, the leading person of the World Zionist movement that in fact was aiming for Jewish self-determination by establishing a Jewish homeland.
 
@@ -63,29 +69,43 @@ Christian antisemitism is a thing. A leftover from when Christianity tried to re
 
 ### Arab antisemitism
 
-In the Arab world, antisemitism has its source in a mix of religious doctrine and foreign influence.
+In the Arab world, antisemitism has its origin in a mix of religious doctrine and foreign influence.
+
+As the Muslim cry goes: 
+
+<blockquote class="blockquote">
+Khaybar, Khaybar, ya yahud
+</blockquote>
+
+It's a reminder to Jews that they (muslims) will repeat what they did to them at Khaybar, a town in what is today Saudi Arabia, back in 629 A.D: Slaughter them.
 
 Since most Palestinians, and indeed Arabs, are muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
 
 The hadith says:
 
-<blockquote>“Judgement Day will not come until the Muslims fight the Jews. The Jews will hide behind the stones and the trees, and the stones and the trees will say, oh Muslim, oh servant of Allah, there is a Jew hiding behind me — come and kill him.”</blockquote>
+<blockquote class="blockquote">“Judgement Day will not come until the Muslims fight the Jews. The Jews will hide behind the stones and the trees, and the stones and the trees will say, oh Muslim, oh servant of Allah, there is a Jew hiding behind me — come and kill him.”</blockquote>
 
 To this day, islamist and jihadists, use this as a basis for creating Arab Muslim unity against Jews. In the belief that once the Jews have been defeated, then Islam will take over the world.
 
-Many people don't know that both Nazis and the Soviet influenced the Middle-East, spreading both Nazi and Marxist ideas. That is why the Palestinian movement to this day, think fondly about Hitler and his mission to eradicate the Jews. Thinking the Holocaust was a justified measure against the Jews. They Arabs don't say Zionist, but Jews.
+Many people don't know that both Nazis and the Soviet influenced the Middle-East, spreading both Nazi and Marxist ideas. That is why the Palestinian movement to this day, think fondly about Hitler and his mission to eradicate the Jews. Thinking the Holocaust was a justified measure against the Jews. The Arabs don't say Zionist, but Jews.
 
-Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have found numerous of copies of Hitler's Mein Kampf spread around Gaza.
+Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have found numerous of copies of Hitler's "Mein Kampf" spread around Gaza.
 
 ## What is Anti-Zionism?
 
 ### What is a "Zionist"?
 
-The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sough for Jewish self-determination. Leading to the Jewish nationalist movement, headed by the World Zionist Congress. The term "Zion" is from a name for Jerusalem. As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
+The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sought after Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
+
+"Zion" comes from an ancient name for Jerusalem. 
+
+As mentioned, the goal was self-determination for the Jewish people, by establishing a Jewish homeland in the "Land of Israel", known as Palestine. A land at that time ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
+
+To make it short, Jews came together in groups to buy land in the then called "Palestine", which they later developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
 
 ### "The Evil Zionists"
 
-The use use of "Zionist" as a slur for Jew date back to the early 20th century.
+The use of "Zionist" as a slur for Jew date back to the early 20th century.
 
 As alluded to before, the term "Zionist" as many anti-semites use it today was established in Russia as a slur for Jew - to mark them as a threat to the country. That was before Israel even existed. It carried little connection to Zionism - more than it connected Jews to "Zionist". It was a way to dehumanize and marginalize Jews as a separate group with their own political motives - when most just wanted to be treated as equals.
 
@@ -99,6 +119,20 @@ Anti-zionism is often used as an excuse to attack Jews for being Jewish. Especia
 
 Due to increasing immigration to Europe from Arab Muslim countries in the Middle-East, antisemitism is an ever increasing threat to the social order.
 
+### "Zionists are controlling the world"
+
+To this day, some people are still claiming that "Zionist" groups have influence and control over entire countries, often referring to supporting Israel. As if Jews have the power to pressure Non-Jewish majority to make decisions.
+
+Ask yourself: Why would "Zionists" want to control the world? 
+
+Some would say: Because other countries legitimize and support Israel.
+
+But why does the entire world have to submit to the "Zionists" for that?
+
+All this simply plays into the antisemitic tropes that Jews as a group have ulterior motives. - to rule the world And it is a repackaged version of the theme of the "Protocols of the Elders of Zion".
+
+After all the hesitation by USA, under the leadership of President Joe Biden, in supporting the defensive actions after October 7, Israel has proven to be  capable to defend themselves on all fronts.
+
 ### "Don't bring your conflict here"
 
 There is an increasing rhetoric that seem to blame Arabs and Jews alike for bringing the Israeli-Palestine conflict to whatever country. Mostly seeming to blame the Jews for it.
@@ -109,14 +143,50 @@ Assuming that a Jew is a Zionist, and them having part in the conflict is drawin
 
 Jews are humans, as different as any other group of humans.
 
-### When does Antisemitism and Anti-Zionism coincide?
+### Blatant hate towards Jews
 
-One knows that by being aware of the history of antisemitism, and by being able to read between the lines.
+Especially in social media, there is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
 
-When someone is calling a Jews a small, dirty, and nasty "Zionist" you are immediately evokes antisemitic tropes. And when they accuse a Jews of being without empathy. Or when they mean that Zionist control the world.
+And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots, then they antisemitic.
 
-If they only accept a Jew being a Zionist and gentiles being useful idiots.
+The point is that is's hate towards a "Zionist" for being a Jew - not for a Jew happening to be a Zionist - which most are.
 
-Read between the lines, and discover the historic antisemitic tropes till being spread, but re-packaged to not be as apparent.
+### When is it legit criticism of Israel?
 
-In reality, all anti-Zionists are antisemitic.... because none of them consider the rights of the Jewish people.
+A lot of people who say they are not against Jews, only Israel and the "Zionists", have something against Israelis for mostly being Jewish. Their apparent dislike for Zionism make them associate both. 
+
+You can criticize certain policies of Israel. But if you are not into Israeli politics you should rather not do that. 
+
+Some want to put all the blame of Prime Minister Benjamin Netanyahu and his right-wing coalition, with orthodox "extremist" politicians in his cabinet. Claiming they want to take control over Palestinian territory. 
+
+There is an political divide between the right and left in Israel. But after what happened October 7, the country has been united across the political spectrum and ethnic lines. But there are conspiracy theories about Netanyahu letting the tragedy happen for his own gain. This accusation has been made even by internationals. Essentially, powers are weaponizing internal politics to make Israel as a whole look weak, and as if it is on the brink of collapsing. Playing into the Palestinian and Islamist narrative.
+
+#### Delegitimizing Israel and its existence
+
+Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They mean that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the Zionists agreed on it, since they were happy to get some land at all.
+
+By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left.
+
+### Leftist "anti-Zionism"
+
+Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left are mistrustful of capitalism because of it being synonymous with greed. And the malicious portrait of a greedy Jew has sometimes been used as propaganda.
+
+The Socialist leftist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
+
+And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel. Leading to a lot of the antisemitic tropes that we have mentioned here being so apparent.
+
+## How do you spot antisemitism?
+
+The most notable characteristic of antisemitism is that it targets Jews as a group. That makes it a kind of racism, although special because it is so persistent across time.
+
+Antisemitism may express itself by someone targeting, accusing, or showing contempt for an individual because they are Jewish. This is far more common that accusing the entire group. But nowadays people might say they condemn antisemitism, but claiming they are against Zionism - i.ex. Israel. Not realizing how that affects Jewish people.
+
+In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the rights of the Jewish people.
+
+One knows how to recognize antisemitism by being aware of the history of antisemitism, all of the tropes, and by being able to read between the lines.
+
+## Conclusion
+
+Read between the lines, and discover the historic antisemitic tropes still being spread, but re-packaged to not be as apparent.
+
+You should be aware that when there is mistrust and conflict between groups, they project it on Jews. Jews become the scapegoat that unites them. But it seldom ends with just the Jews.

@@ -117,7 +117,7 @@ Today, Anti-zionism, antisemitism disguised as a legitimate criticism and dislik
 
 Anti-zionism is often used as an excuse to attack Jews for being Jewish. Especially from the anti-colonialist leftist and the Muslim side. Jews are still seen as the catalyst, for being either capitalist that once defeated will bring a new world Socialist order, or an Islamic caliphate.
 
-Due to increasing immigration to Europe from Arab Muslim countries in the Middle-East, antisemitism is an ever increasing threat to the social order.
+Due to increasing immigration to Europe from Arab Muslim countries in the Middle-East, antisemitism is an ever increasing threat to the Jews, and to the democratic social order.
 
 ### "Zionists are controlling the world"
 
@@ -147,9 +147,9 @@ Jews are people, as different and diverse as any other group of people.
 
 Especially in social media, there is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
 
-And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots, then they antisemitic.
+And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots that have been subjected to "Zionist propaganda", then they antisemitic.
 
-The point is that is's hate towards a "Zionist" for being a Jew - not for a Jew happening to be a Zionist - which most are.
+The point is that it's hate towards a "Zionist" for being a Jew - not a Jew happening to be a Zionist - which most Jews are.
 
 ### When is it legit criticism of Israel?
 
@@ -169,11 +169,11 @@ By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it 
 
 ### Leftist "Anti-Zionism"
 
-Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left are mistrustful of capitalism because of it being synonymous with greed. And the malicious portrait of a greedy Jew has sometimes been used as propaganda.
+Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left are mistrustful of capitalism because of it being synonymous with greed. And the malicious portrait of a greedy Jew has sometimes been used in propaganda to foster socialist sentiment.
 
-The Socialist leftist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
+The Socialist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
 
-Socialist tend to somehow believe that "Zionists" are responsible for keeping the greedy "oppressive" capitalist world order running. Often longing for a more "compassionate" world order, without "Zionists" (Jews), and therefore no capitalism. To them, what is hindering the emergence of Socialist world order are the "Zionists".
+Socialist tend to somehow believe that a "Zionist" conspiracy are responsible for keeping the greedy "oppressive" capitalist world order running. Often longing for a more "compassionate" world order, without "Zionists" (Jews), and therefore no capitalism. To them, what is hindering the emergence of Socialist world order are the "Zionists".
 
 And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel as a supposed occupier of "Palestinian" land. Leading to a lot of the antisemitic tropes that we have mentioned here becoming apparent.
 

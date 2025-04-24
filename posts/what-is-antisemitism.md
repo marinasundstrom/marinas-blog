@@ -29,6 +29,8 @@ Even in the Middle-East this was a thing, although the Jewish presence, in for i
 
 Due to them historically being barred from owning property, being limited to being tradesmen and lending money, they got the reputation of being greedy. The fact is that no other people was allowed to handle money because of Christian doctrine about usury. And because of this it instilled in Jews, at least in Europe, a good sense of saving and investing money.
 
+To this day, being greedy is sadly still a stereotype for Jews.
+
 ### Misunderstandings about the "Chosen people"
 
 By Anti-semites, the claim that Jews are the "Chosen people" is often used as some kind of claim for Jewish supremacy. 
@@ -165,6 +167,14 @@ Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. Th
 
 By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left.
 
+### Leftist "anti-Zionism"
+
+Leftism is a broad spectrum, but what is common is their disdain for Jews because of the stereotype of Jews being greedy. Much because people on the left mistrustful of capitalism because of the being synonymous with greed.
+
+The Socialist leftist variation of antisemitism is based on the notion that "Zionists" are colonialists that have its grip on the world in its grip, and making countries complicit in "oppressing" and even "genociding" Palestinians.
+
+And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel. Leading to a lot of the antisemitic tropes that we have mentioned here being so apparent.
+
 ## How do you spot antisemitism?
 
 The most notable characteristic of antisemitism is that it targets Jews as a group. That makes it a kind of racism, although special because it is so persistent across time.
@@ -174,3 +184,7 @@ Antisemitism may express itself by someone targeting, accusing, or showing conte
 In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the rights of the Jewish people.
 
 One knows how to recognize antisemitism by being aware of the history of antisemitism, all of the tropes, and by being able to read between the lines.
+
+## Conclusions
+
+You should be aware that when there is mistrust and conflict between groups, they project it on Jews. Jews become the scapegoat that unites them. But it seldom ends with just the Jews.

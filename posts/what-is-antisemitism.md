@@ -97,7 +97,7 @@ Today, there are Arab Muslims in the West that are accusing Jewish organizations
 
 ### What really is a "Zionist"?
 
-The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sought after Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
+The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, when Jews had been granted civil rights, there was increasing antisemitism in Europe - again using Jews as a scapegoat for social problems and civil unrest. So Jews were looking for Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
 
 "Zion" comes from an ancient name for Jerusalem. 
 

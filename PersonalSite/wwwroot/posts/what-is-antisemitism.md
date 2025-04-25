@@ -71,15 +71,15 @@ Christian antisemitism is a thing. A leftover from when Christianity tried to re
 
 In the Arab world, antisemitism has its origin in a mix of religious doctrine and foreign influence.
 
-As the Muslim cry goes: 
+As the famous Muslim cry goes: 
 
 <blockquote class="blockquote">
 Khaybar, Khaybar, ya yahud
 </blockquote>
 
-It's a reminder to Jews that they (muslims) will repeat what they did to them at Khaybar, a town in what is today Saudi Arabia, back in 629 A.D: Slaughter them.
+It's a reminder to the Jews that they (muslims) will repeat what they did to them at Khaybar, a town in what is today Saudi Arabia, back in 629 A.D: Slaughter them.
 
-Since most Palestinians, and indeed Arabs, are muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
+Since most Palestinians, and indeed Arabs, are Muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
 
 The hadith says:
 
@@ -91,11 +91,13 @@ Many people don't know that both Nazis and the Soviet influenced the Middle-East
 
 Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have found numerous of copies of Hitler's "Mein Kampf" spread around Gaza.
 
+Today, there are Arab Muslims in the West that are accusing Jewish organizations, which they see as "Zionists", for "inciting" islamophobia (hate against muslims and Islam). They are often walking together with Leftists, who share a similar sentiment against Jews.
+
 ## What is Anti-Zionism?
 
 ### What really is a "Zionist"?
 
-The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, there was increasing antisemitism in Europe, and Jews sought after Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
+The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, when Jews had been granted civil rights, there was increasing antisemitism in Europe - again using Jews as a scapegoat for social problems and civil unrest. So Jews were looking for Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
 
 "Zion" comes from an ancient name for Jerusalem. 
 
@@ -151,6 +153,8 @@ And to further test the "Anti-Zionist": If they only accept a Jew as being a Zio
 
 The point is that it's hate towards a "Zionist" for being a Jew - not a Jew happening to be a Zionist - which most Jews are.
 
+Hating Jews, or any other ethnic group for being who they are, is racism. Hating Jews because of what Israel do is not acceptable.
+
 ### When is it legit criticism of Israel?
 
 A lot of people who say they are not against Jews, only Israel and the "Zionists", have something against Israelis for mostly being Jewish. Their apparent dislike for Zionism make them associate both. 
@@ -163,7 +167,7 @@ There is an political divide between the right and left in Israel. But after wha
 
 #### Delegitimizing Israel and its existence
 
-Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They mean that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the Zionists agreed on it, since they were happy to get some land at all.
+Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They claim that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the then "Palestinian" Jews agreed on it, since they were just happy to get some land. And as a response neighboring Arab states attacked Israel. The Arabs, among which some later would call themselves "Palestinians" to allude to some indigenous connection to the land, never wanted the Jews to get any land. And that is the basis for the entire conflict that still exists.
 
 By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left too.
 

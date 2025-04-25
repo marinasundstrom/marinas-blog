@@ -167,7 +167,7 @@ There is an political divide between the right and left in Israel. But after wha
 
 #### Delegitimizing Israel and its existence
 
-Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They mean that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the Zionists agreed on it, since they were happy to get some land at all.
+Many "anti-Zionists" see Israel as an illegal colonialist and occupier state. They claim that Israel has not right to exist, even though international agreements have granted both the creation of Israel and an Arab state next to it in the former Mandate of Palestine. But only the then "Palestinian" Jews agreed on it, since they were just happy to get some land. And as a response neighboring Arab states attacked Israel. The Arabs, among which some later would call themselves "Palestinians" to allude to some indigenous connection to the land, never wanted the Jews to get any land. And that is the basis for the entire conflict that still exists.
 
 By now, Israel is a fact. And the Arab, "Palestinian", side are bitter about it - and so are their antisemitic anti-colonialist allies on the international left too.
 

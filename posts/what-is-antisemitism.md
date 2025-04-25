@@ -27,9 +27,11 @@ Even in the Middle-East this was a thing, although the Jewish presence, in for i
 
 ### "Jews are greedy"
 
-Due to them historically being barred from owning property, being limited to being tradesmen and lending money, they got the reputation of being greedy. The fact is that no other people was allowed to handle money because of Christian doctrine about usury. And because of this it instilled in Jews, at least in Europe, a good sense of saving and investing money.
+Due to them historically being barred from owning property, being limited to being tradesmen and lending money, they got the reputation of being greedy. The fact is that no other people was allowed to handle money because of Christian doctrine against usury - lending money at an unreasonable high price. Christians could not lend to each other at an interest, but the Torah never prevented Jews form lending money at an interest to gentiles (Non-Jews). And because of Jews handling money it instilled into them, a good sense of handling finances, saving and investing their wealth - especially in educating their children. Them eventually becoming successful entrepreneurs, despite not owning any land. Something that the Christian majority first didn't understand, and saw with scorn. This was before the enlightenment, and before the economics was established as a science.
 
-To this day, being greedy is sadly still a stereotype for Jews.
+To this day, being greedy and tricking gentiles is sadly still a stereotype for Jews. At least in the euro-centric view of what a Jew is.
+
+Worth noting that Jews, just like Christians eventually did, found justifications for lending money at an interest even among themselves - not seeing interest as an inherent evil but a benefit to the community.
 
 ### Misunderstandings about the "Chosen people"
 

@@ -11,7 +11,7 @@
             "location": "Remote",
             "current": false,
             "startDate": "2025-01-20",
-            "endDate": null,
+            "endDate": "2025-05-05",
             "description": "Working as consultant in team from Itm8. My initial role was as a Frontend developer. However, because of my experience with Blazor, I have been working on Backend as well. Helping influencing and designing the solution. Implementing BankID integration.",
             "skills": [
                 ".NET",
@@ -32,6 +32,7 @@
             "location": "Malmö, Sweden",
             "current": true,
             "startDate": "2025-01-01",
+            "endDate": "2025-05-05",
             "description": "Consulting as part of Itm8 (previously AddPro) in the Malmö area.",
             "skills": [
                 "Software development",

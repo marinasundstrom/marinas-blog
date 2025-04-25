@@ -3,6 +3,7 @@
 @inject IJSRuntime JS
 @layout CoverLayout
 @using System.Globalization
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
 
 <PageTitle>Marina Sundström</PageTitle>
 
@@ -49,11 +50,36 @@
 </section>
 
 @code {
+    private bool _redirected = false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await NavigationManager.NavigateToFragmentAsync(JS);
         }
+
+        if (firstRender && !_redirected)
+        {
+            var uri = new Uri(NavigationManager.Uri);
+            var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+
+            if (queryParams.TryGetValue("p", out var target))
+            {
+                var safeTarget = target.ToString();
+
+                if (!string.IsNullOrWhiteSpace(safeTarget) && !IsCurrentPage(safeTarget))
+                {
+                    _redirected = true;
+                    NavigationManager.NavigateTo(safeTarget, forceLoad: false);
+                }
+            }
+        }
+    }
+
+    private bool IsCurrentPage(string target)
+    {
+        var currentUri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        return string.Equals(currentUri, target.TrimStart('/'), StringComparison.OrdinalIgnoreCase);
     }
 }

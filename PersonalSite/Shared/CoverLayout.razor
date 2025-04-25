@@ -1,9 +1,44 @@
-@inherits LayoutComponentBase
+@inherits BaseLayout
+@inject NavigationManager NavigationManager
+@inject IWebAssemblyHostEnvironment HostEnv
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
 
-<NavMenu IsCoverPage="true" />
+<NavMenu @ref="navMenu" IsCoverPage="@(!_redirect)" />
 
 <main class="w-100 bg-body pb-5">
     @Body
 </main>
 
 <Footer />
+
+@code
+{
+    NavMenu navMenu;
+    bool _redirect;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = new Uri(NavigationManager.Uri);
+        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+
+        if (queryParams.TryGetValue("p", out var target))
+        {
+            _redirect = true;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (HostEnv.Environment == "Prerendering")
+            return;
+
+        if (firstRender && _redirect)
+        {
+            await navMenu.Init();
+
+#if DEBUG
+Console.WriteLine("Navbar initialized");
+#endif
+        }
+    }
+}

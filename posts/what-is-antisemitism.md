@@ -71,15 +71,15 @@ Christian antisemitism is a thing. A leftover from when Christianity tried to re
 
 In the Arab world, antisemitism has its origin in a mix of religious doctrine and foreign influence.
 
-As the Muslim cry goes: 
+As the famous Muslim cry goes: 
 
 <blockquote class="blockquote">
 Khaybar, Khaybar, ya yahud
 </blockquote>
 
-It's a reminder to Jews that they (muslims) will repeat what they did to them at Khaybar, a town in what is today Saudi Arabia, back in 629 A.D: Slaughter them.
+It's a reminder to the Jews that they (muslims) will repeat what they did to them at Khaybar, a town in what is today Saudi Arabia, back in 629 A.D: Slaughter them.
 
-Since most Palestinians, and indeed Arabs, are muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
+Since most Palestinians, and indeed Arabs, are Muslim they do follow what the Quran, as well as the Sunnah says about Jews. 
 
 The hadith says:
 
@@ -90,6 +90,8 @@ To this day, islamist and jihadists, use this as a basis for creating Arab Musli
 Many people don't know that both Nazis and the Soviet influenced the Middle-East, spreading both Nazi and Marxist ideas. That is why the Palestinian movement to this day, think fondly about Hitler and his mission to eradicate the Jews. Thinking the Holocaust was a justified measure against the Jews. The Arabs don't say Zionist, but Jews.
 
 Sine the start of war in Gaza, after October 7 2023,  Israeli army (IDF) have found numerous of copies of Hitler's "Mein Kampf" spread around Gaza.
+
+Today, there are Arab Muslims in the West that are accusing Jewish organizations, which they see as "Zionists", for "inciting" islamophobia (hate against muslims and Islam). They are often walking together with Leftists, who share a similar sentiment against Jews.
 
 ## What is Anti-Zionism?
 
@@ -150,6 +152,8 @@ Especially in social media, there is a lot of dehumanizing hate directed towards
 And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots that have been subjected to "Zionist propaganda", then they antisemitic.
 
 The point is that it's hate towards a "Zionist" for being a Jew - not a Jew happening to be a Zionist - which most Jews are.
+
+Hating Jews, or any other ethnic group for being who they are, is racism. Hating Jews because of what Israel do is not acceptable.
 
 ### When is it legit criticism of Israel?
 

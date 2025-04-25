@@ -1,7 +1,8 @@
 ---
 title: C# - a functional programming language?
-published: 2023-11-13
+published: 2025-04-21
 tags: [C#, .NET, Programming languages, Functional programming]
+draft: true
 ---
 
 Functional programming paradigm. Or is it just a style? Patterns?
@@ -99,11 +100,9 @@ On a side note, C# and .NET has no way of marking locals themselves as immutable
 
 ## Statelessness
 
-This will come up later. 
-
 Preference for statelessness. State is not to be shared, not to be passed around by reference, and thus not mutated. So no global variables.
 
-The same input will yield the same result.
+This will come up later when talking about functional pureness.
 
 ## Type inference
 
@@ -136,8 +135,7 @@ T NonOp<T>(T a) => a;
 
 ## First-class functions
 
-In functional programming function are first-class, and objects in their own right. You are encouraged to create functions for abstracting and composing logic. This is in stark contrast to object-oriented programming where classes, with inheritance or design patterns, are used for composition.
-
+In functional programming function are first-class, and objects in their own right. You are encouraged to create functions for abstracting and composing logic. This is in stark contrast to object-oriented programming where classes, with methods, inheritance, or design patterns, are used for composition.
 
 Functions can be passed as objects, and subsequently as arguments into other functions. Such a function that either takes one or more functions as arguments, or returns a function as its result, is referred to as a _"higher-order function"_.
 
@@ -229,7 +227,7 @@ static int Op(int a)
 
 Making the local function `static` (also applicable to lambdas) make so they become static and can't capture variables outside.
 
-Likewise, embedding a random number generator into the function would make it impure.
+Likewise, embedding a random number generator into the function would make it impure. But that is not necessarily wrong if you can ensure the behavior of the rest of your system.
 
 ### Type inference for delegates
 
@@ -238,10 +236,12 @@ Since C# 12, there is enhanced type inference for delegate types. Previously you
 ```csharp 
 var adder = (int a, int b) => a + b;
 
-var result = adder(1, 2);
+var result = adder(1, 2); // Func<int, int, int>
 ```
 
-By default, the built in `Action` and `Func` types (many variations) will be used. But if none is fitting it will generate a delegate for you.
+By default, the built in `Action` and `Func` types (it their many variations) will be used. But if none is fitting it will generate an anonymous delegate type.
+
+Type inference is for Minimal API in ASP.NET Core, when passing a lambda directly as a handler in `MapGet`, `MapPost` etc. The methods take an object of type `Delegate` which is the base class for all delegate types.
 
 #### Side note
 
@@ -251,13 +251,26 @@ As a bonus, IDEs, such as Visual Studio Code, might display the delegate type wh
 
 A big part of functional programming is to generalize functions, so they can be used with input of any compatible type.
 
-We have seen samples using generics, but lets talk more about specific applications.
+```csharp
+List<string> items = ["c", "A", "b"];
+
+Add<string>(items, "foo");
+
+void Add<T>(List<T> items, T value)
+{ 
+    items.Add(value);
+}
+```
+
+We have already seen samples using generics, but lets talk more about specific applications.
 
 ### "Generic math"
 
 In .NET there is this feature called "Generic math" which allows you to generalize over number types and mathematical operations. This works well with type inference.
 
-Here is a method that can take arguments of any number type, thanks to the primitive number types implementing the interface `INumber<T>` and that implements the operator overload for `+`.
+It works by implementing specialized generic interfaces that define instance methods and properties, and as static methods for parsing, and formatting, and for operators.
+
+Here is a method that can take arguments of any number type, thanks to the built-in number value types implementing the interface `INumber<TSelf>` and that implements the `IAdditionOperators<TSelf,TOther,TResult>` that defines the static abstract method for the addition operator (`+`).
 
 ```csharp
 var a = Add(1, 4); // int: 5
@@ -372,6 +385,34 @@ if(person is Person { Name: "Max" } matchedPerson)
 {
     // "matchedPerson" is not null
 }
+```
+
+### Collection expressions
+
+```csharp
+var items = new List<string>();
+items.Add("c");
+items.Add("A");
+items.Add("b");
+
+var items = new List<string>() { "c", "A", "b" };
+```
+
+```csharp
+int[] items = [42, 14, 5];
+
+IEnumerable<string> items = ["c", "A", "b"];
+
+List<string> items = ["c", "A", "b"];
+```
+
+The actual type will be determined by the target.
+
+Spreading:
+
+```csharp
+IEnumerable<string> collectionA = ["c", "A", "b"];
+IEnumerable<string> collectionB = [ ..collectionA, "foo"];
 ```
 
 ## What is a "pure" programming language?

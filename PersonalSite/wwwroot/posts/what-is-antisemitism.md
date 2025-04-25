@@ -2,22 +2,23 @@
 title: What is Antisemitism?
 published: 2025-04-25
 tags: [Social issues, Jewish]
-draft: true
 ---
 
 ## Preface
 
-In this article we are going to break down anti-semitism, by trope, and see how it
+Antisemitism is a growing problem in our days. It has increased with Arab Muslim immigration from the Middle-East. And it has recently flared up because of the situation between Israel-Palestine, with Israels defensive war in Gaza after October 7 (2023). Society seems chocked and paralyzed over the divisions, unable to separate anger towards Israel from blatant hate towards Jews.
+
+In this article we are going to break down anti-semitism throughout history until today - trope by trope . and see how it expresses itself.
 
 ## What is Antisemitism?
 
-Antisemitism is any hate or prejudice directed at Jews for being Jewish. An ancient form of prejudice.
+**Simply:** Antisemitism is any hate or prejudice directed at Jews for being Jewish. An ancient form of prejudice.
 
-This article might be centered around the Jews of Europe, the Ashkenazim, but the pattern repeats itself elsewhere, even in the Middle East.
+This article might be centered around the Jews of Europe, the Ashkenazim, but the pattern repeats itself elsewhere, even in the Middle East. Let's not forget them.
 
-### Jews as "the foreigners"
+### Jews as "the outsiders"
 
-Historically, Jews have been seen as "the others", foreigners, that don't belong to the country they reside. Leading them to be seen as a foreign threat. Jews have been used as a scapegoat whenever there has been an internal divide or conflict between the "natives". If there was a conflict, the Jews were said to be to blame for it.
+Historically, Jews have been seen as "the others", outsiders, and foreigners, that don't belong to the country they reside. Leading them to be seen as a foreign threat. Jews have been used as a scapegoat whenever there has been an internal divide or conflict between the "natives". If there was a conflict, the Jews were said to be to blame for it.
 
 This is the reason for all the negativity and slurs that have prevailed into the 20th century, and even exist today. Being "othered".
 
@@ -101,11 +102,11 @@ Today, there are Arab Muslims in the West that are accusing Jewish organizations
 
 The term "Zionist" come from the World Zionism movement, at the end of the 19th century. After the Jewish Emancipation, when Jews had been granted civil rights, there was increasing antisemitism in Europe - again using Jews as a scapegoat for social problems and civil unrest. So Jews were looking for Jewish self-determination. Leading to the Jewish nationalist movement, represented by the World Zionist Congress. 
 
-"Zion" comes from an ancient name for Jerusalem. 
+The term "Zion" comes from an ancient name for Jerusalem - after Mount Zion (Har Tsiyyon). This point is a special place for Jews, and also for Christians, who believe it to be the place closest to God. Due to that significance the term "Zion" has come to refer to the entire Land of Israel - and representing the longing back to Israel.
 
 As mentioned, the goal was self-determination for the Jewish people, by establishing a home for Jews in their ancient homeland in the "Land of Israel", also known as "Palestine". A land, at that time, ruled by the Ottoman Empire, and then by the British Mandate of Palestine.
 
-To make it short, Jews came together in groups to purchase land in the then called "Palestine", which they later developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
+To keep it short, Jews came together in groups to purchase land from Arabs, in the then called "Palestine", which they later settled and developed. There were multiple motives and visions competing. But most Jews just simply fled the hardships in Europe, before, during, and after the World Wars. Some trying hard to get along with the local Arabs. But there were increasing tensions, mainly by Arabs who did not accept Jews as equals. The conflict was early on infected by Arab Muslim ethno-religious rhetoric against the then largely secular and socialist Jewish population.
 
 ### "The Evil Zionists"
 
@@ -149,23 +150,33 @@ Jews are people, as different and diverse as any other group of people.
 
 ### Blatant hate towards Jews
 
-Especially in social media, there is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present. 
+Historically, Antisemitism has been affecting how Jews have been portrayed in cultural works. Most notable, as this malicious caricature of a bearded man, having a dominant crooked nose, and an evil smile. Of course, having stereotypically "Jewish" attributes like payot (sidelocks), and wearing a kippah (or a hat). Much of this is the archetype that has been carried over to portrayals of evil characters. And this malicious image of the "evil Jew" with crooked nose is still prevalent around the world.
 
-And to further test the "Anti-Zionist": If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots that have been subjected to "Zionist propaganda", then they antisemitic.
+Especially in social media, there is a lot of dehumanizing hate directed towards "Zionists" - that happen to be Jewish. Indeed, they are targeted for being Jewish as that is synonymous with Zionist. Whenever someone is calling a Jew a "small", "dirty", or "nasty" "Zionist" that is immediately evoking antisemitic tropes from both past and present.
+
+There is also hate evoking Jewish terms like "goy", a word that is sometimes used by Ashkenazi Jews (European Jews) to refer to gentiles (non-Jews). The antisemite's trying to make it appear as a slur used by Jews against gentiles, to further create hate against them. The word "goy" (pl. goyim) itself means "people" or "nation". In the Torah it is used to refer to the Jews as well, as with "goy gadol" (a great people).
+
+Using ignorance of Jewish culture — and portraying it as malicious — to spread hate against Jews is racism - and antisemitic.
+
+### "We have nothing against Jews, just the Zionists"
+
+A lot of people who say they are not against Jews, only Israel and the "Zionists", have something against Israelis for mostly being Jewish. Their apparent dislike for Zionism make them associate both. And them thinking that Jews are complicit in whatever Israel is doing.
+
+And to further test the "Anti-Zionist" claim about it not being about Jews: If they only accept a Jew as being a Zionist, and are seeing gentiles as being useful idiots that have been subjected to "Zionist propaganda", then they antisemitic.
 
 The point is that it's hate towards a "Zionist" for being a Jew - not a Jew happening to be a Zionist - which most Jews are.
 
-Hating Jews, or any other ethnic group for being who they are, is racism. Hating Jews because of what Israel do is not acceptable.
+Hating Jews, or any other ethnic group for being who they are, is racist. Hate and harassment against Jews (as a collective) for anything, even because of Israel, and what it does, is not to be tolerated.
 
 ### When is it legit criticism of Israel?
 
-A lot of people who say they are not against Jews, only Israel and the "Zionists", have something against Israelis for mostly being Jewish. Their apparent dislike for Zionism make them associate both. 
-
-You can criticize certain policies of Israel. But if you are not into Israeli politics you should rather not do that. 
+You can criticize certain policies of Israel. But if you are not into Israeli politics, and all the nuances and diverse opinions, you should rather not do that. Because the dynamics are so different from the rest of the world. Not everything is black and white, or even constant. A lot of people who before October 7 were proponent of peace, buy they no longer see peace with Palestinians as possible. Ask the people in Kibbutz Be'eri.
 
 Some want to put all the blame of Prime Minister Benjamin Netanyahu and his right-wing coalition, with orthodox "extremist" politicians in his cabinet. Claiming they want to take control over Palestinian territory. 
 
 There is an political divide between the right and left in Israel. But after what happened October 7, the country has been united across the political spectrum and ethnic lines. But there are conspiracy theories about Netanyahu letting the tragedy happen for his own gain. This accusation has been made even by internationals. Essentially, powers are weaponizing internal politics to make Israel as a whole look weak, and as if it is on the brink of collapsing. Playing into the Palestinian and Islamist narrative.
+
+A good way to get to know what Israelis (as well as Palestinians) think is to follow the [Ask Project](https://www.youtube.com/@CoreyGilShusterAskProject). It's regularly publishing street interviews, with both Israelis (of all ethnicities) and Palestinians on the West Bank - asking them questions that have been sent in by viewers. 
 
 #### Delegitimizing Israel and its existence
 
@@ -181,13 +192,19 @@ The Socialist variation of antisemitism is based on the notion that "Zionists" a
 
 Socialist tend to somehow believe that a "Zionist" conspiracy are responsible for keeping the greedy "oppressive" capitalist world order running. Often longing for a more "compassionate" world order, without "Zionists" (Jews), and therefore no capitalism. To them, what is hindering the emergence of Socialist world order are the "Zionists".
 
-And nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel as a supposed occupier of "Palestinian" land. Leading to a lot of the antisemitic tropes that we have mentioned here becoming apparent.
+#### Alliance with muslims
+
+Nowadays the left is collaborating with the Arab Muslims in condemning and seeking to delegitimize Israel as a supposed occupier of "Palestine". Leading to a lot of the antisemitic tropes that we have mentioned here becoming apparent.
+
+Both socialists and many muslims, certainly islamists, believe that Jews are evil, greedy and spreading immorality, in effect hindering their ideal world order coming into being. Though they have very different views on what is the end goal - in what their utopia really is.
+
+It's an unholy alliance, that would lead to someone betray the other. And it has happened before, during the revolution in Iran. It wasn't the socialists that won.
 
 ## How do you spot antisemitism?
 
 The most notable characteristic of antisemitism is that it targets Jews as a group. That makes it a kind of racism, although special because it is so persistent across time.
 
-Antisemitism may express itself by someone targeting, accusing, or showing contempt for an individual because they are Jewish. This is far more common that accusing the entire group. But nowadays people might say they condemn antisemitism, but claiming they are against Zionism - i.ex. Israel. Not realizing how that affects Jewish people.
+Antisemitism may express itself by someone targeting, accusing, or showing contempt for an individual because they are Jewish. It is far more common than directly accusing the entire group. But nowadays people might say they condemn antisemitism, but claiming they are against Zionism - i.ex. Israel. Not realizing how that affects Jewish people.
 
 In practice, even the most well-intentioned "anti-Zionists" are antisemitic, because none of them consider the consequences for Jews - nor do they consider their human rights.
 

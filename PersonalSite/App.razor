@@ -1,4 +1,7 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+@inject IWebAssemblyHostEnvironment HostEnv
+
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
@@ -13,4 +16,7 @@
     </NotFound>
 </Router>
 
-<NavigationTracker />
+@if (!HostEnv.IsDevelopment())
+{
+    <NavigationTracker />
+}

@@ -411,33 +411,63 @@ ArrayList&lt;Building&gt; buildings = houses;
 }
 </code></pre>
 <p>C# has these constraints:</p>
-&gt;
-<p>Constraint</p><p>Descirption</p><p><code>where T : struct</code></p><p>The type argument <code>T</code> must be a non-nullable value type</p><p><code>where T : class</code></p><p>The type argument <code>T</code> must be a reference type</p><p><code>where T : class?</code></p><p>The type argument <code>T</code> must be a nullable reference type. Valid in a nullable context.</p><p><code>where T : notnull</code></p><p>The type argument <code>T</code> must be a non-nullable type.</p><p><code>where T : default</code></p><p>This constraint resolves the ambiguity when you need to specify an unconstrained type parameter when you override a method or provide an explicit interface implementation</p><p><code>where T : unmanaged</code></p><p>The type argument <code>T</code> must be a non-nullable unmanaged type</p><p><code>where T : new()</code></p><p>The type argument <code>T</code> must have a public parameterless constructor</p><p><code>where T : &lt;base class name&gt;</code></p><p>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. In a nullable context</p><p><code>where T : &lt;base class name&gt;?</code></p><p>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. Allows for null values in a nullable context.</p><p><code>where T : &lt;interface name&gt;</code></p><p>The type argument <code>T</code> must derive from the specified interface.</p><p><code>where T : &lt;interface name&gt;?</code></p><p>The type argument <code>T</code> must derive from the specified interface. Allows for null values in a nullable context.</p><p><code>where T : U</code></p><p>The type argument <code>T</code> must derive from type argument <code>U</code></p><table class="table">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Descirption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>where T : struct</code></td>
+<td>The type argument <code>T</code> must be a non-nullable value type</td>
+</tr>
+<tr>
+<td><code>where T : class</code></td>
+<td>The type argument <code>T</code> must be a reference type</td>
+</tr>
+<tr>
+<td><code>where T : class?</code></td>
+<td>The type argument <code>T</code> must be a nullable reference type. Valid in a nullable context.</td>
+</tr>
+<tr>
+<td><code>where T : notnull</code></td>
+<td>The type argument <code>T</code> must be a non-nullable type.</td>
+</tr>
+<tr>
+<td><code>where T : default</code></td>
+<td>This constraint resolves the ambiguity when you need to specify an unconstrained type parameter when you override a method or provide an explicit interface implementation</td>
+</tr>
+<tr>
+<td><code>where T : unmanaged</code></td>
+<td>The type argument <code>T</code> must be a non-nullable unmanaged type</td>
+</tr>
+<tr>
+<td><code>where T : new()</code></td>
+<td>The type argument <code>T</code> must have a public parameterless constructor</td>
+</tr>
+<tr>
+<td><code>where T : &lt;base class name&gt;</code></td>
+<td>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. In a nullable context</td>
+</tr>
+<tr>
+<td><code>where T : &lt;base class name&gt;?</code></td>
+<td>The type argument <code>T</code> must derive from the specified base class, or a class derived from it. Allows for null values in a nullable context.</td>
+</tr>
+<tr>
+<td><code>where T : &lt;interface name&gt;</code></td>
+<td>The type argument <code>T</code> must derive from the specified interface.</td>
+</tr>
+<tr>
+<td><code>where T : &lt;interface name&gt;?</code></td>
+<td>The type argument <code>T</code> must derive from the specified interface. Allows for null values in a nullable context.</td>
+</tr>
+<tr>
+<td><code>where T : U</code></td>
+<td>The type argument <code>T</code> must derive from type argument <code>U</code></td>
+</tr>
+</tbody>
 </table>
 <p>The <em>Nullable context</em> is a fancy way of saying that the feature called <em>"nullable reference types"</em> has been enabled (Nullable <code>Foo?</code> vs non-nullable <code>Foo</code>), and that the compiler will either warn or report an error if you pass a possible null value into a non-nullable variable.</p>
 </section>
@@ -744,8 +774,6 @@ JsonResponse&lt;User&gt; jsonResponse = objectMapper.readValue(json, javaType);
             <p class="muted small mb-1">© 2025 Marina Sundström &bullet; Built with .NET & Blazor - Hosted
                 by GitHub Pages</p></div></div></footer></div>
         <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate>
-
-
 
 </div>
 <!-- %%-PRERENDERING-END-%% -->

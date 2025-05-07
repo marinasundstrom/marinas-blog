@@ -82,8 +82,8 @@ namespace PersonalSite.Markdown
             renderer.ObjectRenderers.RemoveAll(x => x is HeadingRenderer);
             renderer.ObjectRenderers.Add(new NoIdHeadingRenderer());
             renderer.ObjectRenderers.Add(new NestedSectionRenderer());
-            renderer.ObjectRenderers.RemoveAll(x => x is HtmlTableRenderer);
-            renderer.ObjectRenderers.Add(new CustomTableRenderer());
+            //renderer.ObjectRenderers.RemoveAll(x => x is HtmlTableRenderer);
+            //renderer.ObjectRenderers.Add(new CustomTableRenderer());
             pipeline.Setup(renderer);
 
             // Renders markdown to HTML (to the writer)

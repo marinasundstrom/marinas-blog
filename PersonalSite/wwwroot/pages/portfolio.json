@@ -30,6 +30,35 @@
             }
         },
         {
+            "name": "Checked exceptions analyzer for C#",
+            "type": "Personal",
+            "for": null,
+            "startDate": "2024-10-15",
+            "ongoing": true,
+            "description": "Building a source code analyzer that enables the developer to discover and handle exceptions in their C# code. Enables explicit declaration of exceptions similar to in Java, using the Throws attribute. As well as, compatibility with .NET class library via XML docs.",
+            "image": "/assets/checkedexceptions.png",
+            "links": [
+                {
+                    "name": "Source Code",
+                    "type": "GitHub",
+                    "url": "https://github.com/marinasundstrom/CheckedExceptions"
+                }
+            ],
+            "skills": {
+                "platforms": [
+                    ".NET"
+                ],
+                "programmingLanguages": [
+                    "C#"
+                ],
+                "frameworks": [],
+                "applications": [],
+                "technologies": [
+                    "Roslyn"
+                ]
+            }
+        },
+        {
             "name": "YourBrand EP",
             "type": "Personal",
             "for": null,

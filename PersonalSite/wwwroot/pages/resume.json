@@ -12,7 +12,7 @@
             "current": false,
             "startDate": "2025-01-20",
             "endDate": "2025-05-05",
-            "description": "Working as consultant in team from Itm8. My initial role was as a Frontend developer. However, because of my experience with Blazor, I have been working on Backend as well. Helping influencing and designing the solution. Implementing BankID integration.",
+            "description": "<ul><li>Joined as a frontend developer, later expanding into backend development due to prior experience with Blazor.</li><li>Contributed to solution design and architecture discussions, supporting the team in shaping the overall system.</li><li>Implemented BankID integration, ensuring secure and compliant authentication for end users.</li><li>Delivered features using .NET / C# and ASP.NET Core across frontend and backend.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -54,7 +54,7 @@
             "current": false,
             "startDate": "2023-03-27",
             "endDate": "2023-12-27",
-            "description": "Working on system used by support engineers in assisting retailers and customers. Had side-projects figuring out distributed ways of handling personal data using RabbitMQ. Also attempted containerizing the LOB app, and succeeded in getting it running in Kubernetes.",
+            "description": "<ul><li>Developed and maintained a system used by support engineers to assist retailers and customers.</li><li>Delivered backend features and data handling using Java and MySQL.</li><li>Contributed to version control and collaboration through GitHub.</li><li>Explored distributed personal data handling with RabbitMQ as side initiatives.</li><li>Successfully containerized the legacy application using Docker and deployed it in Kubernetes, demonstrating modernization potential.</li></ul>",
             "skills": [
                 "Java",
                 "MySQL",
@@ -73,7 +73,7 @@
             "current": false,
             "startDate": "2022-11-14",
             "endDate": "2023-01-15",
-            "description": "Working on product page experience for e-commerce site. Frontend and backend.\n\nLayoffs December 2022.",
+            "description": "<ul><li>Developed and maintained the product page experience for a large e-commerce site.</li><li>Contributed to both frontend and backend development using .NET / C#.</li><li>Built and maintained web features in ASP.NET Core, ensuring performance and usability.</li><li>Worked with Microsoft Azure services for deployment and hosting.</li><li>Role ended due to company-wide layoffs in December 2022.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -94,7 +94,7 @@
             "current": false,
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
-            "description": "Backend developer in a team developing a service for handling the process of transferring apartments to new occupants.",
+            "description": "<ul><li>Part of a team developing a backend service to handle the process of transferring apartments to new occupants.</li><li>Implemented microservices using .NET / C# and ASP.NET Core.</li><li>Deployed and maintained services in Microsoft Azure, ensuring reliability and scalability.</li><li>Collaborated with teammates on design and integration of system components.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -132,29 +132,12 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "Working on system for handling insurance claim requests.\n\nFocus on integrating Pet insurance.",
+            "description": "<ul><li>Developed and maintained a system for processing insurance claim requests.</li><li>Focused on integrating pet insurance workflows into the core system.</li><li>Built backend features using .NET / C#, with a WPF front-end for internal users.</li><li>Ensured reliability and accuracy in claim processing through backend development and testing.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
                 "Windows Presentation Foundation (WPF)",
                 "Back-End Development"
-            ]
-        },
-        {
-            "title": "Software Engineer",
-            "employmentType": "Full-time",
-            "company": "Skymill",
-            "companyLogo": "/assets/logos/skymill.jpg",
-            "link": "https://www.skymill.io/",
-            "location": "Malmö, Sweden",
-            "current": false,
-            "startDate": "2021-12-16",
-            "endDate": "2022-04-04",
-            "description": "Consulting as part of Skymill",
-            "skills": [
-                "Software development",
-                ".NET",
-                "C#"
             ]
         },
         {
@@ -167,7 +150,7 @@
             "current": false,
             "startDate": "2020-05-01",
             "endDate": "2021-09-20",
-            "description": "Building an E-commerce solution from ground up.\n\nSome of my many responsibilities were the features for handling orders and generating invoices.\n\nOur primary customer was a company that provided cleaning services.\n\nBuilt proof-of-concept commerce site for well-known chef selling kitchen utensils and presenting food recipes.",
+            "description": "<ul><li>Built an e-commerce solution from the ground up for a company providing cleaning services.</li><li>Developed features for order handling and invoice generation.</li><li>Designed and implemented a proof-of-concept commerce site for a well-known chef, including kitchen utensil sales and recipe presentation.</li><li>Worked with .NET / C#, ASP.NET Core, and Blazor, applying solid software design principles.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -188,7 +171,7 @@
             "current": false,
             "startDate": "2020-02-01",
             "endDate": "2020-05-01",
-            "description": "Developing E-commerce site for small insurance firm.\n\nIntegrating with BankId.",
+            "description": "<ul><li>Developed an e-commerce site for a small insurance company.</li><li>Implemented secure authentication and customer onboarding by integrating BankID.</li><li>Worked across both frontend and backend using .NET / C#, ASP.NET Core, and Blazor.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -199,14 +182,14 @@
         {
             "title": "Software Engineer",
             "employmentType": "Full-time",
-            "company": "ESSIQ AB",
-            "companyLogo": "/assets/logos/essiq.jpg",
-            "link": "https://www.essiq.se/",
+            "company": "Skymill",
+            "companyLogo": "/assets/logos/skymill.jpg",
+            "link": "https://www.skymill.io/",
             "location": "Malmö, Sweden",
             "current": false,
-            "startDate": "2018-04-01",
-            "endDate": "2020-05-01",
-            "description": "Consulting work as part of ESSIQ Syd",
+            "startDate": "2021-12-16",
+            "endDate": "2022-04-04",
+            "description": "Consulting as part of Skymill.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -225,7 +208,7 @@
             "current": false,
             "startDate": "2019-01-01",
             "endDate": "2019-12-30",
-            "description": "Developing the software engine for running processing and packaging at customer's facilities.\n\nLed initiative to make refactoring in project structure in order to facilitate cross-team development.",
+            "description": "<ul><li>Developed the software engine controlling processing and packaging at customer facilities.</li><li>Contributed to both backend (.NET / C#, ASP.NET, WPF) and frontend (JavaScript, TypeScript, React) development.</li><li>Led a refactoring initiative to improve the project structure, enabling more effective cross-team development.</li><li>Worked in a large-scale environment using the Scaled Agile Framework (SAFe).</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -249,7 +232,7 @@
             "current": false,
             "startDate": "2018-04-01",
             "endDate": "2018-11-30",
-            "description": "Developing application for managing video feeds from security cameras targeting small and medium business customers.",
+            "description": "<ul><li>Developed an application for managing video feeds from security cameras, targeting small and medium-sized business customers.</li><li>Built features in .NET / C# with a WPF front-end for usability and reliability.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -268,7 +251,7 @@
             "current": false,
             "startDate": "2017-05-01",
             "endDate": "2018-04-01",
-            "description": "Developing the on-device web-based interface aimed at installers.\n\nLearning to build applications with React.",
+            "description": "<ul><li>Developed an on-device web-based interface aimed at installation technicians.</li><li>Built features with JavaScript and TypeScript, focusing on usability and performance.</li><li>Learned and applied React to build modern, component-based web applications.</li></ul>",
             "skills": [
                 "JavaScript",
                 "TypeScript",
@@ -286,7 +269,7 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2018-04-01",
-            "description": "Consulting for various companies. Primarily in .NET and JavaScript.\n\nTedsys AB is part of the Tedkomp Group, providing consulting services in the areas of IT, industrial services, and business administration.",
+            "description": "<ul><li>Consulted for various companies, primarily in .NET and JavaScript.</li><li>Tedsys AB is part of the Tedkomp Group, providing consulting services in IT, industrial services, and business administration.</li></ul>",
             "skills": [
                 "Software development",
                 "Web development",
@@ -306,7 +289,7 @@
             "current": false,
             "startDate": "2017-02-01",
             "endDate": "2017-05-01",
-            "description": "Developing the visual part of the search integration for the global enterprise intranet",
+            "description": "<ul><li>Developed the visual components of the search integration for a global enterprise intranet.</li><li>Contributed to frontend development with JavaScript and web technologies.</li><li>Built and maintained backend functionality using .NET / C# and ASP.NET.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -327,7 +310,7 @@
             "current": false,
             "startDate": "2016-08-01",
             "endDate": "2017-02-01",
-            "description": "Developing medical system for microscopic analysis in the field of haematology.\n\nWorking on client software used when performing blood analysis,\n\nWeb app for training haematologists.",
+            "description": "<ul><li>Developed a medical system for microscopic analysis in the field of haematology.</li><li>Built and maintained client software used by laboratory staff when performing blood analysis using .NET / C# and WPF.</li><li>Contributed to a web application for training haematologists, implemented with TypeScript and Silverlight.</li><li>Supported parts of the system written in C++ for performance-critical components.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -349,7 +332,7 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2016-07-01",
-            "description": "Working on internal charter booking system.\nKnowledge gained in the domain of aviation and charter flights.",
+            "description": "<ul><li>Worked on the internal charter booking system for Braathens Regional Airlines.</li><li>Gained domain knowledge in aviation and charter flight operations.</li><li>Developed features in .NET / C# and ASP.NET.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -366,7 +349,7 @@
             "current": false,
             "startDate": "2014-08-01",
             "endDate": "2016-03-01",
-            "description": "As part of the development team, I supported the company's business areas: broadband/fiber, IT-management, and radio communication (alarming and automation services for rescue organizations and industries.\n\nWorking on:\n\n- Broadband and fiber provisioning system. Integrating with other systems.\n\n- IT support system handling incidents reported by customers. Integrating with other systems.",
+            "description": "<ul><li>Part of the development team supporting the company’s main business areas: broadband/fiber, IT management, and radio communication (alarming and automation services for rescue organizations and industries).</li><li>Worked on a broadband and fiber provisioning system, integrating with other systems.</li><li>Contributed to an IT support system for handling customer-reported incidents, integrating with other systems.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -390,7 +373,7 @@
             "current": false,
             "startDate": "2014-01-01",
             "endDate": "2014-08-01",
-            "description": "Developing Messenger app for the BLIS (Blue Light Information System), an alarm and automation platform - used by rescue organisations (police, firefighters and first responders) all around Sweden.\n\nAlso developed software that simplified programming the automation hardware.",
+            "description": "<ul><li>Developed a Messenger application for the BLIS (Blue Light Information System), an alarm and automation platform used by police, firefighters, and first responders across Sweden.</li><li>Built software that simplified programming of automation hardware, improving operator efficiency.</li></ul>",
             "skills": [
                 ".NET",
                 "C#",
@@ -408,7 +391,7 @@
             "current": false,
             "startDate": "2012-06-01",
             "endDate": "2012-08-01",
-            "description": "Developing smartphone apps and working a bit on web portal. (Continuation of student internship)",
+            "description": "<ul><li>Developed smartphone applications using Cordova and JavaScript.</li><li>Contributed to the company’s web portal, extending features and improving usability.</li><li>Continued from a student internship, gaining first professional experience in mobile and web development.</li></ul>",
             "skills": [
                 "Software development",
                 "Mobile development",
@@ -426,14 +409,14 @@
             "current": false,
             "startDate": "2012-01-01",
             "endDate": "2012-06-01",
-            "description": "Student project - Developed smartphones app using HTML/JavaScript and Windows Phone.",
+            "description": "<ul><li>Developed a smartphone app using HTML/JavaScript for Windows Phone as part of a student project.</li><li>Gained experience in software development, mobile development, and working with .NET / C#.</li></ul>",
             "skills": [
                 "Software development",
                 "Mobile Development",
                 "JavaScript",
                 ".NET",
                 "C#",
-                "Window Phone"
+                "Windows Phone"
             ]
         },
         {
@@ -446,7 +429,7 @@
             "current": false,
             "startDate": "2011-06-01",
             "endDate": "2012-01-01",
-            "description": "Developing proof-of-concept system for healthcare. Web development.",
+            "description": "<ul><li>Developed a proof-of-concept system for the healthcare sector, focusing on web development.</li><li>Built core functionality using JavaScript and HTML.</li></ul>",
             "skills": [
                 "Web Development",
                 "JavaScript",
@@ -459,11 +442,9 @@
             "school": "Blekinge Institute of Technology",
             "logo": "/assets/logos/bth.jpg",
             "location": "Karlskrona, Sweden",
-            "degree": null,
             "fieldOfStudy": "Software Engineering",
             "startDate": "2009-09-01",
             "endDate": "2012-05-01",
-            "activities": null,
             "description": "Studied Software engineering, gaining broad knowledge and experience from student project towards industry.",
             "courses": [
                 "Programming",

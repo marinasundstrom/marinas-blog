@@ -84,6 +84,23 @@
         },
         {
             "title": "Software Developer",
+            "employmentType": "Full-time",
+            "company": "Nexer Group",
+            "companyLogo": "/assets/logos/nexer.jpg",
+            "link": "https://www.nexergroup.com/",
+            "location": "Malmö, Sweden",
+            "current": false,
+            "startDate": "2022-04-04",
+            "endDate": "2022-09-30",
+            "description": "Consulting as part of Nexer Group (previously Sigma IT Consulting) in the Malmö area.",
+            "skills": [
+                "Software development",
+                ".NET",
+                "C#"
+            ]
+        },
+        {
+            "title": "Software Developer",
             "employmentType": "Contract",
             "consultant": true,
             "for": "Nexer Group",
@@ -104,16 +121,16 @@
             ]
         },
         {
-            "title": "Software Developer",
+            "title": "Software Engineer",
             "employmentType": "Full-time",
-            "company": "Nexer Group",
-            "companyLogo": "/assets/logos/nexer.jpg",
-            "link": "https://www.nexergroup.com/",
+            "company": "Skymill",
+            "companyLogo": "/assets/logos/skymill.jpg",
+            "link": "https://www.skymill.io/",
             "location": "Malmö, Sweden",
             "current": false,
-            "startDate": "2022-04-04",
-            "endDate": "2022-09-30",
-            "description": "Consulting as part of Nexer Group (previously Sigma IT Consulting) in the Malmö area.",
+            "startDate": "2021-12-16",
+            "endDate": "2022-04-04",
+            "description": "Consulting as part of Skymill.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -182,14 +199,14 @@
         {
             "title": "Software Engineer",
             "employmentType": "Full-time",
-            "company": "Skymill",
-            "companyLogo": "/assets/logos/skymill.jpg",
-            "link": "https://www.skymill.io/",
+            "company": "ESSIQ AB",
+            "companyLogo": "/assets/logos/essiq.jpg",
+            "link": "https://www.essiq.se/",
             "location": "Malmö, Sweden",
             "current": false,
-            "startDate": "2021-12-16",
-            "endDate": "2022-04-04",
-            "description": "Consulting as part of Skymill.",
+            "startDate": "2018-04-01",
+            "endDate": "2020-05-01",
+            "description": "Consulting work as part of ESSIQ Syd",
             "skills": [
                 "Software development",
                 ".NET",

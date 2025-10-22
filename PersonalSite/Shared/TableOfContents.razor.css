@@ -1,8 +1,8 @@
-nav {
+.toc-nav {
     font-size: .875rem;
 }
 
-::deep a {
+.toc-nav ::deep a {
     display: block;
     padding: .125rem 0 .125rem .75rem;
     text-decoration: none;
@@ -11,30 +11,30 @@ nav {
     border-left: .125rem solid transparent;
 }
 
-::deep a:active,
-::deep a.active {
+.toc-nav ::deep a:active,
+.toc-nav ::deep a.active {
     font-weight: 500;
 }
 
-::deep a:focus,
-::deep a:hover,
-::deep a:active,
-::deep a.active {
+.toc-nav ::deep a:focus,
+.toc-nav ::deep a:hover,
+.toc-nav ::deep a:active,
+.toc-nav ::deep a.active {
     text-decoration: none;
     color: #6f42c1;
     border-left-color: #6f42c1;
 }
 
-::deep ul {
+.toc-nav ::deep ul {
     padding-left: 0;
     margin-top: .25rem;
 }
 
-::deep ul ul {
+.toc-nav ::deep ul ul {
     padding-left: 1rem;
 }
 
-::deep ul li {
+.toc-nav ::deep ul li {
     padding-left: 0;
     list-style: none;
 }

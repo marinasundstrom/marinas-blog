@@ -6,62 +6,30 @@
     margin-top: 45px;
 }
 
-.main {
-    grid-area: main;
-    align-items: start;
-}
-
-@media (min-width: 768px) {
-    .main {
-        display: grid;
-        gap: 1.5rem;
-        grid-template-areas:
-            "intro"
-            "toc"
-            "content";
-
-        grid-template-rows: auto auto 1fr
-    }
-}
-
-@media (min-width: 992px) {
-    .main {
-        grid-template-areas:
-            "intro toc"
-            "content toc";
-
-        grid-template-columns: 4fr 1fr;
-        grid-template-rows: auto 1fr
-    }
-}
-
-.intro {
-    grid-area: intro;
-}
-
 .content {
-    grid-area: content;
     min-width: 1px;
 }
 
-.toc {
-    grid-area: toc;
+.toc-desktop {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
 @media (min-width: 992px) {
-    .toc {
+    .toc-desktop {
         position: -webkit-sticky;
         position: sticky;
         top: 5rem;
         right: 0;
         z-index: 2;
-        height: calc(100vh - 7rem);
+        max-height: calc(100vh - 7rem);
         overflow-y: auto;
     }
 }
 
-@media (max-width: 992px) {
-    .toc {
+@media (max-width: 991.98px) {
+    .toc-mobile {
         margin-left: -1rem;
+        margin-right: -1rem;
     }
 }

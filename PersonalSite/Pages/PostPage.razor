@@ -36,41 +36,51 @@ else
 
 
         <div class="main order-1 pb-5 container">
-            <div class="intro">
-                <PostHeader Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
-                    Tags="@post.Tags" EstimatedTime="@EstimatedTime" ShowEstimatedTime="isBlog" ShowCommentCount="isBlog" />
+            <div class="row gx-lg-5">
+                <div class="col-lg-8 col-xl-9 order-2 order-lg-1">
+                    <div class="intro">
+                        <PostHeader Title="@post.Title" Subtitle="@post.Subtitle" Author="@post.Author" Published="@post.Published"
+                            Tags="@post.Tags" EstimatedTime="@EstimatedTime" ShowEstimatedTime="isBlog"
+                            ShowCommentCount="isBlog" />
 
-                @if (post.Image is not null)
-                {
-                    <img src="@post.Image" alt="@post.ImageAlt" class="cover my-2 mt-3"
-                        style="max-height: 280px;width: 100%;object-fit: cover;" />
-                    @if (post.ImageAlt is not null)
-                    {
-                        <small class="text-muted">@post.ImageAlt@if(post.ImageCredit is not null) {
-                            <span> • By
-                                @post.ImageCredit</span>
+                        @if (post.Image is not null)
+                        {
+                            <img src="@post.Image" alt="@post.ImageAlt" class="cover my-2 mt-3"
+                                style="max-height: 280px;width: 100%;object-fit: cover;" />
+                            @if (post.ImageAlt is not null)
+                            {
+                                <small class="text-muted">@post.ImageAlt@if(post.ImageCredit is not null) {
+                                        <span> • By
+                                            @post.ImageCredit</span>
+                                    }
+                                </small>
+                            }
                         }
-                    </small>
-                }
-            }
+                    </div>
 
-        </div>
+                    <div class="toc-mobile d-lg-none mt-4 mb-4 text-muted">
+                        <TableOfContents ElementId="PostTocMobile" />
+                    </div>
 
-        <div class="toc mt-4 mb-4 my-md-0 ps-xl-3 mb-lg-5 text-muted h-100">
-            <TableOfContents />
-        </div>
+                    <div class="content">
+                        <MarkdownView Content="@post.Content" />
 
-        <div class="content">
-            <MarkdownView Content="@post.Content" />
-
-            @if (isBlog)
-            {
-                <div style="margin-top: 42px;">
-                    <DisqusThread />
+                        @if (isBlog)
+                        {
+                            <div style="margin-top: 42px;">
+                                <DisqusThread />
+                            </div>
+                        }
+                    </div>
                 </div>
-            }
+
+                <aside class="col-lg-4 col-xl-3 order-1 order-lg-2 d-none d-lg-block align-self-start">
+                    <div class="toc-desktop ps-xl-3 text-muted">
+                        <TableOfContents ElementId="PostTocDesktop" />
+                    </div>
+                </aside>
+            </div>
         </div>
-    </div>
 
     @*
     <div class="col-md-2">

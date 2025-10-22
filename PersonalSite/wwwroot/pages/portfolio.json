@@ -6,7 +6,7 @@
             "for": null,
             "startDate": "2024-11-01",
             "ongoing": true,
-            "description": "Building my own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service. Initially largely hand-coded, now built with help from AI.",
+            "description": "My own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service. Initially hand-coded, now largely built with help from AI.",
             "image": "/assets/raven.png",
             "links": [
                 {
@@ -36,7 +36,7 @@
             "for": null,
             "startDate": "2024-10-15",
             "ongoing": true,
-            "description": "Building a source code analyzer that enables the developer to discover and handle exceptions in their C# code. Enables explicit declaration of exceptions similar to in Java, using the Throws attribute. As well as, compatibility with .NET class library via XML docs.",
+            "description": "Source code analyzer that enables the developer to discover and handle exceptions in their C# code. Enables explicit declaration of exceptions similar to in Java, using the Throws attribute. As well as, compatibility with .NET class library via XML docs.",
             "image": "/assets/checkedexceptions.png",
             "links": [
                 {
@@ -99,7 +99,7 @@
             "for": null,
             "startDate": "2021-11-01",
             "ongoing": true,
-            "description": "Enterprise system and built for learning software architecture patterns. Various modules. Project \"E-shop\" being a frontend for sales.",
+            "description": "Enterprise system built for learning software architecture patterns. Various modules. Project \"E-shop\" being a frontend for sales.",
             "image": "/assets/yourbrand.png",
             "links": [
                 {

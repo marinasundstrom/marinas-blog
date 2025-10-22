@@ -6,7 +6,7 @@
             "for": null,
             "startDate": "2024-11-01",
             "ongoing": true,
-            "description": "Building my own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service.",
+            "description": "Building my own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service. Initially largely hand-coded, now built with help from AI.",
             "image": "/assets/raven.png",
             "links": [
                 {
@@ -65,7 +65,7 @@
             "for": null,
             "startDate": "2025-01-01",
             "ongoing": true,
-            "description": "Asynchronous messaging library for C#/.NET and Java - based on the MassTransit architecture. Build with help from AI.",
+            "description": "Asynchronous messaging library for C#/.NET and Java - based on the MassTransit architecture. Built with help from AI.",
             "image": "/assets/myservicebus.png",
             "links": [
                 {

@@ -10,6 +10,9 @@ public partial class TableOfContents
 {
     private IJSObjectReference? module;
 
+    [Parameter]
+    public string ElementId { get; set; } = "TableOfContents";
+
     [Inject] public IJSRuntime JS { get; set; }
 
     [Inject] IWebAssemblyHostEnvironment HostEnv { get; set; }
@@ -22,6 +25,6 @@ public partial class TableOfContents
         module = await JS.InvokeAsync<IJSObjectReference>("import",
             "../Shared/TableOfContents.razor.js");
 
-        await module.InvokeVoidAsync("init");
+        await module.InvokeVoidAsync("init", ElementId);
     }
 }

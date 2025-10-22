@@ -1,33 +1,30 @@
-export function init() {
-    createTable();
+export function init(elementId = "TableOfContents") {
+    createTable(elementId);
 
     // simple function to use for callback in the intersection observer
-    const changeNav = (entries, observer) => {
-        // if(!entries[0].isIntersecting) return;
-
-        entries.map(entry => {
+    const changeNav = (entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // remove old active class
-                document.querySelectorAll('.active').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('nav.toc-nav .active').forEach(el => el.classList.remove('active'));
 
                 // get id of the intersecting section
-                var id = entry.target.getAttribute('id');
+                const id = entry.target.getAttribute('id');
 
                 // find matching link & add appropriate class
-
-                let menuLink = document.querySelector(`[href$="${window.location.pathname}#${id}"]`);
-                if (menuLink) {
-                    menuLink.classList.add("active");
+                const menuLinks = document.querySelectorAll(`nav.toc-nav a[href$="${window.location.pathname}#${id}"]`);
+                if (menuLinks.length > 0) {
+                    menuLinks.forEach(menuLink => menuLink.classList.add("active"));
                 }
             }
-        })
-    }
+        });
+    };
 
     // init the observer
     const options = {
         rootMargin: '0px',
-        threshold: 1.0
-    }
+        threshold: 0.35
+    };
 
     const observer = new IntersectionObserver(changeNav, options);
 
@@ -38,16 +35,18 @@ export function init() {
     });
 }
 
-function createTable() {
-    const tocContainer = document.getElementById("TableOfContents");
+function createTable(elementId) {
+    const tocContainer = document.getElementById(elementId);
     if (!tocContainer) return;
+
+    tocContainer.innerHTML = "";
 
     const headings = document.querySelectorAll("section:has(h2), section:has(h3)"); //, div.content h4, div.content h5, div.content h6");
     const tocList = document.createElement("ul");
     let lastLevels = [tocList];
 
-    headings.forEach((section, i) => {
-        let heading = section.children[0];
+    headings.forEach((section) => {
+        const heading = section.children[0];
 
         if (!heading.id) {
             heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');

@@ -25,7 +25,8 @@
                 "frameworks": [],
                 "applications": [],
                 "technologies": [
-                    "Compiler construction"
+                    "Compiler construction",
+                    "OpenAI Codex"
                 ]
             }
         },
@@ -59,12 +60,46 @@
             }
         },
         {
+            "name": "\"MyServiceBus\"",
+            "type": "Personal",
+            "for": null,
+            "startDate": "2025-01-01",
+            "ongoing": true,
+            "description": "Asynchronous messaging library for C#/.NET and Java - based on the MassTransit architecture. Build with help from AI.",
+            "image": "/assets/myservicebus.png",
+            "links": [
+                {
+                    "name": "Source Code",
+                    "type": "GitHub",
+                    "url": "https://github.com/marinasundstrom/MyServiceBus"
+                }
+            ],
+            "skills": {
+                "platforms": [
+                    ".NET",
+                    "Java"
+                ],
+                "programmingLanguages": [
+                    "C#",
+                    "Java"
+                ],
+                "frameworks": [],
+                "applications": [
+                    "RabbitMQ"
+                ],
+                "technologies": [
+                    "Asynchronous messaging",
+                    "OpenAI Codex"
+                ]
+            }
+        },
+        {
             "name": "YourBrand EP",
             "type": "Personal",
             "for": null,
             "startDate": "2021-11-01",
             "ongoing": true,
-            "description": "Building an enterprise system and learning software architecture patterns. Various modules. Project \"E-shop\" being a frontend for sales.",
+            "description": "Enterprise system and built for learning software architecture patterns. Various modules. Project \"E-shop\" being a frontend for sales.",
             "image": "/assets/yourbrand.png",
             "links": [
                 {

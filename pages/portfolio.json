@@ -6,7 +6,7 @@
             "for": null,
             "startDate": "2024-11-01",
             "ongoing": true,
-            "description": "My own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service. Initially hand-coded, now largely built with help from AI.",
+            "description": "My own programming language and compiler based on the Roslyn compiler framework architecture with Compiler as a service. Initially hand-coded, now built with help from AI.",
             "image": "/assets/raven.png",
             "links": [
                 {
@@ -43,6 +43,16 @@
                     "name": "Source Code",
                     "type": "GitHub",
                     "url": "https://github.com/marinasundstrom/CheckedExceptions"
+                },
+                {
+                    "name": "Video 1",
+                    "type": "YouTube",
+                    "url": "https://www.youtube.com/watch?v=ldJjMrqB8X4"
+                },
+                {
+                    "name": "Video 2",
+                    "type": "YouTube",
+                    "url": "https://www.youtube.com/watch?v=6jPBXdMWjRs"
                 }
             ],
             "skills": {
@@ -55,7 +65,8 @@
                 "frameworks": [],
                 "applications": [],
                 "technologies": [
-                    "Roslyn"
+                    "Roslyn",
+                    "ChatGPT"
                 ]
             }
         },

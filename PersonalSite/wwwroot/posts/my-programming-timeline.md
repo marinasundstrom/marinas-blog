@@ -10,7 +10,7 @@ _Thanks to [Aryan Rahman](https://aryanrahman3212.netlify.app/blog/27_1_2023_tim
 
 ## ~1997
 
-Got introduced to computers by my dad. I started to draw in KidPix. MS Paint later became a favorite of mine. As well as playing games. Exploring different programs. This was before we even were connected to the Internet. So I got my knowledge from monthly computer magazines that my parents subscribed to, with which programs came on a CD. Later introducing me to web development and programming.
+Got introduced to computers by my dad. I started to draw in KidPix. MS Paint later became a favorite of mine. As well as playing games. Exploring different programs. This was before we even were connected to the Internet. So I got my knowledge from monthly computer magazines (such as "PC Hemma") that my parents subscribed to, with which programs came on a CD. Later introducing me to web development and programming.
 
 ## 1999
 
@@ -134,6 +134,8 @@ Dove into Domain-driven design (DDD) practices. Further exploring Software Desig
 
 * Learned about GitHub Actions, and deployed Container Apps to Microsoft Azure.
 
+* Build a asynchronous messaging abstraction for Java over RabbitMQ at work. Introducing producer and consumer pattern.
+
 ## 2024
 
 * Integrated the e-shop functionality into the original [YourBrand](https://github.com/marinasundstrom/YourBrand), upgraded the projects to .NET 9, and improved the consistency across modules. Moved to using .NET Aspire for service orchestration.
@@ -144,6 +146,12 @@ Dove into Domain-driven design (DDD) practices. Further exploring Software Desig
 
 * Started designing my own programming language, called [Raven](https://github.com/marinasundstrom/raven-compiler). Constructing a compiler with an architecture based on the Roslyn compiler framework, which the C# compiler is part of. The ability to consume the compiler as a service. Also got help from ChatGPT in understanding what to build.
 
+## 2025 -
+
+* Continued working on my programming language, [Raven](https://github.com/marinasundstrom/raven-compiler). Added more features, such as discriminated unions and "async await". Using LLM agents (OpenAI Codex) to implement my designs.
+
+* Built ["MyServiceBus"](https://github.com/marinasundstrom/MyServiceBus) - my own asynchronous messaging framework based on MassTransit's architecture - for both C# and Java. Re-using previous knowledge, I started writing the prototype by hand, with guidance from ChatGPT. Later Using LLM agents (OpenAI Codex) to implement my designs.
+
 ---
 
-_Last updated on January 26, 2024. Before that on August 29, 2023, March 16, 2023, and February 27, 2023_.
+_Last updated on January 15, 2026. Before that on  January 26, 2024, August 29, 2023, March 16, 2023, and February 27, 2023_.

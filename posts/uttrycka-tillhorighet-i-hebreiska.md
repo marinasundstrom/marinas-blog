@@ -18,7 +18,7 @@ I den här artikeln går vi igenom några av de vanligaste sätten att uttrycka 
 
 ## Possesiva personändelser
 
-Det ursprungliga sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som förekommer i Bibeln.
+Det ursprungliga sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som främst förekommer i Bibeln.
 
 I tabellform ser ändelserna ut så här – och längre ner följer ett exempel:
 
@@ -58,9 +58,12 @@ I tabellform ser ändelserna ut så här – och längre ner följer ett exempel
     </table>
 </div>
 
-Dessa ändelser kan även läggas på pluralformen av substantiv.
+Possesiva ändelser finns även för pluralformen av substantiv. Det visas i exemplen nedan.
 
-> **Språkregister** <br /> Liksom i andra språkt så finns det i modern hebreiska ett antal varieteter som talas i olika social kontext - dess varieteter kallas *språkregister*. Det finns språket som talas vardagligen i informella sammanhang, och sedan det formella språket som används inom högre utbildning och även på nyheterna. Sedan finns det så klart ett register inom det religiösa. Varje register har sitt eget sätt att uttrycka sig men är en del av samma språk. Somliga ord kan ha en bredare (eller snävare) betydelse i ett register jämfört med i ett annat. Användning av possesiva personändelser förekommer mer frekvent i nyhetssändningar än det gör i vardagligt tal där det är mer naturligt att använda en *shel*-konstruktion *(se längre ner)*. 
+> **Om Språkregister** <br />
+> Liksom i andra språk finns det i modern hebreiska ett antal varieteter som används i olika sociala kontexter – dessa varieteter kallas *språkregister*. Det finns språket som talas vardagligen i informella sammanhang, och ett mer formellt språk som används i högre utbildning och i nyhetssändningar. Det finns så klart också register kopplade till religion. Varje register har sitt eget sätt att uttrycka sig, men de är alla en del av samma språk.
+>
+> Somliga ord kan ha en bredare (eller snävare) betydelse i ett register jämfört med i ett annat. Possessiva personändelser förekommer till exempel oftare i formella sammanhang (som nyhetsspråk), medan vardagligt tal oftare använder en *shel*-konstruktion *(se längre ner)*. I poesi och sångtexter är de mer syntetiska uttrycken också vanligare, både av stil och rytm.
 
 ### Vardaglig användning
 
@@ -171,6 +174,9 @@ Motsvarande för pluralformen ספרים (sfarim) är:
 </div>
 
 <br />
+
+> **Begränsningar i användning** <br />
+Possessiva personändelser fungerar bäst med ord som är väl integrerade i hebreiskans morfologi (särskilt ord med semitiska rotmönster). För många lånord och moderna termer låter det ofta mer naturligt att istället använda en *shel*-konstruktion *(se nedan)*.
 
 #### Omnämnt i Bibeln
 

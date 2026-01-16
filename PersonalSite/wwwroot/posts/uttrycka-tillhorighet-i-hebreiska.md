@@ -4,6 +4,8 @@ published: 2025-04-21
 tags: [Languages, Hebrew, på svenska, hebreiska] 
 ---
 
+*Uppdaterad 16 januari 2026*
+
 ## Inledning
 
 Hebreiskan är ett semitiskt språk med djupa band till det judiska folket – dess religion, kultur och historia. Under nästan två tusen år var språket i stort sett utdött som vardagligt tal; det användes främst i religiösa sammanhang och av lärda judiska tänkare, men inte som modersmål. Trots det har hebreiskan genomgått stora förändringar.
@@ -16,7 +18,7 @@ I den här artikeln går vi igenom några av de vanligaste sätten att uttrycka 
 
 ## Possesiva personändelser
 
-Det klassiska sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som förekommer i Bibeln.
+Det ursprungliga sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som förekommer i Bibeln.
 
 I tabellform ser ändelserna ut så här – och längre ner följer ett exempel:
 
@@ -58,7 +60,9 @@ I tabellform ser ändelserna ut så här – och längre ner följer ett exempel
 
 Dessa ändelser kan även läggas på pluralformen av substantiv.
 
-### Modern användning
+> **Språkregister** <br /> Liksom i andra språkt så finns det i modern hebreiska ett antal varieteter som talas i olika social kontext - dess varieteter kallas *språkregister*. Det finns språket som talas vardagligen i informella sammanhang, och sedan det formella språket som används inom högre utbildning och även på nyheterna. Sedan finns det så klart ett register inom det religiösa. Varje register har sitt eget sätt att uttrycka sig men är en del av samma språk. Somliga ord kan ha en bredare (eller snävare) betydelse i ett register jämfört med i ett annat. Användning av possesiva personändelser förekommer mer frekvent i nyhetssändningar än det gör i vardagligt tal där det är mer naturligt att använda en *shel*-konstruktion *(se längre ner)*. 
+
+### Vardaglig användning
 
 Även om detta är typiskt för semitiska språk – inte minst i arabiskan – används possessiva ändelser i modern hebreiska främst när man vill betona tillhörighet, eller när det handlar om något som uppfattas som oskiljaktigt från personen själv, både i fysisk och abstrakt bemärkelse.
 
@@ -301,6 +305,8 @@ På hebreiska ser det vanligtvis ut så här:
 
 Med exemplen:
 
+* **ראש הממשלה** (rosh ha-memshalah) – chef för regeringen (Premiärminister)
+
 * **סֵפֶר הַמֶּלֶךְ** (sefer ha-melekh) – kungens bok
 
 * **בָּתֵּי הַתַּלְמִידִים** (batei ha-talmidim) – elevernas hus
@@ -310,6 +316,9 @@ Men utan bestämd artikel när det gäller personer:
 * **תּוֹרַת מֹשֶׁה** (torat Moshe) – Moses torah
 
 <br />
+
+> **Vardaglig användning** <br />
+Konstruktform (סמיכות) används utbrett i vardagshebreiska, men i vissa uttryck omtolkas den mer analytiskt – särskilt i titlar. Ett exempel är “premiärminister”, som i standardhebreiska är **ראש הממשלה** *(rosh ha-memshala)*, men som i vardagligt tal ibland kan låta mer som en etikett/titel: *(ha-rosh memshala)* – “regeringschefen”.
 
 #### Vanlig användning av konstruktform
 

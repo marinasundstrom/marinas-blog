@@ -18,7 +18,7 @@ I den här artikeln går vi igenom några av de vanligaste sätten att uttrycka 
 
 ## Possesiva personändelser
 
-Det ursprungliga sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som främst förekommer i Bibeln.
+Det ursprungliga sättet att uttrycka tillhörighet på hebreiska är genom att lägga till possessiva personändelser på substantiv. Det är detta sätt som främst förekommer i formella sammanhang, och inte minst i Bibeln.
 
 I tabellform ser ändelserna ut så här – och längre ner följer ett exempel:
 
@@ -67,7 +67,7 @@ Possesiva ändelser finns även för pluralformen av substantiv. Det visas i exe
 
 ### Vardaglig användning
 
-Även om detta är typiskt för semitiska språk – inte minst i arabiskan – används possessiva ändelser i modern hebreiska främst när man vill betona tillhörighet, eller när det handlar om något som uppfattas som oskiljaktigt från personen själv, både i fysisk och abstrakt bemärkelse.
+Även om detta är typiskt för semitiska språk – inte minst i arabiskan – används possessiva ändelser i modern hebreiska främst när man vill betona tillhörighet, eller när det handlar om något som uppfattas som oskiljaktigt från personen själv, både i fysisk och abstrakt bemärkelse. Somliga kombinerar nedan dyker främst upp i poesi och kan höras i låtar.
 
 #### 1. Kroppsdelar
 Ord som beskriver kroppen används ofta med personändelser:
@@ -227,7 +227,7 @@ Exempel:
 
 * **הַסֵּפֶר שֶׁל דָּנִי**  (Ha-sefer shel Dani) - Boken tillhör Dani. (bokstavligt: Boken [är] av Dani)
 
-Notera att hebreiskan saknar verbet "att vara" (i alla fall i presensform). Så det är underförstått utifrån meningskonstruktion och sammanhang.
+Notera att hebreiskan saknar presensformer för verbet "att vara". Så det är underförstått utifrån meningskonstruktion och sammanhang.
 
 <br />
 

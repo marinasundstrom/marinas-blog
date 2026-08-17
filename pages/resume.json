@@ -12,14 +12,17 @@
             "current": false,
             "startDate": "2025-01-20",
             "endDate": "2025-05-05",
-            "description": "<ul><li>Joined as a frontend developer, later expanding into backend development due to prior experience with Blazor.</li><li>Contributed to solution design and architecture discussions, supporting the team in shaping the overall system.</li><li>Implemented BankID integration, ensuring secure and compliant authentication for end users.</li><li>Delivered features using .NET / C# and ASP.NET Core across frontend and backend.</li></ul>",
+            "description": "Joined a small team building a new customer self-service product for insurance. I initially focused on the frontend, where my previous Blazor experience helped the team establish the application structure, and later moved across the backend and integrations as well. I contributed to architectural discussions and implemented the BankID authentication flow, working across C#, .NET, ASP.NET Core, Blazor SSR, REST APIs, Azure, and Azure DevOps.",
             "skills": [
                 ".NET",
                 "C#",
                 "ASP.NET Core",
                 "Blazor",
-                "Software architecture",
-                "Software design"
+                "REST APIs",
+                "BankID",
+                "Microsoft Azure",
+                "Azure DevOps",
+                "Software architecture"
             ]
         },
         {
@@ -30,10 +33,10 @@
             "companyLogo": "/assets/logos/itm8.jpg",
             "link": "https://www.itm8.se/",
             "location": "Malmö, Sweden",
-            "current": true,
+            "current": false,
             "startDate": "2025-01-01",
             "endDate": "2025-05-05",
-            "description": "Consulting as part of Itm8 (previously AddPro) in the Malmö area.",
+            "description": "Worked as a software consultant with itm8 in Malmö, with my main assignment at Solid Försäkring.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -54,12 +57,15 @@
             "current": false,
             "startDate": "2023-03-27",
             "endDate": "2023-12-27",
-            "description": "<ul><li>Developed and maintained a system used by support engineers to assist retailers and customers.</li><li>Delivered backend features and data handling using Java and MySQL.</li><li>Contributed to version control and collaboration through GitHub.</li><li>Explored distributed personal data handling with RabbitMQ as side initiatives.</li><li>Successfully containerized the legacy application using Docker and deployed it in Kubernetes, demonstrating modernization potential.</li></ul>",
+            "description": "Worked on a large, long-lived telecommunications platform supporting customer management, provisioning, and support operations. My work was mainly in the Java/MySQL backend and customer-data flows, including GDPR-related handling and experiments with RabbitMQ for distributed communication. I also independently containerized the main legacy application and got it running in Kubernetes, which provided a concrete way to explore how the platform could be modernized.",
             "skills": [
                 "Java",
                 "MySQL",
+                "RabbitMQ",
                 "Docker",
-                "GitHub"
+                "Kubernetes",
+                "GitHub",
+                "Distributed systems"
             ]
         },
         {
@@ -73,13 +79,16 @@
             "current": false,
             "startDate": "2022-11-14",
             "endDate": "2023-01-15",
-            "description": "<ul><li>Developed and maintained the product page experience for a large e-commerce site.</li><li>Contributed to both frontend and backend development using .NET / C#.</li><li>Built and maintained web features in ASP.NET Core, ensuring performance and usability.</li><li>Worked with Microsoft Azure services for deployment and hosting.</li><li>Role ended due to company-wide layoffs in December 2022.</li></ul>",
+            "description": "Worked on the product-page experience for CDON's Nordic e-commerce marketplace, across both the web application and the product-data pipeline behind it. One change involved extending the schema through independently deployed Azure Functions-based data refiners so new product information could travel reliably through the complete pipeline. The work spanned C#, ASP.NET Core, Razor Pages, Azure, and Azure DevOps.",
             "skills": [
                 ".NET",
                 "C#",
-                "Web",
                 "ASP.NET Core",
-                "Microsoft Azure"
+                "Razor Pages",
+                "Azure Functions",
+                "Microsoft Azure",
+                "Azure DevOps",
+                "CI/CD"
             ]
         },
         {
@@ -92,7 +101,7 @@
             "current": false,
             "startDate": "2022-04-04",
             "endDate": "2022-09-30",
-            "description": "Consulting as part of Nexer Group (previously Sigma IT Consulting) in the Malmö area.",
+            "description": "Worked as a software consultant with Nexer Group in Malmö, primarily on the HSB modernization programme.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -111,13 +120,14 @@
             "current": false,
             "startDate": "2022-04-20",
             "endDate": "2022-09-12",
-            "description": "<ul><li>Part of a team developing a backend service to handle the process of transferring apartments to new occupants.</li><li>Implemented microservices using .NET / C# and ASP.NET Core.</li><li>Deployed and maintained services in Microsoft Azure, ensuring reliability and scalability.</li><li>Collaborated with teammates on design and integration of system components.</li></ul>",
+            "description": "Worked in a distributed team building backend services for a new apartment ownership-transfer process as part of a larger modernization programme. The work involved ASP.NET Core services, legacy database migration, integrations, and collaboration across teams. I also participated in the programme's architecture forum, which gave me a wider view of how the new services fitted into the surrounding systems.",
             "skills": [
                 ".NET",
                 "C#",
                 "ASP.NET Core",
+                "Angular",
                 "Microsoft Azure",
-                "Microservices"
+                "System integration"
             ]
         },
         {
@@ -130,7 +140,7 @@
             "current": false,
             "startDate": "2021-12-16",
             "endDate": "2022-04-04",
-            "description": "Consulting as part of Skymill.",
+            "description": "Worked as a software engineering consultant with Skymill, with an assignment at Trygg-Hansa.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -149,12 +159,14 @@
             "current": false,
             "startDate": "2022-01-11",
             "endDate": "2022-03-20",
-            "description": "<ul><li>Developed and maintained a system for processing insurance claim requests.</li><li>Focused on integrating pet insurance workflows into the core system.</li><li>Built backend features using .NET / C#, with a WPF front-end for internal users.</li><li>Ensured reliability and accuracy in claim processing through backend development and testing.</li></ul>",
+            "description": "Worked on an established insurance claims-management system, integrating pet-insurance workflows into the existing application and business processes. The system combined a large WPF desktop application with backend processing, SQL, batch jobs, integrations, and complex insurance rules, so much of the work involved understanding how changes fitted safely into a mature system.",
             "skills": [
                 ".NET",
                 "C#",
                 "Windows Presentation Foundation (WPF)",
-                "Back-End Development"
+                "SQL",
+                "Batch processing",
+                "Testing"
             ]
         },
         {
@@ -167,13 +179,18 @@
             "current": false,
             "startDate": "2020-05-01",
             "endDate": "2021-09-20",
-            "description": "<ul><li>Built an e-commerce solution from the ground up for a company providing cleaning services.</li><li>Developed features for order handling and invoice generation.</li><li>Designed and implemented a proof-of-concept commerce site for a well-known chef, including kitchen utensil sales and recipe presentation.</li><li>Worked with .NET / C#, ASP.NET Core, and Blazor, applying solid software design principles.</li></ul>",
+            "description": "Worked as the sole software developer on a new commerce and business platform, directly with the business owner. Rather than working from a fixed specification, I translated changing business and customer needs into software and evolved the architecture as our understanding developed. I worked end to end across domain modelling, ASP.NET Core, Blazor, SQL Server, APIs, BankID, customer-facing applications, payments, subscriptions, and invoicing.",
             "skills": [
                 ".NET",
                 "C#",
                 "ASP.NET Core",
                 "Blazor",
-                "Software design"
+                "SQL Server",
+                "REST APIs",
+                "BankID",
+                "Software architecture",
+                "Domain modelling",
+                "Product engineering"
             ]
         },
         {
@@ -188,7 +205,7 @@
             "current": false,
             "startDate": "2020-02-01",
             "endDate": "2020-05-01",
-            "description": "<ul><li>Developed an e-commerce site for a small insurance company.</li><li>Implemented secure authentication and customer onboarding by integrating BankID.</li><li>Worked across both frontend and backend using .NET / C#, ASP.NET Core, and Blazor.</li></ul>",
+            "description": "Worked as the sole software developer on a new commerce and business platform, directly with the business owner. Rather than working from a fixed specification, I translated changing business and customer needs into software and evolved the architecture as our understanding developed. I worked end to end across domain modelling, ASP.NET Core, Blazor, SQL Server, APIs, BankID, customer-facing applications, payments, subscriptions, and invoicing.",
             "skills": [
                 ".NET",
                 "C#",
@@ -206,7 +223,7 @@
             "current": false,
             "startDate": "2018-04-01",
             "endDate": "2020-05-01",
-            "description": "Consulting work as part of ESSIQ Syd",
+            "description": "Worked as a senior .NET consultant with ESSIQ Syd, primarily in product and R&D environments at Axis Communications and Tetra Pak.",
             "skills": [
                 "Software development",
                 ".NET",
@@ -225,16 +242,16 @@
             "current": false,
             "startDate": "2019-01-01",
             "endDate": "2019-12-30",
-            "description": "<ul><li>Developed the software engine controlling processing and packaging at customer facilities.</li><li>Contributed to both backend (.NET / C#, ASP.NET, WPF) and frontend (JavaScript, TypeScript, React) development.</li><li>Led a refactoring initiative to improve the project structure, enabling more effective cross-team development.</li><li>Worked in a large-scale environment using the Scaled Agile Framework (SAFe).</li></ul>",
+            "description": "Worked across a large industrial software platform used to support processing and packaging systems deployed at customer facilities around the world. My work crossed C# services, ASP.NET APIs, React, WPF tooling, SQL, reporting, installer verification, and migration tooling. I also played a central role in consolidating two repositories that had diverged over time, removing duplicated projects and restructuring the resulting solution so teams could work against a shared codebase.",
             "skills": [
                 ".NET",
                 "C#",
                 "ASP.NET",
                 "Windows Presentation Foundation (WPF)",
-                "JavaScript",
-                "TypeScript",
                 "React",
-                "Scaled Agile Framework (SAFe)"
+                "SQL",
+                "Refactoring",
+                "Software architecture"
             ]
         },
         {
@@ -249,11 +266,13 @@
             "current": false,
             "startDate": "2018-04-01",
             "endDate": "2018-11-30",
-            "description": "<ul><li>Developed an application for managing video feeds from security cameras, targeting small and medium-sized business customers.</li><li>Built features in .NET / C# with a WPF front-end for usability and reliability.</li></ul>",
+            "description": "Worked on a WPF-based Windows application for managing Axis camera systems for smaller installations. I joined while the product was being restructured to improve maintainability and automated testing and to prepare parts of the system for future cloud services. Alongside feature work, I explored areas such as contract testing and possible cross-platform UI approaches.",
             "skills": [
                 ".NET",
                 "C#",
-                "Windows Presentation Foundation (WPF)"
+                "Windows Presentation Foundation (WPF)",
+                "Automated testing",
+                "Contract testing"
             ]
         },
         {
@@ -268,12 +287,14 @@
             "current": false,
             "startDate": "2017-05-01",
             "endDate": "2018-04-01",
-            "description": "<ul><li>Developed an on-device web-based interface aimed at installation technicians.</li><li>Built features with JavaScript and TypeScript, focusing on usability and performance.</li><li>Learned and applied React to build modern, component-based web applications.</li></ul>",
+            "description": "Worked in a cross-functional R&D team building installer experiences for Axis physical access-control products. The interfaces ran directly on embedded devices and communicated with device APIs, so the work sat close to both the underlying platform and the hardware. I worked with JavaScript, TypeScript, Ractive.js, and later React, while also taking part in API and product discussions with platform developers, product specialists, and hardware testers.",
             "skills": [
                 "JavaScript",
                 "TypeScript",
-                "Web Development",
-                "React"
+                "Ractive.js",
+                "React",
+                "Web APIs",
+                "Product engineering"
             ]
         },
         {
@@ -286,7 +307,7 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2018-04-01",
-            "description": "<ul><li>Consulted for various companies, primarily in .NET and JavaScript.</li><li>Tedsys AB is part of the Tedkomp Group, providing consulting services in IT, industrial services, and business administration.</li></ul>",
+            "description": "Worked as a software engineering consultant across product development, industrial software, enterprise systems, and web applications, with assignments including Axis Communications, CellaVision, Skanska, and BRA.",
             "skills": [
                 "Software development",
                 "Web development",
@@ -306,7 +327,7 @@
             "current": false,
             "startDate": "2017-02-01",
             "endDate": "2017-05-01",
-            "description": "<ul><li>Developed the visual components of the search integration for a global enterprise intranet.</li><li>Contributed to frontend development with JavaScript and web technologies.</li><li>Built and maintained backend functionality using .NET / C# and ASP.NET.</li></ul>",
+            "description": "Built an authenticated enterprise-search integration for a new corporate intranet. The work connected the intranet to an external search platform through an ASP.NET Web API and included the browser-side search experience, giving me responsibility across both the integration boundary and the UI that exposed it to users.",
             "skills": [
                 ".NET",
                 "C#",
@@ -327,14 +348,16 @@
             "current": false,
             "startDate": "2016-08-01",
             "endDate": "2017-02-01",
-            "description": "<ul><li>Developed a medical system for microscopic analysis in the field of haematology.</li><li>Built and maintained client software used by laboratory staff when performing blood analysis using .NET / C# and WPF.</li><li>Contributed to a web application for training haematologists, implemented with TypeScript and Silverlight.</li><li>Supported parts of the system written in C++ for performance-critical components.</li></ul>",
+            "description": "Worked on software for CellaVision's automated blood-cell analysis products in a regulated medical-device environment. The system combined native C++ and MFC with C#, WCF, Silverlight, and SQL Server, and required working carefully within an established product architecture. I also contributed to a training application used for blood-cell classification while the organization was preparing software for regulatory certification.",
             "skills": [
                 ".NET",
                 "C#",
-                "Windows Presentation Foundation (WPF)",
-                "TypeScript",
                 "C++",
-                "Silverlight"
+                "MFC",
+                "WCF",
+                "Silverlight",
+                "SQL Server",
+                "Medical devices"
             ]
         },
         {
@@ -349,11 +372,13 @@
             "current": false,
             "startDate": "2016-05-01",
             "endDate": "2016-07-01",
-            "description": "<ul><li>Worked on the internal charter booking system for Braathens Regional Airlines.</li><li>Gained domain knowledge in aviation and charter flight operations.</li><li>Developed features in .NET / C# and ASP.NET.</li></ul>",
+            "description": "Maintained an internal system used to prepare quotations and bookings for charter flights. The existing application was built on older ASP.NET technology and a SQL Server backend with substantial stored-procedure logic. Alongside maintenance work, I explored how the user interface could be modernized without first replacing the underlying business system.",
             "skills": [
                 ".NET",
                 "C#",
-                "ASP.NET"
+                "ASP.NET",
+                "Knockout.js",
+                "SQL Server"
             ]
         },
         {
@@ -366,17 +391,18 @@
             "current": false,
             "startDate": "2014-08-01",
             "endDate": "2016-03-01",
-            "description": "<ul><li>Part of the development team supporting the company’s main business areas: broadband/fiber, IT management, and radio communication (alarming and automation services for rescue organizations and industries).</li><li>Worked on a broadband and fiber provisioning system, integrating with other systems.</li><li>Contributed to an IT support system for handling customer-reported incidents, integrating with other systems.</li></ul>",
+            "description": "Continued at Teleservice after the BLIS work and broadened into systems supporting the company's broadband, fibre, IT, and communications businesses. I worked across desktop applications, hardware communication, provisioning, customer management, incident handling, web applications, and integrations with external systems. It was an environment where I could move between product software and operational systems and where I developed much of my early understanding of MVVM, dependency injection, async programming, testing, and software design.",
             "skills": [
                 ".NET",
                 "C#",
                 "Windows Presentation Foundation (WPF)",
+                "MVVM",
+                "Serial Communication",
                 "PHP",
                 "JavaScript",
                 "Node.js",
                 "MySQL",
                 "ASP.NET MVC",
-                "ASP.NET",
                 "System integrations"
             ]
         },
@@ -390,17 +416,19 @@
             "current": false,
             "startDate": "2014-01-01",
             "endDate": "2014-08-01",
-            "description": "<ul><li>Developed a Messenger application for the BLIS (Blue Light Information System), an alarm and automation platform used by police, firefighters, and first responders across Sweden.</li><li>Built software that simplified programming of automation hardware, improving operator efficiency.</li></ul>",
+            "description": "Started at Teleservice by working on BLIS, an emergency-alarm and automation platform used by rescue services and industrial facilities. I built BLIS Messenger, a Windows application for sending messages to handheld devices and pagers and triggering automation such as relays, doors, and voice announcements, and rebuilt BLIS Programmer for configuring BLIS equipment. The work used C#, .NET Framework, WPF, XAML, and MVVM and involved developing and testing continuously against real hardware and communication infrastructure together with the product's technical specialist.",
             "skills": [
                 ".NET",
                 "C#",
                 "Windows Presentation Foundation (WPF)",
-                "ASP.NET"
+                "MVVM",
+                "Serial Communication",
+                "Hardware integration"
             ]
         },
         {
             "title": "Software Developer",
-            "employmentType": "Internship",
+            "employmentType": "Temporary",
             "company": "Ericsson",
             "companyLogo": "/assets/logos/ericsson.jpg",
             "link": "https://www.ericsson.com/",
@@ -408,11 +436,11 @@
             "current": false,
             "startDate": "2012-06-01",
             "endDate": "2012-08-01",
-            "description": "<ul><li>Developed smartphone applications using Cordova and JavaScript.</li><li>Contributed to the company’s web portal, extending features and improving usability.</li><li>Continued from a student internship, gaining first professional experience in mobile and web development.</li></ul>",
+            "description": "Continued work from a university software-engineering project on an internal electric-vehicle charging concept. I developed mobile applications using JavaScript and Apache Cordova and contributed to the supporting web portal, giving me early experience working on a product concept across mobile and web.",
             "skills": [
                 "Software development",
                 "Mobile development",
-                "Cordova",
+                "Apache Cordova",
                 "JavaScript"
             ]
         },
@@ -426,18 +454,17 @@
             "current": false,
             "startDate": "2012-01-01",
             "endDate": "2012-06-01",
-            "description": "<ul><li>Developed a smartphone app using HTML/JavaScript for Windows Phone as part of a student project.</li><li>Gained experience in software development, mobile development, and working with .NET / C#.</li></ul>",
+            "description": "Worked with Ericsson as part of a university software-engineering project exploring an electric-vehicle charging concept. My part focused on a Windows Phone application and evaluating approaches for building the mobile client, including HTML, JavaScript, and Apache Cordova.",
             "skills": [
                 "Software development",
-                "Mobile Development",
+                "Mobile development",
                 "JavaScript",
-                ".NET",
-                "C#",
+                "Apache Cordova",
                 "Windows Phone"
             ]
         },
         {
-            "title": "Software Developer",
+            "title": "Student Web Developer",
             "employmentType": "Part-time",
             "company": "BTH Innovation",
             "companyLogo": "/assets/logos/bth.jpg",
@@ -446,7 +473,7 @@
             "current": false,
             "startDate": "2011-06-01",
             "endDate": "2012-01-01",
-            "description": "<ul><li>Developed a proof-of-concept system for the healthcare sector, focusing on web development.</li><li>Built core functionality using JavaScript and HTML.</li></ul>",
+            "description": "Worked part-time on an interdisciplinary healthcare proof of concept exploring how software and game mechanics could support cardiac care. I developed the web component and collaborated with people from both software and healthcare backgrounds while another part of the team worked on the accompanying mobile application.",
             "skills": [
                 "Web Development",
                 "JavaScript",
@@ -462,7 +489,7 @@
             "fieldOfStudy": "Software Engineering",
             "startDate": "2009-09-01",
             "endDate": "2012-05-01",
-            "description": "Studied Software engineering, gaining broad knowledge and experience from student project towards industry.",
+            "description": "Industry-oriented Software Engineering studies covering programming, operating systems, computer networks, compiler construction, software design, and team projects; internship at Ericsson.",
             "courses": [
                 "Programming",
                 "Operating Systems",
@@ -477,7 +504,7 @@
             "school": "John Bauergymnasiet",
             "logo": "/assets/logos/jb-gymnasiet.jpg",
             "location": "Ystad, Sweden",
-            "degree": "null",
+            "degree": null,
             "fieldOfStudy": "IT programme",
             "startDate": "2006-08-01",
             "endDate": "2009-05-01",
@@ -485,7 +512,7 @@
                 "European Rural Youth Forum",
                 "JB Abroad"
             ],
-            "description": "Studied IT with focus on computer programming.\n\nJB Ystad provided upper-secondary education in the areas of IT, digital media, and entrepreneurship.\n\nParticipated in European Rural Youth Forum (ERYF) in Serbia (2007), Poland (2009), Hungary (2010), and Sweden (2012).\n\nAs a participant in JB Abroad, studied in Jerez de la Frontera, Spain, fall 2008.",
+            "description": "Upper-secondary IT studies focused on programming, web development, computer networks, Windows Server, Linux, and project entrepreneurship. Final project: a compiler implemented in C#.",
             "courses": [
                 "Computer Management",
                 "Computer Networking",

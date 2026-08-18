@@ -1,8 +1,8 @@
 @using static Microsoft.AspNetCore.Components.Web.RenderMode
 
-<strong class="h6 my-2 ms-3">On this page</strong>
+<strong id="@($"{ElementId}-heading")" class="h6 my-2 ms-3">On this page</strong>
 <hr class="my-2 ms-3" />
-<nav id="TableOfContents">
+<nav id="@ElementId" class="toc-nav" role="navigation" aria-labelledby="@($"{ElementId}-heading")">
 
 </nav>
 <hr class="my-2 ms-3 on-sm" />
